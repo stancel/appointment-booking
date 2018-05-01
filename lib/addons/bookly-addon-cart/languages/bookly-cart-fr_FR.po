@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Bookly Cart (Add-on)\n"
+"Language: fr\n"
+
+#: 
+msgid "Visible when the chosen time slot has been already booked"
+msgstr "Visible quand le créneau choisi a déjà été réservé"
+
+#: 
+msgid "Date"
+msgstr "Date"
+
+#: 
+msgid "Time"
+msgstr "Heure"
+
+#: 
+msgid "Price"
+msgstr "Prix"
+
+#: 
+msgid "Edit"
+msgstr "Modifier"
+
+#: 
+msgid "Remove"
+msgstr "Supprimer"
+
+#: 
+msgid "Total"
+msgstr "Total"
+
+#: 
+msgid "Deposit"
+msgstr "Acompte"
+
+#: 
+msgid "Cart"
+msgstr "Panier"
+
+#: 
+msgid "If cart is enabled then your clients will be able to book several appointments at once. Please note that WooCommerce integration must be disabled."
+msgstr "Si le panier est actif, vos clients pourront réserver plusieurs rendez-vous à la fois. Veuillez noter que l'intégration WooCommerce doit être désactivée."
+
+#: 
+msgid "Columns"
+msgstr "Colonnes"
+
+#: 
+msgid "Reorder"
+msgstr "Réorganiser"
+
+#: 
+msgid "Waiting list appointments"
+msgstr "Liste des rendez-vous en attente"
+
+#: 
+msgid "Book More"
+msgstr "Réserver plus"
+
+#: 
+msgid "Below you can find a list of services selected for booking.\n"
+"Click BOOK MORE if you want to add more services."
+msgstr "Ci-dessous vous trouvez une liste de services disponibles à la réservation.\n"
+"Cliquez sur RESERVER PLUS pour ajouter d'autres services."
+
+#: 
+msgid "Next"
+msgstr "Suivant"
+
+#: 
+msgid "The highlighted time is not available anymore. Please, choose another time slot."
+msgstr "Les créneaux en surbrillance ne sont plus disponibles. Veuillez choisir un autre horaire.."
+
+#: 
+msgid "Settings saved."
+msgstr "Paramètres enregistrés."
+
+#: 
+msgid "To use the cart, disable integration with WooCommerce <a href=\"%s\">here</a>."
+msgstr "Pour utiliser le panier, désactivez l'intégration avec WooCommerce ici <a href=\"%s\">here</a>."
+

@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Bookly Cart (Add-on)\n"
+"Language: ro\n"
+
+#: 
+msgid "Visible when the chosen time slot has been already booked"
+msgstr "Vizibil chiar dacă intervalul de timp a fost rezervat deja"
+
+#: 
+msgid "Date"
+msgstr "Data"
+
+#: 
+msgid "Time"
+msgstr "Ora"
+
+#: 
+msgid "Price"
+msgstr "Preț"
+
+#: 
+msgid "Edit"
+msgstr "Editare"
+
+#: 
+msgid "Remove"
+msgstr "Șterge"
+
+#: 
+msgid "Total"
+msgstr "Total"
+
+#: 
+msgid "Deposit"
+msgstr "Depozit"
+
+#: 
+msgid "Cart"
+msgstr "Coș de cumpărături"
+
+#: 
+msgid "If cart is enabled then your clients will be able to book several appointments at once. Please note that WooCommerce integration must be disabled."
+msgstr "Dacă coșul este activat atunci clienții vor putea achiziționa mai multe rezervări simultan. Aveți grijă că integrarea WooCommerce trebuie să fie dezactivată."
+
+#: 
+msgid "Columns"
+msgstr "Coloane"
+
+#: 
+msgid "Reorder"
+msgstr "Reordonare"
+
+#: 
+msgid "Waiting list appointments"
+msgstr ""
+
+#: 
+msgid "Book More"
+msgstr "Mai multe"
+
+#: 
+msgid "Below you can find a list of services selected for booking.\n"
+"Click BOOK MORE if you want to add more services."
+msgstr "Mai jos puteți găsi o listă de servicii ce pot fi selectate pentru a face rezervări.\n"
+"Faceți clic pe MAI MULTE dacă doriți să adăugați mai multe servicii."
+
+#: 
+msgid "Next"
+msgstr "Următorul"
+
+#: 
+msgid "The highlighted time is not available anymore. Please, choose another time slot."
+msgstr "Intervalul de timp evidențiat nu mai este disponibil. Alegeți un alt interval de timp."
+
+#: 
+msgid "Settings saved."
+msgstr "Setări salvate."
+
+#: 
+msgid "To use the cart, disable integration with WooCommerce <a href=\"%s\">here</a>."
+msgstr "Pentru a utiliza coșul de cumpărături decuplați integrarea cu WooCommerce <a href=\"%s\">aici</a>."
+

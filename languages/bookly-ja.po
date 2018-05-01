@@ -1,0 +1,3995 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Bookly\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: 
+msgid "License verification"
+msgstr "ライセンスの承認"
+
+#: 
+msgid "Calendar"
+msgstr "カレンダー"
+
+#: 
+msgid "Appointments"
+msgstr "面会予定"
+
+#: 
+msgid "Staff Members"
+msgstr "スタッフメンバー"
+
+#: 
+msgid "Services"
+msgstr "サービス\n"
+""
+
+#: 
+msgid "SMS Notifications"
+msgstr "SMSによる告知\n"
+""
+
+#: 
+msgid "Email Notifications"
+msgstr "電子メールによる通知"
+
+#: 
+msgid "Customers"
+msgstr "顧客\n"
+""
+
+#: 
+msgid "Payments"
+msgstr "お支払い\n"
+""
+
+#: 
+msgid "Appearance"
+msgstr "外観"
+
+#: 
+msgid "Settings"
+msgstr "設定"
+
+#: 
+msgid "Custom Fields"
+msgstr "カスタムフィールド"
+
+#: 
+msgid "Profile"
+msgstr "プロフィール"
+
+#: 
+msgid "Messages"
+msgstr "メッセージ\n"
+""
+
+#: 
+msgid "Today"
+msgstr "今日\n"
+""
+
+#: 
+msgid "Next month"
+msgstr "来月\n"
+""
+
+#: 
+msgid "Previous month"
+msgstr "先月\n"
+""
+
+#: 
+msgid "Settings saved."
+msgstr "設定が保存されました"
+
+#: 
+msgid "Your custom CSS was saved. Please refresh the page to see your changes."
+msgstr "カスタムCSSが保存されました。 変更を確認するには、ページを更新してください。"
+
+#: 
+msgid "Visible when the chosen time slot has been already booked"
+msgstr "選択した時間枠が既に予約されている場合に表示されます"
+
+#: 
+msgid "Date"
+msgstr "日付"
+
+#: 
+msgid "Time"
+msgstr "時間\n"
+""
+
+#: 
+msgid "Price"
+msgstr "値段\n"
+""
+
+#: 
+msgid "Edit"
+msgstr "編集する"
+
+#: 
+msgid "Total"
+msgstr "総計\n"
+""
+
+#: 
+msgid "Visible to non-logged in customers only"
+msgstr "ログインしていないお客様にのみ表示する"
+
+#: 
+msgid "total quantity of appointments in cart"
+msgstr "カート内の面会予定の総数"
+
+#: 
+msgid "booking number"
+msgstr "予約番号\n"
+""
+
+#: 
+msgid "name of category"
+msgstr "カテゴリー名"
+
+#: 
+msgid "login form"
+msgstr "ログインフォーム"
+
+#: 
+msgid "number of persons"
+msgstr "人数"
+
+#: 
+msgid "date of service"
+msgstr "サービスの日付"
+
+#: 
+msgid "info of service"
+msgstr "サービス情報"
+
+#: 
+msgid "name of service"
+msgstr "サービス名\n"
+""
+
+#: 
+msgid "price of service"
+msgstr "サービスの価格\n"
+""
+
+#: 
+msgid "time of service"
+msgstr "サービスの時間"
+
+#: 
+msgid "info of staff"
+msgstr "スタッフ情報"
+
+#: 
+msgid "name of staff"
+msgstr "スタッフ名\n"
+""
+
+#: 
+msgid "total price of booking"
+msgstr "予約の総額"
+
+#: 
+msgid "Edit custom CSS"
+msgstr "カスタムCSSの編集"
+
+#: 
+msgid "Set up your custom CSS styles"
+msgstr "あなたのCSSスタイルを設定する"
+
+#: 
+msgid "Save"
+msgstr "保存する\n"
+""
+
+#: 
+msgid "Cancel"
+msgstr "キャンセルする\n"
+""
+
+#: 
+msgid "Show form progress tracker"
+msgstr "フォームの進捗状況を表示する"
+
+#: 
+msgid "Click on the underlined text to edit."
+msgstr "下線付きのテキストをクリックして編集する"
+
+#: 
+msgid "Make selecting employee required"
+msgstr "従業員の選択を必須にする"
+
+#: 
+msgid "Show service price next to employee name"
+msgstr "従業員名の横にサービス価格を表示する"
+
+#: 
+msgid "Show service duration next to service name"
+msgstr "サービス期間をサービス名の横に表示する"
+
+#: 
+msgid "Show calendar"
+msgstr "カレンダーを表示する\n"
+""
+
+#: 
+msgid "Show blocked timeslots"
+msgstr "ブロックされた時間枠を表示する"
+
+#: 
+msgid "Show each day in one column"
+msgstr "日程ごとに1つの列に表示する"
+
+#: 
+msgid "Show Login button"
+msgstr "ログインボタンを表示する\n"
+""
+
+#: 
+msgid "Do not forget to update your email and SMS codes for customer names"
+msgstr "顧客の名前に宛てられたあなたの電子メールとSMSコードを更新することを忘れないでください"
+
+#: 
+msgid "Use first and last name instead of full name"
+msgstr "フルネームの代わりにファーストネームとラストネームを使用する"
+
+#: 
+msgid "The booking form on this step may have different set or states of its elements. It depends on various conditions such as installed/activated add-ons, settings configuration or choices made on previous steps. Select option and click on the underlined text to edit."
+msgstr "この手順の予約フォームでは、そのエレメントの設定または状態が異なる場合があります。 これは、インストール/アクティブ化されたアドオン、設定の構成、前の手順で行った選択など、さまざまな条件によって変わります。 オプションを選択し、編集したい下線付きのテキストをクリックしてください。"
+
+#: 
+msgid "Form view in case of single booking"
+msgstr "1回限りの面会予約をする場合のフォームビュー"
+
+#: 
+msgid "Form view in case of multiple booking"
+msgstr "複数の面会予約をする場合のフォームビュー"
+
+#: 
+msgid "Tomorrow"
+msgstr "明日\n"
+""
+
+#: 
+msgid "Yesterday"
+msgstr "昨日\n"
+""
+
+#: 
+msgid "Last 7 Days"
+msgstr "過去7日間"
+
+#: 
+msgid "Last 30 Days"
+msgstr "過去30日間"
+
+#: 
+msgid "This Month"
+msgstr "今月\n"
+""
+
+#: 
+msgid "Next Month"
+msgstr "来月\n"
+""
+
+#: 
+msgid "Custom Range"
+msgstr "カスタムレンジ\n"
+""
+
+#: 
+msgid "Apply"
+msgstr "申し込む\n"
+""
+
+#: 
+msgid "To"
+msgstr "まで"
+
+#: 
+msgid "From"
+msgstr "から"
+
+#: 
+msgid "Are you sure?"
+msgstr "本当によろしいですか？\n"
+""
+
+#: 
+msgid "No appointments for selected period."
+msgstr "選択された期間の予定はありません。"
+
+#: 
+msgid "Processing..."
+msgstr "処理中です"
+
+#: 
+msgid "%s of %s"
+msgstr " %s の%s"
+
+#: 
+msgid "Export to CSV"
+msgstr "CSVにエクスポート"
+
+#: 
+msgid "Delimiter"
+msgstr "区切り記号"
+
+#: 
+msgid "Comma (,)"
+msgstr "コンマ(,)"
+
+#: 
+msgid "Semicolon (;)"
+msgstr "セミコロン(;)"
+
+#: 
+msgid "No."
+msgstr "番号\n"
+""
+
+#: 
+msgid "Booking Time"
+msgstr "予約時間\n"
+""
+
+#: 
+msgid "Customer Name"
+msgstr "顧客の名前"
+
+#: 
+msgid "Customer Phone"
+msgstr "顧客の電話番号"
+
+#: 
+msgid "Customer Email"
+msgstr "顧客のEメール\n"
+""
+
+#: 
+msgid "Duration"
+msgstr "期間"
+
+#: 
+msgid "Status"
+msgstr "状況\n"
+""
+
+#: 
+msgid "Payment"
+msgstr "お支払い\n"
+""
+
+#: 
+msgid "Print"
+msgstr "印刷する\n"
+""
+
+#: 
+msgid "Appointment Date"
+msgstr "面会の日程\n"
+""
+
+#: 
+msgid "New appointment"
+msgstr "新しい面会\n"
+""
+
+#: 
+msgid "Customer"
+msgstr "お客様\n"
+""
+
+#: 
+msgid "Edit appointment"
+msgstr "面会の内容を編集する\n"
+""
+
+#: 
+msgid "Week"
+msgstr "週"
+
+#: 
+msgid "Day"
+msgstr "日"
+
+#: 
+msgid "Month"
+msgstr "月"
+
+#: 
+msgid "All Day"
+msgstr "すべての日程"
+
+#: 
+msgid "Delete"
+msgstr "削除する"
+
+#: 
+msgid "No staff selected"
+msgstr "スタッフが選択されていません"
+
+#: 
+msgid "Recurring appointments"
+msgstr "定期的な面会予定"
+
+#: 
+msgid "On waiting list"
+msgstr "キャンセル待ちリスト\n"
+""
+
+#: 
+msgid "Start time must not be empty"
+msgstr "開始時刻は空白であってはなりません"
+
+#: 
+msgid "End time must not be empty"
+msgstr "終了時刻は空白であってはなりません"
+
+#: 
+msgid "End time must not be equal to start time"
+msgstr "終了時刻は開始時刻と同じであってはなりません"
+
+#: 
+msgid "The number of customers should not be more than %d"
+msgstr "顧客の数は％dを超えてはいけません"
+
+#: 
+msgid "Could not save appointment in database."
+msgstr "データベースに面会の予定を保存できませんでした。"
+
+#: 
+msgid "Untitled"
+msgstr "無題"
+
+#: 
+msgid "Provider"
+msgstr "プロバイダー\n"
+""
+
+#: 
+msgid "Service"
+msgstr "サービス\n"
+""
+
+#: 
+msgid "-- Select a service --"
+msgstr "- サービスを選択する -"
+
+#: 
+msgid "Please select a service"
+msgstr "サービスを選択してください"
+
+#: 
+msgid "Location"
+msgstr "場所\n"
+""
+
+#: 
+msgid "Period"
+msgstr "期間"
+
+#: 
+msgid "to"
+msgstr "から"
+
+#: 
+msgid "Selected period doesn't match service duration"
+msgstr "選択した期間がサービス期間と一致しません"
+
+#: 
+msgid "The selected period is occupied by another appointment"
+msgstr "選択された期間は別の面会予約によって埋まってます"
+
+#: 
+msgid "Selected / maximum"
+msgstr "選択済み/最大"
+
+#: 
+msgid "Minimum capacity"
+msgstr "最小の許容量"
+
+#: 
+msgid "Edit booking details"
+msgstr "予約の詳細を編集する"
+
+#: 
+msgid "Remove customer"
+msgstr "顧客を削除する"
+
+#: 
+msgid "-- Search customers --"
+msgstr "- 顧客を検索する -"
+
+#: 
+msgid "New customer"
+msgstr "新しい顧客"
+
+#: 
+msgid "Send notifications"
+msgstr "告知を送信する"
+
+#: 
+msgid "If email or SMS notifications are enabled and you want customers or staff member to be notified about this appointment after saving, select appropriate option before clicking Save. With \"If status changed\" the notifications are sent to those customers whose status has just been changed. With \"To all customers\" the notifications are sent to everyone in the list."
+msgstr "電子メールまたはSMS通知が有効であり、保存後に顧客またはスタッフにこの面会予定について通知する場合は、適切なオプションを選択してから[保存する]をクリックします。 「ステータスが変更された場合」は、ステータスが変更されたばかりの顧客に通知が送信されます。 「すべての顧客に」の通知はリストの全員に送信されます。"
+
+#: 
+msgid "If email or SMS notifications are enabled and you want customers or yourself to be notified about this appointment after saving, select appropriate option before clicking Save. With \"If status changed\" the notifications are sent to those customers whose status has just been changed. With \"To all customers\" the notifications are sent to everyone in the list."
+msgstr "電子メールまたはSMS通知が有効であり、保存後に顧客または自分自身にこの面会予定について通知する場合は、適切なオプションを選択してから[保存する]をクリックします。 「ステータスが変更された場合」は、ステータスが変更されたばかりの顧客に通知が送信されます。 「すべての顧客に」の通知はリストの全員に送信されます。\n"
+""
+
+#: 
+msgid "Don't send"
+msgstr "送信しないでください"
+
+#: 
+msgid "If status changed"
+msgstr "ステータスが変更された場合"
+
+#: 
+msgid "To all customers"
+msgstr "全てのお客様に"
+
+#: 
+msgid "Internal note"
+msgstr "内部メモ"
+
+#: 
+msgid "Number of persons"
+msgstr "人数"
+
+#: 
+msgid "Extras"
+msgstr "追加\n"
+""
+
+#: 
+msgid "Cancellation reason (optional)"
+msgstr "キャンセルの理由（オプション）"
+
+#: 
+msgid "All"
+msgstr "全て"
+
+#: 
+msgid "All staff"
+msgstr "全てのスタッフ\n"
+""
+
+#: 
+msgid "Welcome to Bookly!"
+msgstr "Booklyへようこそ！"
+
+#: 
+msgid "Thank you for purchasing our product."
+msgstr "私たちのサービスを利用していただきありがとうございます。"
+
+#: 
+msgid "Bookly offers a simple solution for making appointments. With our plugin you will be able to easily manage your availability time and handle the flow of your clients."
+msgstr "Booklyは、クライアントとの面会予定を入れるための使いやすいシステムを提供しています。 プラグインを使用すると、あなたの空いている時間を簡単に管理することができ、クライアントとの時間調整をスムーズに処理することができます。"
+
+#: 
+msgid "To start using Bookly, you need to follow these steps which are the minimum requirements to get it running!"
+msgstr "Booklyの使用を開始するには、以下の手順に従い、システムを実行するにあたり必要な最小要件を満たす必要があります。"
+
+#: 
+msgid "Add staff members."
+msgstr "全てのスタッフメンバー\n"
+"\n"
+""
+
+#: 
+msgid "Add services and assign them to staff members."
+msgstr "サービスを追加し、スタッフに割り当てます。"
+
+#: 
+msgid "Add Staff Members"
+msgstr "スタッフメンバーを追加する"
+
+#: 
+msgid "Add Services"
+msgstr "サービスを追加する\n"
+""
+
+#: 
+msgid "All services"
+msgstr "全てのサービス\n"
+""
+
+#: 
+msgid "Code"
+msgstr "コード\n"
+""
+
+#: 
+msgid "All Services"
+msgstr "全てのサービス\n"
+""
+
+#: 
+msgid "Reorder"
+msgstr "再オーダーする"
+
+#: 
+msgid "No customers found."
+msgstr "顧客がみつかりません"
+
+#: 
+msgid "Edit customer"
+msgstr "顧客情報を編集する"
+
+#: 
+msgid "Create customer"
+msgstr "顧客の項目を作成する"
+
+#: 
+msgid "Quick search customer"
+msgstr "顧客を検索する"
+
+#: 
+msgid "User"
+msgstr "ユーザー"
+
+#: 
+msgid "Notes"
+msgstr "メモ"
+
+#: 
+msgid "Last appointment"
+msgstr "前回の面会\n"
+""
+
+#: 
+msgid "Total appointments"
+msgstr "全ての面会"
+
+#: 
+msgid "Date of birth"
+msgstr "生年月日\n"
+""
+
+#: 
+msgid "New Customer"
+msgstr "新しい顧客"
+
+#: 
+msgid "First name"
+msgstr "ファ―ストネーム"
+
+#: 
+msgid "Required"
+msgstr "必須です"
+
+#: 
+msgid "Last name"
+msgstr "ラストネーム"
+
+#: 
+msgid "Name"
+msgstr "お名前"
+
+#: 
+msgid "Phone"
+msgstr "電話番号"
+
+#: 
+msgid "Email"
+msgstr "Eメール"
+
+#: 
+msgid "Import"
+msgstr "インポートする"
+
+#: 
+msgid "Note"
+msgstr "メモ"
+
+#: 
+msgid "Select file"
+msgstr "ファイルを選択する"
+
+#: 
+msgid "Delete customers"
+msgstr "顧客名を削除する"
+
+#: 
+msgid "You are about to delete customers which may have WordPress accounts associated to them. Do you want to delete those accounts too (if there are any)?"
+msgstr "WordPressアカウントが関連付けられている可能性のある顧客を削除しようとしています。 それらのアカウントも削除しますか（もしある場合）？"
+
+#: 
+msgid "Remember my choice"
+msgstr "私の選択を記録させる"
+
+#: 
+msgid "No, delete just customers"
+msgstr "いいえ、顧客だけを削除する"
+
+#: 
+msgid "Yes"
+msgstr "はい"
+
+#: 
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] " %d 日\n"
+"複数:  %d 日間\n"
+"\n"
+""
+
+#: 
+msgid "Thank you for choosing Bookly as your booking solution."
+msgstr "面会予約のスケジュールを管理するための新しいシステムとしてBooklyをご利用いただきありがとうございます。"
+
+#: 
+msgid "Please verify your license by providing a valid purchase code. Upon providing the purchase code you will get access to software updates, including feature improvements and important security fixes."
+msgstr "有効な購入コードを入力してライセンスを確認してください。 購入コードを入力すると、機能の改善や重要なセキュリティの修正など、ソフトウェアのアップデートにアクセスできます。\n"
+""
+
+#: 
+msgid "If you do not provide a valid purchase code within {days}, access to your bookings will be disabled."
+msgstr "{days}日以内に有効な購入コードを入力されないと、予約内容へのアクセスが無効になります。"
+
+#: 
+msgid "I have already made the purchase"
+msgstr "すでに購入している"
+
+#: 
+msgid "I want to make a purchase now"
+msgstr "今、購入したい"
+
+#: 
+msgid "I will provide license info later"
+msgstr "後で、ライセンスを提出する"
+
+#: 
+msgid "Access to your bookings has been disabled."
+msgstr "あなたの予約内容へのアクセスは無効になっています。"
+
+#: 
+msgid "To enable access to your bookings, please verify your license by providing a valid purchase code."
+msgstr "予約内容にアクセスするには、有効な購入コードを入力してライセンスを承認してください。"
+
+#: 
+msgid "License verification required"
+msgstr "ライセンスの承認が必要です"
+
+#: 
+msgid "Bookly - License verification required"
+msgstr "Bookly -ライセンスの承認が必要です"
+
+#: 
+msgid "If you do not provide a valid purchase code within {days}, access to your bookings will be disabled. <a href=\"{url}\">Details</a>"
+msgstr "{days}日以内に有効な購入コードを入力されないと、予約へのアクセスが無効になります。 <a href=\"{url}\">詳細</a>"
+
+#: 
+msgid "To enable access to your bookings, please verify your license by providing a valid purchase code. <a href=\"{url}\">Details</a>"
+msgstr "予約にアクセスするには、有効な購入コードを入力してライセンスを承認してください。 <a href=\"{url}\">詳細</a>"
+
+#: 
+msgid "Please contact your website administrator in order to verify the license."
+msgstr "ライセンスを承認するには、ウェブサイト管理者に連絡してください。"
+
+#: 
+msgid "If you do not verify the license within {days}, access to your bookings will be disabled."
+msgstr " {days}日以内にライセンスを承認しないと、予約へのアクセスが無効になります。"
+
+#: 
+msgid "Proceed to Bookly without license verification"
+msgstr "ライセンスの承認なしでBookly に進む"
+
+#: 
+msgid "To enable access to your bookings, please contact your website administrator in order to verify the license."
+msgstr "予約内容にアクセスするには、ライセンスを承認するためにWebサイト管理者に連絡してください。"
+
+#: 
+msgid "Cannot find your purchase code? See this <a href=\"%s\" target=\"_blank\">page</a>."
+msgstr "購入コードが見つかりませんか？ この<a href=\"%s\" target=\"_blank\">ページ</a>をご覧ください"
+
+#: 
+msgid "Purchase Code"
+msgstr "コードを購入する"
+
+#: 
+msgid "Proceed to Bookly without activating Add-ons"
+msgstr "アドオンを有効にしないでBooklyに進む"
+
+#: 
+msgid "License verification succeeded"
+msgstr "ライセンス認証に成功しました"
+
+#: 
+msgid "Your license has been verified successfully."
+msgstr "ライセンスが正常に認証されました"
+
+#: 
+msgid "You have access to software updates, including feature improvements and important security fixes."
+msgstr "あなたは、機能の向上や重要なセキュリティ修正など、ソフトウェアアップデートにアクセスできます。"
+
+#: 
+msgid "Proceed"
+msgstr "続行する"
+
+#: 
+msgid "Sent successfully."
+msgstr "送信に成功しました"
+
+#: 
+msgid "Subject"
+msgstr "題目"
+
+#: 
+msgid "Message"
+msgstr "メッセージ"
+
+#: 
+msgid "Send copy to administrators"
+msgstr "管理者にコピーを送る"
+
+#: 
+msgid "Sending time"
+msgstr "送信時間"
+
+#: 
+msgid "Set the time you want the notification to be sent."
+msgstr "通知を送信する時刻を設定する"
+
+#: 
+msgid "%s before"
+msgstr "%s前"
+
+#: 
+msgid "date of appointment"
+msgstr "面会の日付"
+
+#: 
+msgid "time of appointment"
+msgstr "面会の時間"
+
+#: 
+msgid "end date of appointment"
+msgstr "面会の終了日"
+
+#: 
+msgid "end time of appointment"
+msgstr "面会の終了時間"
+
+#: 
+msgid "URL of approve appointment link (to use inside <a> tag)"
+msgstr "承認リンクのURL（<a>タグ内で使用する）"
+
+#: 
+msgid "cancel appointment link"
+msgstr "面会のリンクをキャンセルする"
+
+#: 
+msgid "URL of cancel appointment link (to use inside <a> tag)"
+msgstr "キャンセルした面会のリンクのURL（<a>タグ内で使用する）"
+
+#: 
+msgid "reason you mentioned while deleting appointment"
+msgstr "面会を削除している間にあなたが記述した理由"
+
+#: 
+msgid "email of client"
+msgstr "クライアントのEメール"
+
+#: 
+msgid "full name of client"
+msgstr "クライアントのフルネーム"
+
+#: 
+msgid "first name of client"
+msgstr "クライアントのファ―ストネーム"
+
+#: 
+msgid "last name of client"
+msgstr "クライアントのラストネーム"
+
+#: 
+msgid "phone of client"
+msgstr "クライアントの電話番号"
+
+#: 
+msgid "name of company"
+msgstr "会社名"
+
+#: 
+msgid "company logo"
+msgstr "会社のロゴ"
+
+#: 
+msgid "address of company"
+msgstr "会社の住所"
+
+#: 
+msgid "company phone"
+msgstr "会社の電話番号"
+
+#: 
+msgid "company web-site address"
+msgstr "会社のウェブサイトアドレス"
+
+#: 
+msgid "URL for adding event to client's Google Calendar (to use inside <a> tag)"
+msgstr "クライアントのGoogleカレンダーにイベントを追加するためのURL（<a>タグ内で使用するため）"
+
+#: 
+msgid "payment type"
+msgstr "支払い方法"
+
+#: 
+msgid "duration of service"
+msgstr "サービスの期間"
+
+#: 
+msgid "email of staff"
+msgstr "スタッフのEメール"
+
+#: 
+msgid "phone of staff"
+msgstr "スタッフの電話番号"
+
+#: 
+msgid "photo of staff"
+msgstr "スタッフの写真"
+
+#: 
+msgid "total price of booking (sum of all cart items after applying coupon)"
+msgstr "予約内容の合計金額（クーポンを適用した後のすべてのカートアイテムの合計）"
+
+#: 
+msgid "cart information"
+msgstr "カート情報"
+
+#: 
+msgid "cart information with cancel"
+msgstr "キャンセルされたカート情報"
+
+#: 
+msgid "customer new username"
+msgstr "顧客の新しいユーザーネーム"
+
+#: 
+msgid "customer new password"
+msgstr "顧客の新しいパスワード"
+
+#: 
+msgid "site address"
+msgstr "サイトのアドレス"
+
+#: 
+msgid "date of next day"
+msgstr "翌日の日付"
+
+#: 
+msgid "staff agenda for next day"
+msgstr "翌日のスタッフの予定"
+
+#: 
+msgid "Test Email Notifications"
+msgstr "テスト電子メールの通知"
+
+#: 
+msgid "To email"
+msgstr "メールする"
+
+#: 
+msgid "Sender name"
+msgstr "送信者名\n"
+""
+
+#: 
+msgid "Sender email"
+msgstr "送信者のEメール"
+
+#: 
+msgid "Reply directly to customers"
+msgstr "顧客に直接返信する"
+
+#: 
+msgid "Disabled"
+msgstr "無効"
+
+#: 
+msgid "Enabled"
+msgstr "有効"
+
+#: 
+msgid "Send emails as"
+msgstr "メールを次の形式で送信する"
+
+#: 
+msgid "HTML"
+msgstr "HTML"
+
+#: 
+msgid "Text"
+msgstr "テキスト"
+
+#: 
+msgid "Notification templates"
+msgstr "通知テンプレート"
+
+#: 
+msgid "All templates"
+msgstr "全てのテンプレート"
+
+#: 
+msgid "Send"
+msgstr "送信する"
+
+#: 
+msgid "Close"
+msgstr "閉じる\n"
+""
+
+#: 
+msgid "HTML allows formatting, colors, fonts, positioning, etc. With Text you must use Text mode of rich-text editors below. On some servers only text emails are sent successfully."
+msgstr "HTMLでは書式設定、色、フォント、配置などの設定が可能です。テキストでは、以下のリッチテキストエディタのテキストモードを使用する必要があります。 一部のサーバーでは、テキストメールのみが正常に送信されます。"
+
+#: 
+msgid "If this option is enabled then the email address of the customer is used as a sender email address for notifications sent to staff members and administrators."
+msgstr "このオプションを有効にすると、顧客の電子メールアドレスが、スタッフおよび管理者に送信される通知の送信者用電子メールアドレスとして使用されます。"
+
+#: 
+msgid "Single"
+msgstr "単独"
+
+#: 
+msgid "Codes"
+msgstr "コード\n"
+""
+
+#: 
+msgid "Combined"
+msgstr "統合された"
+
+#: 
+msgid "To send scheduled notifications please refer to <a href=\"%1$s\">Bookly Multisite</a> add-on <a href=\"%2$s\">message</a>."
+msgstr "スケジュール通知を送信するには、<a href=\"%1$s\"> Bookly マルチサイト </a>アドオン<a href=\"%2$s\">メッセージ</a>を参照してください。"
+
+#: 
+msgid "To send scheduled notifications please execute the following command hourly with your cron:"
+msgstr "スケジュールの通知を送信するには、あなたのクローンを使用して1時間ごとに、次のコマンドを実行してください："
+
+#: 
+msgid "Last Month"
+msgstr "先月"
+
+#: 
+msgid "No payments for selected period and criteria."
+msgstr "選択した期間と基準による支払いはありません。"
+
+#: 
+msgid "Details"
+msgstr "詳細"
+
+#: 
+msgid "See details for more items"
+msgstr "その他のアイテムの詳細を表示"
+
+#: 
+msgid "Type"
+msgstr "タイプ"
+
+#: 
+msgid "Deposit"
+msgstr "手付金"
+
+#: 
+msgid "Subtotal"
+msgstr "小計"
+
+#: 
+msgid "Paid"
+msgstr "お支払い"
+
+#: 
+msgid "Due"
+msgstr "支払期日"
+
+#: 
+msgid "Complete payment"
+msgstr "支払いを済ませる"
+
+#: 
+msgid "Amount"
+msgstr "金額"
+
+#: 
+msgid "Min capacity should not be greater than max capacity."
+msgstr "最小許容量は最大許容量を超えてはいけません。"
+
+#: 
+msgid "Specified order"
+msgstr "指定された順序"
+
+#: 
+msgid "Least occupied that day"
+msgstr "最も予約が少ない日"
+
+#: 
+msgid "Most occupied that day"
+msgstr "最も予約が多い日"
+
+#: 
+msgid "Least expensive"
+msgstr "最も安い"
+
+#: 
+msgid "Most expensive"
+msgstr "最も高い"
+
+#: 
+msgid "%d service"
+msgid_plural "%d services"
+msgstr[0] "%d サービス\n"
+"複数:  %d サービス"
+
+#: 
+msgid "Simple"
+msgstr "シンプル\n"
+""
+
+#: 
+msgid "Title"
+msgstr "タイトル\n"
+""
+
+#: 
+msgid "Color"
+msgstr "色\n"
+""
+
+#: 
+msgid "Visibility"
+msgstr "可視性\n"
+""
+
+#: 
+msgid "To make service invisible to your customers set the visibility to \"Private\"."
+msgstr "あなたの顧客にサービスを見えないようにしたい場合は、「プライベート」に設定してください。"
+
+#: 
+msgid "Public"
+msgstr "公開"
+
+#: 
+msgid "Private"
+msgstr "プライべート設定\n"
+""
+
+#: 
+msgid "Padding time (before and after)"
+msgstr "パディング時間（前後）"
+
+#: 
+msgid "Set padding time before and/or after an appointment. For example, if you require 15 minutes to prepare for the next appointment then you should set \"padding before\" to 15 min. If there is an appointment from 8:00 to 9:00 then the next available time slot will be 9:15 rather than 9:00."
+msgstr "予定の前および/または後のパディング（埋め込み）時間を設定します。 たとえば、次の面会の準備に15分かかる場合は、「パディングの前」を15分に設定する必要があります。 午前8時から午後9時までのアポイントメントがある場合、次に利用可能なタイムスロットは9時ではなく9時15分になります。"
+
+#: 
+msgid "OFF"
+msgstr "オフ"
+
+#: 
+msgid "Providers preference for ANY"
+msgstr "プロバイダーによる任意の希望"
+
+#: 
+msgid "Allows you to define the rule of staff members auto assignment when ANY option is selected"
+msgstr "任意のオプションが選択されている場合にスタッフメンバーの自動割り当てのルールが使用されます"
+
+#: 
+msgid "Providers"
+msgstr "プロバイダー"
+
+#: 
+msgid "Category"
+msgstr "カテゴリー"
+
+#: 
+msgid "Uncategorized"
+msgstr "未分類"
+
+#: 
+msgid "Info"
+msgstr "情報"
+
+#: 
+msgid "This text can be inserted into notifications with %s code."
+msgstr "このテキストは、％sコードの通知に挿入できます。"
+
+#: 
+msgid "New Category"
+msgstr "新しいカテゴリー\n"
+""
+
+#: 
+msgid "Add Service"
+msgstr "サービスを追加する"
+
+#: 
+msgid "No services found. Please add services."
+msgstr "サービスが見つかりません。 サービスを追加してください。"
+
+#: 
+msgid "Update service setting"
+msgstr "サービスの設定を更新する"
+
+#: 
+msgid "You are about to change a service setting which is also configured separately for each staff member. Do you want to update it in staff settings too?"
+msgstr "それぞれのスタッフに個別に設定されているサービスの設定を変更しようとしています。 スタッフによる設定の内容も更新しますか？"
+
+#: 
+msgid "No, update just here in services"
+msgstr "いいえ、ここにあるサービスの設定のみを更新する"
+
+#: 
+msgid "WooCommerce cart is not set up. Follow the <a href=\"%s\">link</a> to correct this problem."
+msgstr "WooCommerceカートがセットアップされていません。 この問題を解決するには、<a href=\"%s\">リンク</a>に従ってください。"
+
+#: 
+msgid "Repeat every year"
+msgstr "毎年繰り返す"
+
+#: 
+msgid "We are not working on this day"
+msgstr "私たちはこの日には営業しておりません"
+
+#: 
+msgid "Select product"
+msgstr "サービスを選択する"
+
+#: 
+msgid "Appointment with one participant"
+msgstr "1人の参加者との面会"
+
+#: 
+msgid "Appointment with many participants"
+msgstr "複数の参加者との面会"
+
+#: 
+msgid "Enter a value"
+msgstr "値を入力してください"
+
+#: 
+msgid "capacity of service"
+msgstr "サービスの許容範囲"
+
+#: 
+msgid "number of persons already in the list"
+msgstr "すでにリストに登録されている人の数"
+
+#: 
+msgid "status of payment"
+msgstr "支払いの状況"
+
+#: 
+msgid "status of appointment"
+msgstr "面会のステータス"
+
+#: 
+msgid "Cart"
+msgstr "カート"
+
+#: 
+msgid "Columns"
+msgstr "列"
+
+#: 
+msgid "In order to improve your Bookly experience, we have started collecting anonymous plugin usage stats. If you don't want to provide this information, you can change permissions in Bookly settings."
+msgstr "あなたのBooklyエクスペリエンスを向上させるために、私たちは、匿名のプラグイン使用状況の収集を開始しました。 この情報を提供されたくない場合は、Bookly の設定でアクセス権を変更できます。"
+
+#: 
+msgid "Image"
+msgstr "画像"
+
+#: 
+msgid "Company name"
+msgstr "会社名"
+
+#: 
+msgid "Address"
+msgstr "住所"
+
+#: 
+msgid "Website"
+msgstr "ウェブサイト"
+
+#: 
+msgid "Create WordPress user account for customers"
+msgstr "顧客向けにWordPressユーザーアカウントを作成する"
+
+#: 
+msgid "If this setting is enabled then Bookly will be creating WordPress user accounts for all new customers. If the user is logged in then the new customer will be associated with the existing user account."
+msgstr "この設定を有効にすると、Booklyはすべての新規の顧客のWordPressユーザーアカウントを作成します。 ユーザーがログインしている場合、新しい顧客は既存のユーザーアカウントに関連付けられます。\n"
+""
+
+#: 
+msgid "New user account role"
+msgstr "新しいユーザーアカウントの役割"
+
+#: 
+msgid "Select what role will be assigned to newly created WordPress user accounts for customers."
+msgstr "顧客のために新しく作成したWordPressユーザーアカウントに割り当てる役割を選択します。"
+
+#: 
+msgid "Phone field default country"
+msgstr "電話の欄のデフォルトの国"
+
+#: 
+msgid "Select default country for the phone field in the 'Details' step of booking. You can also let Bookly determine the country based on the IP address of the client."
+msgstr "予約の '詳細'のステップで電話の欄のデフォルトの国を選択してください。 また、クライアントのIPアドレスに基づいて、Booklyに国を決定させることもできます。"
+
+#: 
+msgid "Guess country by user's IP address"
+msgstr "ユーザーのIPアドレスで国を推測する"
+
+#: 
+msgid "Default country code"
+msgstr "国コードのデフォルト"
+
+#: 
+msgid "Your clients must have their phone numbers in international format in order to receive text messages. However you can specify a default country code that will be used as a prefix for all phone numbers that do not start with \"+\" or \"00\". E.g. if you enter \"1\" as the default country code and a client enters their phone as \"(600) 555-2222\" the resulting phone number to send the SMS to will be \"+1600555222\"."
+msgstr "テキストメッセージを受信するには、クライアントが国際電話番号を持っていなければなりません。 ただし、 \"+\"または \"00\"で始まらないすべての電話番号の接頭辞として使用されるデフォルトの国コードを指定することができます。 例、 デフォルトの国コードとして「1」を入力し、クライアントが電話を「（600）555-2222」と入力すると、SMSで送信する電話番号は「+1600555222」になります。"
+
+#: 
+msgid "Cancel appointment action"
+msgstr "面会予定を取り消す"
+
+#: 
+msgid "Select what happens when customer clicks cancel appointment link. With \"Delete\" the appointment will be deleted from the calendar. With \"Cancel\" only appointment status will be changed to \"Cancelled\"."
+msgstr "顧客が予定のリンクをクリックしたときに起きる動作を選択します。 「削除」を選択すると、カレンダーから予定が削除されます。 「キャンセル」を選択すると、予定のステータスのみが「キャンセル済み」に変更されます。"
+
+#: 
+msgid "Combined notifications"
+msgstr "複合通知"
+
+#: 
+msgid "If combined notifications are enabled then your clients will receive single notification for entire booking instead of separate notification per each booked appointment (e.g. when cart is enabled). You will need to edit corresponding templates in Email and SMS Notifications."
+msgstr "複数の通知を有効にすると、予約されている予定ごとに個別の通知（カートが有効な場合など）がされるのではなく、予約全体について単一の通知がクライアントに送信されます。 電子メールとSMS通知で対応するテンプレートを編集する必要があります。"
+
+#: 
+msgid "Remember personal information in cookies"
+msgstr "クッキーに個人情報を記憶する"
+
+#: 
+msgid "If this setting is enabled then returning customers will have their personal information fields filled in at the Details step with the data previously saved in cookies."
+msgstr "この設定を有効にすると、戻ってきた顧客の個人情報の欄には、以前、詳細情報を記入した際にCookieに保存されたデータが入力されます。"
+
+#: 
+msgid "Time slot length"
+msgstr "時間枠の長さ"
+
+#: 
+msgid "Select a time interval which will be used as a step when building all time slots in the system."
+msgstr "システム内のすべての時間枠を構築する際のステップとしてご希望の時間の間隔を選択します。"
+
+#: 
+msgid "Service duration as slot length"
+msgstr "時間枠の長さとしてのサービス期間"
+
+#: 
+msgid "Enable this option to make slot length equal to service duration at the Time step of booking form."
+msgstr "このオプションを有効にすると、予約フォームのタイムステップで、時間枠の長さがサービス期間と同じになります。"
+
+#: 
+msgid "Default appointment status"
+msgstr "面会予定のステータスのデフォルト\n"
+""
+
+#: 
+msgid "Select status for newly booked appointments."
+msgstr "新しく予約された面会予定のステータスを選択します。"
+
+#: 
+msgid "Pending"
+msgstr "保留中"
+
+#: 
+msgid "Approved"
+msgstr "承認されました"
+
+#: 
+msgid "Minimum time requirement prior to booking"
+msgstr "直前の予約が可能な時間の設定"
+
+#: 
+msgid "Set how late appointments can be booked (for example, require customers to book at least 1 hour before the appointment time)."
+msgstr "直前の予約が可能な時間の限度を設定します（たとえば、予約時間の1時間前までに予約するよう顧客に要求するなど）。"
+
+#: 
+msgid "Minimum time requirement prior to canceling"
+msgstr "事前のキャンセルが可能な時間の設定"
+
+#: 
+msgid "Set how late appointments can be cancelled (for example, require customers to cancel at least 1 hour before the appointment time)."
+msgstr "予約前のキャンセルが可能な時間の限度を設定します（たとえば、予約時間の1時間前までにキャンセルするよう顧客に要求するなど）。"
+
+#: 
+msgid "Approve appointment URL (success)"
+msgstr "面会予定のURLを承認する（成功）"
+
+#: 
+msgid "Set the URL of a page that is shown to staff after they successfully approved the appointment."
+msgstr "面接予定が正常に承認された後、スタッフに表示されるページのURLを設定します。"
+
+#: 
+msgid "Approve appointment URL (denied)"
+msgstr "面会予定のURLを承認する（拒否された場合）"
+
+#: 
+msgid "Set the URL of a page that is shown to staff when the approval of appointment cannot be done (due to capacity, changed status, etc.)."
+msgstr "面会予定の承認ができない場合（能力、状態の変更などにより）に、スタッフに表示されるページのURLを設定します。\n"
+""
+
+#: 
+msgid "Cancel appointment URL (success)"
+msgstr "面会予定のURLをキャンセルする（成功）"
+
+#: 
+msgid "Set the URL of a page that is shown to clients after they successfully cancelled their appointment."
+msgstr "クライアントが予定をキャンセルした後に表示されるページのURLを設定します。"
+
+#: 
+msgid "Cancel appointment URL (denied)"
+msgstr "面会予定のURLをキャンセルする（拒否された場合）"
+
+#: 
+msgid "Set the URL of a page that is shown to clients when the cancellation of appointment is not available anymore."
+msgstr "面会予定のキャンセルが既に利用できなくなったときにクライアントに表示されるページのURLを設定します。"
+
+#: 
+msgid "Number of days available for booking"
+msgstr "面会の予約が可能な日数"
+
+#: 
+msgid "Set how far in the future the clients can book appointments."
+msgstr "クライアントが、どれくらい先の日程を予約できるか設定します。"
+
+#: 
+msgid "Display available time slots in client's time zone"
+msgstr "クライアントのタイムゾーンで使用可能な時間枠を表示する"
+
+#: 
+msgid "Final step URL"
+msgstr "最終段階のURL"
+
+#: 
+msgid "Set the URL of a page that the user will be forwarded to after successful booking. If disabled then the default Done step is displayed."
+msgstr "予約完了後に転送されるページのURLを設定します。 無効にすると、デフォルトの完了ステップが表示されます。"
+
+#: 
+msgid "Enter a URL"
+msgstr "URLを入力してください"
+
+#: 
+msgid "Allow staff members to edit their profiles"
+msgstr "スタッフがプロフィールを編集できるようにする"
+
+#: 
+msgid "If this option is enabled then all staff members who are associated with WordPress users will be able to edit their own profiles, services, schedule and days off."
+msgstr "このオプションを有効にすると、WordPressユーザーに関連付けられているすべてのスタッフが、自分のプロフィール、サービス、スケジュール、休暇を編集できます。"
+
+#: 
+msgid "Method to include Bookly JavaScript and CSS files on the page"
+msgstr "Bookly JavaScriptとCSSファイルをページに埋め込む方法"
+
+#: 
+msgid "With \"Enqueue\" method the JavaScript and CSS files of Bookly will be included on all pages of your website. This method should work with all themes. With \"Print\" method the files will be included only on the pages which contain Bookly booking form. This method may not work with all themes."
+msgstr "「エンキュー」メソッドを使用すると、BooklyのJavaScriptファイルとCSSファイルがウェブサイトのすべてのページに含まれます。 このメソッドはすべてのテーマで機能します。 「印刷」メソッドを使用すると、ファイルはBookly予約フォームのあるページにのみ含まれます。 このメソッドは、すべてのテーマで機能しない場合があります。"
+
+#: 
+msgid "Help us improve Bookly by sending anonymous usage stats"
+msgstr "匿名の利用統計情報を送信してBooklyの改善にご協力ください"
+
+#: 
+msgid "Please enter a valid purchase code to change this setting."
+msgstr "この設定を変更するには、有効な購入コードを入力してください。"
+
+#: 
+msgid "Instructions"
+msgstr "手順"
+
+#: 
+msgid "To find your client ID and client secret, do the following:"
+msgstr "クライアントIDとクライアントの機密情報を検索するには、次の手順を実行します。"
+
+#: 
+msgid "Go to the <a href=\"https://console.developers.google.com/\" target=\"_blank\">Google Developers Console</a>."
+msgstr "<a href=\"https://console.developers.google.com/\" target=\"_blank\"> Google 開発者コンソール </a>にアクセスします"
+
+#: 
+msgid "Select a project, or create a new one."
+msgstr "プロジェクトを選択するか、新しいプロジェクトを作成します。"
+
+#: 
+msgid "Click in the upper left part to see a sliding sidebar. Next, click <b>API Manager</b>. In the list of APIs look for <b>Calendar API</b> and make sure it is enabled."
+msgstr "スライディングサイドバーを表示するには、左上の部分をクリックします。 次に、<b> APIマネージャー</ b>をクリックします。 APIのリストで<b> カレンダー API </ b>を探し、有効になっていることを確認します。"
+
+#: 
+msgid "In the sidebar on the left, select <b>Credentials</b>."
+msgstr "左側のサイドバーで<b>認証情報</ b>を選択します。"
+
+#: 
+msgid "Go to <b>OAuth consent screen</b> tab and give a name to the product, then click <b>Save</b>."
+msgstr "<b> OAuthの同意画面</ b>タブに移動し、商品名を入力して<b>保存する</ b>をクリックします。"
+
+#: 
+msgid "Go to <b>Credentials</b> tab and in <b>New credentials</b> drop-down menu select <b>OAuth client ID</b>."
+msgstr "<b>認証情報</ b>タブに移動し、<b>新しい認証情報</ b>のプルダウンメニューで<b> OAuthクライアントID </ b>を選択します。"
+
+#: 
+msgid "Select <b>Web application</b> and create your project's OAuth 2.0 credentials by providing the necessary information. For <b>Authorized redirect URIs</b> enter the <b>Redirect URI</b> found below on this page. Click <b>Create</b>."
+msgstr "<b> ウェブアプリケーション</ b>を選択し、必要な情報を入力してプロジェクトのOAuth 2.0資格情報を作成します。 <b>許可リダイレクトURI </ b>に、このページの下にある<b>リダイレクトURI </ b>を入力してください。 <b>作成</ b>をクリックしてください。\n"
+""
+
+#: 
+msgid "In the popup window look for the <b>Client ID</b> and <b>Client secret</b>. Use them in the form below on this page."
+msgstr "ポップアップウィンドウで、<b>クライアントID </ b>と<b>クライアントの機密情報</ b>を探します。 このページの下のフォームで使用してください。"
+
+#: 
+msgid "Go to Staff Members, select a staff member and click <b>Connect</b> which is located at the bottom of the page."
+msgstr "スタッフメンバーの項目に行き、スタッフメンバーを選択し、ページの下部にある<b>接続する</ b>をクリックします。"
+
+#: 
+msgid "Client ID"
+msgstr "クライアントID"
+
+#: 
+msgid "The client ID obtained from the Developers Console"
+msgstr "開発者コンソールから取得したクライアントID"
+
+#: 
+msgid "Client secret"
+msgstr "クライアントの機密情報"
+
+#: 
+msgid "The client secret obtained from the Developers Console"
+msgstr "開発者コンソールから取得したクライアントの機密情報"
+
+#: 
+msgid "Redirect URI"
+msgstr "リダイレクトURI"
+
+#: 
+msgid "Enter this URL as a redirect URI in the Developers Console"
+msgstr "開発者コンソールでこのURLをリダイレクトURIとして入力します"
+
+#: 
+msgid "Limit number of fetched events"
+msgstr "取得されたイベントの数を制限する"
+
+#: 
+msgid "Template for event title"
+msgstr "イベントのタイトルのテンプレート"
+
+#: 
+msgid "Configure what information should be placed in the title of Google Calendar event. Available codes are {service_name}, {staff_name} and {client_names}."
+msgstr "どのような情報をGoogleカレンダーイベントのタイトルに配置するかを設定します。 使用できるコードは{service_name}、{staff_name}、{client_names}です。"
+
+#: 
+msgid "Please note, the business hours below work as a template for all new staff members. To render a list of available time slots the system takes into account only staff members' schedule, not the company business hours. Be sure to check the schedule of your staff members if you have some unexpected behavior of the booking system."
+msgstr "以下の営業時間は、新しいスタッフ全員のテンプレートとして機能します。 利用可能な時間枠のリストを表示するために、システムは、会社の営業時間ではなく、スタッフのスケジュールのみを考慮します。 予約システムの予期しない動作が起きた場合は、スタッフのスケジュールを確認してください。"
+
+#: 
+msgid "Currency"
+msgstr "通貨"
+
+#: 
+msgid "Price format"
+msgstr "価格形式"
+
+#: 
+msgid "Service paid locally"
+msgstr "窓口でサービスの支払いをする"
+
+#: 
+msgid "Sandbox Mode"
+msgstr "サンドボックスモード"
+
+#: 
+msgid "No"
+msgstr "いいえ"
+
+#: 
+msgid "API Username"
+msgstr "APIユーザーネーム"
+
+#: 
+msgid "API Password"
+msgstr "APIパスワード\n"
+""
+
+#: 
+msgid "API Signature"
+msgstr "API署名"
+
+#: 
+msgid "Client"
+msgstr "クライアント"
+
+#: 
+msgid "Upon providing the purchase code you will have access to free updates of Bookly. Updates may contain functionality improvements and important security fixes. For more information on where to find your purchase code see this <a href=\"https://help.market.envato.com/hc/en-us/articles/202822600-Where-can-I-find-my-Purchase-Code-\" target=\"_blank\">page</a>."
+msgstr "購入コードを入力すると、Booklyの無料アップデートにアクセスできます。 更新プログラムには、機能の向上と重要なセキュリティ修正が含まれている場合があります。 購入コードの場所について詳しくは、こちらの<a href = \"https://help.market.envato.com/hc/en-us/articles/202822600-どこで、私の購入コードを見つけられますか \"code =\" target = \"_ blank\">ページ</a>をご覧ください。"
+
+#: 
+msgid "You need to install and activate WooCommerce plugin before using the options below.<br/><br/>Once the plugin is activated do the following steps:"
+msgstr "以下のオプションを使用する前に、WooCommerceのプラグインをインストールして有効にする必要があります。<br/> <br/>プラグインが有効になったら、以下の手順を実行します。："
+
+#: 
+msgid "Create a product in WooCommerce that can be placed in cart."
+msgstr "カートに入れることができるWooCommerceで製品を作成します。"
+
+#: 
+msgid "In the form below enable WooCommerce option."
+msgstr "以下のフォームで、WooCommerceオプションを有効にします。"
+
+#: 
+msgid "Select the product that you created at step 1 in the drop down list of products."
+msgstr "手順1で作成した製品を製品のドロップダウンリストから選択します。"
+
+#: 
+msgid "If needed, edit item data which will be displayed in the cart."
+msgstr "必要に応じて、カートに表示されるアイテムのデータを編集します。"
+
+#: 
+msgid "Note that once you have enabled WooCommerce option in Bookly the built-in payment methods will no longer work. All your customers will be redirected to WooCommerce cart instead of standard payment step."
+msgstr "BooklyでWooCommerceオプションを有効にすると、システムに設定された支払い方法は機能しなくなります。 すべてのお客様は、標準の支払いステップではなく、WooCommerceカートにリダイレクトされます。"
+
+#: 
+msgid "Booking product"
+msgstr "予約した製品"
+
+#: 
+msgid "Cart item data"
+msgstr "カートのアイテムのデータ"
+
+#: 
+msgid "General"
+msgstr "一般"
+
+#: 
+msgid "Company"
+msgstr "会社"
+
+#: 
+msgid "Google Calendar"
+msgstr "Googleカレンダー"
+
+#: 
+msgid "Business Hours"
+msgstr "営業時間"
+
+#: 
+msgid "Holidays"
+msgstr "休日"
+
+#: 
+msgid "Please accept terms and conditions."
+msgstr "利用規約に同意してください。"
+
+#: 
+msgid "Your payment has been accepted for processing."
+msgstr "お支払い手続きが承認されました"
+
+#: 
+msgid "Your payment has been interrupted."
+msgstr "お支払い手続きが中断されました。"
+
+#: 
+msgid "Auto-Recharge enabled."
+msgstr "自動―再チャージ機能が有効になっています。"
+
+#: 
+msgid "You declined the Auto-Recharge of your balance."
+msgstr "あなたは、あなたの残高をチャージするための自動再チャージ機能の使用を拒否しました。"
+
+#: 
+msgid "Please enter old password."
+msgstr "古いパスワードを入力してください"
+
+#: 
+msgid "Passwords must be the same."
+msgstr "パスワードは同じでなければなりません。"
+
+#: 
+msgid "Sender ID request is sent."
+msgstr "送信者IDのリクエストが送信されます。"
+
+#: 
+msgid "Sender ID is reset to default."
+msgstr "送信者IDはデフォルトにリセットされます。"
+
+#: 
+msgid "No records for selected period."
+msgstr "選択した期間の履歴がありません。"
+
+#: 
+msgid "No records."
+msgstr "履歴がありません"
+
+#: 
+msgid "Auto-Recharge has failed, please replenish your balance directly."
+msgstr "自動チャージに失敗しました。残高を直接チャージしてください。"
+
+#: 
+msgid "Auto-Recharge disabled"
+msgstr "自動チャージ無効"
+
+#: 
+msgid "Error. Can't disable Auto-Recharge, you can perform this action in your PayPal account."
+msgstr "エラーがおきました。 自動再チャージ機能を無効にすることはできません。PayPalアカウントでこの操作を実行できます。"
+
+#: 
+msgid "SMS has been sent successfully."
+msgstr "SMSが正常に送信されました。"
+
+#: 
+msgid "We will only charge your PayPal account when your balance falls below $10."
+msgstr "残高が$ 10を下回った場合にのみPayPalアカウントの請求を行います。"
+
+#: 
+msgid "Enable Auto-Recharge"
+msgstr "自動再チャージ機能を有効にする"
+
+#: 
+msgid "Disable Auto-Recharge"
+msgstr "自動再チャージ機能を無効にする"
+
+#: 
+msgid "Administrator phone"
+msgstr "管理者の電話番号"
+
+#: 
+msgid "Enter a phone number in international format. E.g. for the United States a valid phone number would be +17327572923."
+msgstr "国際的な形式で電話番号を入力してください。 例、米国の場合、有効な電話番号は+17327572923となります。"
+
+#: 
+msgid "Send test SMS"
+msgstr "テストSMSを送信する"
+
+#: 
+msgid "Country"
+msgstr "国"
+
+#: 
+msgid "Regular price"
+msgstr "通常価格"
+
+#: 
+msgid "Price with custom Sender ID"
+msgstr "カスタム送信者IDを使用した価格"
+
+#: 
+msgid "If you do not see your country in the list please contact us at <a href=\"mailto:support@ladela.com\">support@ladela.com</a>."
+msgstr "あなたの国がリストに表示されない場合は、<a href=\"mailto:support@ladela.com\"> support@ladela.com </a>までご連絡ください。"
+
+#: 
+msgid "Order"
+msgstr "注文する"
+
+#: 
+msgid "Please take into account that not all countries by law allow custom SMS sender ID. Please check if particular country supports custom sender ID in our price list. Also please note that prices for messages with custom sender ID are usually 20% - 25% higher than normal message price."
+msgstr "すべての国の法律により、カスタムSMS送信者IDが許可されているわけではないことを考慮してください。 特定の国が価格表のカスタム送信者IDをサポートしているかどうかを確認してください。 また、カスタム送信者IDのメッセージの価格は、通常のメッセージ価格より20％〜25％高いことに注意してください。\n"
+""
+
+#: 
+msgid "Request Sender ID"
+msgstr "送信者IDを要求する"
+
+#: 
+msgid "or"
+msgstr "あるいは"
+
+#: 
+msgid "Reset to default"
+msgstr "デフォルトにリセットする"
+
+#: 
+msgid "Can only contain letters or digits (up to 11 characters)."
+msgstr "文字または数字（最大11文字）のみを含めることができます。"
+
+#: 
+msgid "Request"
+msgstr "リクエストする"
+
+#: 
+msgid "Cancel request"
+msgstr "リクエストをキャンセルする"
+
+#: 
+msgid "Requested ID"
+msgstr "リクエストされたID"
+
+#: 
+msgid "Status Date"
+msgstr "ステータスの日付"
+
+#: 
+msgid "Sender ID"
+msgstr "送信者ID"
+
+#: 
+msgid "Cost"
+msgstr "価格"
+
+#: 
+msgid "Your balance"
+msgstr "あなたの残高"
+
+#: 
+msgid "Send email notification to administrators at low balance"
+msgstr "残高が低くなった場合に、管理者に電子メール通知を送信する"
+
+#: 
+msgid "Send weekly summary to administrators"
+msgstr "毎週のサマリーを管理者に送信する"
+
+#: 
+msgid "Change"
+msgstr "変更する"
+
+#: 
+msgid "Approved at"
+msgstr "承認日"
+
+#: 
+msgid "Log out"
+msgstr "ログアウト"
+
+#: 
+msgid "Notifications"
+msgstr "通知"
+
+#: 
+msgid "Add money"
+msgstr "お金を追加する"
+
+#: 
+msgid "Auto-Recharge"
+msgstr "自動ー再チャージ機能"
+
+#: 
+msgid "Purchases"
+msgstr "購入"
+
+#: 
+msgid "SMS Details"
+msgstr "SMSの詳細"
+
+#: 
+msgid "Price list"
+msgstr "価格表"
+
+#: 
+msgid "SMS Notifications (or \"Bookly SMS\") is a service for notifying your customers via text messages which are sent to mobile phones."
+msgstr "SMS通知（または「Bookly SMS」）は、携帯電話に送信されるテキストメッセージを介して顧客に通知するためのサービスです。"
+
+#: 
+msgid "It is necessary to register in order to start using this service."
+msgstr "このサービスの利用を開始するには、登録が必要です。"
+
+#: 
+msgid "After registration you will need to configure notification messages and top up your balance in order to start sending SMS."
+msgstr "登録後、SMSの送信を開始するために通知メッセージを設定した後、あなたの残高を一杯にする必要があります。"
+
+#: 
+msgid "Login"
+msgstr "ログイン"
+
+#: 
+msgid "Password"
+msgstr "パスワード"
+
+#: 
+msgid "Log In"
+msgstr "ログインする"
+
+#: 
+msgid "Registration"
+msgstr "登録"
+
+#: 
+msgid "Forgot password"
+msgstr "パスワードを忘れた"
+
+#: 
+msgid "Repeat password"
+msgstr "パスワードを再度入力してください。"
+
+#: 
+msgid "Register"
+msgstr "登録する"
+
+#: 
+msgid "Enter code from email"
+msgstr "Eメールからコードを入力する"
+
+#: 
+msgid "New password"
+msgstr "新しいパスワード"
+
+#: 
+msgid "Repeat new password"
+msgstr "新しいパスワードを繰り返します"
+
+#: 
+msgid "Next"
+msgstr "次"
+
+#: 
+msgid "Change password"
+msgstr "パスワードを変更する"
+
+#: 
+msgid "Old password"
+msgstr "古いパスワード"
+
+#: 
+msgid "Terms & Conditions"
+msgstr "利用規約"
+
+#: 
+msgid "All locations"
+msgstr "全ての場所"
+
+#: 
+msgid "No locations selected"
+msgstr "場所が選択されていません"
+
+#: 
+msgid "The start time must be less than the end one"
+msgstr "開始時間は終了時間より小さい値でなければなりません"
+
+#: 
+msgid "The requested interval is not available"
+msgstr "希望された間隔は利用できません"
+
+#: 
+msgid "Error adding the break interval"
+msgstr "休憩の間隔を追加する際にエラーが発生しました"
+
+#: 
+msgid "Delete break"
+msgstr "休憩時間を削除する"
+
+#: 
+msgid "Breaks"
+msgstr "休憩時間"
+
+#: 
+msgid "Full name"
+msgstr "フルネーム"
+
+#: 
+msgid "If this staff member requires separate login to access personal calendar, a regular WP user needs to be created for this purpose."
+msgstr "このスタッフが個人カレンダーにアクセスするために別途ログインする必要がある場合は、この目的のために通常のWPユーザーアカウントを作成する必要があります。"
+
+#: 
+msgid "User with \"Administrator\" role will have access to calendars and settings of all staff members, user with another role will have access only to personal calendar and settings."
+msgstr "「管理者」の役割を請け負うユーザーは、すべてのスタッフのカレンダーおよび設定にアクセスでき、別の役割を請け負うユーザーは個人のカレンダーおよび設定にのみアクセスできます。"
+
+#: 
+msgid "If you leave this field blank, this staff member will not be able to access personal calendar using WP backend."
+msgstr "この欄を空白のままにすると、このスタッフはWPバックエンドを使用して個人カレンダーにアクセスできなくなります。"
+
+#: 
+msgid "Select from WP users"
+msgstr "WPユーザーから選択する"
+
+#: 
+msgid "To make staff member invisible to your customers set the visibility to \"Private\"."
+msgstr "あなたの顧客をスタッフの目に見えないようにするために、可視性を「プライベート」に設定します。"
+
+#: 
+msgid "Google Calendar integration"
+msgstr "Googleカレンダーの統合"
+
+#: 
+msgid "Synchronize staff member appointments with Google Calendar."
+msgstr "スタッフの予定をGoogleカレンダーと同期させる。"
+
+#: 
+msgid "Connect"
+msgstr "接続する"
+
+#: 
+msgid "Please configure Google Calendar <a href=\"%s\">settings</a> first"
+msgstr "Googleカレンダーの<a href=\"%s\">設定</a>を最初に設定してください"
+
+#: 
+msgid "Connected"
+msgstr "接続されました"
+
+#: 
+msgid "disconnect"
+msgstr "接続を切断する"
+
+#: 
+msgid "New Staff Member"
+msgstr "新しいスタッフメンバー"
+
+#: 
+msgid "Schedule"
+msgstr "スケジュール"
+
+#: 
+msgid "Days off"
+msgstr "休みの日"
+
+#: 
+msgid "add break"
+msgstr "休憩時間を追加する"
+
+#: 
+msgid "Reset"
+msgstr "リセットする"
+
+#: 
+msgid "All fields marked with an asterisk (*) are required."
+msgstr "アスタリスク（*）の付いた欄はすべて必須です。"
+
+#: 
+msgid "Invalid email."
+msgstr "無効なEメール"
+
+#: 
+msgid "Error sending support request."
+msgstr "サポートリクエストの送信中にエラーが発生しました"
+
+#: 
+msgid "Show all notifications"
+msgstr "すべての告知を表示する"
+
+#: 
+msgid "Mark all notifications as read"
+msgstr "すべての通知を既読としてマークする"
+
+#: 
+msgid "Documentation"
+msgstr "書類"
+
+#: 
+msgid "Need help? Contact us here."
+msgstr "何かお困りですか？サポートが必要であれば、ここから私達に連絡をしてください。"
+
+#: 
+msgid "Contact Us"
+msgstr "お問い合わせ"
+
+#: 
+msgid "We care about your experience using Bookly!<br/>Leave a review and tell others what you think."
+msgstr "私達に、Booklyを使用されたあなたのご感想を聞かせてください！<br/>レビューを残して、ぜひ、あなたのご意見を他の人に伝えてみてください。"
+
+#: 
+msgid "Feedback"
+msgstr "ご意見\n"
+""
+
+#: 
+msgid "Leave us a message"
+msgstr "私たちにメッセージを残す"
+
+#: 
+msgid "Your name"
+msgstr "あなたのお名前"
+
+#: 
+msgid "Email address"
+msgstr "Eメールアドレス"
+
+#: 
+msgid "How can we help you?"
+msgstr "私達があなたをサポートできることはありますか？"
+
+#: 
+msgid "How likely is it that you would recommend Bookly to a friend or colleague?"
+msgstr "Booklyを友人や同僚にどの程度推薦したいと思われますか？"
+
+#: 
+msgid "What do you think should be improved?"
+msgstr "どの部分を改善するべきだと思いますか？"
+
+#: 
+msgid "Please enter your email (optional)"
+msgstr "あなたのEメールアドレスを入力してください（オプション）"
+
+#: 
+msgid "Please leave your feedback <a href=\"%s\" target=\"_blank\">here</a>."
+msgstr "お客様のご意見は<a href=\"%s\" target=\"_blank\">こちら</a>にお寄せください。"
+
+#: 
+msgid "Subscribe to monthly emails about Bookly improvements and new releases."
+msgstr "Booklyの改善された内容と新リリースについて毎月、発行される電子メールを購読する。"
+
+#: 
+msgid "Add Bookly booking form"
+msgstr "Bookly 予約フォームを追加する"
+
+#: 
+msgid "Add Bookly appointments list"
+msgstr " Bookly予定リストを追加する"
+
+#: 
+msgid "Titles"
+msgstr "時間"
+
+#: 
+msgid "Staff"
+msgstr "スタッフ\n"
+""
+
+#: 
+msgid "Insert"
+msgstr "挿入する"
+
+#: 
+msgid "Default value for category select"
+msgstr "カテゴリー選択のデフォルト値"
+
+#: 
+msgid "Select category"
+msgstr "カテゴリーを選択する"
+
+#: 
+msgid "Hide this field"
+msgstr "この欄を隠す"
+
+#: 
+msgid "Default value for service select"
+msgstr "サービス選択のデフォルト値"
+
+#: 
+msgid "Select service"
+msgstr "サービスを選択する"
+
+#: 
+msgid "Please be aware that a value in this field is required in the frontend. If you choose to hide this field, please be sure to select a default value for it"
+msgstr "フロントエンドにはこの欄の値が必要であることに注意してください。 この欄を非表示にする場合は、その欄のデフォルト値を必ず選択してください"
+
+#: 
+msgid "Default value for employee select"
+msgstr "従業員選択のデフォルト値"
+
+#: 
+msgid "Any"
+msgstr "任意"
+
+#: 
+msgid "Hide this block"
+msgstr "このブロックを非表示にする"
+
+#: 
+msgid "Week days"
+msgstr "平日"
+
+#: 
+msgid "Time range"
+msgstr "時間枠"
+
+#: 
+msgid "Insert Appointment Booking Form"
+msgstr "面会予約のフォームを挿入する"
+
+#: 
+msgid "Show more"
+msgstr "もっと表示する"
+
+#: 
+msgid "Session error."
+msgstr "セッションのエラー"
+
+#: 
+msgid "Form ID error."
+msgstr "フォームのIDエラーです"
+
+#: 
+msgid "Pay locally is not available."
+msgstr "窓口での支払いはご利用できません"
+
+#: 
+msgid "Invalid gateway."
+msgstr "ゲートウェイが無効です。"
+
+#: 
+msgid "No time is available for selected criteria."
+msgstr "選択した基準に当てはまる時間がありません。"
+
+#: 
+msgid "Data already in use"
+msgstr "すでに使用されているデータです"
+
+#: 
+msgid "Page Redirection"
+msgstr "ページのリダイレクト"
+
+#: 
+msgid "If you are not redirected automatically, follow the <a href=\"%s\">link</a>."
+msgstr "自動的にリダイレクトされない場合は、<a href=\"%s\">リンク</a>に従ってください。"
+
+#: 
+msgid "Loading..."
+msgstr "ローディング中です"
+
+#: 
+msgid "Not allowed"
+msgstr "許可されていません"
+
+#: 
+msgid "Expired"
+msgstr "期限切れです"
+
+#: 
+msgid "No appointments found."
+msgstr "面会予定が見つかりませんでした。"
+
+#: 
+msgid "Show past appointments"
+msgstr "過去の面会日を表示する"
+
+#: 
+msgid "Invalid token provided"
+msgstr "トークンが無効です"
+
+#: 
+msgid "Error"
+msgstr "エラーです"
+
+#: 
+msgid "Sorry, the time slot %date_time% for %service% has been already occupied."
+msgstr "申し訳ありませんが、％service％の時間枠％date_time％はすでに使用されています。"
+
+#: 
+msgid "Service was not found"
+msgstr "サービスが見つかりません"
+
+#: 
+msgid "%s is not a valid purchase code for %s."
+msgstr "％sは、％sの有効な購入コードではありません。"
+
+#: 
+msgid "Purchase code verification is temporarily unavailable. Please try again later."
+msgstr "購入コードの承認は一時的に利用できません。 後でもう一度お試しください。"
+
+#: 
+msgid " and %d more item"
+msgid_plural " and %d more items"
+msgstr[0] "␣とさらに％d個のアイテム\n"
+"複数：␣とさらに％d個のアイテム"
+
+#: 
+msgid "Your appointment information"
+msgstr "あなたの面会の情報"
+
+#: 
+msgid "Dear {client_name}.\n"
+"\n"
+"This is a confirmation that you have booked {service_name}.\n"
+"\n"
+"We are waiting you at {company_address} on {appointment_date} at {appointment_time}.\n"
+"\n"
+"Thank you for choosing our company.\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"\n"
+"このメッセージはあなたが{service_name}を予約されたことの確認のためにお送りしたものです。\n"
+"\n"
+"{appointment_date}の{appointment_time}に{company_address}でお待ちしております。\n"
+"\n"
+"弊社を選んでいただきありがとうございます。\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Dear {client_name}.\n"
+"\n"
+"This is a confirmation that you have booked the following items:\n"
+"\n"
+"{cart_info}\n"
+"\n"
+"Thank you for choosing our company.\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"\n"
+"このメッセージは、あなたが以下のアイテムを予約されたことの確認のためにお送りしたものです。：\n"
+"\n"
+"{cart_info}\n"
+"\n"
+"弊社を選んでいただきありがとうございます。\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}\n"
+""
+
+#: 
+msgid "New booking information"
+msgstr "新しい予約情報"
+
+#: 
+msgid "Hello.\n"
+"\n"
+"You have a new booking.\n"
+"\n"
+"Service: {service_name}\n"
+"Date: {appointment_date}\n"
+"Time: {appointment_time}\n"
+"Client name: {client_name}\n"
+"Client phone: {client_phone}\n"
+"Client email: {client_email}"
+msgstr "こんにちは。\n"
+"\n"
+"あなたに新しい予約が入りました。\n"
+"\n"
+"サービス：{service_name}\n"
+"日付：{appointment_date}\n"
+"時間：{appointment_time}\n"
+"クライアント名：{client_name}\n"
+"クライアントの電話番号：{client_phone}\n"
+"クライアントのメールアドレス：{client_email}\n"
+""
+
+#: 
+msgid "Booking cancellation"
+msgstr "予約のキャンセル"
+
+#: 
+msgid "Dear {client_name}.\n"
+"\n"
+"You have cancelled your booking of {service_name} on {appointment_date} at {appointment_time}.\n"
+"\n"
+"Thank you for choosing our company.\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"\n"
+"{appointment_date}の{appointment_time}の{service_name}のご予約をキャンセル致しました。\n"
+"\n"
+"弊社を選んでいただきありがとうございます。\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Hello.\n"
+"\n"
+"The following booking has been cancelled.\n"
+"\n"
+"Service: {service_name}\n"
+"Date: {appointment_date}\n"
+"Time: {appointment_time}\n"
+"Client name: {client_name}\n"
+"Client phone: {client_phone}\n"
+"Client email: {client_email}"
+msgstr "こんにちは。\n"
+"\n"
+"次の予約はキャンセルされました。\n"
+"\n"
+"サービス：{service_name}\n"
+"日付：{appointment_date}\n"
+"時間：{appointment_time}\n"
+"クライアント名：{client_name}\n"
+"クライアントの電話番号：{client_phone}\n"
+"クライアントのメールアドレス：{client_email}"
+
+#: 
+msgid "Booking rejection"
+msgstr "予約の拒否"
+
+#: 
+msgid "Dear {client_name}.\n"
+"\n"
+"Your booking of {service_name} on {appointment_date} at {appointment_time} has been rejected.\n"
+"\n"
+"Reason: {cancellation_reason}\n"
+"\n"
+"Thank you for choosing our company.\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"\n"
+"{appointment_date}の{appointment_time}の{service_name}のご予約が拒否されました。\n"
+"\n"
+"理由：{cancelation_reason}\n"
+"\n"
+"弊社を選んでいただきありがとうございます。\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Hello.\n"
+"\n"
+"The following booking has been rejected.\n"
+"\n"
+"Reason: {cancellation_reason}\n"
+"\n"
+"Service: {service_name}\n"
+"Date: {appointment_date}\n"
+"Time: {appointment_time}\n"
+"Client name: {client_name}\n"
+"Client phone: {client_phone}\n"
+"Client email: {client_email}"
+msgstr "こんにちは。\n"
+"\n"
+"次の予約は拒否されました。\n"
+"\n"
+"理由：{cancelation_reason}\n"
+"\n"
+"サービス：{service_name}\n"
+"日付：{appointment_date}\n"
+"時間：{appointment_time}\n"
+"クライアント名：{client_name}\n"
+"クライアントの電話番号：{client_phone}\n"
+"クライアントのメールアドレス：{client_email}"
+
+#: 
+msgid "Hello.\n"
+"\n"
+"An account was created for you at {site_address}\n"
+"\n"
+"Your user details:\n"
+"user: {new_username}\n"
+"password: {new_password}\n"
+"\n"
+"Thanks."
+msgstr "こんにちは。\n"
+"\n"
+"{site_address}にあなたのアカウントが作成されました。\n"
+"\n"
+"\n"
+"あなたのユーザーの詳細：\n"
+"ユーザー：{new_username}\n"
+"パスワード：{new_password}\n"
+"\n"
+"ありがとうございます。\n"
+""
+
+#: 
+msgid "Your appointment at {company_name}"
+msgstr "{company_name}のご予約"
+
+#: 
+msgid "Dear {client_name}.\n"
+"\n"
+"We would like to remind you that you have booked {service_name} tomorrow at {appointment_time}. We are waiting for you at {company_address}.\n"
+"\n"
+"Thank you for choosing our company.\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"\n"
+"このメッセージは、{service_name}を明日の{appointment_time}に予約されていることをお知らせするためのものです。 {company_address}であなたをお待ちしております。\n"
+"\n"
+"弊社を選んでいただきありがとうございます。\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Dear {client_name}.\n"
+"\n"
+"We would like to remind you that you have booked {service_name} on {appointment_date} at {appointment_time}. We are waiting for you at {company_address}.\n"
+"\n"
+"Thank you for choosing our company.\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"\n"
+"このメッセージは、{service_name}を{appointment_date}の{appointment_time}にご予約いただいたことをお知らせするためのものです。 {company_address}であなたをお待ちしております。\n"
+"\n"
+"弊社を選んでいただきありがとうございます。\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}\n"
+""
+
+#: 
+msgid "Your visit to {company_name}"
+msgstr "{company_name}へのあなたの訪問"
+
+#: 
+msgid "Dear {client_name}.\n"
+"\n"
+"Thank you for choosing {company_name}. We hope you were satisfied with your {service_name}.\n"
+"\n"
+"Thank you and we look forward to seeing you again soon.\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"\n"
+"{company_name}をご利用いただきありがとうございます。 {service_name}にご満足していただければ光栄です。\n"
+"\n"
+"もうすぐあなたにお会いできることを楽しみにしています。\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Happy Birthday!"
+msgstr "お誕生日おめでとうございます！"
+
+#: 
+msgid "Dear {client_name},\n"
+"\n"
+"Happy birthday!\n"
+"We wish you all the best.\n"
+"May you and your family be happy and healthy.\n"
+"\n"
+"Thank you for choosing our company.\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"\n"
+"お誕生日おめでとうございます！\n"
+"あなたの幸運をお祈り申しあげます。\n"
+"あなたとあなたのご家族が幸せで健康でありますように。\n"
+"\n"
+"弊社を選んでいただきありがとうございます。\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Your agenda for {tomorrow_date}"
+msgstr "{tomorrow_date}のあなたの予定"
+
+#: 
+msgid "Hello.\n"
+"\n"
+"Your agenda for tomorrow is:\n"
+"\n"
+"{next_day_agenda}"
+msgstr "こんにちは。\n"
+"\n"
+"明日のあなたの予定は：\n"
+"\n"
+"{next_day_agenda}"
+
+#: 
+msgid "Dear {client_name}.\n"
+"This is a confirmation that you have booked {service_name}.\n"
+"We are waiting you at {company_address} on {appointment_date} at {appointment_time}.\n"
+"Thank you for choosing our company.\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"このメッセージは、{service_name}の予約を確認するためにお送りしたものです。\n"
+"{appointment_date} の{appointment_time}に {company_address} でお待ちしております。\n"
+"弊社を選んでいただきありがとうございます。\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Dear {client_name}.\n"
+"This is a confirmation that you have booked the following items:\n"
+"{cart_info}\n"
+"Thank you for choosing our company.\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"このメッセージは、あなたが以下の予約をされたことを確認するためにお送りしたものです：\n"
+"{cart_info}\n"
+"弊社を選んでいただきありがとうございます。\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}\n"
+""
+
+#: 
+msgid "Hello.\n"
+"You have a new booking.\n"
+"Service: {service_name}\n"
+"Date: {appointment_date}\n"
+"Time: {appointment_time}\n"
+"Client name: {client_name}\n"
+"Client phone: {client_phone}\n"
+"Client email: {client_email}"
+msgstr "こんにちは。\n"
+"あなたは新しい予約をされました。\n"
+"サービス：{service_name}\n"
+"日付：{appointment_date}\n"
+"時間：{appointment_time}\n"
+"クライアント名：{client_name}\n"
+"クライアントの電話番号：{client_phone}\n"
+"クライアントのメールアドレス：{client_email}"
+
+#: 
+msgid "Dear {client_name}.\n"
+"You have cancelled your booking of {service_name} on {appointment_date} at {appointment_time}.\n"
+"Thank you for choosing our company.\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"{appointment_date}の{appointment_time}の{service_name}のご予約がキャンセルされました。\n"
+"弊社を選んでいただきありがとうございます。\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Hello.\n"
+"The following booking has been cancelled.\n"
+"Service: {service_name}\n"
+"Date: {appointment_date}\n"
+"Time: {appointment_time}\n"
+"Client name: {client_name}\n"
+"Client phone: {client_phone}\n"
+"Client email: {client_email}"
+msgstr "こんにちは。\n"
+"次の予約はキャンセルされました。\n"
+"サービス：{service_name}\n"
+"日付：{appointment_date}\n"
+"時間：{appointment_time}\n"
+"クライアント名：{client_name}\n"
+"クライアントの電話番号：{client_phone}\n"
+"クライアントのメールアドレス：{client_email}"
+
+#: 
+msgid "Dear {client_name}.\n"
+"Your booking of {service_name} on {appointment_date} at {appointment_time} has been rejected.\n"
+"Reason: {cancellation_reason}\n"
+"Thank you for choosing our company.\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"{appointment_date}の{appointment_time}の{service_name}のご予約が拒否されました。\n"
+"理由：{cancellation_reason}\n"
+"弊社を選んでいただきありがとうございます。\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Hello.\n"
+"The following booking has been rejected.\n"
+"Reason: {cancellation_reason}\n"
+"Service: {service_name}\n"
+"Date: {appointment_date}\n"
+"Time: {appointment_time}\n"
+"Client name: {client_name}\n"
+"Client phone: {client_phone}\n"
+"Client email: {client_email}"
+msgstr "こんにちは。\n"
+"次の予約は拒否されました。\n"
+"理由：{cancelation_reason}\n"
+"サービス：{service_name}\n"
+"日付：{appointment_date}\n"
+"時間：{appointment_time}\n"
+"クライアント名：{client_name}\n"
+"クライアントの電話番号：{client_phone}\n"
+"クライアントのメールアドレス：{client_email}"
+
+#: 
+msgid "Hello.\n"
+"An account was created for you at {site_address}\n"
+"Your user details:\n"
+"user: {new_username}\n"
+"password: {new_password}\n"
+"\n"
+"Thanks."
+msgstr "こんにちは。\n"
+"{site_address}にアカウントが作成されました。\n"
+"あなたのユーザーの詳細：\n"
+"ユーザー：{new_username}\n"
+"パスワード：{new_password}\n"
+"\n"
+"ありがとう。\n"
+""
+
+#: 
+msgid "Dear {client_name}.\n"
+"We would like to remind you that you have booked {service_name} tomorrow at {appointment_time}. We are waiting for you at {company_address}.\n"
+"Thank you for choosing our company.\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"このメッセージは、{service_name}を明日の{appointment_time}に予約されていることをお知らせするためのものです。 {company_address}であなたをお待ちしております。\n"
+"弊社を選んでいただきありがとうございます。\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Dear {client_name}.\n"
+"We would like to remind you that you have booked {service_name} on {appointment_date} at {appointment_time}. We are waiting for you at {company_address}.\n"
+"Thank you for choosing our company.\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"このメッセージは、{service_name}を {appointment_date} の{appointment_time}に予約されていることをお知らせするためのものです。 {company_address}であなたをお待ちしております。\n"
+"弊社を選んでいただきありがとうございます。\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Dear {client_name}.\n"
+"Thank you for choosing {company_name}. We hope you were satisfied with your {service_name}.\n"
+"Thank you and we look forward to seeing you again soon.\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"{company_name}をご利用いただきありがとうございます。 {service_name}にご満足していただければ光栄です。\n"
+"もうすぐあなたにお会いできることを楽しみにしています。\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Dear {client_name},\n"
+"Happy birthday!\n"
+"We wish you all the best.\n"
+"May you and your family be happy and healthy.\n"
+"Thank you for choosing our company.\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様、\n"
+"お誕生日おめでとうございます！\n"
+"あなたの幸運をお祈りしております。\n"
+"あなたとあなたの家族が幸せで健康でありますように。\n"
+"弊社を選んでいただきありがとうございます。\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Hello.\n"
+"Your agenda for tomorrow is:\n"
+"{next_day_agenda}"
+msgstr "こんにちは。\n"
+"明日のあなたの予定は以下のようになっています：\n"
+"{next_day_agenda}"
+
+#: 
+msgid "Back"
+msgstr "戻る\n"
+""
+
+#: 
+msgid "Book More"
+msgstr "もっと予約する"
+
+#: 
+msgid "Below you can find a list of services selected for booking.\n"
+"Click BOOK MORE if you want to add more services."
+msgstr "以下では、予約のために選択されたサービスのリストを見つけることができます。より多くのサービスを追加したい場合は、”さらに予約する”をクリックしてください。"
+
+#: 
+msgid "Thank you! Your booking is complete. An email with details of your booking has been sent to you."
+msgstr "ありがとうございました！ 予約が完了しました。 あなたの予約内容の詳細が記載されたメールがあなたに送信されます。"
+
+#: 
+msgid "You selected a booking for {service_name} by {staff_name} at {service_time} on {service_date}. The price for the service is {service_price}.\n"
+"Please provide your details in the form below to proceed with booking."
+msgstr "あなたは、{staff_name}による {service_name}の予約を{service_date}の{service_time}に選択されました。 このサービスの料金は{service_price}となっております。\n"
+"予約を続行するには、下記のフォームにご記入ください。"
+
+#: 
+msgid "Please tell us how you would like to pay: "
+msgstr "お支払い方法を教えてください：␣"
+
+#: 
+msgid "Please select service: "
+msgstr "サービスを選択してください：␣"
+
+#: 
+msgid "Below you can find a list of available time slots for {service_name} by {staff_name}.\n"
+"Click on a time slot to proceed with booking."
+msgstr "以下から{service_name}の利用可能な時間枠のリストを{staff_name}で見つけることができます。\n"
+"時間枠をクリックして予約を進めてください。"
+
+#: 
+msgid "Card Security Code"
+msgstr "カードのセキュリテイコード"
+
+#: 
+msgid "Expiration Date"
+msgstr "有効期限\n"
+""
+
+#: 
+msgid "Credit Card Number"
+msgstr "クレジットカード番号"
+
+#: 
+msgid "Coupon"
+msgstr "クーポン"
+
+#: 
+msgid "Employee"
+msgstr "従業員"
+
+#: 
+msgid "Finish by"
+msgstr "終了時間"
+
+#: 
+msgid "I will pay now with Credit Card"
+msgstr "私は、今、クレジットカードで支払いを済ませます。"
+
+#: 
+msgid "I will pay locally"
+msgstr "私は窓口で支払いを済ませます"
+
+#: 
+msgid "I will pay now with Mollie"
+msgstr "私はMollieで今、支払いを済ませます"
+
+#: 
+msgid "I will pay now with PayPal"
+msgstr "私はPayPalで今、支払いを済ませます"
+
+#: 
+msgid "I'm available on or after"
+msgstr "次の日程か、その後にお会いできます。"
+
+#: 
+msgid "Start from"
+msgstr "開始時間"
+
+#: 
+msgid "Please tell us your email"
+msgstr "あなたのEメールアドレスを教えてください"
+
+#: 
+msgid "Please select an employee"
+msgstr "従業員を選択してください"
+
+#: 
+msgid "Please tell us your name"
+msgstr "あなたのお名前を教えてください"
+
+#: 
+msgid "Please tell us your first name"
+msgstr "あなたのファ―ストネームを教えてください"
+
+#: 
+msgid "Please tell us your last name"
+msgstr "あなたのラストネームを教えてください"
+
+#: 
+msgid "Please tell us your phone"
+msgstr "あなたの電話番号を教えてください"
+
+#: 
+msgid "The selected time is not available anymore. Please, choose another time slot."
+msgstr "選択した時間はもう利用できません。 他の時間枠を選択してください。"
+
+#: 
+msgid "The highlighted time is not available anymore. Please, choose another time slot."
+msgstr "ハイライトされた時間はもう利用できません。 他の時間枠を選択してください。"
+
+#: 
+msgid "Done"
+msgstr "完了"
+
+#: 
+msgid "Signed up"
+msgstr "サインアップ"
+
+#: 
+msgid "Capacity"
+msgstr "許容範囲"
+
+#: 
+msgid "Appointment"
+msgstr "面接\n"
+""
+
+#: 
+msgid "A new appointment has been created. To view the details of this appointment, please contact your website administrator in order to verify Bookly license."
+msgstr "新しい面会の予定が作成されました。 この面会の予約の詳細を表示するには、Booklyライセンスを承認するためにWebサイト管理者に連絡してください。"
+
+#: 
+msgid "You have a new appointment. To view it, contact your admin to verify Bookly license."
+msgstr "あなたに新しい面会の予定が入りました。 表示するには、管理者に連絡して、Booklyライセンスを承認してください。"
+
+#: 
+msgid "A new appointment has been created. To view the details of this appointment, please verify Bookly license in the administrative panel."
+msgstr "新しい面会予定が作成されました。 この面会の詳細を表示するには、管理パネルのBookly ライセンスを承認してください。"
+
+#: 
+msgid "You have a new appointment. To view it, please verify Bookly license."
+msgstr "あなたに新しい面会の予定が入りました。 表示するには、Bookly ライセンスを承認してください。"
+
+#: 
+msgid "Please contact your website administrator to verify Bookly license. If you do not verify the license within {days}, access to your bookings will be disabled."
+msgstr "Booklyライセンスを承認する場合は、ウェブサイト管理者にお問い合わせください。 {days}日以内にライセンスを確認しないと、予約へのアクセスが無効になります。"
+
+#: 
+msgid "Contact your admin to verify Bookly license; {days} remaining."
+msgstr "Booklyライセンスを承認する場合は、管理者に連絡してください。; 後  {days} 日、残っています。"
+
+#: 
+msgid "Please verify Bookly license in the administrative panel. If you do not verify the license within {days}, access to your bookings will be disabled."
+msgstr "管理パネルで「Bookly ライセンス」を承認してください。  {days}日,以内にライセンスを承認しなければ、予約へのアクセスが無効になります。"
+
+#: 
+msgid "Please verify Bookly license; {days} remaining."
+msgstr "Booklyライセンスを承認してください。; 後  {days} 日、残っています。"
+
+#: 
+msgid "Please contact your website administrator in order to verify the license for Bookly add-ons. If you do not verify the license within {days}, the respective add-ons will be disabled."
+msgstr "Booklyアドオンのライセンスを確認するには、Webサイト管理者に連絡してください。{days} 日以内にライセンスを確認しなければ、それぞれのアドオンは無効になります。"
+
+#: 
+msgid "Contact your admin to verify Bookly add-ons license; {days} remaining."
+msgstr "Booklyアドオンライセンスを承認する場合は、管理者に連絡してください。; 後  {days} 日、残っています。"
+
+#: 
+msgid "Please verify the license for Bookly add-ons in the administrative panel. If you do not verify the license within {days}, the respective add-ons will be disabled."
+msgstr "管理パネルでBooklyアドオンのライセンスを承認してください。 {days} 日以内にライセンスを承認しない場合、それぞれのアドオンは無効になります。"
+
+#: 
+msgid "Please verify Bookly add-ons license; {days} remaining."
+msgstr "Booklyアドオンライセンスを承認してください。; 後、残り{days}日です。"
+
+#: 
+msgid "Please verify your Bookly license"
+msgstr "Booklyライセンスを承認してください"
+
+#: 
+msgid "Bookly will need to verify your license to restore access to your bookings. Please enter the purchase code in the administrative panel."
+msgstr "Booklyはあなたの予約へのアクセスを回復するためにライセンスを承認する必要があります。 管理パネルに購入コードを入力してください。"
+
+#: 
+msgid "sent to our system"
+msgstr "当社のシステムに送られました"
+
+#: 
+msgid "Hope you had a good weekend! Here's a summary of messages we've delivered last week:\n"
+"{notification_list}\n"
+"\n"
+"Your system sent a total of {total} messages last week (that's {delta} {sign} than the week before).\n"
+"Cost of sending {total} messages was {amount}. You current Bookly SMS balance is {balance}.\n"
+"\n"
+"Thank you for using Bookly SMS. We wish you a lucky week!\n"
+"Bookly SMS Team."
+msgstr "良い週末を過ごされましたでしょうか。先週お知らせしたメッセージの概要は次のとおりです。：\n"
+"{notification_list}\n"
+"\n"
+"先週、あなたのシステムは合計 {total} 通のメッセージを送信しました（これは前週より{delta} {sign} となっております）。\n"
+"メッセージを送信するのにかかった総額は{amount}となっております。 現在のあなたのBookly SMSの残高は{balance}.となっております。\n"
+"\n"
+"この度は、Bookly SMSをご利用いただきありがとうございます。 どうか、あなたが、楽しい週末を過ごされますように！\n"
+"ブックリーSMSチーム。"
+
+#: 
+msgid "more"
+msgstr "もっと多く"
+
+#: 
+msgid "less"
+msgstr "もっと少なく"
+
+#: 
+msgid "Bookly SMS weekly summary"
+msgstr "Bookly のSMSの週間サマリー"
+
+#: 
+msgid "Your don't have enough Bookly SMS credits to send this message. Please add funds to your balance and try again."
+msgstr "このメッセージを送るには、Bookly SMSクレジットが足りません。 残高に資金を追加してもう一度お試しください。"
+
+#: 
+msgid "Failed to send SMS."
+msgstr "SMSを送信できませんでした。"
+
+#: 
+msgid "Phone number is empty."
+msgstr "電話番号の欄は空白です。"
+
+#: 
+msgid "Queued"
+msgstr "待機中です"
+
+#: 
+msgid "Out of credit"
+msgstr "クレジットがありません"
+
+#: 
+msgid "Country out of service"
+msgstr "サービスが利用できない国\n"
+""
+
+#: 
+msgid "Sending"
+msgstr "送信しています"
+
+#: 
+msgid "Sent"
+msgstr "送信されました"
+
+#: 
+msgid "Delivered"
+msgstr "届けられました"
+
+#: 
+msgid "Failed"
+msgstr "失敗しました"
+
+#: 
+msgid "Undelivered"
+msgstr "送信されませんでした"
+
+#: 
+msgid "Default"
+msgstr "デフォルト"
+
+#: 
+msgid "Declined"
+msgstr "拒否されました"
+
+#: 
+msgid "Cancelled"
+msgstr "キャンセルされました"
+
+#: 
+msgid "Error connecting to server."
+msgstr "サーバーへの接続中にエラーが発生しました。"
+
+#: 
+msgid "Dear Bookly SMS customer.\n"
+"We would like to notify you that your Bookly SMS balance fell lower than 5 USD. To use our service without interruptions please recharge your balance by visiting Bookly SMS page <a href='%s'>here</a>.\n"
+"\n"
+"If you want to stop receiving these notifications, please update your settings <a href='%s'>here</a>."
+msgstr "Bookly のSMSをご利用になられているお客様へ\n"
+"Bookly SMSの残高が5米ドル以下になったのでお知らせ致します。 中断することなく当社のサービスをご利用いただくには、Bookly SMSページの<a href='%s'>こちら</a>で、資金を再度、チャージするようにお願い致します。\n"
+"\n"
+"これらの通知の受信をキャンセルされたい場合は、設定エリア　の<a href='%s'>こちら</a>で更新してください。"
+
+#: 
+msgid "Bookly SMS - Low Balance"
+msgstr "BooklyのSMS - 残高が低くなっています"
+
+#: 
+msgid "Empty password."
+msgstr "パスワードが空白です"
+
+#: 
+msgid "Incorrect password."
+msgstr "パスワードが間違っています"
+
+#: 
+msgid "Incorrect recovery code."
+msgstr "リカバリーコードが間違っています"
+
+#: 
+msgid "Incorrect email or password."
+msgstr "Eメールかパスワードが間違っています"
+
+#: 
+msgid "Incorrect sender ID"
+msgstr "送信者IDが正しくありません"
+
+#: 
+msgid "Pending sender ID already exists."
+msgstr "保留中の送信者IDは既に存在します。"
+
+#: 
+msgid "Recovery code expired."
+msgstr "リカバリコードが期限切れです"
+
+#: 
+msgid "Error sending email."
+msgstr "電子メールの送信中にエラーが発生しました"
+
+#: 
+msgid "User not found."
+msgstr "ユーザーが見つかりません"
+
+#: 
+msgid "Email already in use."
+msgstr "すでに使用中のEメールです。\n"
+""
+
+#: 
+msgid "Dear {client_name}.\n"
+"\n"
+"This is confirmation that you have booked {service_name}.\n"
+"\n"
+"We are waiting you at {company_address} on {appointment_date} at {appointment_time}.\n"
+"\n"
+"Thank you for choosing our company.\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"\n"
+"このメッセージは、あなたが{service_name}を予約されたことの確認の為にお送りしました。\n"
+"\n"
+"{appointment_date}の{appointment_time}に{company_address}でお待ちしております。\n"
+"\n"
+"弊社を選んでいただきありがとうございます。\n"
+"\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Dear {client_name}.\n"
+"This is confirmation that you have booked {service_name}.\n"
+"We are waiting you at {company_address} on {appointment_date} at {appointment_time}.\n"
+"Thank you for choosing our company.\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"このメッセージは、あなたが{service_name}を予約されたことの確認の為にお送りしました。\n"
+"{appointment_date}の{appointment_time}に{company_address}でお待ちしております。\n"
+"弊社を選んでいただきありがとうございます。\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "Dear {client_name}.\n"
+"We would like to remind you that you have booked {service_name} tomorrow on {appointment_time}. We are waiting you at {company_address}.\n"
+"Thank you for choosing our company.\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+msgstr "{client_name}様\n"
+"このメッセージは、あなたが予約された {service_name}の確認としてお送りいたしました。明日の{appointment_time}に{company_address}でお待ちしております。\n"
+"弊社を選んでいただきありがとうございます。\n"
+"{company_name}\n"
+"{company_phone}\n"
+"{company_website}"
+
+#: 
+msgid "The price for the service is {service_price}."
+msgstr "このサービスの価格は{service_price}です。"
+
+#: 
+msgid "Notes (optional)"
+msgstr "メモ（オプション）"
+
+#: 
+msgid "Invalid email"
+msgstr "無効なEメールです"
+
+#: 
+msgid "This email is already in use"
+msgstr "この電子メールは既に利用されています\n"
+""
+
+#: 
+msgid "\"%s\" is too long (%d characters max)."
+msgstr "\"％s\"は長すぎます（％d文字以内）"
+
+#: 
+msgid "Invalid number"
+msgstr "無効な数字です"
+
+#: 
+msgid "Invalid date"
+msgstr "無効な日付です"
+
+#: 
+msgid "Invalid time"
+msgstr "無効な時間です"
+
+#: 
+msgid "Your %s: %s is already associated with another %s.<br/>Press Update if we should update your user data, or press Cancel to edit entered data."
+msgstr "％s：％sはすでに別の％sに関連付けられています。<br/>ユーザーデータを更新する必要がある場合は「更新」を押し、入力データを編集する場合は「キャンセル」を押してください。\n"
+""
+
+#: 
+msgid "Check for updates"
+msgstr "アップデートを確認する"
+
+#: 
+msgid "This plugin is up to date."
+msgstr "このプラグインは最新です"
+
+#: 
+msgid "A new version of this plugin is available."
+msgstr "このプラグインの新しいバージョンが利用可能です。"
+
+#: 
+msgid "Unknown update checker status \"%s\""
+msgstr "不明な更新の確認ステータス \"％s\""
+
+#: 
+msgid "To update - enter the <a href=\"%s\">Purchase Code</a>"
+msgstr "更新するには、<a href=\"%s\">購入コード</a>を入力してください"
+
+#: 
+msgid "Rejected"
+msgstr "拒否されました"
+
+#: 
+msgid "Notification to customer about approved appointment"
+msgstr "承認された面会予定についての顧客への通知"
+
+#: 
+msgid "Notification to customer about approved appointments"
+msgstr "承認された面会予定についての顧客への通知"
+
+#: 
+msgid "Notification to customer about cancelled appointment"
+msgstr "キャンセルされた面会予定についての顧客への通知"
+
+#: 
+msgid "Notification to customer about rejected appointment"
+msgstr "拒否された面会予定についての顧客への通知"
+
+#: 
+msgid "Follow-up message in the same day after appointment (requires cron setup)"
+msgstr "予約後の同日のフォローアップメッセージ（クローンの設定が必要です）"
+
+#: 
+msgid "Notification to customer about their WordPress user login details"
+msgstr "顧客に向けたWordPressユーザーのログイン情報に関する通知"
+
+#: 
+msgid "Notification to customer about pending appointment"
+msgstr "保留中の面会予定に関する顧客への通知"
+
+#: 
+msgid "Notification to customer about pending appointments"
+msgstr "保留中の面会予定に関する顧客への通知"
+
+#: 
+msgid "Evening reminder to customer about next day appointment (requires cron setup)"
+msgstr "翌日の面会予約についての顧客へのリマインダー（クローンの設定が必要です）"
+
+#: 
+msgid "1st reminder to customer about upcoming appointment (requires cron setup)"
+msgstr "次回の面会予定についての顧客への第1回リマインダー（クローンの設定が必要です）"
+
+#: 
+msgid "2nd reminder to customer about upcoming appointment (requires cron setup)"
+msgstr "次回の面会予定についての顧客への第2回リマインダー（クローンのセットアップが必要です）"
+
+#: 
+msgid "3rd reminder to customer about upcoming appointment (requires cron setup)"
+msgstr "次回の面会予定についての顧客への第3回リマインダー（クローンのセットアップが必要です）"
+
+#: 
+msgid "Customer birthday greeting (requires cron setup)"
+msgstr "顧客への誕生日の挨拶（クローンの設定が必要です）"
+
+#: 
+msgid "Evening notification with the next day agenda to staff member (requires cron setup)"
+msgstr "スタッフの翌日の予定に関する夜間の通知（クローンの設定が必要です）"
+
+#: 
+msgid "Notification to staff member about approved appointment"
+msgstr "承認された面会予定についてのスタッフへの通知"
+
+#: 
+msgid "Notification to staff member about cancelled appointment"
+msgstr "キャンセルされた面会予定についてのスタッフへの通知"
+
+#: 
+msgid "Notification to staff member about rejected appointment"
+msgstr "拒否された面会予定についてのスタッフへの通知"
+
+#: 
+msgid "Notification to staff member about pending appointment"
+msgstr "保留中の面会予定についてのスタッフへの通知"
+
+#: 
+msgid "Test message"
+msgstr "テストメッセージ"
+
+#: 
+msgid "Local"
+msgstr "窓口"
+
+#: 
+msgid "Completed"
+msgstr "完了しました"
+
+#: 
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] "％d週間\n"
+"複数：％d週間"
+
+#: 
+msgid "%d h"
+msgstr "%d 時間"
+
+#: 
+msgid "%d min"
+msgstr "%d 分"
+
+#: 
+msgid "To view the details of this appointments, please contact your website administrator in order to verify Bookly license."
+msgstr "この面会予約の詳細を表示するには、Booklyライセンスを承認するためにWebサイト管理者に連絡してください。"
+
+#: 
+msgid "Form view in case of successful booking"
+msgstr "予約が成功した場合のフォームビュー"
+
+#: 
+msgid "Form view in case the number of bookings exceeds the limit"
+msgstr "予約数が制限を超えた場合のフォームビュー"
+
+#: 
+msgid "Form view in case of payment has been accepted for processing"
+msgstr "支払い処理が承認された場合のフォームビュー"
+
+#: 
+msgid "No result found"
+msgstr "結果が見つかりません"
+
+#: 
+msgid "Package"
+msgstr "パッケージ"
+
+#: 
+msgid "Package schedule"
+msgstr "パッケージのスケジュール\n"
+""
+
+#: 
+msgid "You may import list of clients in CSV format. You can choose the columns contained in your file. The sequence of columns should coincide with the specified one."
+msgstr "CSV形式のクライアントのリストをインポートすることができます。 ファイルに含まれる列を選択できます。 列の順序は、指定された列と一致させる必要があります。"
+
+#: 
+msgid "messages"
+msgstr "メッセージ\n"
+""
+
+#: 
+msgid "First"
+msgstr "最初"
+
+#: 
+msgid "Previous"
+msgstr "前"
+
+#: 
+msgid "Last"
+msgstr "最後"
+
+#: 
+msgid "URL of reject appointment link (to use inside <a> tag)"
+msgstr "面会予定の拒否のリンクのURL（<a>タグ内で使用する）"
+
+#: 
+msgid "Custom notification"
+msgstr "カスタム通知"
+
+#: 
+msgid "Appointment date and time"
+msgstr "面会の日付と時間"
+
+#: 
+msgid "Customer's birthday"
+msgstr "顧客の誕生日"
+
+#: 
+msgid "With status"
+msgstr "ステータス"
+
+#: 
+msgid "Instantly"
+msgstr "即座に"
+
+#: 
+msgid "days"
+msgstr "日"
+
+#: 
+msgid "after"
+msgstr "後で"
+
+#: 
+msgid "at"
+msgstr "場所"
+
+#: 
+msgid "before"
+msgstr "前"
+
+#: 
+msgid "Recipient"
+msgstr "受信者"
+
+#: 
+msgid "Custom"
+msgstr "カスタム\n"
+""
+
+#: 
+msgid "New Notification"
+msgstr "新しい告知"
+
+#: 
+msgid "Start and end times of the appointment"
+msgstr "面会予定の開始時刻と終了時刻"
+
+#: 
+msgid "Allows to set the start and end times for an appointment for services with the duration of 1 day or longer. This time will be displayed in notifications to customers."
+msgstr "1日以上のサービスの面会予定の開始時刻と終了時刻を設定できます。 この時間は顧客への通知に表示されます。"
+
+#: 
+msgid "Limit appointments per customer"
+msgstr "顧客あたりの面会予約を制限する"
+
+#: 
+msgid "Allows you to limit the frequency of service bookings per customer."
+msgstr "顧客あたりのサービスの予約の頻度を制限することができます。"
+
+#: 
+msgid "per day"
+msgstr "1日あたり"
+
+#: 
+msgid "per week"
+msgstr "1週間あたり"
+
+#: 
+msgid "per month"
+msgstr "1か月あたり"
+
+#: 
+msgid "per year"
+msgstr "1年当たり"
+
+#: 
+msgid "Show confirmation dialog before updating customer's data"
+msgstr "顧客のデータを更新する前に確認ダイアログを表示する"
+
+#: 
+msgid "If this option is enabled and customer enters contact info different from the previous order, a warning message will appear asking to update the data."
+msgstr "このオプションを有効にすると、顧客が以前の注文と異なる連絡先情報を入力した場合、データの更新を求める警告メッセージが表示されます。"
+
+#: 
+msgid "Reject appointment URL (success)"
+msgstr "面会予定のURLを拒否する（成功）"
+
+#: 
+msgid "Set the URL of a page that is shown to staff after they successfully rejected the appointment."
+msgstr "面会の予定が拒否された後、スタッフに表示されるページのURLを設定します。"
+
+#: 
+msgid "Reject appointment URL (denied)"
+msgstr "面会予定URLを拒否する（拒否）"
+
+#: 
+msgid "Set the URL of a page that is shown to staff when the rejection of appointment cannot be done (due to changed status, etc.)."
+msgstr "面会予定の拒否ができない場合（状態の変更などにより）に、スタッフに表示されるページのURLを設定します。"
+
+#: 
+msgid "Notification name"
+msgstr "通知名"
+
+#: 
+msgid "You are trying to use the service too often. Please contact us to make a booking."
+msgstr "あなたはサービスを頻繁に使用しすぎています。 予約をするには私達に連絡してください。"
+
+#: 
+msgid "%s has reached the limit of bookings for this service"
+msgstr "％s回の予約がこのサービスの予約限度となっております。"
+
+#: 
+msgid "Reminder notification"
+msgstr "リマインダー通知"
+
+#: 
+msgid "URL Settings"
+msgstr "URLの設定"
+
+#: 
+msgid "on the same day"
+msgstr "同じ日に"
+
+#: 
+msgid "Administrators"
+msgstr "管理者"
+
+#: 
+msgid "Show notes field"
+msgstr "メモ欄を表示する"
+
+#: 
+msgid "Custom service name"
+msgstr "カスタムサービス名"
+
+#: 
+msgid "Please enter a service name"
+msgstr "サービス名を入力してください"
+
+#: 
+msgid "Custom service price"
+msgstr "カスタムサービス価格"
+
+#: 
+msgid "customer notes for appointment"
+msgstr "面会予約のための顧客メモ"
+
+#: 
+msgid "URL of cancel appointment link with confirmation (to use inside <a> tag)"
+msgstr "面会予定のキャンセルの確認用リンクのURL（<a>タグ内で使用する）"
+
+#: 
+msgid "agenda date"
+msgstr "予定日"
+
+#: 
+msgid "Attach ICS file"
+msgstr "ICSファイルの添付"
+
+#: 
+msgid "Event notification"
+msgstr "イベントの告知"
+
+#: 
+msgid "Status changed"
+msgstr "ステータスが変更されました"
+
+#: 
+msgid "New booking"
+msgstr "新しい予約"
+
+#: 
+msgid "Last client's appointment"
+msgstr "前回のクライアントとの面会\n"
+""
+
+#: 
+msgid "Full day agenda"
+msgstr "1日の予定"
+
+#: 
+msgid "Notification period"
+msgstr "告知の期間\n"
+""
+
+#: 
+msgid "Set period of time when system will attempt to deliver notification to user. Notification will be discarded after period expiration."
+msgstr "システムがユーザーに通知を配信しようとする時間を設定します。 期間終了後、通知は破棄されます。"
+
+#: 
+msgid "Save changes"
+msgstr "変更を保存する"
+
+#: 
+msgid "Continue without saving"
+msgstr "保存せずに続ける"
+
+#: 
+msgid "Appointment cancellation confirmation URL"
+msgstr "面会予定の取消確認URL"
+
+#: 
+msgid "Set the URL of an appointment cancellation confirmation page that is shown to clients when they press cancellation link."
+msgstr "キャンセル用リンクを押すと、クライアントに表示される面会予定のキャンセル確認ページのURLを設定できます。"
+
+#: 
+msgid "Accept <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Terms & Conditions</a>"
+msgstr "<a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">利用規約</a>に同意する"
+
+#: 
+msgid "Add appointment cancellation confirmation"
+msgstr "面会予約のキャンセルの確認を追加する"
+
+#: 
+msgid "Confirm"
+msgstr "確認する"
+
+#: 
+msgid "Thank you for being with us"
+msgstr "私達のサービスをご利用いただきありがとうございます。"
+
+#: 
+msgid "When creating a new notification, the page will be reloaded, and all unsaved changes will be lost."
+msgstr "新しい通知を作成すると、ページがリロードされ、保存されていない変更はすべて失われます。"
+
+#: 
+msgid "Show time zone switcher"
+msgstr "タイムゾーンスイッチャーを表示する"
+
+#: 
+msgid "Attachments"
+msgstr "添付ファイル"
+
+#: 
+msgid "time zone of client"
+msgstr "クライアントのタイムゾーン\n"
+""
+
+#: 
+msgid "Reason"
+msgstr "理由"
+
+#: 
+msgid "Manual adjustment"
+msgstr "手動による調整"
+
+#: 
+msgid "Are you sure you want to dissociate this purchase code from %s?\n"
+"\n"
+"This will also remove the entered purchase code from this site."
+msgstr "この購入コードと％sの関連付けを解除してもよろしいですか？\n"
+"\n"
+"これにより、入力した購入コードもこのサイトから削除されます。"
+
+#: 
+msgid "Price correction"
+msgstr "価格の修正"
+
+#: 
+msgid "Increase/Discount (%)"
+msgstr "増加/割引 (%)"
+
+#: 
+msgid "Addition/Deduction"
+msgstr "追加/控除"
+
+#: 
+msgid "You are going to delete item which is involved in upcoming appointments. All related appointments will be deleted. Please double check and edit appointments before this item deletion if needed."
+msgstr "あなたは今後予定されているアイテムを削除しようとしています。 関連するすべての面会予定は削除されます。 必要に応じて、このアイテムを削除する前に、面会予定の内容を再確認して編集してください。"
+
+#: 
+msgid "Edit appointments"
+msgstr "面会を編集する"
+
+#: 
+msgid "Error."
+msgstr "エラーがおきました\n"
+""
+
+#: 
+msgid "%s is used on another domain %s.<br/>In order to use the purchase code on this domain, please dissociate it in the admin panel of the other domain.<br/>If you do not have access to the admin area, please contact our technical support at support@ladela.com to transfer the license manually."
+msgstr "％sは別のドメイン％sで使用されています。このドメインで購入コードを使用するには、他のドメインの管理パネルで解除してください。<br/>管理エリアにアクセスできない場合に、ライセンスを手動で移転するには、テクニカルサポートsupport@ladela.comまでご連絡ください。"
+
+#: 
+msgid "<a class=\"%s\" href=\"#\">Click here</a> to dissociate this purchase code from the current domain (use to move the plugin to another site)."
+msgstr "この購入コードと現在のドメインとの関連付けを解除するには、<a class=\"%s\" href=\"#\">ここをクリック</a>してください（プラグインを別のサイトに移動する場合に使用してください）。"
+
+#: 
+msgid "Internal Notes"
+msgstr "内部メモ\n"
+""
+
+#: 
+msgid "Error dissociating purchase code."
+msgstr "購入コードの解読中にエラーが発生しました。"
+
+#: 
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "％d年\n"
+"複数：％d年"
+
+#: 
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "％d月\n"
+"複数：％dヶ月"
+
+#: 
+msgid "Analytics"
+msgstr "分析"
+
+#: 
+msgid "Set order of the fields in calendar"
+msgstr "カレンダーの欄の順序を設定する"
+
+#: 
+msgid "New Customers"
+msgstr "新しい顧客"
+
+#: 
+msgid "No service selected"
+msgstr "サービスが選択されていません"
+
+#: 
+msgid "Sessions"
+msgstr "セッション"
+
+#: 
+msgid "Visits"
+msgstr "訪問\n"
+""
+
+#: 
+msgid "Attach payment"
+msgstr "支払い内容を添付する"
+
+#: 
+msgid "Enter payment ID"
+msgstr "支払いIDを入力する"
+
+#: 
+msgid "Bind payment"
+msgstr "バインド•ペイメント"
+
+#: 
+msgid "Payment is not found."
+msgstr "支払い内容が見つかりません\n"
+""
+
+#: 
+msgid "Invalid day"
+msgstr "無効な日程"
+
+#: 
+msgid "Day is required"
+msgstr "日は必須です"
+
+#: 
+msgid "Month is required"
+msgstr "月は必須です"
+
+#: 
+msgid "Year is required"
+msgstr "年は必須です"
+
+#: 
+msgid "Select day"
+msgstr "日を選択する"
+
+#: 
+msgid "Select month"
+msgstr "月を選択する\n"
+""
+
+#: 
+msgid "Select year"
+msgstr "年を選択してください\n"
+""
+
+#: 
+msgid "Birthday"
+msgstr "誕生日\n"
+""
+
+#: 
+msgid "Show birthday field"
+msgstr "誕生日の欄を表示する"
+
+#: 
+msgid "Selected period doesn't match provider's schedule"
+msgstr "選択した期間がプロバイダのスケジュールと一致しません"
+
+#: 
+msgid "Selected period doesn't match service schedule"
+msgstr "選択した期間がサービススケジュールと一致しません"
+
+#: 
+msgid "The value is taken from client's browser."
+msgstr "値はクライアントのブラウザから取得されます。"
+
+#: 
+msgid "Sessions - number of completed and/or planned service sessions."
+msgstr "セッション - 完了したおよび/または予定されたサービスのセッションの数。"
+
+#: 
+msgid "Approved - number of visitors of sessions with Approved status during the selected period."
+msgstr "承認済み - 選択した期間中にセッションが承認済みとなった訪問者数。"
+
+#: 
+msgid "Pending - number of visitors of sessions with Pending status during the selected period."
+msgstr "保留中 - 選択した期間中にセッションが保留状態となった訪問者数。"
+
+#: 
+msgid "Rejected - number of visitors of sessions with Rejected status during the selected period."
+msgstr " 拒否ー選択した期間中にセッションを拒否した訪問者数。"
+
+#: 
+msgid "Cancelled - number of visitors of sessions with Cancelled status during the selected period."
+msgstr "キャンセル- 選択した期間中にセッションをキャンセルした訪問者数。"
+
+#: 
+msgid "Customers - number of unique customers who made bookings during the selected period."
+msgstr "顧客 - 選択した期間に予約を行った一顧客の数。"
+
+#: 
+msgid "New customers - number of new customers added to the database during the selected period."
+msgstr "新規の顧客 - 選択した期間中にデータベースに追加された新規顧客の数。"
+
+#: 
+msgid "Total - approximate cost of appointments with Approved and Pending statuses, calculated on the basis of the price list. Appointments that are paid through the front-end and have Pending payment status are included in brackets."
+msgstr "合計 - 価格リストに基づいて計算された承認済みおよび保留中のステータスの予定の概算コスト。 フロントエンドから支払われ、支払いステータスが保留中の予定は、大括弧で囲まれています。"
+
+#: 
+msgid "Tax"
+msgstr "税金"
+
+#: 
+msgid "Group discount"
+msgstr "グループ割引"
+
+#: 
+msgid "Coupon discount"
+msgstr "クーポン割引"
+
+#: 
+msgid "Send tax information"
+msgstr "税務情報を送信する"
+
+#: 
+msgid "App ID"
+msgstr "アプリID"
+
+#: 
+msgid "Show Facebook login button"
+msgstr "Facebookのログインボタンを表示する"
+
+#: 
+msgid "State/Region"
+msgstr "州/地域"
+
+#: 
+msgid "Postal Code"
+msgstr "郵便番号"
+
+#: 
+msgid "City"
+msgstr "市"
+
+#: 
+msgid "Street Address"
+msgstr "住所"
+
+#: 
+msgid "Country is required"
+msgstr "国が必要です"
+
+#: 
+msgid "State is required"
+msgstr "州（県名）が必要です"
+
+#: 
+msgid "Postcode is required"
+msgstr "郵便番号が必要です"
+
+#: 
+msgid "City is required"
+msgstr "市が必要です"
+
+#: 
+msgid "Street is required"
+msgstr "通り名が必要です"
+
+#: 
+msgid "Make address mandatory"
+msgstr "住所の記入を必須にする"
+
+#: 
+msgid "Show address fields"
+msgstr "住所の欄を表示する"
+
+#: 
+msgid "address of client"
+msgstr "クライアントの住所"
+
+#: 
+msgid "-- Select calendar --"
+msgstr "- カレンダーを選択 -"
+
+#: 
+msgid "If there is a lot of events in Google Calendar sometimes this leads to a lack of memory in PHP when Bookly tries to fetch all events. You can limit the number of fetched events here."
+msgstr "Booklyが全てのイベントを取得する時に、Googleカレンダーに多くのイベントがある場合、時にはPHPにメモリが不足することがあります。 取得したイベントの数をここで制限できます。"
+
+#: 
+msgid "Invoice"
+msgstr "請求書"
+
+#: 
+msgid "Phone field required"
+msgstr "電話の欄は必須です"
+
+#: 
+msgid "Email field required"
+msgstr "Eメールの欄が必要です"
+
+#: 
+msgid "Both email and phone fields required"
+msgstr "Eメールと電話の両方の欄が必要です"
+
+#: 
+msgid "Additional Address"
+msgstr "追加の住所\n"
+""
+
+#: 
+msgid "If enabled, a customer will be required to enter address to proceed with a booking."
+msgstr "有効にすると、顧客は予約を進めるために住所を入力する必要があります。"
+
+#: 
+msgid "Customer's address fields"
+msgstr "顧客の住所の欄"
+
+#: 
+msgid "Choose address fields you want to request from the client."
+msgstr "クライアントに要求したい住所の欄を選択します。"
+
+#: 
+msgid "To set up Facebook integration, do the following:"
+msgstr "Facebookの統合を設定するには、次の手順を実行します。"
+
+#: 
+msgid "Follow the steps at <a href=\"https://developers.facebook.com/docs/apps/register\" target=\"_blank\">https://developers.facebook.com/docs/apps/register</a> to create a Developer Account, register and configure your <b>Facebook App</b>. Below the App Details Panel click <b>Add Platform</b> button, select Website and enter your website URL."
+msgstr " デベロッパーアカウントを作成するには、<a href=\"https://developers.facebook.com/docs/apps/register\" target=\"_blank\"> https://developers.facebook.com/docs/apps/register </a>の手順に従ってください。<b> Facebook アプリ </ b>を登録して設定してください。 アプリケーションの詳細パネルの下にある[<b>プラットフォームの追加</ b>]ボタンをクリックし、[ウェブサイト]を選択してウェブサイトのURLを入力します。"
+
+#: 
+msgid "Go to your <a href=\"https://developers.facebook.com/apps/\" target=\"_blank\">App Dashboard</a>. In the left side navigation panel of the App Dashboard, click <b>Settings > Basic</b> to view the App Details Panel with your <b>App ID</b>. Use it in the form below."
+msgstr "<a href=\"https://developers.facebook.com/apps/\" target=\"_blank\"> アプリ•ダッシュボード</a>にアクセスします。 アプリ•ダッシュボードの左側のナビゲーションパネルで、<b>設定> 基本</b>をクリックして、<b>アプリID </ b>でアプリ詳細パネルを表示します。 以下の形式で使用してください。\n"
+""
+
+#: 
+msgid "Please configure Facebook App integration in <a href=\"%s\">settings</a> first."
+msgstr "まず<a href=\"%s\">設定</a>でFacebookのアプリケーション統合を設定してください。"
+
+#: 
+msgid "Ok"
+msgstr "OKです\n"
+""
+
+#: 
+msgid "Additional address is required"
+msgstr "追加の住所が必要です\n"
+""
+
+#: 
+msgid "Synchronization mode"
+msgstr "同期モード"
+
+#: 
+msgid "With \"One-way\" sync Bookly pushes new appointments and any further changes to Google Calendar. With \"Two-way front-end only\" sync Bookly will additionally fetch events from Google Calendar and remove corresponding time slots before displaying the Time step of the booking form (this may lead to a delay when users click Next to get to the Time step)."
+msgstr "「一方通行」の同期Bookly は、新しい予定やそれ以上の変更をGoogleカレンダーに組み込もうとします。 「双方向のフロントエンドのみ」の同期では、BooklyはGoogleカレンダーからイベントを取得し、対応する時間枠を削除してから予約フォームのステップ時間を表示します（これにより、ユーザーが「次へ」をクリックしてステップ時間にアクセスすると削除される場合があります ）。"
+
+#: 
+msgid "One-way"
+msgstr "一方通行"
+
+#: 
+msgid "Two-way front-end only"
+msgstr "双方向フロントエンドのみ"
+
