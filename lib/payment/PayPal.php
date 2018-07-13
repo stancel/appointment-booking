@@ -34,7 +34,6 @@ class PayPal
      * Send the Express Checkout NVP request
      *
      * @param $form_id
-     * @throws \Exception
      */
     public function sendECRequest( $form_id )
     {

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-if (!class_exists('Google_Client')) {
+if (!class_exists('BooklyGoogle_Client')) {
   require_once dirname(__FILE__) . '/../autoload.php';
 }
 
@@ -27,7 +27,7 @@ if (!class_exists('Google_Client')) {
  * @author Chirag Shah <chirags@google.com>
  *
  */
-class Google_Http_Request
+class BooklyGoogle_Http_Request
 {
   const GZIP_UA = " (gzip)";
 
@@ -49,7 +49,7 @@ class Google_Http_Request
   protected $responseHttpCode;
   protected $responseHeaders;
   protected $responseBody;
-  
+
   protected $expectedClass;
   protected $expectedRaw = false;
 
@@ -76,7 +76,7 @@ class Google_Http_Request
   {
     return $this->baseComponent;
   }
-  
+
   /**
    * Set the base URL that path and query parameters will be added to.
    * @param $baseComponent string
@@ -85,7 +85,7 @@ class Google_Http_Request
   {
     $this->baseComponent = rtrim($baseComponent, '/');
   }
-  
+
   /**
    * Enable support for gzipped responses with this request.
    */
@@ -95,7 +95,7 @@ class Google_Http_Request
     $this->canGzip = true;
     $this->setUserAgent($this->userAgent);
   }
-  
+
   /**
    * Disable support for gzip responses with this request.
    */
@@ -110,7 +110,7 @@ class Google_Http_Request
     $this->canGzip = false;
     $this->userAgent = str_replace(self::GZIP_UA, "", $this->userAgent);
   }
-  
+
   /**
    * Can this request accept a gzip response?
    * @return bool
@@ -171,7 +171,7 @@ class Google_Http_Request
   {
     return $this->responseBody;
   }
-  
+
   /**
    * Set the class the response to this request should expect.
    *
@@ -181,7 +181,7 @@ class Google_Http_Request
   {
     $this->expectedClass = $class;
   }
-  
+
   /**
    * Retrieve the expected class the response should expect.
    * @return string class name
@@ -222,7 +222,7 @@ class Google_Http_Request
    */
   public function setResponseHeaders($headers)
   {
-    $headers = Google_Utils::normalize($headers);
+    $headers = BooklyGoogle_Utils::normalize($headers);
     if ($this->responseHeaders) {
       $headers = array_merge($this->responseHeaders, $headers);
     }
@@ -340,7 +340,7 @@ class Google_Http_Request
    */
   public function setRequestHeaders($headers)
   {
-    $headers = Google_Utils::normalize($headers);
+    $headers = BooklyGoogle_Utils::normalize($headers);
     if ($this->requestHeaders) {
       $headers = array_merge($this->requestHeaders, $headers);
     }
@@ -427,7 +427,7 @@ class Google_Http_Request
       $str .= "\n";
       $str .= $this->getPostBody();
     }
-    
+
     $headers = '';
     foreach ($this->batchHeaders as $key => $val) {
       $headers .= $key . ': ' . $val . "\n";
@@ -438,7 +438,7 @@ class Google_Http_Request
 
     return $str;
   }
-  
+
   /**
    * Our own version of parse_str that allows for multiple variables
    * with the same name.
@@ -462,7 +462,7 @@ class Google_Http_Request
     }
     return $return;
   }
-  
+
   /**
    * A version of build query that allows for multiple
    * duplicate keys.
@@ -482,7 +482,7 @@ class Google_Http_Request
     }
     return implode('&', $return);
   }
-  
+
   /**
    * If we're POSTing and have no body to send, we can send the query
    * parameters in there, which avoids length issues with longer query

@@ -550,7 +550,7 @@ class Notifier
                                 SELECT MAX(`a2`.`start_date`) FROM `{ab_appointments}` `a2`
                                     INNER JOIN `{ab_customer_appointments}` `ca3` ON `ca3`.`appointment_id` = `a2`.`id`
                                 WHERE `ca3`.`customer_id` = `c`.`id` AND {ca3_status_equal}
-                            )
+                            ) LIMIT 1
                         ) `last_ca_id` FROM `{ab_customers}` `c`
                     )
                     AND {sent_time_interval}

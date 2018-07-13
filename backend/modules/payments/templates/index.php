@@ -1,5 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 use Bookly\Lib\Entities\Payment;
+use Bookly\Backend\Components;
+use Bookly\Backend\Modules\Payments\Proxy;
 ?>
 <div id="bookly-tbs" class="wrap">
     <div class="bookly-tbs-body">
@@ -7,7 +9,7 @@ use Bookly\Lib\Entities\Payment;
             <div class="bookly-page-title">
                 <?php _e( 'Payments', 'bookly' ) ?>
             </div>
-            <?php Bookly\Backend\Modules\Support\Components::getInstance()->renderButtons( $this::page_slug ) ?>
+            <?php Components\Support\Buttons::render( $self::pageSlug() ) ?>
         </div>
         <div class="panel panel-default bookly-main">
             <div class="panel-body">
@@ -32,7 +34,7 @@ use Bookly\Lib\Entities\Payment;
                             <select id="bookly-filter-type" class="form-control bookly-js-select" data-placeholder="<?php esc_attr_e( 'Type', 'bookly' ) ?>">
                                 <?php foreach ( $types as $type ) : ?>
                                     <option value="<?php echo esc_attr( $type ) ?>">
-                                        <?php echo Bookly\Lib\Entities\Payment::typeToString( $type ) ?>
+                                        <?php echo Payment::typeToString( $type ) ?>
                                     </option>
                                 <?php endforeach ?>
                             </select>
@@ -100,15 +102,15 @@ use Bookly\Lib\Entities\Payment;
                     </tfoot>
                 </table>
                 <div class="text-right bookly-margin-top-lg">
-                    <?php Bookly\Lib\Proxy\Invoices::renderDownloadInvoicesButton() ?>
-                    <?php Bookly\Lib\Utils\Common::deleteButton() ?>
+                    <?php Proxy\Invoices::renderDownloadButton() ?>
+                    <?php Components\Controls\Buttons::renderDelete() ?>
                 </div>
             </div>
         </div>
 
         <div ng-app="paymentDetails" ng-controller="paymentDetailsCtrl">
             <div payment-details-dialog></div>
-            <?php Bookly\Backend\Modules\Payments\Components::getInstance()->renderPaymentDetailsDialog() ?>
+            <?php Components\Dialogs\Payment\Dialog::render() ?>
         </div>
     </div>
 </div>

@@ -16,6 +16,7 @@ class Payment extends Lib\Base\Entity
     const TYPE_STRIPE       = 'stripe';
     const TYPE_AUTHORIZENET = 'authorize_net';
     const TYPE_2CHECKOUT    = '2checkout';
+    const TYPE_PAYUBIZ      = 'payu_biz';
     const TYPE_PAYULATAM    = 'payu_latam';
     const TYPE_PAYSON       = 'payson';
     const TYPE_MOLLIE       = 'mollie';
@@ -79,6 +80,7 @@ class Payment extends Lib\Base\Entity
             case self::TYPE_STRIPE:       return 'Stripe';
             case self::TYPE_AUTHORIZENET: return 'Authorize.Net';
             case self::TYPE_2CHECKOUT:    return '2Checkout';
+            case self::TYPE_PAYUBIZ:      return 'PayUbiz';
             case self::TYPE_PAYULATAM:    return 'PayU Latam';
             case self::TYPE_PAYSON:       return 'Payson';
             case self::TYPE_MOLLIE:       return 'Mollie';
@@ -179,6 +181,8 @@ class Payment extends Lib\Base\Entity
                     'wait_listed'       => $wait_listed,
                     'deposit_format'    => $deposit_format,
                     'number_of_persons' => $sub_item->getCA()->getNumberOfPersons(),
+                    'units'             => $sub_item->getCA()->getUnits(),
+                    'duration'          => $sub_item->getService()->getDuration(),
                     'staff_name'        => $sub_item->getStaff()->getFullName(),
                     'extras'            => $extras,
                 );
@@ -229,7 +233,7 @@ class Payment extends Lib\Base\Entity
                 'tax_in_price'     => $details['tax_in_price'],
                 'extras_multiply_nop' => isset( $details['extras_multiply_nop'] ) ? $details['extras_multiply_nop'] : 1,
             ),
-            'adjustments'         => $details['adjustments'] ?: array(),
+            'adjustments'         => isset( $details['adjustments'] ) ? $details['adjustments'] : array(),
         );
     }
 

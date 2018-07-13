@@ -1,9 +1,6 @@
 <?php
 namespace Bookly\Lib;
 
-use Bookly\Lib\Proxy\Taxes;
-use BooklyCoupons\Lib\Entities\Coupon;
-
 /**
  * Class CartInfo
  * @package Bookly\Lib\Booking
@@ -42,7 +39,7 @@ class CartInfo
     /** @var float */
     private $total_tax;
 
-    /** @var Coupon|false */
+    /** @var \BooklyCoupons\Lib\Entities\Coupon|false */
     private $coupon = false;
     /** @var UserBookingData */
     private $userData;
@@ -60,7 +57,7 @@ class CartInfo
     /**
      * Gets coupon
      *
-     * @return Coupon
+     * @return \BooklyCoupons\Lib\Entities\Coupon
      */
     public function getCoupon()
     {
@@ -70,7 +67,7 @@ class CartInfo
     /**
      * Sets coupon
      *
-     * @param Coupon|null $coupon
+     * @param \BooklyCoupons\Lib\Entities\Coupon|null $coupon
      * @return $this
      */
     public function setCoupon( $coupon )
@@ -107,8 +104,8 @@ class CartInfo
                     $this->subtotal += $item_price;
                     $this->deposit  += Proxy\DepositPayments::prepareAmount( $item_price, $item->getDeposit(), $item->getNumberOfPersons() );
                     if ( ! $item->toBePutOnWaitingList() ) {
-                        $this->subtotal_tax   += (float) Proxy\Taxes::getAmountOfTax( $item );
-                        $this->amounts_taxable = Proxy\Taxes::accumulationRateAmounts( $this->amounts_taxable, $item, $allow_coupon );
+                        $this->subtotal_tax   += (float) Proxy\Taxes::getTaxAmount( $item );
+                        $this->amounts_taxable = Proxy\Taxes::prepareTaxRateAmounts( $this->amounts_taxable, $item, $allow_coupon );
                     }
                 }
             }
@@ -155,7 +152,7 @@ class CartInfo
      */
     public function getDue()
     {
-        if ( Config::depositPaymentsEnabled() ) {
+        if ( Config::depositPaymentsEnabled() && ! $this->userData->getDepositFull() ) {
             return $this->getTotal() - $this->getDepositPay();
         }
 
@@ -225,17 +222,18 @@ class CartInfo
      */
     public function getPaymentSystemPayNow()
     {
+        $deposit = $this->userData->getDepositFull() ? $this->total : $this->deposit;
         switch ( $this->payment_method_calculate_rule ) {
             case 'tax_increases_the_cost':
                 if ( $this->payment_method_send_tax ) {
                     if ( $this->tax_included ) {
-                        if ( $this->deposit < $this->total ) {
-                            $amount = $this->deposit - $this->getDepositTax();
+                        if ( $deposit < $this->total ) {
+                            $amount = $deposit - $this->getDepositTax();
                         } else {
                             $amount = $this->total - $this->getTotalTax();
                         }
                     } else {
-                        $amount = min( $this->deposit, $this->total );
+                        $amount = min( $deposit, $this->total );
                     }
 
                     return $amount + $this->price_correction;
@@ -313,7 +311,7 @@ class CartInfo
      */
     public function getPayNow()
     {
-        return min( $this->getDepositPay(), $this->getTotal() );
+        return $this->userData->getDepositFull() ? $this->getTotal() : min( $this->getDepositPay(), $this->getTotal() );
     }
 
     /**
@@ -321,7 +319,7 @@ class CartInfo
      */
     public function getPayTax()
     {
-        return min( $this->getDepositTax(), $this->getTotalTax() );
+        return $this->userData->getDepositFull() ? $this->getTotalTax() : min( $this->getDepositTax(), $this->getTotalTax() );
     }
 
     /**
@@ -339,6 +337,19 @@ class CartInfo
     /**
      * @return float|int
      */
+    public function getTotalNoTax()
+    {
+        $total_no_tax = $this->subtotal + $this->getDiscount();
+        if ( $this->tax_included ) {
+            $total_no_tax -= $this->getTotalTax();
+        }
+
+        return $total_no_tax;
+    }
+
+    /**
+     * @return float|int
+     */
     public function getTotalTax()
     {
         if ( $this->total_tax == null ) {
@@ -349,10 +360,10 @@ class CartInfo
             $coupon_total = 0;
             array_walk( $this->amounts_taxable, function ( $amount ) use ( &$taxes, &$coupon_total ) {
                 if ( $amount['allow_coupon'] ) {
-                    $taxes['allow_coupon']   += Taxes::calculateTax( $amount['total'], $amount['rate'] );
+                    $taxes['allow_coupon']   += Proxy\Taxes::calculateTax( $amount['total'], $amount['rate'] );
                     $coupon_total += $amount['total'];
                 } else {
-                    $taxes['without_coupon'] += Taxes::calculateTax( $amount['total'], $amount['rate'] );
+                    $taxes['without_coupon'] += Proxy\Taxes::calculateTax( $amount['total'], $amount['rate'] );
                 }
             } );
 
@@ -378,7 +389,7 @@ class CartInfo
     /**
      * @return float
      */
-    private function getDepositPay()
+    public function getDepositPay()
     {
         if ( $this->tax_included ) {
             return min( $this->deposit, $this->total ) + $this->price_correction;
@@ -395,7 +406,7 @@ class CartInfo
         if ( $this->pay_tax === null ) {
             $taxes_without_coupon = 0;
             foreach ( $this->amounts_taxable as $amount ) {
-                $taxes_without_coupon += Taxes::calculateTax( $amount['deposit'], $amount['rate'] );
+                $taxes_without_coupon += Proxy\Taxes::calculateTax( $amount['deposit'], $amount['rate'] );
             }
             $this->pay_tax = $taxes_without_coupon;
         }

@@ -24,6 +24,8 @@ class CartItem
     protected $time_from;
     /** @var  string H:i */
     protected $time_to;
+    /** @var  int */
+    protected $units;
 
     // Step extras
     /** @var  array */
@@ -118,11 +120,13 @@ class CartItem
                 $service_price = $service->getPrice();
             } else {
                 $staff_service = new Entities\StaffService();
+                $location_id = Proxy\Locations::prepareStaffLocationId( $location_id, $staff_id ) ?: null;
                 $staff_service->loadBy( compact( 'staff_id', 'service_id', 'location_id' ) );
-                if ( ! $staff_service->getId() ) {
+                if ( ! $staff_service->isLoaded() ) {
                     $staff_service->loadBy( array( 'staff_id' => $staff_id, 'service_id' => $service_id, 'location_id' => null ) );
                 }
-                $service_price = Proxy\SpecialHours::preparePrice( $staff_service->getPrice(), $staff_id, $service_id, $service_start );
+                $service_price = $staff_service->getPrice() * $this->getUnits();
+                $service_price = Proxy\SpecialHours::adjustPrice( $service_price, $staff_id, $service_id, $location_id, $service_start, $this->getUnits() );
             }
             $service_prices_cache[ $staff_id ][ $service_id ][ $location_id ][ $service_start ] = $service_price;
         }
@@ -139,8 +143,9 @@ class CartItem
     {
         list ( $service_id, $staff_id, , $location_id ) = $this->slots[0];
         $staff_service = new Entities\StaffService();
+        $location_id = Proxy\Locations::prepareStaffLocationId( $location_id, $staff_id  ) ?: null;
         $staff_service->loadBy( compact( 'staff_id', 'service_id', 'location_id' ) );
-        if ( ! $staff_service->getId() ) {
+        if ( ! $staff_service->isLoaded() ) {
             $staff_service->loadBy( array( 'staff_id' => $staff_id, 'service_id' => $service_id, 'location_id' => null ) );
         }
 
@@ -307,6 +312,29 @@ class CartItem
     public function setNumberOfPersons( $number_of_persons )
     {
         $this->number_of_persons = $number_of_persons;
+
+        return $this;
+    }
+
+    /**
+     * Gets units
+     *
+     * @return int
+     */
+    public function getUnits()
+    {
+        return $this->units;
+    }
+
+    /**
+     * Sets units
+     *
+     * @param int $units
+     * @return $this
+     */
+    public function setUnits( $units )
+    {
+        $this->units = $units;
 
         return $this;
     }

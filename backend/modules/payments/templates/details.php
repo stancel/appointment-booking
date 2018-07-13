@@ -1,5 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-use Bookly\Lib\Utils\Common;
+use Bookly\Backend\Components\Controls\Buttons;
 use Bookly\Lib\Utils\Price;
 use Bookly\Lib\Utils\DateTime;
 use Bookly\Lib\Entities;
@@ -47,7 +47,7 @@ use Bookly\Lib\Entities;
                 <?php foreach ( $payment['items'] as $item ) : ?>
                     <tr>
                         <td>
-                            <?php if ( $item['number_of_persons'] > 1 ) echo $item['number_of_persons'] . '&nbsp;&times;&nbsp;'  ?><?php echo esc_html( $item['service_name'] ) ?>
+                            <?php if ( $item['number_of_persons'] > 1 ) echo $item['number_of_persons'] . '&nbsp;&times;&nbsp;' ?><?php echo esc_html( $item['service_name'] ) ?><?php if ( isset( $item['units'], $item['duration'] ) && $item['units'] > 1 ) echo '&nbsp;(' . DateTime::secondsToInterval( $item['units'] * $item['duration'] ) . ')' ?>
                             <?php if ( ! empty ( $item['extras'] ) ) : ?>
                                 <ul class="bookly-list list-dots">
                                     <?php foreach ( $item['extras'] as $extra ) : ?>
@@ -161,8 +161,8 @@ use Bookly\Lib\Entities;
                         </div>
                         <?php endif ?>
                         <div class="text-right">
-                            <?php Common::customButton( 'bookly-js-adjustment-cancel', 'btn btn-default', __( 'Cancel', 'bookly' ) ) ?>
-                            <?php Common::customButton( 'bookly-js-adjustment-apply', 'btn btn-success', __( 'Apply', 'bookly' ) ) ?>
+                            <?php Buttons::renderCustom( 'bookly-js-adjustment-cancel', 'btn-default', __( 'Cancel', 'bookly' ) ) ?>
+                            <?php Buttons::renderCustom( 'bookly-js-adjustment-apply', 'btn-success', __( 'Apply', 'bookly' ) ) ?>
                         </div>
                     </th>
                 </tr>
@@ -213,13 +213,13 @@ use Bookly\Lib\Entities;
                         <th style="border-left-color:#fff;border-bottom-color:#fff;"></th>
                         <th colspan="<?php echo 3 + array_sum( $show ) ?>" class="text-right">
                             <div class="bookly-js-details-main-controls">
-                                <?php Common::customButton( 'bookly-js-adjustment-button', 'btn btn-default', __( 'Manual adjustment', 'bookly' ) ) ?>
+                                <?php Buttons::renderCustom( 'bookly-js-adjustment-button', 'btn-default', __( 'Manual adjustment', 'bookly' ) ) ?>
                                 <?php if ( $payment['total'] != $payment['paid'] ) : ?>
                                 <button type="button" class="btn btn-success ladda-button" id="bookly-complete-payment" data-spinner-size="40" data-style="zoom-in"><i><?php _e( 'Complete payment', 'bookly' ) ?></i></button>
                                 <?php endif ?>
                             </div>
                             <div class="bookly-js-details-bind-controls collapse">
-                                <?php Common::customButton( 'bookly-js-attach-payment', 'btn btn-success', __( 'Bind payment', 'bookly' ) ) ?>
+                                <?php Buttons::renderCustom( 'bookly-js-attach-payment', 'btn-success', __( 'Bind payment', 'bookly' ) ) ?>
                             </div>
                         </th>
                     </tr>

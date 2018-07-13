@@ -7,6 +7,53 @@ namespace Bookly\Lib;
  */
 class Updater extends Base\Updater
 {
+
+    function update_15_1()
+    {
+        $this->alterTables( array(
+            'ab_services' => array(
+                'ALTER TABLE `%s` ADD COLUMN `units_min` INT UNSIGNED NOT NULL DEFAULT 1 AFTER `end_time_info`',
+                'ALTER TABLE `%s` ADD COLUMN `units_max` INT UNSIGNED NOT NULL DEFAULT 1 AFTER `units_min`',
+            ),
+        ) );
+    }
+
+    function update_15_0()
+    {
+        global $wpdb;
+
+        $wpdb->query(
+            'CREATE TABLE IF NOT EXISTS `' . $this->getTableName( 'ab_shop' ) . '` (
+                `id`          INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                `plugin_id`   INT UNSIGNED NOT NULL,
+                `type`        ENUM("plugin","bundle") NOT NULL DEFAULT "plugin",
+                `title`       VARCHAR(255) NOT NULL,
+                `slug`        VARCHAR(255) NOT NULL,
+                `description` TEXT NOT NULL,
+                `url`         VARCHAR(255) NOT NULL,
+                `icon`        VARCHAR(255) NOT NULL,
+                `price`       DECIMAL(10,2) NOT NULL,
+                `sales`       INT UNSIGNED NOT NULL,
+                `rating`      DECIMAL(10,2) NOT NULL,
+                `reviews`     INT UNSIGNED NOT NULL,
+                `published`   DATETIME NOT NULL,
+                `seen`        TINYINT(1) NOT NULL DEFAULT 0,
+                `created`     DATETIME NOT NULL
+              ) ENGINE = INNODB
+              DEFAULT CHARACTER SET = utf8
+              COLLATE = utf8_general_ci'
+        );
+
+        $this->alterTables( array(
+            'ab_customer_appointments' => array(
+                'ALTER TABLE `%s` ADD COLUMN `units` INT UNSIGNED NOT NULL DEFAULT 1 after `number_of_persons`',
+            ),
+        ) );
+
+        add_option( 'bookly_cst_allow_duplicates', '0' );
+        update_option( 'bookly_reminder_data', array( 'SW1wb3J0YW50ISBJdCBsb29rcyBsaWtlIHlvdSBhcmUgdXNpbmcgYW4gaWxsZWdhbCBjb3B5IG9mIEJvb2tseSDigJMgaXQgbWF5IGNvbnRhaW4gYSBtYWxpY2lvdXMgY29kZSwgYSB0cm9qYW4gb3IgYSBiYWNrZG9vci4=', 'VGhlIGxlZ2FsIGNvcHkgb2YgQm9va2x5IGluY2x1ZGVzIGFsbCBmZWF0dXJlcywgbGlmZXRpbWUgZnJlZSB1cGRhdGVzIHdoaWNoIGludHJvZHVjZSBuZXcgZmVhdHVyZXMgYW5kIGltcG9ydGFudCBzZWN1cml0eSBmaXhlcywgYW5kIDI0Lzcgc3VwcG9ydC4=', 'PGEgaHJlZj0iaHR0cHM6Ly93d3cuYm9va2luZy13cC1wbHVnaW4uY29tL2JlY29tZS1sZWdhbC8iIHRhcmdldD0iX2JsYW5rIj5DbGljayBoZXJlIHRvIGxlYXJuIG1vcmUgPj4+PC9hPg' ) );
+    }
+
     function update_14_9()
     {
         global $wpdb;
@@ -117,6 +164,7 @@ class Updater extends Base\Updater
             $this->alterTables( array(
                 'ab_payments' => array(
                     'ALTER TABLE `%s` ADD COLUMN `tax` DECIMAL(10,2) NULL DEFAULT 0.00 AFTER `total`',
+                    'ALTER TABLE `%s` CHANGE COLUMN `type` `type` ENUM("local","coupon","paypal","authorize_net","stripe","2checkout","payu_biz","payu_latam","payson","mollie","woocommerce") NOT NULL DEFAULT "local"',
                 ),
                 'ab_customers' => array(
                     'ALTER TABLE `%s` ADD COLUMN `facebook_id` BIGINT(20) UNSIGNED DEFAULT NULL AFTER `wp_user_id`',

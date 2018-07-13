@@ -145,7 +145,7 @@ class Series extends Item
     public function getTax()
     {
         if ( ! $this->tax ) {
-            $rates = Lib\Proxy\Taxes::getServiceRates();
+            $rates = Lib\Proxy\Taxes::getServiceTaxRates();
             if ( $rates ) {
                 foreach ( $this->getItems() as $item ) {
                     $this->tax += Lib\Proxy\Taxes::calculateTax( $item->getServicePrice(), $rates[ $item->getService()->getId() ] );

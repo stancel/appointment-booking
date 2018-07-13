@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-if (!class_exists('Google_Client')) {
+if (!class_exists('BooklyGoogle_Client')) {
   require_once dirname(__FILE__) . '/../autoload.php';
 }
 
@@ -27,20 +27,20 @@ if (!class_exists('Google_Client')) {
  *
  * @author Chris Chabot <chabotc@google.com>
  */
-class Google_Cache_Apc extends Google_Cache_Abstract
+class BooklyGoogle_Cache_Apc extends BooklyGoogle_Cache_Abstract
 {
   /**
-   * @var Google_Client the current client
+   * @var BooklyGoogle_Client the current client
    */
   private $client;
 
-  public function __construct(Google_Client $client)
+  public function __construct(BooklyGoogle_Client $client)
   {
     if (! function_exists('apc_add') ) {
       $error = "Apc functions not available";
 
       $client->getLogger()->error($error);
-      throw new Google_Cache_Exception($error);
+      throw new BooklyGoogle_Cache_Exception($error);
     }
 
     $this->client = $client;
@@ -89,7 +89,7 @@ class Google_Cache_Apc extends Google_Cache_Abstract
           'APC cache set failed',
           array('key' => $key, 'var' => $var)
       );
-      throw new Google_Cache_Exception("Couldn't store data");
+      throw new BooklyGoogle_Cache_Exception("Couldn't store data");
     }
 
     $this->client->getLogger()->debug(

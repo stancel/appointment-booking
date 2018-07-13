@@ -10,6 +10,9 @@ msgstr ""
 msgid "Time"
 msgstr ""
 
+msgid "Tax"
+msgstr ""
+
 msgid "Price"
 msgstr ""
 
@@ -660,24 +663,6 @@ msgstr ""
 msgid "To update - enter the <a href=\"%s\">Purchase Code</a>"
 msgstr ""
 
-msgid "Delete"
-msgstr ""
-
-msgid "Image"
-msgstr ""
-
-msgid "Disabled"
-msgstr ""
-
-msgid "Enabled"
-msgstr ""
-
-msgid "Save"
-msgstr ""
-
-msgid "Reset"
-msgstr ""
-
 #, php-format
 msgid "%d year"
 msgid_plural "%d years"
@@ -775,9 +760,6 @@ msgid ""
 msgstr ""
 
 msgid "Please verify Bookly add-ons license; {days} remaining."
-msgstr ""
-
-msgid "Reorder"
 msgstr ""
 
 msgid "Please verify your Bookly license"
@@ -1119,6 +1101,30 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
+msgid "Messages"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "No records."
+msgstr ""
+
+msgid "Processing..."
+msgstr ""
+
+msgid "messages"
+msgstr ""
+
+msgid "First"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Last"
+msgstr ""
+
 msgid "Print"
 msgstr ""
 
@@ -1200,9 +1206,6 @@ msgstr ""
 msgid "No appointments for selected period."
 msgstr ""
 
-msgid "Processing..."
-msgstr ""
-
 msgid "Edit"
 msgstr ""
 
@@ -1280,9 +1283,10 @@ msgstr ""
 msgid "Repeat password"
 msgstr ""
 
+#, php-format
 msgid ""
-"Accept <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Terms "
-"& Conditions</a>"
+"I accept <a href=\"%1$s\" target=\"_blank\">Service Terms</a> and <a href="
+"\"%2$s\" target=\"_blank\">Privacy Policy</a>"
 msgstr ""
 
 msgid "Register"
@@ -1303,9 +1307,6 @@ msgstr ""
 msgid "Old password"
 msgstr ""
 
-msgid "Terms & Conditions"
-msgstr ""
-
 msgid "Type"
 msgstr ""
 
@@ -1313,6 +1314,9 @@ msgid "Order"
 msgstr ""
 
 msgid "Amount"
+msgstr ""
+
+msgid "Delete"
 msgstr ""
 
 msgid "With status"
@@ -1487,9 +1491,6 @@ msgstr ""
 msgid "No records for selected period."
 msgstr ""
 
-msgid "No records."
-msgstr ""
-
 msgid "Auto-Recharge has failed, please replenish your balance directly."
 msgstr ""
 
@@ -1502,57 +1503,6 @@ msgid ""
 msgstr ""
 
 msgid "SMS has been sent successfully."
-msgstr ""
-
-msgid "Default value for category select"
-msgstr ""
-
-msgid "Hide this field"
-msgstr ""
-
-msgid "Default value for service select"
-msgstr ""
-
-msgid ""
-"Please be aware that a value in this field is required in the frontend. If "
-"you choose to hide this field, please be sure to select a default value for "
-"it"
-msgstr ""
-
-msgid "Default value for employee select"
-msgstr ""
-
-msgid "Hide this block"
-msgstr ""
-
-msgid "Week days"
-msgstr ""
-
-msgid "Time range"
-msgstr ""
-
-msgid "Insert"
-msgstr ""
-
-msgid "Insert Appointment Booking Form"
-msgstr ""
-
-msgid "Titles"
-msgstr ""
-
-msgid "Yes"
-msgstr ""
-
-msgid "Columns"
-msgstr ""
-
-msgid "Add Bookly appointments list"
-msgstr ""
-
-msgid "Add Bookly booking form"
-msgstr ""
-
-msgid "Add appointment cancellation confirmation"
 msgstr ""
 
 msgid "Delete break"
@@ -1571,6 +1521,9 @@ msgid "No services found. Please add services."
 msgstr ""
 
 msgid "Add Service"
+msgstr ""
+
+msgid "Image"
 msgstr ""
 
 msgid "Schedule"
@@ -1610,19 +1563,13 @@ msgstr ""
 msgid "Full name"
 msgstr ""
 
-msgid ""
-"You are going to delete item which is involved in upcoming appointments. All "
-"related appointments will be deleted. Please double check and edit "
-"appointments before this item deletion if needed."
-msgstr ""
-
-msgid "Edit appointments"
-msgstr ""
-
 msgid "OFF"
 msgstr ""
 
 msgid "add break"
+msgstr ""
+
+msgid "Save"
 msgstr ""
 
 msgid "Info"
@@ -1666,6 +1613,9 @@ msgid "disconnect"
 msgstr ""
 
 msgid "-- Select calendar --"
+msgstr ""
+
+msgid "Reorder"
 msgstr ""
 
 msgid "Min capacity should not be greater than max capacity."
@@ -1773,6 +1723,12 @@ msgstr ""
 msgid "Please enter a valid purchase code to change this setting."
 msgstr ""
 
+msgid "Disabled"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
 msgid "Service paid locally"
 msgstr ""
 
@@ -1792,15 +1748,6 @@ msgid "Business Hours"
 msgstr ""
 
 msgid "Holidays"
-msgstr ""
-
-msgid "Price correction"
-msgstr ""
-
-msgid "Increase/Discount (%)"
-msgstr ""
-
-msgid "Addition/Deduction"
 msgstr ""
 
 msgid "Instructions"
@@ -2034,12 +1981,6 @@ msgid "Enter a URL"
 msgstr ""
 
 msgid ""
-"In order to improve your Bookly experience, we have started collecting "
-"anonymous plugin usage stats. If you don't want to provide this information, "
-"you can change permissions in Bookly settings."
-msgstr ""
-
-msgid ""
 "Upon providing the purchase code you will have access to free updates of "
 "Bookly. Updates may contain functionality improvements and important "
 "security fixes. For more information on where to find your purchase code see "
@@ -2050,12 +1991,6 @@ msgstr ""
 msgid ""
 "If you do not provide a valid purchase code within {days}, access to your "
 "bookings will be disabled."
-msgstr ""
-
-msgid "Send tax information"
-msgstr ""
-
-msgid "No"
 msgstr ""
 
 msgid ""
@@ -2162,6 +2097,12 @@ msgstr ""
 msgid "Sandbox Mode"
 msgstr ""
 
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
 msgid "Currency"
 msgstr ""
 
@@ -2251,6 +2192,14 @@ msgid ""
 "saved in cookies."
 msgstr ""
 
+msgid "Allow duplicate customers"
+msgstr ""
+
+msgid ""
+"If enabled, a new user will be created if any of the registration data "
+"during the booking is different."
+msgstr ""
+
 msgid "Show confirmation dialog before updating customer's data"
 msgstr ""
 
@@ -2272,10 +2221,10 @@ msgid ""
 "This will also remove the entered purchase code from this site."
 msgstr ""
 
-msgid "Error dissociating purchase code."
+msgid "Select product"
 msgstr ""
 
-msgid "Select product"
+msgid "Error dissociating purchase code."
 msgstr ""
 
 msgid "All Services"
@@ -2443,98 +2392,6 @@ msgstr ""
 msgid "No service selected"
 msgstr ""
 
-msgid "Edit appointment"
-msgstr ""
-
-msgid "Edit booking details"
-msgstr ""
-
-msgid "Attach payment"
-msgstr ""
-
-msgid "Enter payment ID"
-msgstr ""
-
-msgid "Send notifications"
-msgstr ""
-
-msgid "Cancellation reason (optional)"
-msgstr ""
-
-msgid "Provider"
-msgstr ""
-
-msgid "-- Select a service --"
-msgstr ""
-
-msgid "Custom service name"
-msgstr ""
-
-msgid "Please enter a service name"
-msgstr ""
-
-msgid "Custom service price"
-msgstr ""
-
-msgid "Period"
-msgstr ""
-
-msgid "Selected period doesn't match service duration"
-msgstr ""
-
-msgid "The selected period is occupied by another appointment"
-msgstr ""
-
-msgid "Selected period doesn't match provider's schedule"
-msgstr ""
-
-msgid "Selected period doesn't match service schedule"
-msgstr ""
-
-msgid "Selected / maximum"
-msgstr ""
-
-msgid "Minimum capacity"
-msgstr ""
-
-msgid "Package schedule"
-msgstr ""
-
-msgid "Remove customer"
-msgstr ""
-
-msgid "-- Search customers --"
-msgstr ""
-
-msgid ""
-"If email or SMS notifications are enabled and you want customers or staff "
-"member to be notified about this appointment after saving, select "
-"appropriate option before clicking Save. With \"If status changed\" the "
-"notifications are sent to those customers whose status has just been "
-"changed. With \"To all customers\" the notifications are sent to everyone in "
-"the list."
-msgstr ""
-
-msgid ""
-"If email or SMS notifications are enabled and you want customers or yourself "
-"to be notified about this appointment after saving, select appropriate "
-"option before clicking Save. With \"If status changed\" the notifications "
-"are sent to those customers whose status has just been changed. With \"To "
-"all customers\" the notifications are sent to everyone in the list."
-msgstr ""
-
-msgid "Don't send"
-msgstr ""
-
-msgid "If status changed"
-msgstr ""
-
-msgid "To all customers"
-msgstr ""
-
-msgid "Internal note"
-msgstr ""
-
 msgid "All"
 msgstr ""
 
@@ -2585,30 +2442,10 @@ msgstr ""
 msgid "Package"
 msgstr ""
 
-msgid "Start time must not be empty"
-msgstr ""
-
-msgid "End time must not be empty"
-msgstr ""
-
-msgid "End time must not be equal to start time"
-msgstr ""
-
-#, php-format
-msgid "The number of customers should not be more than %d"
-msgstr ""
-
-msgid "Could not save appointment in database."
-msgstr ""
-
-#, php-format
-msgid "%s has reached the limit of bookings for this service"
+msgid "Provider"
 msgstr ""
 
 msgid "Deposit"
-msgstr ""
-
-msgid "Tax"
 msgstr ""
 
 msgid "Subtotal"
@@ -2750,21 +2587,6 @@ msgstr ""
 msgid "Ok"
 msgstr ""
 
-msgid "total quantity of appointments in cart"
-msgstr ""
-
-msgid "login form"
-msgstr ""
-
-msgid "date of service"
-msgstr ""
-
-msgid "time of service"
-msgstr ""
-
-msgid "total price of booking"
-msgstr ""
-
 msgid "Next month"
 msgstr ""
 
@@ -2789,6 +2611,15 @@ msgstr ""
 msgid "Import"
 msgstr ""
 
+msgid "Merge with"
+msgstr ""
+
+msgid "Select for merge"
+msgstr ""
+
+msgid "Merge list"
+msgstr ""
+
 msgid "Delete customers"
 msgstr ""
 
@@ -2799,6 +2630,18 @@ msgid ""
 msgstr ""
 
 msgid "No, delete just customers"
+msgstr ""
+
+msgid "Merge customers"
+msgstr ""
+
+msgid ""
+"You are about to merge customers from the merge list with the selected one. "
+"This will result in losing the merged customers and moving all their "
+"appointments to the selected customer. Are you sure you want to continue?"
+msgstr ""
+
+msgid "Merge"
 msgstr ""
 
 msgid "Note"
@@ -2813,9 +2656,6 @@ msgstr ""
 msgid "Select file"
 msgstr ""
 
-msgid "New Customer"
-msgstr ""
-
 msgid "No customers found."
 msgstr ""
 
@@ -2825,165 +2665,46 @@ msgstr ""
 msgid "Create customer"
 msgstr ""
 
-msgid "Bookly - License verification required"
+msgid "More Addons"
 msgstr ""
 
-msgid ""
-"Please verify your license by providing a valid purchase code. Upon "
-"providing the purchase code you will get access to software updates, "
-"including feature improvements and important security fixes."
+msgid "Sort by"
 msgstr ""
 
-msgid ""
-"If you do not provide a valid purchase code within {days}, access to your "
-"bookings will be disabled. <a href=\"{url}\">Details</a>"
+msgid "Best Sellers"
 msgstr ""
 
-msgid "License verification required"
+msgid "Best Rated"
 msgstr ""
 
-msgid "License verification succeeded"
+msgid "Newest Items"
 msgstr ""
 
-msgid "Your license has been verified successfully."
+msgid "Price: low to high"
 msgstr ""
 
-msgid ""
-"You have access to software updates, including feature improvements and "
-"important security fixes."
+msgid "Price: high to low"
 msgstr ""
 
-msgid "Thank you for choosing Bookly as your booking solution."
-msgstr ""
-
-msgid "Proceed"
-msgstr ""
-
-msgid "Access to your bookings has been disabled."
-msgstr ""
-
-msgid ""
-"To enable access to your bookings, please contact your website administrator "
-"in order to verify the license."
-msgstr ""
-
-msgid ""
-"To enable access to your bookings, please verify your license by providing a "
-"valid purchase code."
-msgstr ""
-
-msgid "I have already made the purchase"
-msgstr ""
-
-msgid "I want to make a purchase now"
-msgstr ""
-
-msgid ""
-"Please contact your website administrator in order to verify the license."
-msgstr ""
-
-msgid ""
-"If you do not verify the license within {days}, access to your bookings will "
-"be disabled."
-msgstr ""
-
-msgid "Proceed to Bookly without license verification"
+msgid "New"
 msgstr ""
 
 #, php-format
-msgid ""
-"Cannot find your purchase code? See this <a href=\"%s\" target=\"_blank"
-"\">page</a>."
-msgstr ""
-
-msgid "Proceed to Bookly without activating Add-ons"
-msgstr ""
-
-msgid "I will provide license info later"
-msgstr ""
-
-msgid ""
-"To enable access to your bookings, please verify your license by providing a "
-"valid purchase code. <a href=\"{url}\">Details</a>"
-msgstr ""
-
-msgid "Messages"
-msgstr ""
-
-msgid "Subject"
-msgstr ""
-
-msgid "messages"
-msgstr ""
-
-msgid "First"
-msgstr ""
-
-msgid "Previous"
-msgstr ""
-
-msgid "Last"
-msgstr ""
-
-msgid "Subscribe to monthly emails about Bookly improvements and new releases."
-msgstr ""
-
-msgid "Show all notifications"
-msgstr ""
-
-msgid "Mark all notifications as read"
-msgstr ""
-
-msgid "Documentation"
-msgstr ""
-
-msgid "Need help? Contact us here."
-msgstr ""
-
-msgid "Contact Us"
-msgstr ""
-
-msgid ""
-"We care about your experience using Bookly!<br/>Leave a review and tell "
-"others what you think."
-msgstr ""
-
-msgid "Feedback"
-msgstr ""
-
-msgid "Leave us a message"
-msgstr ""
-
-msgid "Your name"
-msgstr ""
-
-msgid "Email address"
-msgstr ""
-
-msgid "How can we help you?"
-msgstr ""
-
-msgid ""
-"How likely is it that you would recommend Bookly to a friend or colleague?"
-msgstr ""
-
-msgid "What do you think should be improved?"
-msgstr ""
-
-msgid "Please enter your email (optional)"
-msgstr ""
+msgid "%d sale"
+msgid_plural "%d sales"
+msgstr[0] ""
+msgstr[1] ""
 
 #, php-format
-msgid "Please leave your feedback <a href=\"%s\" target=\"_blank\">here</a>."
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Installed"
 msgstr ""
 
-msgid "All fields marked with an asterisk (*) are required."
-msgstr ""
-
-msgid "Sent successfully."
-msgstr ""
-
-msgid "Error sending support request."
+msgid "Get it!"
 msgstr ""
 
 msgid "end date of appointment"
@@ -3123,6 +2844,354 @@ msgstr ""
 msgid "%s before"
 msgstr ""
 
+msgid "Sent successfully."
+msgstr ""
+
+msgid "Default value for category select"
+msgstr ""
+
+msgid "Hide this field"
+msgstr ""
+
+msgid "Default value for service select"
+msgstr ""
+
+msgid ""
+"Please be aware that a value in this field is required in the frontend. If "
+"you choose to hide this field, please be sure to select a default value for "
+"it"
+msgstr ""
+
+msgid "Default value for employee select"
+msgstr ""
+
+msgid "Hide this block"
+msgstr ""
+
+msgid "Week days"
+msgstr ""
+
+msgid "Time range"
+msgstr ""
+
+msgid "Insert"
+msgstr ""
+
+msgid "Insert Appointment Booking Form"
+msgstr ""
+
+msgid "Titles"
+msgstr ""
+
+msgid "Columns"
+msgstr ""
+
+msgid "Add Bookly appointments list"
+msgstr ""
+
+msgid "Add Bookly booking form"
+msgstr ""
+
+msgid "Add appointment cancellation confirmation"
+msgstr ""
+
+msgid "Send tax information"
+msgstr ""
+
+msgid "Price correction"
+msgstr ""
+
+msgid "Increase/Discount (%)"
+msgstr ""
+
+msgid "Addition/Deduction"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Attach payment"
+msgstr ""
+
+msgid "Enter payment ID"
+msgstr ""
+
+msgid "-- Select a service --"
+msgstr ""
+
+msgid "Custom service name"
+msgstr ""
+
+msgid "Please enter a service name"
+msgstr ""
+
+msgid "Custom service price"
+msgstr ""
+
+msgid "Period"
+msgstr ""
+
+msgid "Selected period doesn't match service duration"
+msgstr ""
+
+msgid "The selected period is occupied by another appointment"
+msgstr ""
+
+msgid "Selected period doesn't match provider's schedule"
+msgstr ""
+
+msgid "Selected period doesn't match service schedule"
+msgstr ""
+
+msgid "Selected / maximum"
+msgstr ""
+
+msgid "Minimum capacity"
+msgstr ""
+
+msgid "Edit booking details"
+msgstr ""
+
+msgid "Package schedule"
+msgstr ""
+
+msgid "Remove customer"
+msgstr ""
+
+msgid "-- Search customers --"
+msgstr ""
+
+msgid "Send notifications"
+msgstr ""
+
+msgid ""
+"If email or SMS notifications are enabled and you want customers or staff "
+"member to be notified about this appointment after saving, select "
+"appropriate option before clicking Save. With \"If status changed\" the "
+"notifications are sent to those customers whose status has just been "
+"changed. With \"To all customers\" the notifications are sent to everyone in "
+"the list."
+msgstr ""
+
+msgid ""
+"If email or SMS notifications are enabled and you want customers or yourself "
+"to be notified about this appointment after saving, select appropriate "
+"option before clicking Save. With \"If status changed\" the notifications "
+"are sent to those customers whose status has just been changed. With \"To "
+"all customers\" the notifications are sent to everyone in the list."
+msgstr ""
+
+msgid "Don't send"
+msgstr ""
+
+msgid "If status changed"
+msgstr ""
+
+msgid "To all customers"
+msgstr ""
+
+msgid "Internal note"
+msgstr ""
+
+msgid "Edit appointment"
+msgstr ""
+
+msgid "Start time must not be empty"
+msgstr ""
+
+msgid "End time must not be empty"
+msgstr ""
+
+msgid "End time must not be equal to start time"
+msgstr ""
+
+#, php-format
+msgid "The number of customers should not be more than %d"
+msgstr ""
+
+msgid "Could not save appointment in database."
+msgstr ""
+
+#, php-format
+msgid "%s has reached the limit of bookings for this service"
+msgstr ""
+
+msgid "Cancellation reason (optional)"
+msgstr ""
+
+msgid "New Customer"
+msgstr ""
+
+msgid ""
+"You are going to delete item which is involved in upcoming appointments. All "
+"related appointments will be deleted. Please double check and edit "
+"appointments before this item deletion if needed."
+msgstr ""
+
+msgid "Edit appointments"
+msgstr ""
+
+msgid "total quantity of appointments in cart"
+msgstr ""
+
+msgid "login form"
+msgstr ""
+
+msgid "date of service"
+msgstr ""
+
+msgid "time of service"
+msgstr ""
+
+msgid "total price of booking"
+msgstr ""
+
+msgid ""
+"In order to improve your Bookly experience, we have started collecting "
+"anonymous plugin usage stats. If you don't want to provide this information, "
+"you can change permissions in Bookly settings."
+msgstr ""
+
+msgid "Subscribe to monthly emails about Bookly improvements and new releases."
+msgstr ""
+
+msgid ""
+"How likely is it that you would recommend Bookly to a friend or colleague?"
+msgstr ""
+
+msgid "What do you think should be improved?"
+msgstr ""
+
+msgid "Please enter your email (optional)"
+msgstr ""
+
+#, php-format
+msgid "Please leave your feedback <a href=\"%s\" target=\"_blank\">here</a>."
+msgstr ""
+
+msgid "Bookly - License verification required"
+msgstr ""
+
+msgid ""
+"Please verify your license by providing a valid purchase code. Upon "
+"providing the purchase code you will get access to software updates, "
+"including feature improvements and important security fixes."
+msgstr ""
+
+msgid ""
+"If you do not provide a valid purchase code within {days}, access to your "
+"bookings will be disabled. <a href=\"{url}\">Details</a>"
+msgstr ""
+
+msgid "License verification required"
+msgstr ""
+
+msgid "License verification succeeded"
+msgstr ""
+
+msgid "Your license has been verified successfully."
+msgstr ""
+
+msgid ""
+"You have access to software updates, including feature improvements and "
+"important security fixes."
+msgstr ""
+
+msgid "Thank you for choosing Bookly as your booking solution."
+msgstr ""
+
+msgid "Proceed"
+msgstr ""
+
+msgid "Access to your bookings has been disabled."
+msgstr ""
+
+msgid ""
+"To enable access to your bookings, please contact your website administrator "
+"in order to verify the license."
+msgstr ""
+
+msgid ""
+"To enable access to your bookings, please verify your license by providing a "
+"valid purchase code."
+msgstr ""
+
+msgid "I have already made the purchase"
+msgstr ""
+
+msgid "I want to make a purchase now"
+msgstr ""
+
+msgid ""
+"Please contact your website administrator in order to verify the license."
+msgstr ""
+
+msgid ""
+"If you do not verify the license within {days}, access to your bookings will "
+"be disabled."
+msgstr ""
+
+msgid "Proceed to Bookly without license verification"
+msgstr ""
+
+#, php-format
+msgid ""
+"Cannot find your purchase code? See this <a href=\"%s\" target=\"_blank"
+"\">page</a>."
+msgstr ""
+
+msgid "Proceed to Bookly without activating Add-ons"
+msgstr ""
+
+msgid "I will provide license info later"
+msgstr ""
+
+msgid ""
+"To enable access to your bookings, please verify your license by providing a "
+"valid purchase code. <a href=\"{url}\">Details</a>"
+msgstr ""
+
+msgid "All fields marked with an asterisk (*) are required."
+msgstr ""
+
+msgid "Error sending support request."
+msgstr ""
+
+msgid "Show all notifications"
+msgstr ""
+
+msgid "Mark all notifications as read"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Need help? Contact us here."
+msgstr ""
+
+msgid "Contact Us"
+msgstr ""
+
+msgid ""
+"We care about your experience using Bookly!<br/>Leave a review and tell "
+"others what you think."
+msgstr ""
+
+msgid "Feedback"
+msgstr ""
+
+msgid "Leave us a message"
+msgstr ""
+
+msgid "Your name"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "How can we help you?"
+msgstr ""
+
 msgid "Confirm"
 msgstr ""
 
@@ -3168,6 +3237,9 @@ msgid ""
 "If you are not redirected automatically, follow the <a href=\"%s\">link</a>."
 msgstr ""
 
+msgid "Show more"
+msgstr ""
+
 msgid "Session error."
 msgstr ""
 
@@ -3181,7 +3253,4 @@ msgid "Invalid gateway."
 msgstr ""
 
 msgid "Error."
-msgstr ""
-
-msgid "Show more"
 msgstr ""

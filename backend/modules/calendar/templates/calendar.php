@@ -1,8 +1,8 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 use Bookly\Lib\Utils\Common;
-use Bookly\Lib\Proxy;
-use Bookly\Backend\Modules\Calendar\Components;
+use Bookly\Backend\Components;
 use Bookly\Backend\Modules as Backend;
+use Bookly\Backend\Modules\Calendar\Proxy;
 /** @var Bookly\Lib\Entities\Staff[] $staff_members */
 ?>
 <style>
@@ -16,7 +16,7 @@ use Bookly\Backend\Modules as Backend;
                 <?php _e( 'Calendar', 'bookly' ) ?>
             </div>
             <?php if ( Common::isCurrentUserAdmin() ) : ?>
-                <?php Backend\Support\Components::getInstance()->renderButtons( $this::page_slug ) ?>
+                <?php Components\Support\Buttons::render( $self::pageSlug() ) ?>
             <?php endif ?>
         </div>
         <div class="panel panel-default bookly-main bookly-fc-inner">
@@ -35,7 +35,7 @@ use Bookly\Backend\Modules as Backend;
                     <?php endforeach ?>
                     <?php if ( Common::isCurrentUserAdmin() ) : ?>
                         <div class="btn-group pull-right bookly-margin-top-xs">
-                            <button class="btn btn-default dropdown-toggle bookly-flexbox" data-toggle="dropdown">
+                            <button class="btn btn-default dropdown-toggle bookly-js-staff-filter bookly-flexbox" data-toggle="dropdown">
                                 <div class="bookly-flex-cell"><i class="dashicons dashicons-admin-users bookly-margin-right-md"></i></div>
                                 <div class="bookly-flex-cell text-left"><span id="bookly-staff-button"></span></div>
                                 <div class="bookly-flex-cell"><div class="bookly-margin-left-md"><span class="caret"></span></div></div>
@@ -59,6 +59,7 @@ use Bookly\Backend\Modules as Backend;
                             </ul>
                         </div>
                     <?php endif ?>
+                    <?php Proxy\Locations::renderCalendarLocationFilter() ?>
                     <?php Proxy\AdvancedGoogleCalendar::renderSyncButton( $staff_members ) ?>
                 </ul>
                 <?php endif ?>
@@ -70,8 +71,8 @@ use Bookly\Backend\Modules as Backend;
                         <div id="bookly-fc-wrapper" class="bookly-calendar">
                             <div class="bookly-js-calendar-element"></div>
                         </div>
-                        <?php Components::getInstance()->renderAppointmentDialog() ?>
-                        <?php Proxy\Shared::renderComponentCalendar() ?>
+                        <?php Components\Dialogs\Appointment\Edit\Dialog::render() ?>
+                        <?php Proxy\Shared::renderAddOnsComponents() ?>
                     <?php else : ?>
                         <div class="well">
                             <div class="h1"><?php _e( 'Welcome to Bookly!', 'bookly' ) ?></div>
@@ -83,10 +84,10 @@ use Bookly\Backend\Modules as Backend;
                                 <li><?php _e( 'Add services and assign them to staff members.', 'bookly' ) ?></li>
                             </ol>
                             <hr>
-                            <a class="btn btn-success" href="<?php echo Common::escAdminUrl( Backend\Staff\Controller::page_slug ) ?>">
+                            <a class="btn btn-success" href="<?php echo Common::escAdminUrl( Backend\Staff\Ajax::pageSlug() ) ?>">
                                 <?php _e( 'Add Staff Members', 'bookly' ) ?>
                             </a>
-                            <a class="btn btn-success" href="<?php echo Common::escAdminUrl( Backend\Services\Controller::page_slug ) ?>">
+                            <a class="btn btn-success" href="<?php echo Common::escAdminUrl( Backend\Services\Ajax::pageSlug() ) ?>">
                                 <?php _e( 'Add Services', 'bookly' ) ?>
                             </a>
                         </div>
@@ -95,6 +96,6 @@ use Bookly\Backend\Modules as Backend;
             </div>
         </div>
 
-        <?php Components::getInstance()->renderDeleteDialog(); ?>
+        <?php Components\Dialogs\Appointment\Delete\Dialog::render() ?>
     </div>
 </div>

@@ -415,12 +415,12 @@ abstract class Plugin
     /**
      * Get plugin class for given object.
      *
-     * @param $object
+     * @param object|string $object
      * @return static
      */
     public static function getPluginFor( $object )
     {
-        $class = get_class( $object );
+        $class = is_object( $object ) ? get_class( $object ) : $object;
 
         if ( ! isset ( self::$plugin_classes[ $class ] ) ) {
             self::$plugin_classes[ $class ] = substr( $class, 0, strpos( $class, '\\' ) ) . '\Lib\Plugin';
@@ -594,7 +594,7 @@ abstract class Plugin
                             0 => '<span class="dashicons dashicons-info"></span> ' .
                                 sprintf(
                                     __( 'To update - enter the <a href="%s">Purchase Code</a>', 'bookly' ),
-                                    Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Settings\Controller::page_slug, array( 'tab' => 'purchase_code' ) )
+                                    Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Settings\Ajax::pageSlug(), array( 'tab' => 'purchase_code' ) )
                                 ),
                         )
                     );

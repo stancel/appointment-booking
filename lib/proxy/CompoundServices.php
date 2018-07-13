@@ -1,21 +1,15 @@
 <?php
 namespace Bookly\Lib\Proxy;
 
-use Bookly\Lib\Base;
+use Bookly\Lib;
 
 /**
  * Class CompoundServices
- * Invoke local methods from Compound Services add-on.
- *
  * @package Bookly\Lib\Proxy
  *
- * @method static void cancelAppointment( \Bookly\Lib\Entities\CustomerAppointment $customer_appointment ) Cancel compound appointment
- * @see \BooklyCompoundServices\Lib\ProxyProviders\Local::cancelAppointment()
- *
- * @method static void renderSubServices( array $service, array $service_collection ) Render sub services for compound
- * @see \BooklyCompoundServices\Lib\ProxyProviders\Local::renderSubServices()
+ * @method static void cancelAppointment( Lib\Entities\CustomerAppointment $customer_appointment ) Cancel compound appointment.
  */
-abstract class CompoundServices extends Base\ProxyInvoker
+abstract class CompoundServices extends Lib\Base\Proxy
 {
 
 }

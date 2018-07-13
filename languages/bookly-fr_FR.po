@@ -14,7 +14,7 @@ msgstr "Vérification de licence"
 
 #: 
 msgid "Calendar"
-msgstr "Calendrier"
+msgstr "Agenda"
 
 #: 
 msgid "Appointments"
@@ -34,7 +34,7 @@ msgstr "Notifications SMS"
 
 #: 
 msgid "Email Notifications"
-msgstr "Notifications Mail"
+msgstr "Notifications e-mail"
 
 #: 
 msgid "Customers"
@@ -1612,7 +1612,7 @@ msgstr "Vacances"
 
 #: 
 msgid "Please accept terms and conditions."
-msgstr "Veuillez accepter les Conditions Générales."
+msgstr "Veuillez accepter les Termes et Conditions."
 
 #: 
 msgid "Your payment has been accepted for processing."
@@ -1869,10 +1869,6 @@ msgstr "Changer mot de passe"
 #: 
 msgid "Old password"
 msgstr "Ancien mot de passe"
-
-#: 
-msgid "Terms & Conditions"
-msgstr "Conditions Générales"
 
 #: 
 msgid "All locations"
@@ -3525,10 +3521,6 @@ msgid "Set the URL of an appointment cancellation confirmation page that is show
 msgstr "Définissez l'URL de la page qui confirme l'annulation d'un rendez-vous. Elle est affichée au client lorsqu'il a cliqué le lien pour annuler le rendez-vous."
 
 #: 
-msgid "Accept <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Terms & Conditions</a>"
-msgstr "Accepter les <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Conditions Générales</a>"
-
-#: 
 msgid "Add appointment cancellation confirmation"
 msgstr "Ajouter une confirmation d'annulation de rendez-vous"
 
@@ -3895,4 +3887,93 @@ msgstr "One-Way"
 #: 
 msgid "Two-way front-end only"
 msgstr "Two-way front-end seulement"
+
+#: 
+msgid "Merge with"
+msgstr "Fusionner avec"
+
+#: 
+msgid "Select for merge"
+msgstr "Sélection fusion"
+
+#: 
+msgid "Merge list"
+msgstr "Liste de fusion"
+
+#: 
+msgid "Merge customers"
+msgstr "Fusionner clients"
+
+#: 
+msgid "You are about to merge customers from the merge list with the selected one. This will result in losing the merged customers and moving all their appointments to the selected customer. Are you sure you want to continue?"
+msgstr "Vous êtes sur le point de fusionner des clients de la liste de fusion avec le client sélectionné. Cela aura pour résultat de perdre les clients fusionnés et d'affecter tous leurs rendez-vous au client sélectionné. Êtes-vous sûr de vouloir poursuivre?"
+
+#: 
+msgid "Merge"
+msgstr "Fusionner"
+
+#: 
+msgid "Allow duplicate customers"
+msgstr "Autoriser clients dupliqués\n"
+""
+
+#: 
+msgid "If enabled, a new user will be created if any of the registration data during the booking is different."
+msgstr "Si activé, un nouveau client sera créé si une seule de ses informations est  différente lors de l'enregistrement de la réservation."
+
+#: 
+msgid "More Addons"
+msgstr "Plus de Addons"
+
+#: 
+msgid "Sort by"
+msgstr "Trié par"
+
+#: 
+msgid "Best Sellers"
+msgstr "Meilleurs vendeurs"
+
+#: 
+msgid "Best Rated"
+msgstr "Meilleures évaluations"
+
+#: 
+msgid "Newest Items"
+msgstr "Items récents"
+
+#: 
+msgid "Price: low to high"
+msgstr "Prix: Croissant"
+
+#: 
+msgid "Price: high to low"
+msgstr "Prix: Décroissant"
+
+#: 
+msgid "New"
+msgstr "Nouveau"
+
+#: 
+msgid "%d sale"
+msgid_plural "%d sales"
+msgstr[0] "% vente"
+msgstr[1] "% ventes"
+
+#: 
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] "% revue"
+msgstr[1] "% revues"
+
+#: 
+msgid "Installed"
+msgstr "Installé"
+
+#: 
+msgid "Get it!"
+msgstr "Installez-le!"
+
+#: 
+msgid "I accept <a href=\"%1$s\" target=\"_blank\">Service Terms</a> and <a href=\"%2$s\" target=\"_blank\">Privacy Policy</a>"
+msgstr "I accept <a href=\"%1$s\" target=\"_blank\">Termes et Conditions</a> and <a href=\"%2$s\" target=\"_blank\">Politique de Confidentialité</a>"
 

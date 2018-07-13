@@ -7,27 +7,21 @@ use Bookly\Lib;
  * Class Controller
  * @package Bookly\Frontend\Modules\PayPal
  */
-class Controller extends Lib\Base\Controller
+class Controller extends Lib\Base\Component
 {
-
-    protected function getPermissions()
-    {
-        return array( '_this' => 'anonymous' );
-    }
-
     /**
      * Init Express Checkout transaction.
      */
-    public function ecInit()
+    public static function ecInit()
     {
-        $form_id = $this->getParameter( 'bookly_fid' );
+        $form_id = self::parameter( 'bookly_fid' );
         if ( $form_id ) {
             // Create a PayPal object.
             $paypal   = new Lib\Payment\PayPal();
             $userData = new Lib\UserBookingData( $form_id );
 
             if ( $userData->load() ) {
-                $cart_info = Lib\Proxy\Shared::applyPaymentSpecificPrice( $userData->cart->getInfo(), Lib\Entities\Payment::TYPE_PAYPAL );
+                $cart_info = $userData->cart->getInfo( Lib\Entities\Payment::TYPE_PAYPAL );
                 $cart_info->setPaymentMethodSettings( get_option( 'bookly_paypal_send_tax' ), 'tax_increases_the_cost' );
 
                 $product = new \stdClass();
@@ -46,21 +40,23 @@ class Controller extends Lib\Base\Controller
     /**
      * Process Express Checkout return request.
      */
-    public function ecReturn()
+    public static function ecReturn()
     {
-        $form_id = $this->getParameter( 'bookly_fid' );
+        $form_id = self::parameter( 'bookly_fid' );
         $PayPal  = new Lib\Payment\PayPal();
         $error_message = '';
 
-        if ( $this->hasParameter( 'token' ) && $this->hasParameter( 'PayerID' ) ) {
-            $token = $this->getParameter( 'token' );
+        if ( self::hasParameter( 'token' ) && self::hasParameter( 'PayerID' ) ) {
+            $token = self::parameter( 'token' );
             $data = array( 'TOKEN' => $token );
             // Send the request to PayPal.
             $response = $PayPal->sendNvpRequest( 'GetExpressCheckoutDetails', $data );
             if ( $response == null ) {
                 $error_message = $PayPal->getError();
-            } elseif ( strtoupper( $response['ACK'] ) == 'SUCCESS' ) {
-                $data['PAYERID'] = $this->getParameter( 'PayerID' );
+            } elseif ( ( strtoupper( $response['ACK'] ) == 'SUCCESS' )
+                    && ( $response['CURRENCYCODE'] == get_option( 'bookly_pmt_currency' ) ) )
+            {
+                $data['PAYERID'] = self::parameter( 'PayerID' );
                 $data['PAYMENTREQUEST_0_PAYMENTACTION'] = 'Sale';
 
                 foreach ( array( 'L_PAYMENTREQUEST_0_AMT0', 'L_PAYMENTREQUEST_0_NAME0', 'L_PAYMENTREQUEST_0_QTY0', 'PAYMENTREQUEST_0_AMT', 'PAYMENTREQUEST_0_CURRENCYCODE', 'PAYMENTREQUEST_0_ITEMAMT', 'PAYMENTREQUEST_0_TAXAMT', ) as $parameter ) {
@@ -79,24 +75,37 @@ class Controller extends Lib\Base\Controller
                     if ( $response === null ) {
                         $error_message = $PayPal->getError();
                     } elseif ( 'SUCCESS' == strtoupper( $response['ACK'] ) || 'SUCCESSWITHWARNING' == strtoupper( $response['ACK'] ) ) {
-                        $userData = new Lib\UserBookingData( $form_id );
-                        $userData->load();
-                        $cart_info = Lib\Proxy\Shared::applyPaymentSpecificPrice( $userData->cart->getInfo(), Lib\Entities\Payment::TYPE_PAYPAL );
-
-                        $coupon = $userData->getCoupon();
-                        if ( $coupon ) {
-                            $coupon->claim();
-                            $coupon->save();
-                        }
                         $payment = new Lib\Entities\Payment();
                         $payment
                             ->setType( Lib\Entities\Payment::TYPE_PAYPAL )
-                            ->setStatus( Lib\Entities\Payment::STATUS_COMPLETED )
-                            ->setCartInfo( $cart_info )
-                            ->save();
-                        $order = $userData->save( $payment );
-                        $payment->setDetailsFromOrder( $order, $cart_info )->save();
-                        Lib\NotificationSender::sendFromCart( $order );
+                            ->setStatus( Lib\Entities\Payment::STATUS_COMPLETED );
+                        $userData = new Lib\UserBookingData( $form_id );
+                        if ( $userData->load() ) {
+                            $cart_info = $userData->cart->getInfo( Lib\Entities\Payment::TYPE_PAYPAL );
+
+                            $coupon = $userData->getCoupon();
+                            if ( $coupon ) {
+                                $coupon->claim();
+                                $coupon->save();
+                            }
+                            $paid     = (float) $response['AMT'];
+                            $expected = (float) $cart_info->getPayNow();
+                            if ( $expected == $paid ) {
+                                $payment
+                                    ->setCartInfo( $cart_info )
+                                    ->save();
+                                $order = $userData->save( $payment );
+                                $payment->setDetailsFromOrder( $order, $cart_info )->save();
+                                Lib\NotificationSender::sendFromCart( $order );
+                            }
+                        } else {
+                            // Information about customer’s cart (order) is no longer available.
+                            $payment
+                                ->setTotal( $response['AMT'] )
+                                ->setPaid( $response['AMT'] )
+                                ->setTax( $response['TAXAMT'] )
+                                ->save();
+                        }
                         $userData->setPaymentStatus( Lib\Entities\Payment::TYPE_PAYPAL, 'success' );
 
                         @wp_redirect( remove_query_arg( Lib\Payment\PayPal::$remove_parameters, Lib\Utils\Common::getCurrentPageURL() ) );
@@ -126,9 +135,9 @@ class Controller extends Lib\Base\Controller
     /**
      * Process Express Checkout cancel request.
      */
-    public function ecCancel()
+    public static function ecCancel()
     {
-        $userData = new Lib\UserBookingData( $this->getParameter( 'bookly_fid' ) );
+        $userData = new Lib\UserBookingData( self::parameter( 'bookly_fid' ) );
         $userData->load();
         $userData->setPaymentStatus( Lib\Entities\Payment::TYPE_PAYPAL, 'cancelled' );
         @wp_redirect( remove_query_arg( Lib\Payment\PayPal::$remove_parameters, Lib\Utils\Common::getCurrentPageURL() ) );
@@ -138,11 +147,11 @@ class Controller extends Lib\Base\Controller
     /**
      * Process Express Checkout error request.
      */
-    public function ecError()
+    public static function ecError()
     {
-        $userData = new Lib\UserBookingData( $this->getParameter( 'bookly_fid' ) );
+        $userData = new Lib\UserBookingData( self::parameter( 'bookly_fid' ) );
         $userData->load();
-        $userData->setPaymentStatus( Lib\Entities\Payment::TYPE_PAYPAL, 'error', $this->getParameter( 'error_msg' ) );
+        $userData->setPaymentStatus( Lib\Entities\Payment::TYPE_PAYPAL, 'error', self::parameter( 'error_msg' ) );
         @wp_redirect( remove_query_arg( Lib\Payment\PayPal::$remove_parameters, Lib\Utils\Common::getCurrentPageURL() ) );
         exit;
     }

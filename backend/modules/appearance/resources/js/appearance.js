@@ -6,11 +6,13 @@ jQuery(function($) {
         $step_settings                  = $('#bookly-step-settings'),
         // Service step.
         $staff_name_with_price          = $('#bookly-staff-name-with-price'),
+        $service_duration_with_price    = $('#bookly-service-duration-with-price'),
         $service_name_with_duration     = $('#bookly-service-name-with-duration'),
         $required_employee              = $('#bookly-required-employee'),
         $required_location              = $('#bookly-required-location'),
         $show_ratings                   = $('#bookly-show-ratings'),
         // Time step.
+        $time_step_nop                  = $('#bookly-show-nop-on-time-step'),
         $time_step_calendar             = $('.bookly-js-selected-date'),
         $time_step_calendar_wrap        = $('.bookly-js-slot-calendar'),
         $show_blocked_timeslots         = $('#bookly-show-blocked-timeslots'),
@@ -19,6 +21,7 @@ jQuery(function($) {
         $show_calendar                  = $('#bookly-show-calendar'),
         $day_one_column                 = $('#bookly-day-one-column'),
         $day_multi_columns              = $('#bookly-day-multi-columns'),
+        $columnizer                     = $('.bookly-time-step .bookly-columnizer-wrap'),
         // Step repeat.
         $repeat_step_calendar           = $('.bookly-js-repeat-until'),
         $repeat_variants                = $('[class^="bookly-js-variant"]'),
@@ -171,6 +174,20 @@ jQuery(function($) {
         $('.employee-name').toggle(!$staff_name_with_price.prop("checked"));
     }).trigger('change');
 
+    if ($service_duration_with_price.prop("checked")) {
+        $('.bookly-js-select-duration').val(-1);
+    }
+
+    // Show price next to service duration.
+    $service_duration_with_price.on('change', function () {
+        var duration = $('.bookly-js-select-duration').val();
+        if (duration) {
+            $('.bookly-js-select-duration').val(duration * -1);
+        }
+        $('.bookly-js-duration-price').toggle($service_duration_with_price.prop("checked"));
+        $('.bookly-js-duration').toggle(!$service_duration_with_price.prop("checked"));
+    }).trigger('change');
+
     $show_ratings.on('change', function () {
         var state = $(this).prop('checked');
         $('.bookly-js-select-employee option').each(function () {
@@ -197,6 +214,19 @@ jQuery(function($) {
         }
         $('.service-name-duration').toggle($service_name_with_duration.prop("checked"));
         $('.service-name').toggle(!$service_name_with_duration.prop("checked"));
+    }).trigger('change');
+
+    // Show price next to service duration.
+    $service_duration_with_price.on('change', function () {
+        if ( $(this).prop('checked')) {
+            $('.bookly-js-select-duration option[value="1"]').each(function () {
+                $(this).text($(this).attr('data-text-1'));
+            });
+        } else {
+            $('.bookly-js-select-duration option[value="1"]').each(function () {
+                $(this).text($(this).attr('data-text-0'));
+            });
+        }
     }).trigger('change');
 
     // Clickable week-days.
@@ -250,11 +280,22 @@ jQuery(function($) {
     }).trigger('change');
 
     // Show blocked time slots.
-    $show_blocked_timeslots.on('change', function(){
+    $show_blocked_timeslots.on('change', function () {
         if (this.checked) {
             $('.bookly-hour.no-booked').removeClass('no-booked').addClass('booked');
+            $('.bookly-column .bookly-hour.booked .bookly-time-additional', $columnizer).text('');
         } else {
             $('.bookly-hour.booked').removeClass('booked').addClass('no-booked');
+            if ($time_step_nop.prop('checked')) {
+                $('.bookly-column .bookly-hour:not(.booked) .bookly-time-additional', $columnizer).each(function () {
+                    var nop = Math.ceil(Math.random() * 9);
+                    if (BooklyL10n.nop_format == 'busy') {
+                        $(this).text('[' + nop + '/10]');
+                    } else {
+                        $(this).text('[' + nop + ']');
+                    }
+                });
+            }
         }
     });
 
@@ -272,6 +313,30 @@ jQuery(function($) {
     // Show time zone switcher
     $show_time_zone_switcher.on('change', function() {
         $('.bookly-js-time-zone-switcher').toggle(this.checked);
+    }).trigger('change');
+
+    // Show nop/capacity
+    $time_step_nop.on('change', function () {
+        if (this.checked) {
+            $('.bookly-column', $columnizer).addClass('bookly-column-wide');
+            $('.bookly-column .bookly-hour:not(.booked) .bookly-time-additional', $columnizer).each(function () {
+                var nop = Math.ceil(Math.random() * 9);
+                if (BooklyL10n.nop_format == 'busy') {
+                    $(this).text('[' + nop + '/10]');
+                } else {
+                    $(this).text('[' + nop + ']');
+                }
+            });
+            $('.bookly-column.col5', $columnizer).hide();
+            $('.bookly-column.col6', $columnizer).hide();
+            $('.bookly-column.col7', $columnizer).hide();
+        } else {
+            $('.bookly-column', $columnizer).removeClass('bookly-column-wide');
+            $('.bookly-column .bookly-hour .bookly-time-additional', $columnizer).text('');
+            if (!$show_calendar.prop('checked')) {
+                $('.bookly-column', $columnizer).removeClass('bookly-column-wide').show();
+            }
+        }
     }).trigger('change');
 
     /**
@@ -464,13 +529,13 @@ jQuery(function($) {
     });
 
     // Save options.
-    $save_button.on('click', function(e) {
+    $save_button.on('click', function (e) {
         e.preventDefault();
         // Prepare data.
         var data = {
-            action: 'bookly_update_appearance_options',
+            action    : 'bookly_update_appearance_options',
             csrf_token: BooklyL10n.csrf_token,
-            options: {
+            options   : {
                 // Color.
                 'bookly_app_color'                      : $color_picker.wpColorPicker('color'),
                 // Checkboxes.
@@ -486,8 +551,10 @@ jQuery(function($) {
                 'bookly_app_show_address'               : Number($show_address_fields.prop('checked')),
                 'bookly_app_show_progress_tracker'      : Number($show_progress_tracker.prop('checked')),
                 'bookly_app_staff_name_with_price'      : Number($staff_name_with_price.prop('checked')),
+                'bookly_app_service_duration_with_price': Number($service_duration_with_price.prop('checked')),
                 'bookly_app_required_employee'          : Number($required_employee.prop('checked')),
                 'bookly_app_required_location'          : Number($required_location.prop('checked')),
+                'bookly_group_booking_app_show_nop'     : Number($time_step_nop.prop('checked')),
                 'bookly_ratings_app_show_on_frontend'   : Number($show_ratings.prop('checked')),
                 'bookly_cst_required_details'           : $required_details.val() == 'both' ? ['phone', 'email'] : [$required_details.val()],
                 'bookly_cst_first_last_name'            : Number($first_last_name.prop('checked'))

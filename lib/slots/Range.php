@@ -347,6 +347,28 @@ class Range
     }
 
     /**
+     * Create a copy of the data with new capacity.
+     *
+     * @param int $new_capacity
+     * @return self
+     */
+    public function replaceCapacity( $new_capacity )
+    {
+        return $this->replaceData( $this->data->replaceCapacity( $new_capacity ) );
+    }
+
+    /**
+     * Create a copy of the data with new nop.
+     *
+     * @param int $new_nop
+     * @return self
+     */
+    public function replaceNop( $new_nop )
+    {
+        return $this->replaceData( $this->data->replaceNop( $new_nop ) );
+    }
+
+    /**
      * Create a copy of the data with new next slot.
      *
      * @param self|null $new_next_slot
@@ -432,6 +454,28 @@ class Range
         }
 
         return $started;
+    }
+
+    /**
+     * @return int
+     */
+    public function capacity()
+    {
+        return $this->data->capacity();
+    }
+
+    /**
+     * @return int
+     */
+    public function nop()
+    {
+        $result = $this->data->nop();
+
+        if ( $this->data()->hasNextSlot() ) {
+            $result = max( $result, $this->nextSlot()->nop() );
+        }
+
+        return $result;
     }
 
     /**

@@ -1,8 +1,8 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-use Bookly\Lib\Config;
-use Bookly\Lib\Plugin;
-use Bookly\Lib\Proxy;
-use Bookly\Lib\Utils\Common;
+use Bookly\Lib;
+use Bookly\Backend\Components\Support;
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Modules\Appearance\Proxy;
 ?>
 
 <?php if ( trim( $custom_css ) ) : ?>
@@ -17,7 +17,7 @@ use Bookly\Lib\Utils\Common;
             <div class="bookly-page-title">
                 <?php _e( 'Appearance', 'bookly' ) ?>
             </div>
-            <?php Bookly\Backend\Modules\Support\Components::getInstance()->renderButtons( $this::page_slug ) ?>
+            <?php Support\Buttons::render( $self::pageSlug() ) ?>
         </div>
         <div class="panel panel-default bookly-main">
             <div class="panel-body">
@@ -47,7 +47,7 @@ use Bookly\Lib\Utils\Common;
                         <?php endforeach ?>
                     </ul>
 
-                    <?php if ( ! get_user_meta( get_current_user_id(), Plugin::getPrefix() . 'dismiss_appearance_notice', true ) ): ?>
+                    <?php if ( ! get_user_meta( get_current_user_id(), Lib\Plugin::getPrefix() . 'dismiss_appearance_notice', true ) ): ?>
                         <div class="alert alert-info alert-dismissible fade in bookly-margin-top-lg bookly-margin-bottom-remove" id="bookly-js-hint-alert" role="alert">
                             <button type="button" class="close" data-dismiss="alert"></button>
                             <?php _e( 'Click on the underlined text to edit.', 'bookly' ) ?>
@@ -56,7 +56,6 @@ use Bookly\Lib\Utils\Common;
 
                     <div class="row" id="bookly-step-settings">
                         <div class="bookly-js-service-settings bookly-margin-top-lg">
-                            <?php Proxy\Shared::renderAppearanceStepServiceSettings() ?>
                             <div class="col-md-3">
                                 <div class="checkbox">
                                     <label>
@@ -81,6 +80,7 @@ use Bookly\Lib\Utils\Common;
                                     </label>
                                 </div>
                             </div>
+                            <?php Proxy\Shared::renderServiceStepSettings( 9 ) ?>
                         </div>
                         <div class="bookly-js-time-settings bookly-margin-top-lg" style="display:none">
                             <div class="col-md-3">
@@ -115,6 +115,8 @@ use Bookly\Lib\Utils\Common;
                                     </label>
                                 </div>
                             </div>
+                            <div class="clearfix"></div>
+                            <?php Proxy\Shared::renderTimeStepSettings() ?>
                         </div>
 
                         <div class="bookly-js-details-settings bookly-margin-top-lg container-fluid" style="display:none">
@@ -166,7 +168,7 @@ use Bookly\Lib\Utils\Common;
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" id="bookly-show-address"
-                                                <?php echo Config::invoicesEnabled()
+                                                <?php echo Lib\Config::invoicesEnabled()
                                                     ? 'checked="checked" readonly onclick="return false;"'
                                                     : checked( get_option( 'bookly_app_show_address' ), true, false ) ?> >
                                             <?php _e( 'Show address fields', 'bookly' ) ?>
@@ -236,12 +238,12 @@ use Bookly\Lib\Utils\Common;
                                         <?php // Render unique data per step
                                         switch ( $step ) :
                                             case 1: include '_1_service.php';   break;
-                                            case 2: Proxy\ServiceExtras::renderAppearance( $this->render( '_progress_tracker', compact( 'step', 'editable' ), false ) );
+                                            case 2: Proxy\ServiceExtras::renderStep( $self::renderTemplate( '_progress_tracker', compact( 'step', 'editable' ), false ) );
                                                 break;
                                             case 3: include '_3_time.php';      break;
-                                            case 4: Proxy\RecurringAppointments::renderAppearance( $this->render( '_progress_tracker', compact( 'step', 'editable' ), false ) );
+                                            case 4: Proxy\Shared::renderRepeatStep( $self::renderTemplate( '_progress_tracker', compact( 'step', 'editable' ), false ) );
                                                 break;
-                                            case 5: Proxy\Cart::renderAppearance( $this->render( '_progress_tracker', compact( 'step', 'editable' ), false ) );
+                                            case 5: Proxy\Cart::renderStep( $self::renderTemplate( '_progress_tracker', compact( 'step', 'editable' ), false ) );
                                                 break;
                                             case 6: include '_6_details.php';   break;
                                             case 7: include '_7_payment.php';   break;
@@ -253,13 +255,13 @@ use Bookly\Lib\Utils\Common;
                         </div>
                     </div>
                     <div>
-                        <?php $this->render( '_custom_css', array( 'custom_css' => $custom_css ) ) ?>
+                        <?php $self::renderTemplate( '_custom_css', array( 'custom_css' => $custom_css ) ) ?>
                     </div>
                 </div>
             </div>
             <div class="panel-footer">
-                <?php Common::submitButton( 'ajax-send-appearance' ) ?>
-                <?php Common::resetButton() ?>
+                <?php Buttons::renderSubmit( 'ajax-send-appearance' ) ?>
+                <?php Buttons::renderReset() ?>
             </div>
         </div>
     </div>

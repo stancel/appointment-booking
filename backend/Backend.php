@@ -15,31 +15,41 @@ class Backend
      */
     public function __construct()
     {
-        // Backend controllers.
-        $this->analyticsController     = Modules\Analytics\Controller::getInstance();
-        $this->apearanceController     = Modules\Appearance\Controller::getInstance();
-        $this->appointmentsController  = Modules\Appointments\Controller::getInstance();
-        $this->calendarController      = Modules\Calendar\Controller::getInstance();
-        $this->customerController      = Modules\Customers\Controller::getInstance();
-        $this->debugController         = Modules\Debug\Controller::getInstance();
-        $this->notificationsController = Modules\Notifications\Controller::getInstance();
-        $this->paymentController       = Modules\Payments\Controller::getInstance();
-        $this->serviceController       = Modules\Services\Controller::getInstance();
-        $this->settingsController      = Modules\Settings\Controller::getInstance();
-        $this->supportController       = Modules\Support\Controller::getInstance();
-        $this->smsController           = Modules\Sms\Controller::getInstance();
-        $this->staffController         = Modules\Staff\Controller::getInstance();
-        $this->licenseController       = Modules\License\Controller::getInstance();
-        $this->messageController       = Modules\Message\Controller::getInstance();
+        // Backend components.
+        Components\Appearance\Proxy\Shared::init();
+        Components\Dialogs\Appointment\Delete\Ajax::init();
+        Components\Dialogs\Appointment\Edit\Ajax::init();
+        Components\Dialogs\Customer\EditAjax::init();
+        Components\License\Ajax::init();
+        Components\Notices\CollectStatsAjax::init();
+        Components\Notices\NpsAjax::init();
+        Components\Notices\SubscribeAjax::init();
+        Components\Support\ButtonsAjax::init();
+        Components\TinyMce\Tools::init();
+
+        // Backend pages.
+        Modules\Analytics\Ajax::init();
+        Modules\Appearance\Ajax::init();
+        Modules\Appointments\Ajax::init();
+        Modules\Calendar\Ajax::init();
+        Modules\Customers\Ajax::init();
+        Modules\Debug\Ajax::init();
+        Modules\Messages\Ajax::init();
+        Modules\Notifications\Ajax::init();
+        Modules\Payments\Ajax::init();
+        Modules\Services\Ajax::init();
+        Modules\Settings\Ajax::init();
+        Modules\Shop\Ajax::init();
+        Modules\Sms\Ajax::init();
+        Modules\Staff\Ajax::init();
 
         // Frontend controllers that work via admin-ajax.php.
-        $this->bookingController = Frontend\Modules\Booking\Controller::getInstance();
-        $this->customerProfileController = Frontend\Modules\CustomerProfile\Controller::getInstance();
-        $this->wooCommerceController = Frontend\Modules\WooCommerce\Controller::getInstance();
+        Frontend\Modules\Booking\Ajax::init();
+        Frontend\Modules\CustomerProfile\Ajax::init();
+        Frontend\Modules\WooCommerce\Ajax::init();
 
         add_action( 'admin_menu', array( $this, 'addAdminMenu' ) );
         add_action( 'wp_loaded',  array( $this, 'init' ) );
-        add_action( 'admin_init', array( $this, 'addTinyMCEPlugin' ) );
     }
 
     /**
@@ -52,11 +62,6 @@ class Backend
         }
     }
 
-    public function addTinyMCEPlugin()
-    {
-        new Modules\TinyMce\Plugin();
-    }
-
     /**
      * Admin menu.
      */
@@ -67,9 +72,10 @@ class Backend
 
         if ( $current_user->has_cap( 'administrator' ) || Lib\Entities\Staff::query()->where( 'wp_user_id', $current_user->ID )->count() ) {
             $dynamic_position = '80.0000001' . mt_rand( 1, 1000 ); // position always is under `Settings`
-            $messages_count = Modules\Message\Controller::getInstance()->getMessagesCount();
-            if ( $messages_count ) {
-                add_menu_page( 'Bookly', sprintf( 'Bookly <span class="update-plugins count-%d"><span class="update-count">%d</span></span>', $messages_count, $messages_count ), 'read', 'bookly-menu', '',
+            $badge_number = Modules\Messages\Page::getMessagesCount() + Modules\Shop\Page::getNotSeenCount();
+
+            if ( $badge_number ) {
+                add_menu_page( 'Bookly', sprintf( 'Bookly <span class="update-plugins count-%d"><span class="update-count">%d</span></span>', $badge_number, $badge_number ), 'read', 'bookly-menu', '',
                     plugins_url( 'resources/images/menu.png', __FILE__ ), $dynamic_position );
             } else {
                 add_menu_page( 'Bookly', 'Bookly', 'read', 'bookly-menu', '',
@@ -77,7 +83,7 @@ class Backend
             }
             if ( Lib\Config::booklyExpired() ) {
                 add_submenu_page( 'bookly-menu', __( 'License verification', 'bookly' ), __( 'License verification', 'bookly' ), 'read',
-                    Modules\Settings\Controller::page_slug, array( $this->licenseController, 'index' ) );
+                    Modules\Settings\Ajax::pageSlug(), function () { Modules\License\Page::render(); } );
             } else {
                 // Translated submenu pages.
                 $calendar       = __( 'Calendar',            'bookly' );
@@ -93,51 +99,51 @@ class Backend
                 $analytics      = __( 'Analytics',           'bookly' );
 
                 add_submenu_page( 'bookly-menu', $calendar, $calendar, 'read',
-                    Modules\Calendar\Controller::page_slug, array( $this->calendarController, 'index' ) );
+                    Modules\Calendar\Page::pageSlug(), function () { Modules\Calendar\Page::render(); } );
                 add_submenu_page( 'bookly-menu', $appointments, $appointments, 'manage_options',
-                    Modules\Appointments\Controller::page_slug, array( $this->appointmentsController, 'index' ) );
+                    Modules\Appointments\Page::pageSlug(), function () { Modules\Appointments\Page::render(); } );
                 Lib\Proxy\Locations::addBooklyMenuItem();
                 Lib\Proxy\Packages::addBooklyMenuItem();
                 if ( $current_user->has_cap( 'administrator' ) ) {
                     add_submenu_page( 'bookly-menu', $staff_members, $staff_members, 'manage_options',
-                        Modules\Staff\Controller::page_slug, array( $this->staffController, 'index' ) );
+                        Modules\Staff\Page::pageSlug(), function () { Modules\Staff\Page::render(); } );
                 } else {
                     if ( get_option( 'bookly_gen_allow_staff_edit_profile' ) == 1 ) {
                         add_submenu_page( 'bookly-menu', __( 'Profile', 'bookly' ), __( 'Profile', 'bookly' ), 'read',
-                            Modules\Staff\Controller::page_slug, array( $this->staffController, 'index' ) );
+                            Modules\Staff\Page::pageSlug(), function () { Modules\Staff\Page::render(); } );
                     }
                 }
                 add_submenu_page( 'bookly-menu', $services, $services, 'manage_options',
-                    Modules\Services\Controller::page_slug, array( $this->serviceController, 'index' ) );
+                    Modules\Services\Page::pageSlug(), function () { Modules\Services\Page::render(); } );
                 Lib\Proxy\Taxes::addBooklyMenuItem();
                 add_submenu_page( 'bookly-menu', $customers, $customers, 'manage_options',
-                    Modules\Customers\Controller::page_slug, array( $this->customerController, 'index' ) );
+                    Modules\Customers\Page::pageSlug(), function () { Modules\Customers\Page::render(); } );
                 Lib\Proxy\CustomerInformation::addBooklyMenuItem();
                 Lib\Proxy\CustomerGroups::addBooklyMenuItem();
                 add_submenu_page( 'bookly-menu', $notifications, $notifications, 'manage_options',
-                    Modules\Notifications\Controller::page_slug, array( $this->notificationsController, 'index' ) );
+                    Modules\Notifications\Page::pageSlug(), function () { Modules\Notifications\Page::render(); } );
                 add_submenu_page( 'bookly-menu', $sms, $sms, 'manage_options',
-                    Modules\Sms\Controller::page_slug, array( $this->smsController, 'index' ) );
+                    Modules\Sms\Page::pageSlug(), function () { Modules\Sms\Page::render(); } );
                 add_submenu_page( 'bookly-menu', $payments, $payments, 'manage_options',
-                    Modules\Payments\Controller::page_slug, array( $this->paymentController, 'index' ) );
+                    Modules\Payments\Page::pageSlug(), function () { Modules\Payments\Page::render(); } );
                 add_submenu_page( 'bookly-menu', $appearance, $appearance, 'manage_options',
-                    Modules\Appearance\Controller::page_slug, array( $this->apearanceController, 'index' ) );
+                    Modules\Appearance\Page::pageSlug(), function () { Modules\Appearance\Page::render(); } );
                 Lib\Proxy\Coupons::addBooklyMenuItem();
                 Lib\Proxy\CustomFields::addBooklyMenuItem();
                 add_submenu_page( 'bookly-menu', $settings, $settings, 'manage_options',
-                    Modules\Settings\Controller::page_slug, array( $this->settingsController, 'index' ) );
-                Modules\Message\Controller::getInstance()->addBooklyMenuItem();
+                    Modules\Settings\Page::pageSlug(), function () { Modules\Settings\Page::render(); } );
+                Modules\Messages\Page::addBooklyMenuItem();
+                Modules\Shop\Page::addBooklyMenuItem();
                 add_submenu_page( 'bookly-menu', $analytics, $analytics, 'manage_options',
-                    Modules\Analytics\Controller::page_slug, array( $this->analyticsController, 'index' ) );
+                    Modules\Analytics\Page::pageSlug(), function () { Modules\Analytics\Page::render(); } );
 
                 if ( isset ( $_GET['page'] ) && $_GET['page'] == 'bookly-debug' ) {
                     add_submenu_page( 'bookly-menu', 'Debug', 'Debug', 'manage_options',
-                        Modules\Debug\Controller::page_slug, array( $this->debugController, 'index' ) );
+                        Modules\Debug\Page::pageSlug(), function () { Modules\Debug\Page::render(); } );
                 }
             }
 
             unset ( $submenu['bookly-menu'][0] );
         }
     }
-
 }

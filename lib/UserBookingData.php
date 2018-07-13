@@ -1,8 +1,6 @@
 <?php
 namespace Bookly\Lib;
 
-use Bookly\Lib\Utils\DateTime;
-
 /**
  * Class UserBookingData
  * @package Bookly\Frontend\Modules\Booking\Lib
@@ -65,6 +63,8 @@ class UserBookingData
     // Step payment
     /** @var string */
     protected $coupon_code;
+    /** @var bool */
+    protected $deposit_full = 0;
 
     // Cart item keys being edited
     /** @var array */
@@ -109,6 +109,7 @@ class UserBookingData
         'info_fields',
         // Step payment
         'coupon_code',
+        'deposit_full',
         // Cart item keys being edited
         'edit_cart_keys',
         'repeated',
@@ -385,6 +386,7 @@ class UserBookingData
                         ->setExtras( $chain_item->getExtras() )
                         ->setLocationId( $chain_item->getLocationId() )
                         ->setNumberOfPersons( $chain_item->getNumberOfPersons() )
+                        ->setUnits( $chain_item->getUnits() )
                         ->setServiceId( $chain_item->getServiceId() )
                         ->setSlots( $cart_item_slots )
                         ->setStaffIds( $chain_item->getStaffIds() )
@@ -640,19 +642,34 @@ class UserBookingData
                     $this->customer->loadBy( array( 'facebook_id' => $this->getFacebookId() ) );
                 }
                 if ( ! $this->customer->isLoaded() ) {
-                    // Try to find customer by phone or email.
-                    $this->customer->loadBy(
-                        Config::phoneRequired()
-                            ? array( 'phone' => $this->getPhone() )
-                            : array( 'email' => $this->getEmail() )
-                    );
-                    if ( ! $this->customer->isLoaded() ) {
-                        // Try to find customer by 'secondary' identifier, otherwise return new customer.
+                    // Check allow duplicates option
+                    if ( Config::allowDuplicates() ) {
+                        $customer_data = array(
+                            'email' => $this->getEmail(),
+                            'phone' => $this->getPhone(),
+                        );
+                        if ( Config::showFirstLastName() ) {
+                            $customer_data['first_name'] = $this->getFirstName();
+                            $customer_data['last_name']  = $this->getLastName();
+                        } else {
+                            $customer_data['full_name'] = $this->getFullName();
+                        }
+                        $this->customer->loadBy( $customer_data );
+                    } else {
+                        // Try to find customer by phone or email.
                         $this->customer->loadBy(
                             Config::phoneRequired()
-                                ? array( 'email' => $this->getEmail(), 'phone' => '' )
-                                : array( 'phone' => $this->getPhone(), 'email' => '' )
+                                ? array( 'phone' => $this->getPhone() )
+                                : array( 'email' => $this->getEmail() )
                         );
+                        if ( ! $this->customer->isLoaded() ) {
+                            // Try to find customer by 'secondary' identifier, otherwise return new customer.
+                            $this->customer->loadBy(
+                                Config::phoneRequired()
+                                    ? array( 'email' => $this->getEmail(), 'phone' => '' )
+                                    : array( 'phone' => $this->getPhone(), 'email' => '' )
+                            );
+                        }
                     }
                 }
             }
@@ -1162,7 +1179,6 @@ class UserBookingData
     /**
      * @param string $field_name
      * @return string
-     * @throws \Exception
      */
     public function getAddressField( $field_name )
     {
@@ -1175,7 +1191,7 @@ class UserBookingData
             case 'street': return $this->street;
         }
 
-        throw new \Exception( 'Unknown address field: ' . $field_name );
+        return '';
     }
 
     /**
@@ -1270,6 +1286,29 @@ class UserBookingData
     public function setCouponCode( $coupon_code )
     {
         $this->coupon_code = $coupon_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets deposit_full
+     *
+     * @return string
+     */
+    public function getDepositFull()
+    {
+        return $this->deposit_full;
+    }
+
+    /**
+     * Sets deposit_full
+     *
+     * @param string $deposit_full
+     * @return $this
+     */
+    public function setDepositFull( $deposit_full )
+    {
+        $this->deposit_full = $deposit_full;
 
         return $this;
     }

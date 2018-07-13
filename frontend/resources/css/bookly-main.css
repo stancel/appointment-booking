@@ -399,6 +399,17 @@ span.bookly-round {
     vertical-align: top;
     float: none!important;
 }
+.bookly-columnizer .bookly-column.bookly-column-wide {
+    min-width: 205px;
+}
+.bookly-columnizer .bookly-column.bookly-column-wide span.bookly-time-main {
+    float: left;
+    margin-left: 10px;
+}
+.bookly-columnizer .bookly-column.bookly-column-wide span.bookly-time-additional {
+    float: right;
+    margin-right: 10px;
+}
 .bookly-columnizer .bookly-day,
 .bookly-columnizer .bookly-hour {
     display: block !important;
@@ -428,7 +439,7 @@ span.bookly-round {
 .bookly-columnizer .bookly-hour.bookly-slot-in-waiting-list {
     background-color: #d6d6d6 !important;
 }
-.bookly-columnizer .bookly-hour .ladda-label { margin: 0 -12px; display: inline-block; }
+.bookly-columnizer .bookly-hour .ladda-label { display: inline-block; }
 .bookly-schedule-date,
 .bookly-columnizer .bookly-day {
     background: #f4662f;

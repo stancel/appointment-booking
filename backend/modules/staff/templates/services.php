@@ -1,12 +1,15 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-/** @var Bookly\Backend\Modules\Staff\Forms\StaffServices $form */
-use Bookly\Lib\Proxy;
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Components\Controls\Inputs;
+use Bookly\Backend\Components\Dialogs;
+use Bookly\Backend\Modules\Staff\Proxy;
 use Bookly\Lib\Utils\Common;
+/** @var Bookly\Backend\Modules\Staff\Forms\StaffServices $form */
 ?>
 <div>
     <?php if ( $form->getCategories() || $form->getUncategorizedServices() ) : ?>
         <form>
-            <?php Proxy\Locations::renderStaffServices( $staff_id, $location_id ) ?>
+            <?php Proxy\Locations::renderLocationSwitcher( $staff_id, $location_id ) ?>
             <?php if ( $form->getUncategorizedServices() ) : ?>
                 <div class="panel panel-default bookly-panel-unborder">
                     <div class="panel-heading">
@@ -27,9 +30,7 @@ use Bookly\Lib\Utils\Common;
                                                 <?php _e( 'Price', 'bookly' ) ?>
                                             </div>
                                         </div>
-
-                                        <?php Proxy\DepositPayments::renderStaffServiceLabel() ?>
-                                        <?php Proxy\GroupBooking::renderStaffServiceLabel() ?>
+                                        <?php Proxy\Shared::renderStaffServiceLabels() ?>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +65,7 @@ use Bookly\Lib\Utils\Common;
                                                     <input class="form-control text-right" type="text" <?php disabled( ! array_key_exists( $service->getId(), $services_data ) ) ?>
                                                            name="price[<?php echo $service->getId() ?>]"
                                                            value="<?php echo array_key_exists( $service->getId(), $services_data ) ? $services_data[ $service->getId() ]['price'] : $service->getPrice() ?>"
-                                                    >
+                                                    />
                                                 </div>
 
                                                 <input type="hidden" name="capacity_min[<?php echo $service->getId() ?>]" value="1">
@@ -75,7 +76,7 @@ use Bookly\Lib\Utils\Common;
                                         </div>
                                     </div>
                                 </div>
-                                <?php Proxy\Shared::renderStaffServiceTail( $staff_id, $service ) ?>
+                                <?php Proxy\Shared::renderStaffServiceTail( $staff_id, $service, $location_id ) ?>
                             </li>
                         <?php endforeach ?>
                     </ul>
@@ -101,8 +102,7 @@ use Bookly\Lib\Utils\Common;
                                         <div class="bookly-flex-cell hidden-xs hidden-sm hidden-md text-right">
                                             <div class="bookly-font-smaller bookly-color-gray"><?php _e( 'Price', 'bookly' ) ?></div>
                                         </div>
-                                        <?php Proxy\DepositPayments::renderStaffServiceLabel() ?>
-                                        <?php Proxy\GroupBooking::renderStaffServiceLabel() ?>
+                                        <?php Proxy\Shared::renderStaffServiceLabels() ?>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@ use Bookly\Lib\Utils\Common;
                                                        data-category-id="<?php echo $category->getId() ?>" <?php checked( array_key_exists( $service->getId(), $services_data ) ) ?>
                                                        type="checkbox" value="<?php echo $service->getId() ?>"
                                                        name="service[<?php echo $service->getId() ?>]"
-                                                >
+                                                />
                                                 <span class="bookly-toggle-label"><?php echo esc_html( $service->getTitle() ) ?></span>
                                             </label>
                                             <?php Proxy\Ratings::renderStaffServiceRating( $staff_id, $service->getId(), 'right' ) ?>
@@ -137,7 +137,7 @@ use Bookly\Lib\Utils\Common;
                                                 <input class="form-control text-right" type="text" <?php disabled( ! array_key_exists( $service->getId(), $services_data ) ) ?>
                                                        name="price[<?php echo $service->getId() ?>]"
                                                        value="<?php echo array_key_exists( $service->getId(), $services_data ) ? $services_data[ $service->getId() ]['price'] : $service->getPrice() ?>"
-                                                >
+                                                />
                                             </div>
 
                                             <input type="hidden" name="capacity_min[<?php echo $service->getId() ?>]" value="1">
@@ -147,7 +147,7 @@ use Bookly\Lib\Utils\Common;
                                         </div>
                                     </div>
                                 </div>
-                                <?php Proxy\Shared::renderStaffServiceTail( $staff_id, $service ) ?>
+                                <?php Proxy\Shared::renderStaffServiceTail( $staff_id, $service, $location_id ) ?>
                             </li>
                         <?php endforeach ?>
                     </ul>
@@ -156,24 +156,24 @@ use Bookly\Lib\Utils\Common;
 
             <input type="hidden" name="action" value="bookly_staff_services_update">
             <input type="hidden" name="staff_id" value="<?php echo $staff_id ?>">
-            <?php Common::csrf() ?>
+            <?php Inputs::renderCsrf() ?>
 
             <div class="panel-footer">
                 <span class="bookly-js-services-error text-danger"></span>
-                <?php Common::submitButton( 'bookly-services-save' ) ?>
-                <?php Common::resetButton( 'bookly-services-reset' ) ?>
+                <?php Buttons::renderSubmit( 'bookly-services-save' ) ?>
+                <?php Buttons::renderReset( 'bookly-services-reset' ) ?>
             </div>
         </form>
     <?php else : ?>
         <h5 class="text-center"><?php _e( 'No services found. Please add services.', 'bookly' ) ?></h5>
         <p class="bookly-margin-top-xlg text-center">
             <a class="btn btn-xlg btn-success-outline"
-               href="<?php echo Common::escAdminUrl( Bookly\Backend\Modules\Services\Controller::page_slug ) ?>" >
+               href="<?php echo Common::escAdminUrl( Bookly\Backend\Modules\Services\Page::pageSlug() ) ?>" >
                 <?php _e( 'Add Service', 'bookly' ) ?>
             </a>
         </p>
     <?php endif ?>
     <div style="display: none">
-        <?php Proxy\Shared::renderStaffServices( $staff_id ) ?>
+        <?php Dialogs\SpecialPrice\Proxy\SpecialHours::renderSpecialPricePopup( $staff_id ) ?>
     </div>
 </div>

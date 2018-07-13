@@ -105,7 +105,7 @@ jQuery(function($) {
             success: function (response) {
                 if (response.success) {
                     $custom_notifications.append(response.data.html);
-                    var $subject = $custom_notifications.find('#notification_' + response.data.id + '_subject'),
+                    var $subject = $custom_notifications.find('[name="notification[' + response.data.id + '][subject]"]'),
                         $panel   = $subject.closest('.panel-collapse');
                     $panel.closest('.panel').hide();
                     $panel.find("select[name$='[type]']").trigger('change');
@@ -158,7 +158,7 @@ jQuery(function($) {
     }
 
     function expandNotification(id) {
-        var $subject = $custom_notifications.find('#notification_' + id + '_subject'),
+        var $subject = $custom_notifications.find('[name="notification[' + id + '][subject]"]'),
             $panel = $subject.closest('.panel-collapse');
         $panel.collapse('show');
         $panel.find("select[name$='[type]']").trigger('change');

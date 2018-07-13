@@ -1,4 +1,7 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Components\Controls\Inputs;
+?>
 <form method="post" action="<?php echo esc_url( add_query_arg( 'tab', 'calendar' ) ) ?>">
     <?php if ( Bookly\Lib\Config::groupBookingActive() ) : ?>
         <div class="form-group"><label for="bookly_appointment_participants"><?php _e( 'Calendar', 'bookly' ) ?></label>
@@ -16,16 +19,16 @@
     <?php endif ?>
     <div class="form-group" id="bookly_cal_one_participant">
         <textarea class="form-control" rows="9" name="bookly_cal_one_participant" placeholder="<?php _e( 'Enter a value', 'bookly' ) ?>"><?php echo esc_textarea( get_option( 'bookly_cal_one_participant' ) ) ?></textarea><br/>
-        <?php $this->render( '_calendar_codes', array( 'participants' => 'one' ) ) ?>
+        <?php $self::renderTemplate( '_calendar_codes', array( 'participants' => 'one' ) ) ?>
     </div>
     <div class="form-group" id="bookly_cal_many_participants">
         <textarea class="form-control" rows="9" name="bookly_cal_many_participants" placeholder="<?php _e( 'Enter a value', 'bookly' ) ?>"><?php echo esc_textarea( get_option( 'bookly_cal_many_participants' ) ) ?></textarea><br/>
-        <?php $this->render( '_calendar_codes', array( 'participants' => 'many' ) ) ?>
+        <?php $self::renderTemplate( '_calendar_codes', array( 'participants' => 'many' ) ) ?>
     </div>
 
     <div class="panel-footer">
-        <?php \Bookly\Lib\Utils\Common::csrf() ?>
-        <?php \Bookly\Lib\Utils\Common::submitButton() ?>
-        <?php \Bookly\Lib\Utils\Common::resetButton() ?>
+        <?php Inputs::renderCsrf() ?>
+        <?php Buttons::renderSubmit() ?>
+        <?php Buttons::renderReset() ?>
     </div>
 </form>

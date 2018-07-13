@@ -17,7 +17,7 @@ jQuery(function ($) {
                 success     : function (response) {
                     $container.html(response.data.html);
                     var $services_form = $('form', $container);
-                    $(document.body).trigger('special_hours.tab_init', [$container, obj.options.get_staff_services.staff_id, obj.options.booklyAlert]);
+                    $(document.body).trigger('special_hours.tab_init', [$container, obj.options]);
                     var autoTickCheckboxes = function () {
                         // Handle 'select category' checkbox.
                         $('.bookly-services-category .bookly-category-checkbox').each(function () {

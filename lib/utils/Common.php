@@ -82,85 +82,6 @@ abstract class Common
     }
 
     /**
-     * Build control for boolean option
-     *
-     * @param string $option_name
-     * @param string $label caption
-     * @param array  $options
-     * @param string $help detailed text
-     */
-    public static function optionToggle( $option_name, $label = '', $help = '', array $options = array() )
-    {
-        if ( empty( $options ) ) {
-            $options = array(
-                //  value        title              disabled
-                array( 0, __( 'Disabled', 'bookly' ), 0 ),
-                array( 1, __( 'Enabled',  'bookly' ), 0 ),
-            );
-        }
-        $control = sprintf( '<select class="form-control" name="%1$s" id="%1$s">', esc_attr( $option_name ) );
-        foreach ( $options as $attr ) {
-            $control .= sprintf( '<option value="%s" %s>%s</option>',
-                esc_attr( $attr[0] ),
-                empty( $attr[2] )
-                    ? selected( get_option( $option_name ), $attr[0], false )
-                    : disabled( true, true, false ),
-                $attr[1] );
-        }
-        $control .= '</select>';
-
-        echo self::getOptionTemplate( $label, $option_name, $help, $control );
-    }
-
-    /**
-     * Build control for numeric option
-     *
-     * @deprecated  > Bookly Multiply Appointments 1.6
-     *
-     * @param string   $option_name
-     * @param string   $label
-     * @param string   $help
-     * @param int|null $min
-     * @param int|null $step
-     * @param int|null $max
-     */
-    public static function optionNumeric( $option_name, $label, $help, $min = 1, $step = 1, $max = null )
-    {
-        Render::numericInput( $option_name, $label, $help, $min = 1, $step = 1, $max = null );
-    }
-
-    /**
-     * Build control for multi values option
-     *
-     * @param string $option_name
-     * @param array  $options
-     * @param null   $label
-     * @param null   $help
-     */
-    public static function optionFlags( $option_name, array $options = array(), $label = null, $help = null )
-    {
-        $values = (array) get_option( $option_name );
-        $control = '';
-        foreach ( $options as $attr ) {
-            $control .= sprintf( '<div class="checkbox"><label><input type="checkbox" name="%s[]" value="%s" %s>%s</label></div>', $option_name, esc_attr( $attr[0] ), checked( in_array( $attr[0], $values ), true, false ), $attr[1] );
-        }
-
-        echo self::getOptionTemplate( $label, $option_name, $help, '<div class="bookly-flags" id="' . $option_name . '">' . $control . '</div>' );
-    }
-
-    /**
-     * Helper for text option.
-     *
-     * @param string $option_name
-     * @param string $label
-     * @param null $help
-     */
-    public static function optionText( $option_name, $label, $help = null )
-    {
-        echo self::getOptionTemplate( $label, $option_name, $help, sprintf( '<input id="%1$s" class="form-control" type="text" name="%1$s" value="%2$s">', $option_name, esc_attr( get_option( $option_name ) ) ) );
-    }
-
-    /**
      * Get option translated with WPML.
      *
      * @param $option_name
@@ -195,102 +116,41 @@ abstract class Common
     }
 
     /**
-     * Submit button helper
-     *
-     * @param string $id
-     * @param string $class
-     * @param string $title
+     * @param int $duration
+     * @return array
      */
-    public static function submitButton( $id = 'bookly-save', $class = '', $title = '' )
+    public static function getDurationSelectOptions( $duration )
     {
-        printf(
-            '<button%s type="submit" class="btn btn-lg btn-success ladda-button%s" data-style="zoom-in" data-spinner-size="40"><span class="ladda-label">%s</span></button>',
-            empty( $id ) ? null : ' id="' . $id . '"',
-            empty( $class ) ? null : ' ' . $class,
-            $title ?: __( 'Save', 'bookly' )
-        );
-    }
+        $time_interval = get_option( 'bookly_gen_time_slot_length' );
 
-    /**
-     * Reset button helper
-     *
-     * @param string $id
-     * @param string $class
-     */
-    public static function resetButton( $id = '', $class = '' )
-    {
-        printf(
-            '<button%s class="btn btn-lg btn-default%s" type="reset">' . __( 'Reset', 'bookly' ) . '</button>',
-            empty( $id ) ? null : ' id="' . $id . '"',
-            empty( $class ) ? null : ' ' . $class
-        );
-    }
+        $options = array();
 
-    /**
-     * Delete button helper
-     *
-     * @param string $id
-     * @param string $class
-     * @param string $modal selector for modal window should be opened after click
-     */
-    public static function deleteButton( $id = 'bookly-delete', $class = '', $modal = null )
-    {
-        printf(
-            '<button type="button"%s class="btn btn-danger ladda-button%s" data-spinner-size="40" data-style="zoom-in"%s><span class="ladda-label"><i class="glyphicon glyphicon-trash"></i> ' . __( 'Delete', 'bookly' ) . '</span></button>',
-            empty( $id ) ? null : ' id="' . $id . '"',
-            empty( $class ) ? null : ' ' . $class,
-            empty( $modal ) ? null : ' data-toggle="modal" data-target="' . $modal . '"'
-        );
-    }
+        for ( $j = $time_interval; $j <= 720; $j += $time_interval ) {
 
-    /**
-     * Custom button helper.
-     *
-     * @param string $id
-     * @param string $class
-     * @param string $title
-     * @param array  $attributes
-     * @param string $type
-     */
-    public static function customButton( $id = null, $class = 'btn-success', $title = null, array $attributes = array(), $type = 'button' )
-    {
-        if ( ! empty( $id ) ) {
-            $attributes['id'] = $id;
-        }
-        printf(
-            '<button type="%s" class="btn ladda-button%s" data-spinner-size="40" data-style="zoom-in"%s><span class="ladda-label">%s</span></button>',
-            $type,
-            empty( $class ) ? null : ' ' . $class,
-            self::joinAttributes( $attributes ),
-            $title ?: __( 'Save', 'bookly' )
-        );
-    }
+            if ( ( $duration / 60 > $j - $time_interval ) && ( $duration / 60 < $j ) ) {
+                $options[] = array(
+                    'value' => $duration,
+                    'label' => DateTime::secondsToInterval( $duration ),
+                    'selected' => 'selected',
+                );
+            }
 
-    /**
-     * Add hidden input with CSRF token.
-     */
-    public static function csrf()
-    {
-        printf(
-            '<input type="hidden" name="csrf_token" value="%s">',
-            esc_attr( self::getCsrfToken() )
-        );
-    }
-
-    /**
-     * Build attributes for html entity.
-     *
-     * @param array $attributes
-     * @return string|null
-     */
-    public static function joinAttributes( array $attributes )
-    {
-        $joined = null;
-        foreach ( $attributes as $attr => $value ) {
-            $joined .= ' ' . $attr . '="' . $value . '"';
+            $options[] = array(
+                'value' => $j * 60,
+                'label' => DateTime::secondsToInterval( $j * 60 ),
+                'selected' => selected( $duration, $j * 60, false ),
+            );
         }
 
-        return $joined;
+        for ( $j = 86400; $j <= 604800; $j += 86400 ) {
+            $options[] = array(
+                'value' => $j,
+                'label' => DateTime::secondsToInterval( $j ),
+                'selected' => selected( $duration, $j, false ),
+            );
+        }
+
+        return $options;
     }
 
     /**
@@ -341,6 +201,7 @@ abstract class Common
      *
      * @param array $codes
      * @param array $flags
+     * @return string
      */
     public static function codes( array $codes, $flags = array() )
     {
@@ -383,27 +244,7 @@ abstract class Common
             }
         }
 
-        echo '<table class="bookly-codes"><tbody>' . $tbody . '</tbody></table>';
-    }
-
-    /**
-     * Return html for option
-     *
-     * @param string $label
-     * @param string $option_name
-     * @param string $help
-     * @param string $control
-     * @return string
-     */
-    private static function getOptionTemplate( $label, $option_name, $help, $control )
-    {
-        return strtr( '<div class="form-group">{label}{help}{control}</div>',
-            array(
-                '{label}'   => empty( $label ) ? '' : sprintf( '<label for="%s">%s</label>', $option_name, $label ),
-                '{help}'    => empty( $help ) ? '' : sprintf( '<p class="help-block">%s</p>', $help ),
-                '{control}' => $control,
-            )
-        );
+        return '<table class="bookly-codes"><tbody>' . $tbody . '</tbody></table>';
     }
 
     /**
@@ -488,5 +329,4 @@ abstract class Common
 
         return implode( ', ', array_filter( $address_fields ) );
     }
-
 }

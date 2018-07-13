@@ -410,6 +410,29 @@ class Customer extends Lib\Base\Entity
     }
 
     /**
+     * Gets birthday
+     *
+     * @return string
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * Sets birthday
+     *
+     * @param string $birthday
+     * @return $this
+     */
+    public function setBirthday( $birthday )
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getCountry()
@@ -536,29 +559,6 @@ class Customer extends Lib\Base\Entity
     public function setNotes( $notes )
     {
         $this->notes = $notes;
-
-        return $this;
-    }
-
-    /**
-     * Gets birthday
-     *
-     * @return string
-     */
-    public function getBirthday()
-    {
-        return $this->birthday;
-    }
-
-    /**
-     * Sets birthday
-     *
-     * @param string $birthday
-     * @return $this
-     */
-    public function setBirthday( $birthday )
-    {
-        $this->birthday = $birthday;
 
         return $this;
     }

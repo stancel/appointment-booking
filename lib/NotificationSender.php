@@ -295,7 +295,7 @@ abstract class NotificationSender
         $notification = new Entities\Notification();
 
         /**
-         * @see \Bookly\Backend\Modules\Notifications\Controller::executeTestEmailNotifications
+         * @see \Bookly\Backend\Modules\Notifications\Ajax::executeTestEmailNotifications
          * overwrite this setting and headers
          * in filter bookly_email_headers
          */
@@ -655,7 +655,7 @@ abstract class NotificationSender
             self::$sms = new SMS();
         }
 
-        return self::$sms->sendSms( $phone, $message, $notification->getTypeId() );
+        return self::$sms->sendSms( $phone, $message, $codes->getImpersonalMessage(), $notification->getTypeId() );
     }
 
     /**
@@ -676,7 +676,7 @@ abstract class NotificationSender
             self::$sms = new SMS();
         }
 
-        $result = self::$sms->sendSms( $phone, $message, $notification->getTypeId() );
+        $result = self::$sms->sendSms( $phone, $message, $codes->getImpersonalMessage(), $notification->getTypeId() );
 
         // Send to administrators.
         if ( $notification->getToAdmin() ) {
@@ -684,7 +684,7 @@ abstract class NotificationSender
                 $message = $codes->replace( self::_getMessageForStaff( $notification, 'admin' ), 'text' );
             }
 
-            self::$sms->sendSms( get_option( 'bookly_sms_administrator_phone', '' ), $message, $notification->getTypeId() );
+            self::$sms->sendSms( get_option( 'bookly_sms_administrator_phone', '' ), $message, $codes->getImpersonalMessage(), $notification->getTypeId() );
         }
 
         return $result;
@@ -712,7 +712,7 @@ abstract class NotificationSender
             $message = $codes->replace( self::_getMessageForStaff( $notification, 'admin' ), 'text' );
         }
 
-        return self::$sms->sendSms( get_option( 'bookly_sms_administrator_phone', '' ), $message, $notification->getTypeId() );
+        return self::$sms->sendSms( get_option( 'bookly_sms_administrator_phone', '' ), $message, $codes->getImpersonalMessage(), $notification->getTypeId() );
     }
 
     /**
@@ -1010,6 +1010,7 @@ abstract class NotificationSender
                         'service_name'      => $sub_item->getService()->getTranslatedTitle( $client_locale ),
                         'staff_name'        => $sub_item->getStaff()->getTranslatedName( $client_locale ),
                         'extras'            => (array) Proxy\ServiceExtras::getInfo( json_decode( $sub_item->getCA()->getExtras(), true ), true, $client_locale ),
+                        'tax'               => Config::taxesEnabled() ? $sub_item->getTax() : null,
                         'appointment_start_info' => $sub_item->getService()->getDuration() < DAY_IN_SECONDS ? null : $sub_item->getService()->getStartTimeInfo(),
                     );
 

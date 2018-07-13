@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-if (!class_exists('Google_Client')) {
+if (!class_exists('BooklyGoogle_Client')) {
   require_once dirname(__FILE__) . '/../autoload.php';
 }
 
 /**
  * Credentials object used for OAuth 2.0 Signed JWT assertion grants.
  */
-class Google_Auth_AssertionCredentials
+class BooklyGoogle_Auth_AssertionCredentials
 {
   const MAX_TOKEN_LIFETIME_SECS = 3600;
 
@@ -68,7 +68,7 @@ class Google_Auth_AssertionCredentials
     $this->prn = $sub;
     $this->useCache = $useCache;
   }
-  
+
   /**
    * Generate a unique key to represent this credential.
    * @return string
@@ -91,7 +91,7 @@ class Google_Auth_AssertionCredentials
     $now = time();
 
     $jwtParams = array(
-          'aud' => Google_Auth_OAuth2::OAUTH2_TOKEN_URI,
+          'aud' => BooklyGoogle_Auth_OAuth2::OAUTH2_TOKEN_URI,
           'scope' => $this->scopes,
           'iat' => $now,
           'exp' => $now + self::MAX_TOKEN_LIFETIME_SECS,
@@ -122,14 +122,14 @@ class Google_Auth_AssertionCredentials
     $payload = str_replace('\/', '/', $payload);
 
     $segments = array(
-      Google_Utils::urlSafeB64Encode(json_encode($header)),
-      Google_Utils::urlSafeB64Encode($payload)
+      BooklyGoogle_Utils::urlSafeB64Encode(json_encode($header)),
+      BooklyGoogle_Utils::urlSafeB64Encode($payload)
     );
 
     $signingInput = implode('.', $segments);
-    $signer = new Google_Signer_P12($this->privateKey, $this->privateKeyPassword);
+    $signer = new BooklyGoogle_Signer_P12($this->privateKey, $this->privateKeyPassword);
     $signature = $signer->sign($signingInput);
-    $segments[] = Google_Utils::urlSafeB64Encode($signature);
+    $segments[] = BooklyGoogle_Utils::urlSafeB64Encode($signature);
 
     return implode(".", $segments);
   }

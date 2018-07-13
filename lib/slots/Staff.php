@@ -1,8 +1,8 @@
 <?php
 namespace Bookly\Lib\Slots;
 
-use \Bookly\Lib\Entities;
-use \Bookly\Lib\Proxy;
+use Bookly\Lib\Entities;
+use Bookly\Lib\Proxy;
 
 /**
  * Class Staff

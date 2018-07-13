@@ -1,11 +1,11 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-/** @var Bookly\Lib\CartInfo $cart_info */
-use Bookly\Lib\Proxy;
 use Bookly\Lib\Utils\Common;
-use Bookly\Lib\Utils\Price;
+use Bookly\Frontend\Modules\Booking\Proxy;
 
+/** @var Bookly\Lib\CartInfo $cart_info */
 echo $progress_tracker;
 echo $coupon_html;
+Proxy\DepositPayments::renderPaymentStep( $userData );
 ?>
 
 <div class="bookly-payment-nav">

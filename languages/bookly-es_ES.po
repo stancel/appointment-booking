@@ -1871,10 +1871,6 @@ msgid "Old password"
 msgstr "Contraseña anterior"
 
 #: 
-msgid "Terms & Conditions"
-msgstr "Términos Y Condiciones"
-
-#: 
 msgid "All locations"
 msgstr "Todas localizaciones"
 
@@ -3525,10 +3521,6 @@ msgid "Set the URL of an appointment cancellation confirmation page that is show
 msgstr "Establezca la URL de una página de confirmación de cancelación de cita que se muestrará a los clientes cuando presionen el enlace de cancelación."
 
 #: 
-msgid "Accept <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Terms & Conditions</a>"
-msgstr "Aceptar <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Términos y Condiciones</a>"
-
-#: 
 msgid "Add appointment cancellation confirmation"
 msgstr "Añadir confirmación de cancelación de cita"
 
@@ -3895,4 +3887,93 @@ msgstr "Unidireccional"
 #: 
 msgid "Two-way front-end only"
 msgstr "Solo front-end bidireccional"
+
+#: 
+msgid "Merge with"
+msgstr "Combinado con"
+
+#: 
+msgid "Select for merge"
+msgstr "Seleccionar para combinar"
+
+#: 
+msgid "Merge list"
+msgstr "Lista de combinación"
+
+#: 
+msgid "Merge customers"
+msgstr "Combinar clientes"
+
+#: 
+msgid "You are about to merge customers from the merge list with the selected one. This will result in losing the merged customers and moving all their appointments to the selected customer. Are you sure you want to continue?"
+msgstr "Está a punto de combinar clientes de la lista de combinación con la seleccionada. Esto hará que pierda los clientes combinados y moverá todas sus citas al cliente seleccionado. ¿Está seguro de que quiere continuar?"
+
+#: 
+msgid "Merge"
+msgstr "Combinar"
+
+#: 
+msgid "Allow duplicate customers"
+msgstr "Permitir clientes duplicados"
+
+#: 
+msgid "If enabled, a new user will be created if any of the registration data during the booking is different."
+msgstr "Si está habilitado, se creará un nuevo usuario si alguno de los datos de registro es diferente durante la reserva."
+
+#: 
+msgid "More Addons"
+msgstr "Más Complementos"
+
+#: 
+msgid "Sort by"
+msgstr "Ordenar por"
+
+#: 
+msgid "Best Sellers"
+msgstr "Mejores Vendedores"
+
+#: 
+msgid "Best Rated"
+msgstr "Mejor Clasificado"
+
+#: 
+msgid "Newest Items"
+msgstr "Artículos más Nuevos"
+
+#: 
+msgid "Price: low to high"
+msgstr "Precio: de bajo a alto"
+
+#: 
+msgid "Price: high to low"
+msgstr "Precio: de alto a bajo"
+
+#: 
+msgid "New"
+msgstr "Nuevo"
+
+#: 
+msgid "%d sale"
+msgid_plural "%d sales"
+msgstr[0] "%d venta"
+msgstr[1] "%d ventas"
+
+#: 
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] "%d crítica"
+msgstr[1] "%d críticas"
+
+#: 
+msgid "Installed"
+msgstr "Instalado"
+
+#: 
+msgid "Get it!"
+msgstr "¡Consíguelo!"
+
+#: 
+msgid "I accept <a href=\"%1$s\" target=\"_blank\">Service Terms</a> and <a href=\"%2$s\" target=\"_blank\">Privacy Policy</a>"
+msgstr "Acepto <a href=\"%1$s\" target=\"_blank\">los Términos de Servicio</a> y <a href=\"%2$s\" target=\"_blank\">la Política de Privacidad</a>\n"
+""
 

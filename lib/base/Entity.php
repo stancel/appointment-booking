@@ -7,7 +7,7 @@ use Bookly\Lib;
  * Class Entity
  * @package Bookly\Lib\Base
  */
-abstract class Entity
+abstract class Entity extends Cache
 {
 
     // Entity properties
@@ -47,12 +47,6 @@ abstract class Entity
      * @var array
      */
     protected static $schema;
-
-    /**
-     * Array of cached entities indexed by class_name & id.
-     * @var array
-     */
-    protected static $cache = array();
 
     // Private properties.
 
@@ -264,8 +258,8 @@ abstract class Entity
     public function delete()
     {
         if ( $this->getId() ) {
-            // Delete from cache.
-            unset( Entity::$cache[ get_called_class() ][ $this->getId() ] );
+            static::deleteFromCache( $this->getId() );
+
             return self::$wpdb->delete( $this->table_name, array( 'id' => $this->getId() ), array( '%d' ) );
         }
 
@@ -347,44 +341,21 @@ abstract class Entity
     {
         $called_class = get_called_class();
 
-        if ( $use_cache && isset ( Entity::$cache[ $called_class ][ $id ] ) ) {
-            return Entity::$cache[ $called_class ][ $id ];
+        if ( $use_cache && $entity = static::getFromCache( $id ) ) {
+            return $entity;
         }
 
         /** @var static $entity */
         $entity = new $called_class();
         if ( $entity->loadBy( array( 'id' => $id ) ) ) {
             if ( $use_cache ) {
-                Entity::$cache[ $called_class ][ $id ] = $entity;
+                static::putInCache( $id, $entity );
             }
 
             return $entity;
         }
 
         return false;
-    }
-
-    /**
-     * Put entity in cache.
-     *
-     * @param Entity $entity
-     * @return Entity
-     */
-    public static function putInCache( Entity $entity )
-    {
-        $class = get_class( $entity );
-
-        Entity::$cache[ $class ][ $entity->getId() ] = $entity;
-
-        return $entity;
-    }
-
-    /**
-     * Clear all entities from cache.
-     */
-    public static function clearCache()
-    {
-        self::$cache = array();
     }
 
     /**
@@ -409,5 +380,4 @@ abstract class Entity
 
         return $this;
     }
-
 }

@@ -1,12 +1,13 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-    /** @var Bookly\Lib\UserBookingData $userData */
-    echo $progress_tracker;
+use Bookly\Frontend\Modules\Booking\Proxy;
+/** @var Bookly\Lib\UserBookingData $userData */
+echo $progress_tracker;
 ?>
 <div class="bookly-service-step">
     <div class="bookly-box bookly-bold"><?php echo $info_text ?></div>
     <div class="bookly-mobile-step-1 bookly-js-mobile-step-1">
         <div class="bookly-js-chain-item bookly-js-draft bookly-table bookly-box" style="display: none;">
-            <?php Bookly\Lib\Proxy\Shared::renderChainItemHead() ?>
+            <?php Proxy\Shared::renderChainItemHead() ?>
             <div class="bookly-form-group">
                 <label><?php echo Bookly\Lib\Utils\Common::getTranslatedOption( 'bookly_l10n_label_category' ) ?></label>
                 <div>
@@ -37,7 +38,8 @@
                     <?php echo esc_html( \Bookly\Lib\Utils\Common::getTranslatedOption( 'bookly_l10n_required_employee' ) ) ?>
                 </div>
             </div>
-            <?php Bookly\Lib\Proxy\Shared::renderChainItemTail() ?>
+            <?php Proxy\Shared::renderChainItemTail() ?>
+            <?php Proxy\Shared::renderChainItemTailTip() ?>
         </div>
         <div class="bookly-nav-steps bookly-box">
             <button class="bookly-right bookly-mobile-next-step bookly-js-mobile-next-step bookly-btn bookly-none ladda-button" data-style="zoom-in" data-spinner-size="40">

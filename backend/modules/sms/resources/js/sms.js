@@ -605,7 +605,7 @@ jQuery(function($) {
             success: function (response) {
                 if (response.success) {
                     $custom_notifications.append(response.data.html);
-                    var $subject = $custom_notifications.find('#notification_' + response.data.id + '_subject'),
+                    var $subject = $custom_notifications.find('[name="notification[' + response.data.id + '][subject]"]'),
                         $panel   = $subject.closest('.panel-collapse');
                     $panel.collapse('show');
                     $panel.find("select[name$='[type]']").trigger('change');

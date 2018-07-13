@@ -1,8 +1,10 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Components\Controls\Inputs as ControlInputs;
+use Bookly\Backend\Components\Settings\Inputs;
+use Bookly\Backend\Components\Settings\Selects;
+use Bookly\Backend\Modules\Settings\Proxy;
 use Bookly\Lib\Config;
-use Bookly\Lib\Proxy;
-use Bookly\Lib\Utils\Common;
-use Bookly\Lib\Utils\Render;
 use Bookly\Lib\Google\Client as GoogleClient;
 ?>
 <form method="post" action="<?php echo esc_url( add_query_arg( 'tab', 'google_calendar' ) ) ?>">
@@ -21,8 +23,8 @@ use Bookly\Lib\Google\Client as GoogleClient;
             <li><?php _e( 'Go to Staff Members, select a staff member and click <b>Connect</b> which is located at the bottom of the page.', 'bookly' ) ?></li>
         </ol>
     </div>
-        <?php Common::optionText( 'bookly_gc_client_id', __( 'Client ID', 'bookly' ), __( 'The client ID obtained from the Developers Console', 'bookly' ) ) ?>
-        <?php Common::optionText( 'bookly_gc_client_secret', __( 'Client secret', 'bookly' ), __( 'The client secret obtained from the Developers Console', 'bookly' ) ) ?>
+        <?php Inputs::renderText( 'bookly_gc_client_id', __( 'Client ID', 'bookly' ), __( 'The client ID obtained from the Developers Console', 'bookly' ) ) ?>
+        <?php Inputs::renderText( 'bookly_gc_client_secret', __( 'Client secret', 'bookly' ), __( 'The client secret obtained from the Developers Console', 'bookly' ) ) ?>
     <div class="form-group">
         <label for="bookly-redirect-uri"><?php _e( 'Redirect URI', 'bookly' ) ?></label>
         <p class="help-block"><?php _e( 'Enter this URL as a redirect URI in the Developers Console', 'bookly' ) ?></p>
@@ -33,14 +35,14 @@ use Bookly\Lib\Google\Client as GoogleClient;
     <?php if ( Config::advancedGoogleCalendarActive() ) : ?>
         <?php Proxy\AdvancedGoogleCalendar::renderSettings() ?>
     <?php else : ?>
-        <?php Common::optionToggle( 'bookly_gc_sync_mode', __( 'Synchronization mode', 'bookly' ), __( 'With "One-way" sync Bookly pushes new appointments and any further changes to Google Calendar. With "Two-way front-end only" sync Bookly will additionally fetch events from Google Calendar and remove corresponding time slots before displaying the Time step of the booking form (this may lead to a delay when users click Next to get to the Time step).', 'bookly' ), array( array( '1-way', __( 'One-way', 'bookly' ) ), array( '1.5-way', __( 'Two-way front-end only',  'bookly' ) ) ) ) ?>
+        <?php Selects::renderSingle( 'bookly_gc_sync_mode', __( 'Synchronization mode', 'bookly' ), __( 'With "One-way" sync Bookly pushes new appointments and any further changes to Google Calendar. With "Two-way front-end only" sync Bookly will additionally fetch events from Google Calendar and remove corresponding time slots before displaying the Time step of the booking form (this may lead to a delay when users click Next to get to the Time step).', 'bookly' ), array( array( '1-way', __( 'One-way', 'bookly' ) ), array( '1.5-way', __( 'Two-way front-end only', 'bookly' ) ) ) ) ?>
     <?php endif ?>
-    <?php Common::optionToggle( 'bookly_gc_limit_events', __( 'Limit number of fetched events', 'bookly' ), __( 'If there is a lot of events in Google Calendar sometimes this leads to a lack of memory in PHP when Bookly tries to fetch all events. You can limit the number of fetched events here.', 'bookly' ),
+    <?php Selects::renderSingle( 'bookly_gc_limit_events', __( 'Limit number of fetched events', 'bookly' ), __( 'If there is a lot of events in Google Calendar sometimes this leads to a lack of memory in PHP when Bookly tries to fetch all events. You can limit the number of fetched events here.', 'bookly' ),
         $values['bookly_gc_limit_events'] ) ?>
-    <?php Common::optionText( 'bookly_gc_event_title', __( 'Template for event title', 'bookly' ), __( 'Configure what information should be placed in the title of Google Calendar event. Available codes are {service_name}, {staff_name} and {client_names}.', 'bookly' ) ) ?>
+    <?php Inputs::renderText( 'bookly_gc_event_title', __( 'Template for event title', 'bookly' ), __( 'Configure what information should be placed in the title of Google Calendar event. Available codes are {service_name}, {staff_name} and {client_names}.', 'bookly' ) ) ?>
     <div class="panel-footer">
-        <?php Common::csrf() ?>
-        <?php Common::submitButton() ?>
-        <?php Common::resetButton() ?>
+        <?php ControlInputs::renderCsrf() ?>
+        <?php Buttons::renderSubmit() ?>
+        <?php Buttons::renderReset() ?>
     </div>
 </form>

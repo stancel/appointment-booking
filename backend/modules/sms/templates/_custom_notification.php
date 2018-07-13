@@ -5,6 +5,7 @@ use Bookly\Lib\DataHolders\Notification\Settings;
 use Bookly\Lib\Entities\Notification;
 
 $id = $notification['id'];
+$unique = mt_rand( 10000000, 99999999 );
 $notification_settings = (array) json_decode( $notification['settings'], true );
 ?>
 <div class="panel panel-default bookly-js-collapse">
@@ -27,8 +28,8 @@ $notification_settings = (array) json_decode( $notification['settings'], true );
             <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="notification_<?php echo $id ?>_type"><?php _e( 'Type', 'bookly' ) ?></label>
-                        <select class="form-control" name="notification[<?php echo $id ?>][type]" id="notification_<?php echo $id ?>_type">
+                        <label for="notification_<?php echo ++$unique ?>_type"><?php _e( 'Type', 'bookly' ) ?></label>
+                        <select class="form-control" name="notification[<?php echo $id ?>][type]" id="notification_<?php echo $unique ?>_type">
                             <optgroup label="<?php esc_attr_e( 'Event notification', 'bookly' ) ?>">
                                 <option value="<?php echo Notification::TYPE_CUSTOMER_APPOINTMENT_STATUS_CHANGED ?>" data-set="<?php echo Settings::SET_AFTER_EVENT ?>" <?php selected( $notification['type'], Notification::TYPE_CUSTOMER_APPOINTMENT_STATUS_CHANGED ) ?> data-to='["customer","staff","admin"]'><?php _e( 'Status changed', 'bookly' ) ?></option>
                                 <option value="<?php echo Notification::TYPE_CUSTOMER_APPOINTMENT_CREATED ?>" data-set="<?php echo Settings::SET_AFTER_EVENT ?>" <?php selected( $notification['type'], Notification::TYPE_CUSTOMER_APPOINTMENT_CREATED ) ?> data-to='["customer","staff","admin"]'><?php _e( 'New booking', 'bookly' ) ?></option>
@@ -51,8 +52,8 @@ $notification_settings = (array) json_decode( $notification['settings'], true );
                         <?php $name = 'notification[' . $id . '][settings][' . $set . ']' ?>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="notification_<?php echo $id ?>_status_1"><?php _e( 'With status', 'bookly' ) ?></label>
-                                <select class="form-control" name="<?php echo $name ?>[status]" id="notification_<?php echo $id ?>_status_1">
+                                <label for="notification_<?php echo ++$unique ?>_status_1"><?php _e( 'With status', 'bookly' ) ?></label>
+                                <select class="form-control" name="<?php echo $name ?>[status]" id="notification_<?php echo $unique ?>_status_1">
                                     <option value="any"><?php _e( 'Any', 'bookly' ) ?></option>
                                     <?php foreach ( $statuses as $status ) : ?>
                                         <option value="<?php echo $status ?>" <?php selected( $settings['status'] == $status ) ?>><?php echo CustomerAppointment::statusToString( $status ) ?></option>
@@ -61,10 +62,10 @@ $notification_settings = (array) json_decode( $notification['settings'], true );
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="notification_<?php echo $id ?>_send_1"><?php _e( 'Send', 'bookly' ) ?></label>
+                            <label for="notification_<?php echo ++$unique ?>_send_1"><?php _e( 'Send', 'bookly' ) ?></label>
                             <div class="form-inline bookly-margin-bottom-sm">
                                 <div class="form-group">
-                                    <label><input type="radio" name="<?php echo $name ?>[option]" value="1" checked id="notification_<?php echo $id ?>_send_1"></label>
+                                    <label><input type="radio" name="<?php echo $name ?>[option]" value="1" checked id="notification_<?php echo $unique ?>_send_1"></label>
                                     <select class="form-control" name="<?php echo $name ?>[offset_hours]">
                                         <?php foreach ( array_merge( range( 1, 24 ), range( 48, 336, 24 ), array( 504, 672 ) ) as $hour ) : ?>
                                             <option value="<?php echo $hour ?>" <?php selected( @$settings['offset_hours'], $hour ) ?>><?php echo \Bookly\Lib\Utils\DateTime::secondsToInterval( $hour * HOUR_IN_SECONDS ) ?></option>
@@ -109,7 +110,7 @@ $notification_settings = (array) json_decode( $notification['settings'], true );
                     <div class="bookly-js-settings bookly-js-<?php echo $set ?>">
                         <?php $name = 'notification[' . $id . '][settings][' . $set . ']' ?>
                         <div class="col-md-6">
-                            <label for="notification_<?php echo $id ?>_send_2"><?php _e( 'Send', 'bookly' ) ?></label>
+                            <label for="notification_<?php echo ++$unique ?>_send_2"><?php _e( 'Send', 'bookly' ) ?></label>
                             <div class="form-inline">
                                 <div class="form-group">
                                     <select class="form-control" name="<?php echo $name ?>[offset_bidirectional_hours]">
@@ -139,7 +140,7 @@ $notification_settings = (array) json_decode( $notification['settings'], true );
                     <div class="bookly-js-settings bookly-js-<?php echo $set ?>">
                         <?php $name = 'notification[' . $id . '][settings][' . $set . ']' ?>
                         <div class="col-md-6">
-                            <label for="notification_<?php echo $id ?>_send_2"><?php _e( 'Send', 'bookly' ) ?></label>
+                            <label for="notification_<?php echo ++$unique ?>_send_2"><?php _e( 'Send', 'bookly' ) ?></label>
                             <div class="form-inline">
                                 <div class="form-group">
                                     <select class="form-control" name="<?php echo $name ?>[offset_bidirectional_hours]">
@@ -168,9 +169,9 @@ $notification_settings = (array) json_decode( $notification['settings'], true );
                     <?php $name = 'notification[' . $id . '][settings][' . $set . ']' ?>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="notification_<?php echo $id ?>_status_1" class="bookly-js-with"><?php _e( 'With status', 'bookly' ) ?></label>
-                            <label for="notification_<?php echo $id ?>_status_1" class="bookly-js-to"><?php _e( 'To', 'bookly' ) ?></label>
-                            <select class="form-control" name="<?php echo $name ?>[status]" id="notification_<?php echo $id ?>_status_1">
+                            <label for="notification_<?php echo ++$unique ?>_status_1" class="bookly-js-with"><?php _e( 'With status', 'bookly' ) ?></label>
+                            <label for="notification_<?php echo $unique ?>_status_1" class="bookly-js-to"><?php _e( 'To', 'bookly' ) ?></label>
+                            <select class="form-control" name="<?php echo $name ?>[status]" id="notification_<?php echo $unique ?>_status_1">
                                 <option value="any"><?php _e( 'Any', 'bookly' ) ?></option>
                                 <?php foreach ( $statuses as $status ) : ?>
                                     <option value="<?php echo $status ?>" <?php selected( $settings['status'] == $status ) ?>><?php echo CustomerAppointment::statusToString( $status ) ?></option>
@@ -179,7 +180,7 @@ $notification_settings = (array) json_decode( $notification['settings'], true );
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="notification_<?php echo $id ?>_send_1"><?php _e( 'Send', 'bookly' ) ?></label>
+                        <label for="notification_<?php echo ++$unique ?>_send_1"><?php _e( 'Send', 'bookly' ) ?></label>
                         <div class="form-inline bookly-margin-bottom-sm">
                             <div class="form-group">
                                 <label><input type="radio" name="<?php echo $name ?>[option]" value="1" checked></label>  <?php _e( 'Instantly', 'bookly' ) ?>
@@ -223,8 +224,8 @@ $notification_settings = (array) json_decode( $notification['settings'], true );
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="notification_<?php echo $id ?>_subject"><?php _e( 'Notification name', 'bookly' ) ?></label>
-                        <input type="text" class="form-control" id="notification_<?php echo $id ?>_subject" name="notification[<?php echo $id ?>][subject]" value="<?php echo esc_attr( $notification['subject'] ) ?>" />
+                        <label for="notification_<?php echo ++$unique ?>_subject"><?php _e( 'Notification name', 'bookly' ) ?></label>
+                        <input type="text" class="form-control" id="notification_<?php echo $unique ?>_subject" name="notification[<?php echo $id ?>][subject]" value="<?php echo esc_attr( $notification['subject'] ) ?>" />
                     </div>
                 </div>
             </div>

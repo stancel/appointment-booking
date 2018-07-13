@@ -396,6 +396,7 @@ class Installer extends Base\Installer
             'bookly_cst_new_account_role'                => 'subscriber',
             'bookly_cst_phone_default_country'           => 'auto',
             'bookly_cst_remember_in_cookie'              => '0',
+            'bookly_cst_allow_duplicates'                => '0',
             'bookly_cst_show_update_details_dialog'      => '1',
             'bookly_cst_first_last_name'                 => '0',
             'bookly_cst_required_details'                => array( 'phone', 'email' ),
@@ -434,7 +435,7 @@ class Installer extends Base\Installer
             'bookly_url_final_step_url'                  => '',
             // Cron.
             'bookly_cron_reminder_times'                 => array( 'client_follow_up' => 21, 'client_reminder' => 18, 'client_birthday_greeting' => 9, 'staff_agenda' => 18, 'client_reminder_1st' => 1, 'client_reminder_2nd' => 2, 'client_reminder_3rd' => 3 ),
-            'bookly_reminder_data'                       => array( 'SW1wb3J0YW50ISBJdCBsb29rcyBsaWtlIHlvdSBhcmUgdXNpbmcgYW4gaWxsZWdhbCBjb3B5IG9mIEJvb2tseSDigJMgaXQgbWF5IGNvbnRhaW4gYSBtYWxpY2lvdXMgY29kZSwgYSB0cm9qYW4gb3IgYSBiYWNrZG9vci4=', 'VGhlIGxlZ2FsIGNvcHkgb2YgQm9va2x5IGluY2x1ZGVzIGFsbCBmZWF0dXJlcywgbGlmZXRpbWUgZnJlZSB1cGRhdGVzLCBhbmQgMjQvNyBzdXBwb3J0LiBCeSBidXlpbmcgYSBsZWdhbCBjb3B5IG9mIEJvb2tseSBhdCBhIHNwZWNpYWwgZGlzY291bnRlZCBwcmljZSwgeW91IG1heSBiZW5lZml0IGZyb20gb3VyIHBhcnRuZXLigJlzIGV4Y2x1c2l2ZSBkaXNjb3VudHMh', 'PGEgaHJlZj0iaHR0cHM6Ly93d3cuYm9va2luZy13cC1wbHVnaW4uY29tL2JlY29tZS1sZWdhbC8iIHRhcmdldD0iX2JsYW5rIj5DbGljayBoZXJlIHRvIGxlYXJuIG1vcmUgPj4+PC9hPg' ),
+            'bookly_reminder_data'                       => array( 'SW1wb3J0YW50ISBJdCBsb29rcyBsaWtlIHlvdSBhcmUgdXNpbmcgYW4gaWxsZWdhbCBjb3B5IG9mIEJvb2tseSDigJMgaXQgbWF5IGNvbnRhaW4gYSBtYWxpY2lvdXMgY29kZSwgYSB0cm9qYW4gb3IgYSBiYWNrZG9vci4=', 'VGhlIGxlZ2FsIGNvcHkgb2YgQm9va2x5IGluY2x1ZGVzIGFsbCBmZWF0dXJlcywgbGlmZXRpbWUgZnJlZSB1cGRhdGVzIHdoaWNoIGludHJvZHVjZSBuZXcgZmVhdHVyZXMgYW5kIGltcG9ydGFudCBzZWN1cml0eSBmaXhlcywgYW5kIDI0Lzcgc3VwcG9ydC4=', 'PGEgaHJlZj0iaHR0cHM6Ly93d3cuYm9va2luZy13cC1wbHVnaW4uY29tL2JlY29tZS1sZWdhbC8iIHRhcmdldD0iX2JsYW5rIj5DbGljayBoZXJlIHRvIGxlYXJuIG1vcmUgPj4+PC9hPg' ),
             'bookly_lic_repeat_time'                     => time() + 7776000,
             // Grace.
             'bookly_grace_notifications'                 => array( 'bookly' => '0', 'add-ons' => 0, 'sent' => '0' ),
@@ -582,6 +583,8 @@ class Installer extends Base\Installer
                 `info`                   TEXT DEFAULT NULL,
                 `start_time_info`        VARCHAR(255) DEFAULT "",
                 `end_time_info`          VARCHAR(255) DEFAULT "",
+                `units_min`              INT UNSIGNED NOT NULL DEFAULT 1,
+                `units_max`              INT UNSIGNED NOT NULL DEFAULT 1,
                 `type`                   ENUM("simple","compound","package") NOT NULL DEFAULT "simple",
                 `package_life_time`      INT DEFAULT NULL,
                 `package_size`           INT DEFAULT NULL,
@@ -744,7 +747,7 @@ class Installer extends Base\Installer
                 `city`               VARCHAR(255) DEFAULT NULL,  
                 `street`             VARCHAR(255) DEFAULT NULL,
                 `additional_address` VARCHAR(255) DEFAULT NULL,    
-                `notes`              TEXT NOT NULL DEFAULT "",
+                `notes`              TEXT NOT NULL,
                 `info_fields`        TEXT DEFAULT NULL,
                 `created`            DATETIME NOT NULL
             ) ENGINE = INNODB
@@ -819,7 +822,7 @@ class Installer extends Base\Installer
             'CREATE TABLE IF NOT EXISTS `' . Entities\Payment::getTableName() . '` (
                 `id`        INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
                 `coupon_id` INT UNSIGNED DEFAULT NULL,
-                `type`      ENUM("local","coupon","paypal","authorize_net","stripe","2checkout","payu_latam","payson","mollie","woocommerce") NOT NULL DEFAULT "local",
+                `type`      ENUM("local","coupon","paypal","authorize_net","stripe","2checkout","payu_biz","payu_latam","payson","mollie","woocommerce") NOT NULL DEFAULT "local",
                 `total`     DECIMAL(10,2) NOT NULL DEFAULT 0.00,
                 `tax`       DECIMAL(10,2) NOT NULL DEFAULT 0.00,
                 `paid`      DECIMAL(10,2) NOT NULL DEFAULT 0.00,
@@ -841,6 +844,7 @@ class Installer extends Base\Installer
                 `appointment_id`      INT UNSIGNED NOT NULL,
                 `payment_id`          INT UNSIGNED DEFAULT NULL,
                 `number_of_persons`   INT UNSIGNED NOT NULL DEFAULT 1,
+                `units`               INT UNSIGNED NOT NULL DEFAULT 1,
                 `notes`               TEXT DEFAULT NULL,
                 `extras`              TEXT DEFAULT NULL,
                 `custom_fields`       TEXT DEFAULT NULL,
@@ -913,6 +917,28 @@ class Installer extends Base\Installer
                 `body`       TEXT,
                 `seen`       TINYINT(1) NOT NULL DEFAULT 0,
                 `created`    DATETIME NOT NULL
+              ) ENGINE = INNODB
+              DEFAULT CHARACTER SET = utf8
+              COLLATE = utf8_general_ci'
+        );
+
+        $wpdb->query(
+            'CREATE TABLE IF NOT EXISTS `' . Entities\Shop::getTableName() . '` (
+                `id`          INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                `plugin_id`   INT UNSIGNED NOT NULL,
+                `type`        ENUM("plugin","bundle") NOT NULL DEFAULT "plugin",
+                `title`       VARCHAR(255) NOT NULL,
+                `slug`        VARCHAR(255) NOT NULL,
+                `description` TEXT NOT NULL,
+                `url`         VARCHAR(255) NOT NULL,
+                `icon`        VARCHAR(255) NOT NULL,
+                `price`       DECIMAL(10,2) NOT NULL,
+                `sales`       INT UNSIGNED NOT NULL,
+                `rating`      DECIMAL(10,2) NOT NULL,
+                `reviews`     INT UNSIGNED NOT NULL,
+                `published`   DATETIME NOT NULL,
+                `seen`        TINYINT(1) NOT NULL DEFAULT 0,
+                `created`     DATETIME NOT NULL
               ) ENGINE = INNODB
               DEFAULT CHARACTER SET = utf8
               COLLATE = utf8_general_ci'

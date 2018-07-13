@@ -152,11 +152,13 @@ class Simple extends Item
                     ) );
             }
 
-            return (float) Lib\Proxy\SpecialHours::preparePrice(
-                $this->staff_service->getPrice(),
+            return (float) Lib\Proxy\SpecialHours::adjustPrice(
+                $this->staff_service->getPrice() * $this->getCA()->getUnits(),
                 $this->getStaff()->getId(),
                 $this->getService()->getId(),
-                $this->getAppointment()->getStartDate()
+                Lib\Proxy\Locations::prepareStaffLocationId( $this->appointment->getLocationId(), $this->getStaff()->getId() ) ?: null,
+                $this->getAppointment()->getStartDate(),
+                $this->getCA()->getUnits()
             );
         } else {
             return (float) $this->getAppointment()->getCustomServicePrice();
@@ -205,7 +207,7 @@ class Simple extends Item
     public function getTax()
     {
         if ( ! $this->tax ) {
-            $rates = Lib\Proxy\Taxes::getServiceRates();
+            $rates = Lib\Proxy\Taxes::getServiceTaxRates();
             if ( $rates ) {
                 $this->tax = Lib\Proxy\Taxes::calculateTax( $this->getTotalPrice(), $rates[ $this->getService()->getId() ] );
             }

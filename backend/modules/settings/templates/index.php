@@ -1,11 +1,14 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+use Bookly\Backend\Modules\Settings\Proxy;
+use Bookly\Backend\Components;
+?>
 <div id="bookly-tbs" class="wrap">
     <div class="bookly-tbs-body">
         <div class="page-header text-right clearfix">
             <div class="bookly-page-title">
                 <?php _e( 'Settings', 'bookly' ) ?>
             </div>
-            <?php \Bookly\Backend\Modules\Support\Components::getInstance()->renderButtons( '' ) ?>
+            <?php Components\Support\Buttons::render( '' ) ?>
         </div>
         <div class="row">
             <div id="bookly-sidebar" class="col-sm-4">
@@ -34,7 +37,7 @@
                     <li class="bookly-nav-item" data-target="#bookly_settings_woo_commerce" data-toggle="tab">
                         WooCommerce
                     </li>
-                    <?php \Bookly\Lib\Proxy\Shared::renderSettingsMenu() ?>
+                    <?php Proxy\Shared::renderSettingsMenu() ?>
                     <li class="bookly-nav-item" data-target="#bookly_settings_payments" data-toggle="tab">
                         <?php _e( 'Payments', 'bookly' ) ?>
                     </li>
@@ -78,7 +81,7 @@
                             <div class="tab-pane" id="bookly_settings_woo_commerce">
                                 <?php include '_woocommerce.php' ?>
                             </div>
-                            <?php \Bookly\Lib\Proxy\Shared::renderSettingsForm() ?>
+                            <?php Proxy\Shared::renderSettingsForm() ?>
                             <div class="tab-pane" id="bookly_settings_payments">
                                 <?php include '_paymentsForm.php' ?>
                             </div>

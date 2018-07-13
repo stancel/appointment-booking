@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 use Bookly\Lib\Utils\Common;
 use Bookly\Lib\Config;
-use Bookly\Lib\Proxy;
+use Bookly\Backend\Modules\Appointments\Proxy as AppointmentsProxy;
 ?>
 <div id="bookly-export-dialog" class="modal fade" tabindex=-1 role="dialog">
     <div class="modal-dialog">
@@ -33,7 +33,7 @@ use Bookly\Lib\Proxy;
                     <div class="checkbox"><label><input checked value="<?php echo $column ++ ?>" type="checkbox"/><?php _e( 'Duration', 'bookly' ) ?></label></div>
                     <div class="checkbox"><label><input checked value="<?php echo $column ++ ?>" type="checkbox"/><?php _e( 'Status', 'bookly' ) ?></label></div>
                     <div class="checkbox"><label><input checked value="<?php echo $column ++ ?>" type="checkbox"/><?php _e( 'Payment', 'bookly' ) ?></label></div>
-                    <?php if ( Config::ratingsActive() ) { Proxy\Ratings::renderExportAppointments( $column++ ); } ?>
+                    <?php if ( Config::ratingsActive() ) { AppointmentsProxy\Ratings::renderExport( $column++ ); } ?>
                     <?php if ( Config::showNotes() ) : ?>
                         <div class="checkbox"><label><input checked value="<?php echo $column ++ ?>" type="checkbox"/><?php echo esc_html( Common::getTranslatedOption( 'bookly_l10n_label_notes' ) ) ?></label></div>
                     <?php endif ?>

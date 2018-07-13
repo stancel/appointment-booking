@@ -34,6 +34,7 @@ class NotificationCodes
     public $client_timezone;
     public $custom_fields;
     public $custom_fields_2c;
+    public $deposit_value;
     public $extras;
     public $extras_total_price;
     public $files_count;
@@ -71,12 +72,15 @@ class NotificationCodes
     public $staff_photo;
     public $staff_rating_url;
     public $total_price;
+    public $total_price_no_tax;
     public $total_tax;
 
     /** @var DataHolders\Booking\Order */
     protected $order;
     /** @var DataHolders\Booking\Item */
     protected $item;
+
+    protected $impersonal_message;
 
     /**
      * Get order.
@@ -137,6 +141,9 @@ class NotificationCodes
         $cart_info_data = $this->cart_info;
         if ( ! empty ( $cart_info_data ) ) {
             $cart_columns = get_option( 'bookly_cart_show_columns', array() );
+            if ( ! Proxy\Taxes::showTaxColumn() ) {
+                unset( $cart_columns['tax'] );
+            }
             $ths = array();
             foreach ( $cart_columns as $column => $attr ) {
                 if ( $attr['show'] ) {
@@ -149,6 +156,9 @@ class NotificationCodes
                             break;
                         case 'time':
                             $ths[] = __( 'Time', 'bookly' );
+                            break;
+                        case 'tax':
+                            $ths[] = __( 'Tax', 'bookly' );
                             break;
                         case 'employee':
                             $ths[] = Utils\Common::getTranslatedOption( 'bookly_l10n_label_employee' );
@@ -192,6 +202,9 @@ class NotificationCodes
                                 } else {
                                     $tds[] = Utils\DateTime::formatTime( $codes['appointment_start'] );
                                 }
+                                break;
+                            case 'tax':
+                                $tds[] = Utils\Price::format( $codes['tax'] );
                                 break;
                             case 'employee':
                                 $tds[] = $codes['staff_name'];
@@ -302,7 +315,32 @@ class NotificationCodes
             }
         }
 
-        return strtr( $text, $codes );
+        $message = strtr( $text, $codes );
+
+        // Impersonal message
+        $impersonal_codes = array();
+        foreach ( $codes as $name => $code ) {
+            $count = Utils\SMSCounter::count( strval( $code ) );
+            if ( $count->encoding == Utils\SMSCounter::UTF16 ) {
+                $impersonal_symbol = "ϔ";
+            } else {
+                $impersonal_symbol = "X";
+            }
+            $impersonal_codes[ $name ] = str_repeat( $impersonal_symbol, $count->length );
+        }
+        $this->impersonal_message = strtr( $text, $impersonal_codes );
+
+        return $message;
+    }
+
+    /**
+     * Get impersonal message for SMS server
+     *
+     * @return string
+     */
+    public function getImpersonalMessage()
+    {
+        return $this->impersonal_message;
     }
 
     public function refresh()
@@ -375,7 +413,7 @@ class NotificationCodes
         );
         $codes->number_of_persons      = $item->getCA()->getNumberOfPersons();
         $codes->service_price          = $item->getServicePrice();
-        $codes->service_duration       = $item->getService()->getDuration();
+        $codes->service_duration       = $item->getService()->getDuration() * ( $item->getCA()->getUnits() ?: 1 );
         $codes->staff_email            = $item->getStaff()->getEmail();
         $codes->staff_phone            = $item->getStaff()->getPhone();
         $codes->staff_photo            = $staff_photo ? $staff_photo[0] : '';
@@ -390,7 +428,11 @@ class NotificationCodes
             $codes->amount_paid = '';
             $codes->amount_due  = '';
             $codes->total_price = $item->getTotalPrice();
+            $codes->total_price_no_tax = $codes->total_price;
             $codes->total_tax   = $item->getTax();
+            if ( Config::taxesEnabled() && get_option( 'bookly_taxes_in_price' ) == 'excluded' ) {
+                $codes->total_price += $codes->total_tax;
+            }
         }
 
         $codes->refresh();

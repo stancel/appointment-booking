@@ -1,12 +1,10 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 use Bookly\Lib\Utils\Price;
 use Bookly\Lib\Utils\DateTime;
-use Bookly\Lib\Proxy;
+use Bookly\Backend\Modules\Appearance\Proxy;
 use Bookly\Lib\Config;
-/**
- * @var Bookly\Backend\Modules\Appearance\Lib\Helper $editable
- * @var WP_Locale $wp_locale
- */
+use Bookly\Backend\Components\Appearance\Editable;
+/** @var WP_Locale $wp_locale */
 global $wp_locale;
 ?>
 <div class="bookly-form">
@@ -15,18 +13,14 @@ global $wp_locale;
     <div class="bookly-service-step">
         <div class="bookly-box">
             <span class="bookly-bold bookly-desc">
-                <?php $editable::renderText( 'bookly_l10n_info_service_step' ) ?>
+                <?php Editable::renderText( 'bookly_l10n_info_service_step' ) ?>
             </span>
         </div>
         <div class="bookly-mobile-step-1 bookly-js-mobile-step-1 bookly-box">
             <div class="bookly-js-chain-item bookly-table bookly-box">
-                <?php if ( Config::locationsEnabled() ) : ?>
-                    <div class="bookly-form-group">
-                        <?php Proxy\Locations::renderAppearance() ?>
-                    </div>
-                <?php endif ?>
+                <?php Proxy\Locations::renderLocation() ?>
                 <div class="bookly-form-group">
-                    <?php $editable::renderLabel( array( 'bookly_l10n_label_category', 'bookly_l10n_option_category', ) ) ?>
+                    <?php Editable::renderLabel( array( 'bookly_l10n_label_category', 'bookly_l10n_option_category', ) ) ?>
                     <div>
                         <select class="bookly-select-mobile bookly-js-select-category">
                             <option value="" class="bookly-js-option bookly_l10n_option_category"><?php echo esc_html( get_option( 'bookly_l10n_option_category' ) ) ?></option>
@@ -38,7 +32,7 @@ global $wp_locale;
                     </div>
                 </div>
                 <div class="bookly-form-group">
-                    <?php $editable::renderLabel( array(
+                    <?php Editable::renderLabel( array(
                         'bookly_l10n_label_service',
                         'bookly_l10n_option_service',
                         'bookly_l10n_required_service',
@@ -66,7 +60,7 @@ global $wp_locale;
                     </div>
                 </div>
                 <div class="bookly-form-group">
-                    <?php $editable::renderLabel( array(
+                    <?php Editable::renderLabel( array(
                         'bookly_l10n_label_employee',
                         'bookly_l10n_option_employee',
                         'bookly_l10n_required_employee',
@@ -97,12 +91,16 @@ global $wp_locale;
                         </select>
                     </div>
                 </div>
-                <?php Proxy\GroupBooking::renderAppearance() ?>
-                <?php if ( Config::multiplyAppointmentsEnabled() ) : ?>
+
+                <?php
+                if ( Config::customDurationEnabled() ) : ?>
                     <div class="bookly-form-group">
-                        <?php Proxy\MultiplyAppointments::renderAppearance() ?>
+                        <?php Proxy\CustomDuration::renderServiceDuration() ?>
                     </div>
                 <?php endif ?>
+
+                <?php Proxy\GroupBooking::renderNOP() ?>
+                <?php Proxy\MultiplyAppointments::renderQuantity() ?>
                 <?php if ( Config::chainAppointmentsEnabled() ) : ?>
                     <div class="bookly-form-group">
                         <label></label>
@@ -113,7 +111,7 @@ global $wp_locale;
                 <?php endif ?>
             </div>
             <div class="bookly-right bookly-mobile-next-step bookly-js-mobile-next-step bookly-btn bookly-none">
-                <?php $editable::renderString( array( 'bookly_l10n_step_service_mobile_button_next' ) ) ?>
+                <?php Editable::renderString( array( 'bookly_l10n_step_service_mobile_button_next' ) ) ?>
             </div>
         </div>
         <div class="bookly-mobile-step-2 bookly-js-mobile-step-2">
@@ -121,7 +119,7 @@ global $wp_locale;
                 <div class="bookly-left">
                     <div class="bookly-available-date bookly-js-available-date bookly-left">
                         <div class="bookly-form-group">
-                            <?php $editable::renderLabel( array( 'bookly_l10n_label_select_date', ) ) ?>
+                            <?php Editable::renderLabel( array( 'bookly_l10n_label_select_date', ) ) ?>
                             <div>
                                <input class="bookly-date-from bookly-js-date-from" style="background-color: #fff;" type="text" data-value="<?php echo date( 'Y-m-d' ) ?>" />
                             </div>
@@ -140,7 +138,7 @@ global $wp_locale;
                 </div>
                 <div class="bookly-time-range bookly-js-time-range bookly-left">
                     <div class="bookly-form-group bookly-time-from bookly-left">
-                        <?php $editable::renderLabel( array( 'bookly_l10n_label_start_from', ) ) ?>
+                        <?php Editable::renderLabel( array( 'bookly_l10n_label_start_from', ) ) ?>
                         <div>
                             <select class="bookly-js-select-time-from">
                                 <?php for ( $i = 28800; $i <= 64800; $i += 3600 ) : ?>
@@ -150,7 +148,7 @@ global $wp_locale;
                         </div>
                     </div>
                     <div class="bookly-form-group bookly-time-to bookly-left">
-                        <?php $editable::renderLabel( array( 'bookly_l10n_label_finish_by', ) ) ?>
+                        <?php Editable::renderLabel( array( 'bookly_l10n_label_finish_by', ) ) ?>
                         <div>
                             <select class="bookly-js-select-time-to">
                                 <?php for ( $i = 28800; $i <= 64800; $i += 3600 ) : ?>
@@ -163,10 +161,10 @@ global $wp_locale;
             </div>
             <div class="bookly-box bookly-nav-steps">
                 <div class="bookly-right bookly-mobile-prev-step bookly-js-mobile-prev-step bookly-btn bookly-none">
-                    <?php $editable::renderString( array( 'bookly_l10n_button_back' ) ) ?>
+                    <?php Editable::renderString( array( 'bookly_l10n_button_back' ) ) ?>
                 </div>
                 <div class="bookly-next-step bookly-js-next-step bookly-btn">
-                    <?php $editable::renderString( array( 'bookly_l10n_step_service_button_next' ) ) ?>
+                    <?php Editable::renderString( array( 'bookly_l10n_step_service_button_next' ) ) ?>
                 </div>
                 <button class="bookly-go-to-cart bookly-js-go-to-cart bookly-round bookly-round-md ladda-button"><span><img src="<?php echo plugins_url( 'appointment-booking/frontend/resources/images/cart.png' ) ?>" /></span></button>
             </div>

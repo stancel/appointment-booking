@@ -58,7 +58,7 @@ abstract class Installer extends Schema
     }
 
     /**
-     * Drop tables (@see \Bookly\Backend\Modules\Debug\Controller ).
+     * Drop tables (@see \Bookly\Backend\Modules\Debug\Ajax ).
      */
     public function dropTables()
     {

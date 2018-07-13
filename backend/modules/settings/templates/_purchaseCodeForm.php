@@ -1,4 +1,7 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Components\Controls\Inputs;
+?>
 <form method="post" action="<?php echo esc_url( add_query_arg( 'tab', 'purchase_code' ) ) ?>" id="purchase_code">
     <div class="form-group">
         <h4><?php _e( 'Instructions', 'bookly' ) ?></h4>
@@ -11,8 +14,8 @@
     <?php do_action( 'bookly_render_purchase_code' ) ?>
 
     <div class="panel-footer">
-        <?php \Bookly\Lib\Utils\Common::csrf() ?>
-        <?php \Bookly\Lib\Utils\Common::submitButton() ?>
-        <?php \Bookly\Lib\Utils\Common::resetButton() ?>
+        <?php Inputs::renderCsrf() ?>
+        <?php Buttons::renderSubmit() ?>
+        <?php Buttons::renderReset() ?>
     </div>
 </form>

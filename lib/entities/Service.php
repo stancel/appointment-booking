@@ -69,6 +69,10 @@ class Service extends Lib\Base\Entity
     protected $visibility = Service::VISIBILITY_PUBLIC;
     /** @var  int */
     protected $position = 9999;
+    /** @var  int */
+    protected $units_min = 1;
+    /** @var  int */
+    protected $units_max = 1;
 
 
     protected static $table = 'ab_services';
@@ -98,6 +102,8 @@ class Service extends Lib\Base\Entity
         'recurrence_frequencies' => array( 'format' => '%s' ),
         'visibility'             => array( 'format' => '%s' ),
         'position'               => array( 'format' => '%d' ),
+        'units_min'              => array( 'format' => '%d' ),
+        'units_max'              => array( 'format' => '%d' ),
     );
 
     /**
@@ -222,6 +228,26 @@ class Service extends Lib\Base\Entity
     public function isPackage()
     {
         return $this->getType() == self::TYPE_PACKAGE;
+    }
+
+    /**
+     * Get min duration for service.
+     *
+     * @return float|int
+     */
+    public function getMinDuration()
+    {
+        return $this->duration * $this->units_min;
+    }
+
+    /**
+     * Get max duration for service.
+     *
+     * @return float|int
+     */
+    public function getMaxDuration()
+    {
+        return $this->duration * $this->units_max;
     }
 
     /**************************************************************************
@@ -723,6 +749,44 @@ class Service extends Lib\Base\Entity
     }
 
     /**
+     * @return int
+     */
+    public function getUnitsMin()
+    {
+        return $this->units_min;
+    }
+
+    /**
+     * @param int $units_min
+     * @return $this
+     */
+    public function setUnitsMin( $units_min )
+    {
+        $this->units_min = $units_min;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUnitsMax()
+    {
+        return $this->units_max;
+    }
+
+    /**
+     * @param int $units_max
+     * @return $this
+     */
+    public function setUnitsMax( $units_max )
+    {
+        $this->units_max = $units_max;
+
+        return $this;
+    }
+
+    /**
      * Gets recurrence_enabled
      *
      * @return string
@@ -792,17 +856,4 @@ class Service extends Lib\Base\Entity
 
         return $return;
     }
-
-    /**
-     * Delete service
-     *
-     * @return bool|int
-     */
-    public function delete()
-    {
-        Lib\Proxy\Shared::serviceDeleted( $this->getId() );
-
-        return parent::delete();
-    }
-
 }

@@ -3,12 +3,15 @@ jQuery(function ($) {
         $form               = $('#business-hours'),
         $finalStepUrl       = $('input[name=bookly_url_final_step_url]'),
         $finalStepUrlMode   = $('#bookly_settings_final_step_url_mode'),
+        $deposit_enabled    = $('#bookly_deposit_payments_enabled'),
+        $deposit_allow_full = $('#bookly_deposit_allow_full_payment'),
         $participants       = $('#bookly_appointment_participants'),
         $defaultCountry     = $('#bookly_cst_phone_default_country'),
         $defaultCountryCode = $('#bookly_cst_default_country_code'),
         $gcSyncMode         = $('#bookly_gc_sync_mode'),
         $gcLimitEvents      = $('#bookly_gc_limit_events'),
         $gcFullSyncOffset   = $('#bookly_gc_full_sync_offset_days'),
+        $gcFullSyncTitles   = $('#bookly_gc_full_sync_titles'),
         $currency           = $('#bookly_pmt_currency'),
         $formats            = $('#bookly_pmt_price_format')
     ;
@@ -37,6 +40,7 @@ jQuery(function ($) {
     $gcSyncMode.on('change', function () {
         $gcLimitEvents.closest('.form-group').toggle(this.value == '1.5-way');
         $gcFullSyncOffset.closest('.form-group').toggle(this.value == '2-way');
+        $gcFullSyncTitles.closest('.form-group').toggle(this.value == '2-way');
     }).trigger('change');
 
     // Calendar tab.
@@ -146,6 +150,10 @@ jQuery(function ($) {
         $('.bookly-2checkout').toggle(this.value != '0');
     }).change();
 
+    $('#bookly_payu_biz_enabled').change(function () {
+        $('.bookly-payu_biz').toggle(this.value != '0');
+    }).change();
+
     $('#bookly_payu_latam_enabled').change(function () {
         $('.bookly-payu_latam').toggle(this.value != '0');
     }).change();
@@ -158,16 +166,28 @@ jQuery(function ($) {
         $('.bookly-mollie').toggle(this.value != '0');
     }).change();
 
+    $('#bookly_payu_biz_sandbox').change(function () {
+        var live = this.value != 1;
+        $('.bookly-payu_biz > .form-group:eq(1)').toggle(live);
+        $('.bookly-payu_biz > .form-group:eq(2)').toggle(live);
+    }).change();
+
     $('#bookly_payu_latam_sandbox').change(function () {
         var live = this.value != 1;
-        $('.bookly-payu_latam > .form-group:eq(0)').toggle(live);
         $('.bookly-payu_latam > .form-group:eq(1)').toggle(live);
         $('.bookly-payu_latam > .form-group:eq(2)').toggle(live);
+        $('.bookly-payu_latam > .form-group:eq(3)').toggle(live);
     }).change();
 
     $('#bookly-payments-reset').on('click', function (event) {
         setTimeout(function () {
-            $('#bookly_pmt_currency,#bookly_paypal_enabled,#bookly_authorize_net_enabled,#bookly_stripe_enabled,#bookly_2checkout_enabled,#bookly_payu_latam_enabled,#bookly_payson_enabled,#bookly_mollie_enabled,#bookly_payu_latam_sandbox').change();
+            $('#bookly_pmt_currency,#bookly_paypal_enabled,#bookly_authorize_net_enabled,#bookly_stripe_enabled,#bookly_2checkout_enabled,#bookly_payu_biz_enabled,#bookly_payu_latam_enabled,#bookly_payson_enabled,#bookly_mollie_enabled,#bookly_payu_biz_sandbox,#bookly_payu_latam_sandbox').change();
+        }, 0);
+    });
+
+    $('#bookly-deposit-payments-reset').on('click', function (event) {
+        setTimeout(function () {
+            $('#bookly_deposit_payments_enabled').change();
         }, 0);
     });
 
@@ -181,7 +201,19 @@ jQuery(function ($) {
         }
     });
 
-    // Holidays tab.
+    if ($deposit_allow_full.val() == 1) {
+        $deposit_enabled.val(1);
+    }
+    $deposit_enabled.change(function () {
+        if (this.value == 0) {
+            $deposit_allow_full.val(0);
+            $deposit_allow_full.closest('.form-group').hide();
+        } else {
+            $deposit_allow_full.closest('.form-group').show();
+        }
+    });
+
+    // Holidays Tab.
     var d = new Date();
     $('.bookly-js-annual-calendar').jCal({
         day: new Date(d.getFullYear(), 0, 1),

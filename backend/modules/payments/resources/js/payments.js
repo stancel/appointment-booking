@@ -216,7 +216,9 @@ jQuery(function($) {
         $payments_list.find('tbody input:checked').each(function () {
             invoices.push(this.value);
         });
-        window.location = $(this).data('action') + '&invoices=' + invoices.join(',');
+        if (invoices.length) {
+            window.location = $(this).data('action') + '&invoices=' + invoices.join(',');
+        }
     });
 });
 

@@ -1869,10 +1869,6 @@ msgid "Old password"
 msgstr "Altes Passwort"
 
 #: 
-msgid "Terms & Conditions"
-msgstr "Geschäftsbedingungen"
-
-#: 
 msgid "All locations"
 msgstr "Alle Orte"
 
@@ -3531,10 +3527,6 @@ msgid "Set the URL of an appointment cancellation confirmation page that is show
 msgstr "Legen Sie die URL einer Terminkündigungs-Bestätigungs-Seite fest, die den Kunden angezeigt wird, wenn sie auf den Kündigungslink klicken."
 
 #: 
-msgid "Accept <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Terms & Conditions</a>"
-msgstr "Den <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Allgemeinen Geschäftsbedingungen</a> zustimmen"
-
-#: 
 msgid "Add appointment cancellation confirmation"
 msgstr "Terminkündigungsbestätigung hinzufügen"
 
@@ -3868,11 +3860,11 @@ msgstr "Um die Facebook-Integration einzurichten, gehen Sie folgendermaßen vor:
 
 #: 
 msgid "Follow the steps at <a href=\"https://developers.facebook.com/docs/apps/register\" target=\"_blank\">https://developers.facebook.com/docs/apps/register</a> to create a Developer Account, register and configure your <b>Facebook App</b>. Below the App Details Panel click <b>Add Platform</b> button, select Website and enter your website URL."
-msgstr "Folgen Sie den Schritten unter <a href=\"https://developers.facebook.com/docs/apps/register\" target=\"_blank\"> https://developers.facebook.com/docs/apps/register </a> um ein Entwicklerkonto zu erstellen, sich zu registrieren und die <b> Facebook App </ b> zu konfigurieren. Unterhalb des App-Details-Bereichs klicken Sie auf die Schaltfläche <b> Plattform hinzufügen </ b>, wählen Sie Website und geben Sie Ihre Website-URL ein."
+msgstr "Folgen Sie den Schritten unter <a href=\"https://developers.facebook.com/docs/apps/register\" target=\"_blank\"> https://developers.facebook.com/docs/apps/register </a> um ein Entwicklerkonto zu erstellen, sich zu registrieren und die <b> Facebook App </b> zu konfigurieren. Unterhalb des App-Details-Bereichs klicken Sie auf die Schaltfläche <b> Plattform hinzufügen </b>, wählen Sie Website und geben Sie Ihre Website-URL ein."
 
 #: 
 msgid "Go to your <a href=\"https://developers.facebook.com/apps/\" target=\"_blank\">App Dashboard</a>. In the left side navigation panel of the App Dashboard, click <b>Settings > Basic</b> to view the App Details Panel with your <b>App ID</b>. Use it in the form below."
-msgstr "Rufen Sie Ihr <a href=\"https://developers.facebook.com/apps/\" target=\"_blank\"> App-Dashboard </a> auf. Klicken Sie im linken Navigationsbereich des App Dashboards auf <b> Einstellungen > Einfach </ b>, um das App-Details-panel mit Ihrer <b> App-ID </ b> anzuzeigen, verwenden Sie sie bitte im Formular weiter unten."
+msgstr "Rufen Sie Ihr <a href=\"https://developers.facebook.com/apps/\" target=\"_blank\"> App-Dashboard </a> auf. Klicken Sie im linken Navigationsbereich des App Dashboards auf <b> Einstellungen > Einfach </b>, um das App-Details-panel mit Ihrer <b> App-ID </b> anzuzeigen, verwenden Sie sie bitte im Formular weiter unten."
 
 #: 
 msgid "Please configure Facebook App integration in <a href=\"%s\">settings</a> first."
@@ -3901,4 +3893,95 @@ msgstr "Einweg"
 #: 
 msgid "Two-way front-end only"
 msgstr "Bidirektional nur-Frontend"
+
+#: 
+msgid "Merge with"
+msgstr "Zusammenführen mit"
+
+#: 
+msgid "Select for merge"
+msgstr "für Zusammenführung auswählen"
+
+#: 
+msgid "Merge list"
+msgstr "Listen zusammenführen"
+
+#: 
+msgid "Merge customers"
+msgstr "Kunden Zusammenführen"
+
+#: 
+msgid "You are about to merge customers from the merge list with the selected one. This will result in losing the merged customers and moving all their appointments to the selected customer. Are you sure you want to continue?"
+msgstr "Sie sind dabei die Kunden von der Zusammenführungsliste mit dem Ausgewählten zusammenzuführen. Dies wird zur Folge haben, dass die verschmolzenen Kunden verloren gehen und alle ihre Termine auf den ausgewählten Kunden übertragen werden. Sind sie sicher, dass sie fortfahren möchten?"
+
+#: 
+msgid "Merge"
+msgstr "Zusammenführen"
+
+#: 
+msgid "Allow duplicate customers"
+msgstr "Kundendupliakte erlauben"
+
+#: 
+msgid "If enabled, a new user will be created if any of the registration data during the booking is different."
+msgstr "Wenn aktiviert, wird ein neuere Kunde erstellt, wenn Teile der Registrierungs-Daten unterschiedlich sind."
+
+#: 
+msgid "More Addons"
+msgstr "Mehr Add-Ons"
+
+#: 
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: 
+msgid "Best Sellers"
+msgstr "Meistverakuft"
+
+#: 
+msgid "Best Rated"
+msgstr "Bestbewertet"
+
+#: 
+msgid "Newest Items"
+msgstr "Neuster Artikel"
+
+#: 
+msgid "Price: low to high"
+msgstr "Preis: vom niedrigsten zum höchsten "
+
+#: 
+msgid "Price: high to low"
+msgstr "Preis: vom höchsten zum niedrigsten"
+
+#: 
+msgid "New"
+msgstr "Neu"
+
+#: 
+msgid "%d sale"
+msgid_plural "%d sales"
+msgstr[0] "\n"
+"%d Verkauf"
+msgstr[1] "\n"
+"%d Verkäufe"
+
+#: 
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] "%d Bewertung"
+msgstr[1] "%d Bewertungen"
+
+#: 
+msgid "Installed"
+msgstr "Installiert"
+
+#: 
+msgid "Get it!"
+msgstr "Hohl es dir!"
+
+#: 
+msgid "I accept <a href=\"%1$s\" target=\"_blank\">Service Terms</a> and <a href=\"%2$s\" target=\"_blank\">Privacy Policy</a>"
+msgstr "Ich akzeptiere <a href=\"%1$s\" target=\"_blank\">Geschäftsbedingungen</a> und <a href=\"%2$s\" target=\"_blank\">Datenschutzerklärung</a>\n"
+""
 

@@ -1869,10 +1869,6 @@ msgid "Old password"
 msgstr "Senha antiga"
 
 #: 
-msgid "Terms & Conditions"
-msgstr "Termos e Condições"
-
-#: 
 msgid "All locations"
 msgstr "Todos os locais"
 
@@ -3525,10 +3521,6 @@ msgid "Set the URL of an appointment cancellation confirmation page that is show
 msgstr "Definir a URL de uma página de confirmação de cancelamento do compromisso, que será exibida para os clientes quando eles clicarem no link de cancelamento."
 
 #: 
-msgid "Accept <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Terms & Conditions</a>"
-msgstr "Aceitar <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\"> os Termos & Condições</a>"
-
-#: 
 msgid "Add appointment cancellation confirmation"
 msgstr "Adicionar confirmação de cancelamento de compromisso"
 
@@ -3895,4 +3887,93 @@ msgstr "Uma via"
 #: 
 msgid "Two-way front-end only"
 msgstr "Duas vias exclusiva do front-end"
+
+#: 
+msgid "Merge with"
+msgstr "Mesclar com"
+
+#: 
+msgid "Select for merge"
+msgstr "Selecionar para mesclar"
+
+#: 
+msgid "Merge list"
+msgstr "Mesclar lista"
+
+#: 
+msgid "Merge customers"
+msgstr "Mesclar clientes"
+
+#: 
+msgid "You are about to merge customers from the merge list with the selected one. This will result in losing the merged customers and moving all their appointments to the selected customer. Are you sure you want to continue?"
+msgstr "Você está prestes a mesclar clientes da lista de clientes com o selecionado. O resultado disso será perder os clientes mesclados e mover todos seus compromissos para o cliente selecionado. Você tem certeza que quer continuar?"
+
+#: 
+msgid "Merge"
+msgstr "Mesclar"
+
+#: 
+msgid "Allow duplicate customers"
+msgstr "Permitir clientes duplicados"
+
+#: 
+msgid "If enabled, a new user will be created if any of the registration data during the booking is different."
+msgstr "Se ativado, um novo usuário será criado se quaisquer dados de registo durante a reserva estiverem diferentes."
+
+#: 
+msgid "More Addons"
+msgstr "Mais addons."
+
+#: 
+msgid "Sort by"
+msgstr "Ordenar por"
+
+#: 
+msgid "Best Sellers"
+msgstr "Mais vendidos"
+
+#: 
+msgid "Best Rated"
+msgstr "Melhores avaliações"
+
+#: 
+msgid "Newest Items"
+msgstr "Itens mais novos"
+
+#: 
+msgid "Price: low to high"
+msgstr "Preço: do menor ao maior"
+
+#: 
+msgid "Price: high to low"
+msgstr "Preço: do maior ao menor"
+
+#: 
+msgid "New"
+msgstr "Novo"
+
+#: 
+msgid "%d sale"
+msgid_plural "%d sales"
+msgstr[0] " %d venda"
+msgstr[1] "%d vendas"
+
+#: 
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] "%d revisão"
+msgstr[1] "%d revisões"
+
+#: 
+msgid "Installed"
+msgstr "Instalado"
+
+#. I would need a better context for a more accurate translation of this string.
+#: 
+msgid "Get it!"
+msgstr "Tudo certo."
+
+#: 
+msgid "I accept <a href=\"%1$s\" target=\"_blank\">Service Terms</a> and <a href=\"%2$s\" target=\"_blank\">Privacy Policy</a>"
+msgstr "Eu aceito <a href=\"%1$s\" target=\"_blank\">os Termos de Serviço</a> and <a href=\"%2$s\" target=\"_blank\">e a Política de Privacidade</a>"
 

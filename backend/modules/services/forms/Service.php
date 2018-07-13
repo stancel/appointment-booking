@@ -2,6 +2,7 @@
 namespace Bookly\Backend\Modules\Services\Forms;
 
 use Bookly\Lib;
+use Bookly\Backend\Modules\Services\Proxy;
 
 /**
  * Class Service
@@ -41,7 +42,10 @@ class Service extends Lib\Base\Form
             'recurrence_frequencies',
             'visibility',
             'positions',
-            'taxes'
+            'taxes',
+            'unit_duration',
+            'units_min',
+            'units_max',
         );
 
         $this->setFields( $fields );
@@ -81,7 +85,7 @@ class Service extends Lib\Base\Form
             $this->data['appointments_limit'] = null;
         }
 
-        $this->data = Lib\Proxy\Shared::prepareUpdateService( $this->data );
+        $this->data = Proxy\Shared::prepareUpdateService( $this->data );
 
         /** @var Lib\Entities\Service $service */
         $service = parent::save();

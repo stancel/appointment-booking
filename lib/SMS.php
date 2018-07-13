@@ -7,25 +7,25 @@ namespace Bookly\Lib;
  */
 class SMS
 {
-    const API_URL = 'http://sms.booking-wp-plugin.com/1.0';
+    const API_URL = 'http://sms.booking-wp-plugin.com';
 
-    const REGISTER            = '/users';                            //POST
-    const AUTHENTICATE        = '/users';                            //GET
-    const LOG_OUT             = '/users/%token%/logout';             //GET
-    const GET_PROFILE_INFO    = '/users/%token%';                    //GET
-    const GET_SMS_LIST        = '/users/%token%/sms';                //GET
-    const GET_SMS_SUMMARY     = '/users/%token%/sms/summary';        //GET
-    const GET_PURCHASES_LIST  = '/users/%token%/purchases';          //GET
-    const SEND_SMS            = '/users/%token%/sms';                //POST
-    const GET_PRICES          = '/prices';                           //GET
-    const PASSWORD_FORGOT     = '/recoveries';                       //POST
-    const PASSWORD_CHANGE     = '/users/%token%';                    //PATCH
-    const PREAPPROVAL_CREATE  = '/users/%token%/paypal/preapproval'; //POST
-    const PREAPPROVAL_DELETE  = '/users/%token%/paypal/preapproval'; //DELETE
-    const GET_SENDER_IDS_LIST = '/users/%token%/sender-ids';         //GET
-    const REQUEST_SENDER_ID   = '/users/%token%/sender-ids';         //POST
-    const RESET_SENDER_ID     = '/users/%token%/sender-ids/reset';   //GET
-    const CANCEL_SENDER_ID    = '/users/%token%/sender-ids/cancel';  //GET
+    const REGISTER            = '/1.0/users';                            //POST
+    const AUTHENTICATE        = '/1.0/users';                            //GET
+    const LOG_OUT             = '/1.0/users/%token%/logout';             //GET
+    const GET_PROFILE_INFO    = '/1.0/users/%token%';                    //GET
+    const GET_SMS_LIST        = '/1.0/users/%token%/sms';                //GET
+    const GET_SMS_SUMMARY     = '/1.0/users/%token%/sms/summary';        //GET
+    const GET_PURCHASES_LIST  = '/1.0/users/%token%/purchases';          //GET
+    const SEND_SMS            = '/1.1/users/%token%/sms';                //POST
+    const GET_PRICES          = '/1.0/prices';                           //GET
+    const PASSWORD_FORGOT     = '/1.0/recoveries';                       //POST
+    const PASSWORD_CHANGE     = '/1.0/users/%token%';                    //PATCH
+    const PREAPPROVAL_CREATE  = '/1.0/users/%token%/paypal/preapproval'; //POST
+    const PREAPPROVAL_DELETE  = '/1.0/users/%token%/paypal/preapproval'; //DELETE
+    const GET_SENDER_IDS_LIST = '/1.0/users/%token%/sender-ids';         //GET
+    const REQUEST_SENDER_ID   = '/1.0/users/%token%/sender-ids';         //POST
+    const RESET_SENDER_ID     = '/1.0/users/%token%/sender-ids/reset';   //GET
+    const CANCEL_SENDER_ID    = '/1.0/users/%token%/sender-ids/cancel';  //GET
 
     private $username;
 
@@ -141,8 +141,8 @@ class SMS
                 self::PREAPPROVAL_CREATE,
                 array(
                     'amount'   => $amount,
-                    'approved' => admin_url( 'admin.php?page=' . \Bookly\Backend\Modules\Sms\Controller::page_slug . '&tab=auto_recharge&auto-recharge=approved' ),
-                    'declined' => admin_url( 'admin.php?page=' . \Bookly\Backend\Modules\Sms\Controller::page_slug . '&tab=auto_recharge&auto-recharge=declined' ),
+                    'approved' => admin_url( 'admin.php?page=' . \Bookly\Backend\Modules\Sms\Ajax::pageSlug() . '&tab=auto_recharge&auto-recharge=approved' ),
+                    'declined' => admin_url( 'admin.php?page=' . \Bookly\Backend\Modules\Sms\Ajax::pageSlug() . '&tab=auto_recharge&auto-recharge=declined' ),
                 )
             );
             if ( $response ) {
@@ -176,16 +176,18 @@ class SMS
      *
      * @param string $phone_number
      * @param string $message
+     * @param string $impersonal_message
      * @param int    $type_id
      * @return bool
      */
-    public function sendSms( $phone_number, $message, $type_id = null )
+    public function sendSms( $phone_number, $message, $impersonal_message, $type_id = null )
     {
         if ( $this->token ) {
             $data = array(
-                'message' => $message,
-                'phone'   => $this->normalizePhoneNumber( $phone_number ),
-                'type'    => $type_id,
+                'message'            => $message,
+                'impersonal_message' => $impersonal_message,
+                'phone'              => $this->normalizePhoneNumber( $phone_number ),
+                'type'               => $type_id,
             );
             if ( $data['phone'] != '' ) {
                 $response = $this->sendPostRequest( self::SEND_SMS, $data );
@@ -663,7 +665,7 @@ class SMS
      */
     private function _sendLowBalanceNotification()
     {
-        $add_money_url = admin_url( 'admin.php?' . build_query( array( 'page' => \Bookly\Backend\Modules\Sms\Controller::page_slug, 'tab' => 'add_money' ) ) );
+        $add_money_url = admin_url( 'admin.php?' . build_query( array( 'page' => \Bookly\Backend\Modules\Sms\Ajax::pageSlug(), 'tab' => 'add_money' ) ) );
         $message = sprintf( __( "Dear Bookly SMS customer.\nWe would like to notify you that your Bookly SMS balance fell lower than 5 USD. To use our service without interruptions please recharge your balance by visiting Bookly SMS page <a href='%s'>here</a>.\n\nIf you want to stop receiving these notifications, please update your settings <a href='%s'>here</a>.", 'bookly' ), $add_money_url, $add_money_url );
 
         wp_mail(

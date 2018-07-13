@@ -1,7 +1,7 @@
 <?php
 namespace Bookly\Lib;
 
-use Bookly\Backend\Modules;
+use Bookly\Backend\Components;
 
 /**
  * Class Plugin
@@ -29,31 +29,22 @@ abstract class Plugin extends Base\Plugin
                 $bookly_page = isset( $_REQUEST['page'] ) && strpos( $_REQUEST['page'], 'bookly-' ) === 0;
                 if ( $bookly_page ) {
                     // Subscribe notice.
-                    Modules\Support\Components::getInstance()->renderSubscribeNotice();
+                    Components\Notices\Subscribe::render();
                     // NPS notice.
-                    Modules\Support\Components::getInstance()->renderNpsNotice();
+                    Components\Notices\Nps::render();
                     // Collect stats notice.
-                    Modules\Settings\Components::getInstance()->renderCollectStatsNotice();
-                    Modules\License\Components::getInstance()->renderPurchaseNotice();
+                    Components\Notices\CollectStats::render();
+                    // Purchase reminder notice.
+                    Components\Notices\PurchaseReminder::render();
 
-                    if ( Config::booklyExpired() || get_option( 'bookly_grace_hide_admin_notice_time' ) < time() ) {
-                        Modules\License\Components::getInstance()->renderLicenseRequired();
-                    }
+                    Components\License\Components::renderLicenseRequired();
                 }
-                Modules\License\Components::getInstance()->renderLicenseNotice( $bookly_page );
+                Components\License\Components::renderLicenseNotice( $bookly_page );
             }, 10, 0 );
         }
 
         if ( Config::paypalEnabled() ) {
-            add_filter( 'bookly_apply_payment_specific_price', function ( CartInfo $cart_info, $gateway ) {
-                if ( $gateway === Entities\Payment::TYPE_PAYPAL ) {
-                    $cart_info->setPriceCorrection( get_option( 'bookly_paypal_increase' ), get_option( 'bookly_paypal_addition' ) );
-                }
-
-                return $cart_info;
-            }, 10, 2 );
-
-            add_filter( 'bookly_exist_specific_price_settings', function ( $gateway ) {
+            add_filter( 'bookly_payment_specific_price_exists', function ( $gateway ) {
                 if ( $gateway === Entities\Payment::TYPE_PAYPAL ) {
                     return get_option( 'bookly_paypal_increase' ) != 0
                         || get_option( 'bookly_paypal_addition' ) != 0;
@@ -171,6 +162,8 @@ Bookly SMS Team.', 'bookly' );
             if ( get_option( 'bookly_gen_collect_stats' ) ) {
                 API::sendStats();
             }
+
+            API::updateInfo();
 
             // Let add-ons do their daily routines.
             Proxy\Shared::doDailyRoutine();

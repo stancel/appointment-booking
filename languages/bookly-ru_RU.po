@@ -1873,10 +1873,6 @@ msgid "Old password"
 msgstr "Старый пароль"
 
 #: 
-msgid "Terms & Conditions"
-msgstr "Условия использования"
-
-#: 
 msgid "All locations"
 msgstr "Все места"
 
@@ -3534,10 +3530,6 @@ msgid "Set the URL of an appointment cancellation confirmation page that is show
 msgstr "Укажите URL страницы, которая будет показана клиенту при переходе по ссылке на отмену встречи с подтверждением."
 
 #: 
-msgid "Accept <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Terms & Conditions</a>"
-msgstr "Принимаю <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">условия</a>"
-
-#: 
 msgid "Add appointment cancellation confirmation"
 msgstr "Добавить подтверждение отмены встречи"
 
@@ -3908,4 +3900,97 @@ msgstr "Односторонняя синхронизация"
 #: 
 msgid "Two-way front-end only"
 msgstr "Двусторонняя синхронизация для фронтенда"
+
+#: 
+msgid "Merge with"
+msgstr "Объединить с"
+
+#: 
+msgid "Select for merge"
+msgstr "Выбрать для объединения"
+
+#: 
+msgid "Merge list"
+msgstr "Список для объединения"
+
+#: 
+msgid "Merge customers"
+msgstr "Объединить клиентов"
+
+#: 
+msgid "You are about to merge customers from the merge list with the selected one. This will result in losing the merged customers and moving all their appointments to the selected customer. Are you sure you want to continue?"
+msgstr "Вы собираетесь объединить клиентов из списка для объединения с выбранным клиентом. Это приведёт к потере объединённых клиентов и переносу всех назначенных встреч выбранному клиенту. Вы уверены, что хотите продолжить?"
+
+#: 
+msgid "Merge"
+msgstr "Объединить"
+
+#: 
+msgid "Allow duplicate customers"
+msgstr "Разрешить дубликаты клиентов"
+
+#: 
+msgid "If enabled, a new user will be created if any of the registration data during the booking is different."
+msgstr "Если включена, то при отличии каких-либо регистрационных данных, введённых клиентом при бронировании, будет создан новый пользователь.\n"
+""
+
+#: 
+msgid "More Addons"
+msgstr "Больше аддонов"
+
+#: 
+msgid "Sort by"
+msgstr "Сортировать по"
+
+#: 
+msgid "Best Sellers"
+msgstr "Лидеры продаж"
+
+#: 
+msgid "Best Rated"
+msgstr "Лучший рейтинг"
+
+#: 
+msgid "Newest Items"
+msgstr "Новые"
+
+#: 
+msgid "Price: low to high"
+msgstr "Цена: от низкой к высокой"
+
+#: 
+msgid "Price: high to low"
+msgstr "Цена: от высокой к низкой"
+
+#: 
+msgid "New"
+msgstr "Новый"
+
+#: 
+msgid "%d sale"
+msgid_plural "%d sales"
+msgstr[0] "%d продажа"
+msgstr[1] "%d продажи"
+msgstr[2] "%d продаж"
+msgstr[3] "%d продаж"
+
+#: 
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] "%d отзыв"
+msgstr[1] "%d отзыва"
+msgstr[2] "%d отзывов"
+msgstr[3] "%d отзывов"
+
+#: 
+msgid "Installed"
+msgstr "Установлено"
+
+#: 
+msgid "Get it!"
+msgstr "Установить!"
+
+#: 
+msgid "I accept <a href=\"%1$s\" target=\"_blank\">Service Terms</a> and <a href=\"%2$s\" target=\"_blank\">Privacy Policy</a>"
+msgstr "Я принимаю <a href=\"%1$s\" target=\"_blank\">Условия предоставления услуги</a> и <a href=\"%2$s\" target=\"_blank\">Политику конфиденциальности</a>"
 

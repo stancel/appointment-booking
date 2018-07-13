@@ -1,11 +1,11 @@
 <?php
 namespace Bookly\Lib\Google;
 
+use Bookly\Lib;
 use Bookly\Lib\Config;
 use Bookly\Lib\Entities\Appointment;
 use Bookly\Lib\Entities\Service;
 use Bookly\Lib\Entities\Staff;
-use Bookly\Lib\Proxy;
 use Bookly\Lib\Slots\Booking;
 use Bookly\Lib\Slots\DatePoint;
 
@@ -55,7 +55,7 @@ class Calendar
                 $event = $this->client->service()->events->update( $this->_getCalendarId(), $event->getId(), $event );
             } else {
                 // Create event.
-                $event = $this->_populateEvent( new \Google_Service_Calendar_Event(), $appointment );
+                $event = $this->_populateEvent( new \BooklyGoogle_Service_Calendar_Event(), $appointment );
                 $event = $this->client->service()->events->insert( $this->_getCalendarId(), $event );
             }
             $appointment
@@ -125,7 +125,7 @@ class Calendar
                 // Fetch events.
                 $events = $this->client->service()->events->listEvents( $this->_getCalendarId(), $params );
 
-                /** @var \Google_Service_Calendar_Event $event */
+                /** @var \BooklyGoogle_Service_Calendar_Event $event */
                 foreach ( $events->getItems() as $event ) {
                     if ( ! $this->_isTransparentEvent( $event ) ) {
                         $ext_properties = $event->getExtendedProperties();
@@ -192,18 +192,18 @@ class Calendar
     /**
      * Populate Google Calendar event with data from given appointment.
      *
-     * @param \Google_Service_Calendar_Event $event
+     * @param \BooklyGoogle_Service_Calendar_Event $event
      * @param Appointment $appointment
-     * @return \Google_Service_Calendar_Event
+     * @return \BooklyGoogle_Service_Calendar_Event
      */
-    protected function _populateEvent( \Google_Service_Calendar_Event $event, Appointment $appointment )
+    protected function _populateEvent( \BooklyGoogle_Service_Calendar_Event $event, Appointment $appointment )
     {
         // Set start and end dates.
-        $start_datetime = new \Google_Service_Calendar_EventDateTime();
+        $start_datetime = new \BooklyGoogle_Service_Calendar_EventDateTime();
         $start_datetime->setDateTime(
             DatePoint::fromStr( $appointment->getStartDate() )->format( \DateTime::RFC3339 )
         );
-        $end_datetime = new \Google_Service_Calendar_EventDateTime();
+        $end_datetime = new \BooklyGoogle_Service_Calendar_EventDateTime();
         $end_datetime->setDateTime(
             DatePoint::fromStr( $appointment->getEndDate() )->modify( (int) $appointment->getExtrasDuration() )->format( \DateTime::RFC3339 )
         );
@@ -232,7 +232,7 @@ class Calendar
                     __( 'Phone', 'bookly' ), $ca->customer->getPhone()
                 );
                 if ( Config::customFieldsActive() ) {
-                    $description .= Proxy\CustomFields::getFormatted( $ca, 'text' ) . PHP_EOL;
+                    $description .= Lib\Proxy\CustomFields::getFormatted( $ca, 'text' ) . PHP_EOL;
                 }
                 if ( Config::serviceExtrasActive() ) {
                     $appointment_extras = json_decode( $ca->getExtras(), true );
@@ -241,7 +241,7 @@ class Calendar
                         $count = $appointment_extras[ $extra->getId() ];
 
                         return ( $count > 1 ? $count . ' × ' : '' ) . $extra->getTitle();
-                    }, (array) Proxy\ServiceExtras::findByIds( array_keys( $appointment_extras ) ) ) );
+                    }, (array) Lib\Proxy\ServiceExtras::findByIds( array_keys( $appointment_extras ) ) ) );
                     if ( $extras != '' ) {
                         $description .= __( 'Extras', 'bookly' ) . ': ' . $extras . PHP_EOL;
                     }
@@ -259,13 +259,13 @@ class Calendar
             $event->setSummary( $title );
             $event->setDescription( $description );
 
-            $extended_property = new \Google_Service_Calendar_EventExtendedProperties();
+            $extended_property = new \BooklyGoogle_Service_Calendar_EventExtendedProperties();
             $extended_property->setPrivate( array(
                 'bookly'                => 1,
                 'bookly_appointment_id' => $appointment->getId(),
             ) );
             $event->setExtendedProperties( $extended_property );
-        } else {
+        } else if ( get_option( 'bookly_gc_full_sync_titles', 1 ) ) {
             // Populate event created from Google Calendar.
             $event->setSummary( $appointment->getCustomServiceName() );
         }
@@ -310,10 +310,10 @@ class Calendar
     /**
      * Tells whether given event is transparent (does not block time on Google Calendar).
      *
-     * @param \Google_Service_Calendar_Event $event
+     * @param \BooklyGoogle_Service_Calendar_Event $event
      * @return bool
      */
-    protected function _isTransparentEvent( \Google_Service_Calendar_Event $event )
+    protected function _isTransparentEvent( \BooklyGoogle_Service_Calendar_Event $event )
     {
         return $event->getTransparency() == 'transparent';
     }

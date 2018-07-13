@@ -1,26 +1,15 @@
 <?php
 namespace Bookly\Lib\Proxy;
 
-use Bookly\Lib\Base;
+use Bookly\Lib as BooklyLib;
 
 /**
- * Class Coupons
- * Invoke local methods from Invoices add-on.
- *
- * @method static void renderDownloadInvoicesButton()
- * @see \BooklyInvoices\Lib\ProxyProviders\Local::renderDownloadInvoicesButton()
- *
- * @method static void renderNotificationAttach( array $notification )
- * @see \BooklyInvoices\Lib\ProxyProviders\Local::renderNotificationAttach()
- *
- * @method static string|null getInvoice( \Bookly\Lib\Entities\Payment $payment )
- * @see \BooklyInvoices\Lib\ProxyProviders\Local::getInvoice()
- *
- * @method static void downloadInvoice( \Bookly\Lib\Entities\Payment $payment )
- * @see \BooklyInvoices\Lib\ProxyProviders\Local::downloadInvoice()
- *
+ * Class Invoices
  * @package Bookly\Lib\Proxy
+ *
+ * @method static string|null getInvoice( BooklyLib\Entities\Payment $payment ) Return path to pdf file.
+ * @method static void downloadInvoice( BooklyLib\Entities\Payment $payment ) Download pdf file
  */
-abstract class Invoices extends Base\ProxyInvoker
+abstract class Invoices extends BooklyLib\Base\Proxy
 {
 }

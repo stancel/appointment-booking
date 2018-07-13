@@ -1,5 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-use Bookly\Lib\Utils\Common;
+use Bookly\Backend\Components\Settings\Selects;
 ?>
 <div class="panel panel-default bookly-js-collapse" data-slug="local">
     <div class="panel-heading">
@@ -10,7 +10,7 @@ use Bookly\Lib\Utils\Common;
     </div>
     <div id="bookly_pmt_local" class="panel-collapse collapse in">
         <div class="panel-body">
-            <?php Common::optionToggle( 'bookly_pmt_local' ) ?>
+            <?php Selects::renderSingle( 'bookly_pmt_local' ) ?>
         </div>
     </div>
 </div>

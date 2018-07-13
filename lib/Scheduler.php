@@ -311,11 +311,12 @@ class Scheduler
                 $title = $client_start_dp->formatI18n( get_option( 'time_format' ) );
                 if ( $this->with_options ) {
                     $options[] = array(
-                        'value' => json_encode( $data ),
-                        'title' => $title,
+                        'value'    => json_encode( $data ),
+                        'title'    => $title,
+                        'disabled' => $slot->fullyBooked(),
                     );
                 }
-                if ( $client_res_dp === null && $client_start_dp->gte( $client_req_dp ) ) {
+                if ( $client_res_dp === null && $slot->notFullyBooked() && $client_start_dp->gte( $client_req_dp ) ) {
                     $client_res_dp = $client_start_dp;
                     $slots         = $data;
 

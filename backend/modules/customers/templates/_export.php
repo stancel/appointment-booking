@@ -1,5 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-use Bookly\Lib;
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Components\Controls\Inputs;
+use Bookly\Backend\Modules\Customers\Proxy;
 ?>
 <div id="bookly-export-customers-dialog" class="modal fade" tabindex=-1 role="dialog">
     <div class="modal-dialog">
@@ -22,7 +24,7 @@ use Bookly\Lib;
                         <div class="checkbox"><label><input checked name="exp[first_name]" type="checkbox"> <?php echo esc_html( get_option( 'bookly_l10n_label_first_name' ) ) ?></label></div>
                         <div class="checkbox"><label><input checked name="exp[last_name]" type="checkbox"> <?php echo esc_html( get_option( 'bookly_l10n_label_last_name' ) ) ?></label></div>
                         <div class="checkbox"><label><input checked name="exp[wp_user]" type="checkbox"><?php _e( 'User', 'bookly' ) ?></label></div>
-                        <?php Lib\Proxy\CustomerGroups::renderCustomerExportDialogRow() ?>
+                        <?php Proxy\CustomerGroups::renderCustomerExportDialogRow() ?>
                         <div class="checkbox"><label><input checked name="exp[phone]" type="checkbox"><?php echo esc_html( get_option( 'bookly_l10n_label_phone' ) ) ?></label></div>
                         <div class="checkbox"><label><input checked name="exp[email]" type="checkbox"><?php echo esc_html( get_option( 'bookly_l10n_label_email' ) ) ?></label></div>
                         <div class="checkbox"><label><input checked name="exp[address]" type="checkbox"><?php echo esc_html( get_option( 'bookly_l10n_info_address' ) ) ?></label></div>
@@ -37,8 +39,8 @@ use Bookly\Lib;
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <?php Lib\Utils\Common::csrf() ?>
-                    <?php Lib\Utils\Common::submitButton( null, '', __( 'Export to CSV', 'bookly' ) ) ?>
+                    <?php Inputs::renderCsrf() ?>
+                    <?php Buttons::renderSubmit( null, null, __( 'Export to CSV', 'bookly' ) ) ?>
                 </div>
             </div>
         </form>

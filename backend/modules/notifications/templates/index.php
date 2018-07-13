@@ -1,8 +1,11 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Components\Controls\Inputs;
+use Bookly\Backend\Components\Settings\Selects;
+use Bookly\Backend\Components\Support;
+use Bookly\Backend\Modules\Notifications\Proxy;
 use Bookly\Lib\Entities\Notification;
 use Bookly\Lib\Utils\Common;
-use Bookly\Lib\Proxy;
-use Bookly\Backend\Modules\Support;
 
 $bookly_email_sender_name  = get_option( 'bookly_email_sender_name' ) == '' ?
     get_option( 'blogname' )    : get_option( 'bookly_email_sender_name' );
@@ -17,9 +20,9 @@ $bookly_email_sender = get_option( 'bookly_email_sender' ) == '' ?
             <div class="bookly-page-title">
                 <?php _e( 'Email Notifications', 'bookly' ) ?>
             </div>
-            <?php Support\Components::getInstance()->renderButtons( $this::page_slug ) ?>
+            <?php Support\Buttons::render( $self::pageSlug() ) ?>
         </div>
-        <form method="post" action="<?php echo Common::escAdminUrl( $this::page_slug ) ?>">
+        <form method="post" action="<?php echo Common::escAdminUrl( $self::pageSlug() ) ?>">
             <div class="panel panel-default bookly-main" ng-controller="emailNotifications">
                 <div class="panel-body">
                     <div class="row">
@@ -36,12 +39,12 @@ $bookly_email_sender = get_option( 'bookly_email_sender' ) == '' ?
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <?php Common::optionToggle( 'bookly_email_send_as', __( 'Send emails as', 'bookly' ), __( 'HTML allows formatting, colors, fonts, positioning, etc. With Text you must use Text mode of rich-text editors below. On some servers only text emails are sent successfully.', 'bookly' ),
+                            <?php Selects::renderSingle( 'bookly_email_send_as', __( 'Send emails as', 'bookly' ), __( 'HTML allows formatting, colors, fonts, positioning, etc. With Text you must use Text mode of rich-text editors below. On some servers only text emails are sent successfully.', 'bookly' ),
                                 array( array( 'html', __( 'HTML', 'bookly' ) ), array( 'text', __( 'Text', 'bookly' ) ) )
                             ) ?>
                         </div>
                         <div class="col-md-6">
-                            <?php Common::optionToggle( 'bookly_email_reply_to_customers', __( 'Reply directly to customers', 'bookly' ), __( 'If this option is enabled then the email address of the customer is used as a sender email address for notifications sent to staff members and administrators.', 'bookly' ) ) ?>
+                            <?php Selects::renderSingle( 'bookly_email_reply_to_customers', __( 'Reply directly to customers', 'bookly' ), __( 'If this option is enabled then the email address of the customer is used as a sender email address for notifications sent to staff members and administrators.', 'bookly' ) ) ?>
                         </div>
                     </div>
 
@@ -127,7 +130,7 @@ $bookly_email_sender = get_option( 'bookly_email_sender' ) == '' ?
 
                     <div class="panel-group bookly-margin-vertical-xlg" id="bookly-js-custom-notifications">
                         <?php foreach ( $form->getNotifications( 'custom' ) as $notification ) :
-                            $this->render( '_custom_notification', compact( 'form', 'notification', 'statuses' ) );
+                            $self::renderTemplate( '_custom_notification', compact( 'form', 'notification', 'statuses' ) );
                         endforeach ?>
                     </div>
                     <div class="row">
@@ -153,16 +156,16 @@ $bookly_email_sender = get_option( 'bookly_email_sender' ) == '' ?
                                 <?php endif ?>
                             </div>
                             <div class="col-md-2">
-                                <?php Common::optionToggle( 'bookly_ntf_processing_interval', __( 'Notification period', 'bookly' ), __( 'Set period of time when system will attempt to deliver notification to user. Notification will be discarded after period expiration.', 'bookly' ), $bookly_ntf_processing_interval_values ) ?>
+                                <?php Selects::renderSingle( 'bookly_ntf_processing_interval', __( 'Notification period', 'bookly' ), __( 'Set period of time when system will attempt to deliver notification to user. Notification will be discarded after period expiration.', 'bookly' ), $bookly_ntf_processing_interval_values ) ?>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="panel-footer">
-                    <?php Common::csrf() ?>
-                    <?php Common::submitButton() ?>
-                    <?php Common::resetButton() ?>
+                    <?php Inputs::renderCsrf() ?>
+                    <?php Buttons::renderSubmit() ?>
+                    <?php Buttons::renderReset() ?>
 
                     <div class="pull-left">
                         <button type="button" class="btn btn-default bookly-test-email-notifications btn-lg" ng-click="showTestEmailNotificationDialog(); $event.stopPropagation();">
@@ -186,9 +189,9 @@ $bookly_email_sender = get_option( 'bookly_email_sender' ) == '' ?
                         <p><?php _e( 'When creating a new notification, the page will be reloaded, and all unsaved changes will be lost.', 'bookly' ) ?></p>
                     </div>
                     <div class="modal-footer">
-                        <?php Common::customButton( null, 'btn-lg btn-success bookly-js-save', __( 'Save changes', 'bookly' ) ) ?>
-                        <?php Common::customButton( null, 'btn-lg btn-danger bookly-js-continue', __( 'Continue without saving', 'bookly' ) ) ?>
-                        <?php Common::customButton( null, 'btn-lg btn-default', __( 'Cancel', 'bookly' ), array( 'data-dismiss' => 'modal' ) ) ?>
+                        <?php Buttons::renderCustom( null, 'btn-lg btn-success bookly-js-save', __( 'Save changes', 'bookly' ) ) ?>
+                        <?php Buttons::renderCustom( null, 'btn-lg btn-danger bookly-js-continue', __( 'Continue without saving', 'bookly' ) ) ?>
+                        <?php Buttons::renderCustom( null, 'btn-lg btn-default', __( 'Cancel', 'bookly' ), array( 'data-dismiss' => 'modal' ) ) ?>
                     </div>
                 </div>
             </div>

@@ -237,6 +237,21 @@ jQuery(function($) {
                 });
             }
             updateSelectorButton($container);
+        })
+
+        .on('change', '.bookly-js-service-unit-duration', function () {
+            var $service = $(this).closest('.panel'),
+                $custom_duration = $service.find('.bookly-js-service-unit-fields');
+            if ($(this).val() == 'custom') {
+                $service.find('.bookly-js-price-label').hide();
+                $service.find('.bookly-js-unit-price-label').show();
+                $custom_duration.show();
+            } else {
+                $service.find('.bookly-js-price-label').show();
+                $service.find('.bookly-js-unit-price-label').hide();
+                $custom_duration.find('[name="unit_duration"]').val($(this).val())
+                $custom_duration.hide();
+            }
         });
 
     // Modal window events.
@@ -446,7 +461,7 @@ jQuery(function($) {
             });
 
             $panel
-                .find('[name=duration]').on('change', function () {
+                .find('[name=duration], [name=unit_duration]').on('change', function () {
                     $panel.find('[name=start_time_info]').closest('.form-group').toggle($(this).val() >= 86400);
                 }).trigger('change');
 
@@ -499,6 +514,7 @@ jQuery(function($) {
                     $panel.find('.parent-range-start').trigger('change');
                     $panel.find('input[name=type]:checked').trigger('change');
                     $panel.find('.bookly-js-visibility').trigger('change');
+                    $panel.find('.bookly-js-service-unit-duration').trigger('change');
                     setTimeout(function () {
                         $(document.body).trigger('service.resetForm', [$panel, $panel.closest('.panel').data('service-id')]);
                     }, 50);

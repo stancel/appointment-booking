@@ -104,7 +104,7 @@ class Generator implements \Iterator
         // and who can serve the requested number of persons.
         foreach ( $staff_members as $staff_id => $staff ) {
             // Check that staff provides the service.
-            if ( $staff->providesService( $this->srv_id, ( \Bookly\Lib\Proxy\Locations::getAllowServicesPerLocation() ) ? $this->location_id : 0 ) ) {
+            if ( $staff->providesService( $this->srv_id, \Bookly\Lib\Proxy\Locations::getAllowServicesPerLocation() ? $this->location_id : 0 ) ) {
                 // Check that requested number of persons meets service capacity.
                 $service = $staff->getService( $this->srv_id, $this->location_id );
                 if ( $service->capacityMax() >= $this->nop && $service->capacityMin() <= $this->nop ) {
@@ -249,10 +249,10 @@ class Generator implements \Iterator
                     ) );
                     /** @var Range $removed_range */
                     if ( $removed_range ) {
-                        $removed->push( $removed_range );
+                        $removed->push( $removed_range->replaceCapacity( $max_capacity )->replaceNop( $booking->nop() ) );
                     }
                 } else {
-                    $new_ranges->push( $r );
+                    $new_ranges->push( $r->replaceCapacity( $max_capacity ) );
                 }
             }
             $ranges = $new_ranges;
@@ -260,7 +260,7 @@ class Generator implements \Iterator
             if ( $removed->isNotEmpty() ) {
                 $data = $removed->get( 0 )->data()->replaceState( Range::FULLY_BOOKED );
                 // Handle waiting list.
-                if ( $this->waiting_list_enabled && $booking->serviceId() == $this->srv_id ) {
+                if ( $this->waiting_list_enabled && $booking->serviceId() == $this->srv_id && $booking->range()->length() - $booking->extrasDuration() == $this->srv_duration ) {
                     if ( $booking->onWaitingList() ) {
                         $data = $data->replaceOnWaitingList( $booking->onWaitingList() );
                     }
@@ -284,6 +284,7 @@ class Generator implements \Iterator
                     ( ! $booking->locationId() || ! $this->location_id || $booking->locationId() == $this->location_id ) &&
                     $booking->serviceId() == $this->srv_id &&
                     $booking->nop() <= $max_capacity - $this->nop &&
+                    $booking->range()->length() - $booking->extrasDuration() == $this->srv_duration &&
                     $booking->extrasDuration() >= $this->extras_duration
                 ) {
                     $booking_range = $booking->range();

@@ -1,5 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-use Bookly\Backend\Modules;
+use Bookly\Backend\Components;
 use Bookly\Lib\Utils\Common;
 use Bookly\Lib\Utils\DateTime;
 ?>
@@ -9,7 +9,7 @@ use Bookly\Lib\Utils\DateTime;
             <div class="bookly-page-title">
                 <?php _e( 'Analytics', 'bookly' ) ?>
             </div>
-            <?php Modules\Support\Components::getInstance()->renderButtons( $this::page_slug ) ?>
+            <?php Components\Support\Buttons::render( $self::pageSlug() ) ?>
         </div>
         <div class="panel panel-default bookly-main">
             <div class="panel-body">

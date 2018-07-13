@@ -1,10 +1,10 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 use Bookly\Lib\Config;
-use Bookly\Lib\Proxy;
+use Bookly\Frontend\Modules\Booking\Proxy;
 ?>
 <?php echo $progress_tracker ?>
 <div class="bookly-box"><?php echo $info_text ?></div>
-<?php Proxy\WaitingList::renderTimeStepInfoText() ?>
+<?php Proxy\Shared::renderWaitingListInfoText() ?>
 <div class="bookly-box bookly-label-error"></div>
 <?php if ( $has_slots && Config::showTimeZoneSwitcher() ): ?>
     <div class="bookly-box">

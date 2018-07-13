@@ -2,6 +2,7 @@
 namespace Bookly\Backend\Modules\Settings\Forms;
 
 use Bookly\Lib;
+use Bookly\Backend\Modules\Settings\Proxy;
 
 /**
  * Class Payments
@@ -9,13 +10,12 @@ use Bookly\Lib;
  */
 class Payments extends Lib\Base\Form
 {
-    public function __construct()
-    {
-    }
-
+    /**
+     * @inheritdoc
+     */
     public function bind( array $_post, array $files = array() )
     {
-        $fields = Lib\Proxy\Shared::preparePaymentOptions( array(
+        $fields = Proxy\Shared::preparePaymentOptions( array(
             'bookly_pmt_order',
             'bookly_pmt_currency',
             'bookly_pmt_price_format',
@@ -34,6 +34,9 @@ class Payments extends Lib\Base\Form
         parent::bind( $_post, $files );
     }
 
+    /**
+     * @inheritdoc
+     */
     public function save()
     {
         foreach ( $this->data as $field => $value ) {

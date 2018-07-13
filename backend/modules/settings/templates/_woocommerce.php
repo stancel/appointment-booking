@@ -1,4 +1,9 @@
-<?php if (!defined('ABSPATH')) exit; // Exit if accessed directly ?>
+<?php if (!defined('ABSPATH')) exit; // Exit if accessed directly
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Components\Controls\Inputs as ControlInputs;
+use Bookly\Backend\Components\Settings\Inputs;
+use Bookly\Backend\Components\Settings\Selects;
+?>
 <form method="post" action="<?php echo esc_url( add_query_arg( 'tab', 'woo_commerce' ) ) ?>"
       id="woocommerce">
     <div class="form-group">
@@ -17,7 +22,7 @@
         </p>
     </div>
 
-    <?php \Bookly\Lib\Utils\Common::optionToggle( 'bookly_wc_enabled', 'WooCommerce' ) ?>
+    <?php Selects::renderSingle( 'bookly_wc_enabled', 'WooCommerce' ) ?>
 
     <div class="form-group">
         <label for="bookly_wc_product"><?php _e( 'Booking product', 'bookly' ) ?></label>
@@ -30,16 +35,16 @@
         </select>
     </div>
 
-    <?php \Bookly\Lib\Utils\Common::optionText( 'bookly_l10n_wc_cart_info_name', __( 'Cart item data', 'bookly' ) ) ?>
+    <?php Inputs::renderText( 'bookly_l10n_wc_cart_info_name', __( 'Cart item data', 'bookly' ) ) ?>
     <div class="form-group">
         <textarea class="form-control" rows="8" name="bookly_l10n_wc_cart_info_value"
                   placeholder="<?php _e( 'Enter a value', 'bookly' ) ?>"><?php echo esc_textarea( get_option( 'bookly_l10n_wc_cart_info_value' ) ) ?></textarea><br/>
-        <?php $this->render( '_woocommerce_codes' ) ?>
+        <?php $self::renderTemplate( '_woocommerce_codes' ) ?>
     </div>
 
     <div class="panel-footer">
-        <?php \Bookly\Lib\Utils\Common::csrf() ?>
-        <?php \Bookly\Lib\Utils\Common::submitButton() ?>
-        <?php \Bookly\Lib\Utils\Common::resetButton() ?>
+        <?php ControlInputs::renderCsrf() ?>
+        <?php Buttons::renderSubmit() ?>
+        <?php Buttons::renderReset() ?>
     </div>
 </form>

@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-use Bookly\Lib\Utils\Common;
+use Bookly\Backend\Components\Controls\Inputs;
+use Bookly\Backend\Components\Controls\Buttons;
 use Bookly\Lib\Utils\Price;
-use Bookly\Lib\Proxy;
 ?>
 <form method="post" action="<?php echo esc_url( add_query_arg( 'tab', 'payments' ) ) ?>">
     <div class="row">
@@ -33,8 +33,8 @@ use Bookly\Lib\Proxy;
     </div>
     <div class="panel-footer">
         <input type="hidden" name="bookly_pmt_order" value="<?php echo get_option( 'bookly_pmt_order' ) ?>"/>
-        <?php Common::csrf() ?>
-        <?php Common::submitButton() ?>
-        <?php Common::resetButton( 'bookly-payments-reset' ) ?>
+        <?php Inputs::renderCsrf() ?>
+        <?php Buttons::renderSubmit() ?>
+        <?php Buttons::renderReset( 'bookly-payments-reset' ) ?>
     </div>
 </form>

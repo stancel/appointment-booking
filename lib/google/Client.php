@@ -1,12 +1,11 @@
 <?php
 namespace Bookly\Lib\Google;
 
+use Bookly\Lib;
 use Bookly\Lib\Config;
 use Bookly\Lib\Plugin;
-use Bookly\Lib\Proxy;
 use Bookly\Lib\Entities\Staff;
-use Bookly\Lib\Slots\DatePoint;
-use Bookly\Backend\Modules\Staff\Controller as StaffController;
+use Bookly\Backend\Modules\Staff\Page as StaffPage;
 
 /**
  * Class Client
@@ -14,10 +13,10 @@ use Bookly\Backend\Modules\Staff\Controller as StaffController;
  */
 class Client
 {
-    /** @var \Google_Client */
+    /** @var \BooklyGoogle_Client */
     protected $client;
 
-    /** @var \Google_Service_Calendar */
+    /** @var \BooklyGoogle_Service_Calendar */
     protected $service;
 
     /** @var Staff */
@@ -39,7 +38,7 @@ class Client
     {
         include_once Plugin::getDirectory() . '/lib/google/vendor/autoload.php';
 
-        $this->client = new \Google_Client();
+        $this->client = new \BooklyGoogle_Client();
         $this->client->setClientId( get_option( 'bookly_gc_client_id' ) );
         $this->client->setClientSecret( get_option( 'bookly_gc_client_secret' ) );
     }
@@ -65,9 +64,9 @@ class Client
                         ->save()
                     ;
                 }
-                $this->service  = new \Google_Service_Calendar( $this->client );
+                $this->service  = new \BooklyGoogle_Service_Calendar( $this->client );
                 $this->calendar = Config::advancedGoogleCalendarActive()
-                    ? Proxy\AdvancedGoogleCalendar::createApiCalendar( $this )
+                    ? Lib\Proxy\AdvancedGoogleCalendar::createApiCalendar( $this )
                     : new Calendar( $this );
                 $this->staff    = $staff;
                 $this->data     = $data;
@@ -108,7 +107,7 @@ class Client
                 // Fetch calendars.
                 $calendars = $this->service->calendarList->listCalendarList( $params );
 
-                /** @var \Google_Service_Calendar_CalendarListEntry $calendar */
+                /** @var \BooklyGoogle_Service_Calendar_CalendarListEntry $calendar */
                 foreach ( $calendars->getItems() as $calendar ) {
                     if ( in_array( $calendar->getAccessRole(), array( 'writer', 'owner' ) ) ) {
                         $result[ $calendar->getId() ] = array(
@@ -218,7 +217,7 @@ class Client
     /**
      * Get service.
      *
-     * @return \Google_Service_Calendar
+     * @return \BooklyGoogle_Service_Calendar
      */
     public function service()
     {
@@ -272,6 +271,6 @@ class Client
      */
     public static function generateRedirectURI()
     {
-        return admin_url( 'admin.php?page=' . StaffController::page_slug );
+        return admin_url( 'admin.php?page=' . StaffPage::pageSlug() );
     }
 }

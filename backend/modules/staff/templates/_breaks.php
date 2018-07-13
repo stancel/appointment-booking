@@ -30,7 +30,7 @@
                 array( 'class' => 'break-end form-control' )
             );
 
-            $this->render( '_break', array(
+            $self::renderTemplate( '_break', array(
                 'break_start_choices'          => $break_start_choices,
                 'break_end_choices'            => $break_end_choices,
                 'formatted_interval'           => \Bookly\Lib\Utils\DateTime::formatInterval( $break_interval['start_time'], $break_interval['end_time'] ),

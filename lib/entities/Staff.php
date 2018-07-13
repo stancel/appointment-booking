@@ -74,7 +74,7 @@ class Staff extends Lib\Base\Entity
 
         if ( $this->getId() ) {
             $query = StaffService::query( 'ss' )
-                ->select( 'ss.*, s.title, s.duration, s.price AS service_price, s.color, s.capacity_min AS service_capacity_min, s.capacity_max AS service_capacity_max' )
+                ->select( 'ss.*, s.title, s.duration, s.price AS service_price, s.color, s.capacity_min AS service_capacity_min, s.capacity_max AS service_capacity_max, ss.location_id' )
                 ->leftJoin( 'Service', 's', 's.id = ss.service_id' )
                 ->where( 'ss.staff_id', $this->getId() )
                 ->where( 's.type', $type );

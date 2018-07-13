@@ -228,7 +228,19 @@ class Validator
                         $identifier = Config::phoneRequired() ? 'email' : 'phone';
                         $customer->loadBy( array( 'phone' => '', 'email' => '', $identifier => $data[ $identifier ] ) );
                     }
-                    if ( ! isset ( $data['force_update_customer'] ) && $customer->isLoaded() ) {
+                    if ( Config::allowDuplicates() ) {
+                        $customer_data = array(
+                            'email' => $data['email'],
+                            'phone' => $data['phone'],
+                        );
+                        if ( Config::showFirstLastName() ) {
+                            $customer_data['first_name'] = $data['first_name'];
+                            $customer_data['last_name']  = $data['last_name'];
+                        } else {
+                            $customer_data['full_name'] = $data['full_name'];
+                        }
+                        $customer->loadBy( $customer_data );
+                    } elseif ( ! isset ( $data['force_update_customer'] ) && $customer->isLoaded() ) {
                         // Find difference between new and existing data.
                         $diff   = array();
                         $fields = array(

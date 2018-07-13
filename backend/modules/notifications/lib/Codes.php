@@ -3,6 +3,7 @@ namespace Bookly\Backend\Modules\Notifications\Lib;
 
 use Bookly\Lib;
 use Bookly\Lib\Entities\Notification;
+use Bookly\Backend\Modules\Notifications\Proxy;
 
 /**
  * Class Codes
@@ -103,7 +104,7 @@ class Codes
         }
 
         // Add codes from add-ons.
-        $this->codes = Lib\Proxy\Shared::prepareNotificationCodes( $this->codes, $type );
+        $this->codes = Proxy\Shared::prepareNotificationCodes( $this->codes, $type );
     }
 
     /**
@@ -250,7 +251,7 @@ class Codes
                 );
                 break;
             default:
-                $codes = Lib\Proxy\Shared::buildNotificationCodesList( $codes, $notification_type, $this->codes );
+                $codes = Proxy\Shared::buildNotificationCodesList( $codes, $notification_type, $this->codes );
         }
 
         return $codes;

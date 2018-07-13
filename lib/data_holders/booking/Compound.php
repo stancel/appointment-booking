@@ -140,7 +140,7 @@ class Compound extends Item
             $extras_total_price += $extra['price'];
         }
 
-        return ( $service_price + $extras_total_price ) * $this->getCA()->getNumberOfPersons();
+        return ( $service_price + $extras_total_price ) * $this->getCA()->getNumberOfPersons() * $this->getCA()->getUnits();
     }
 
     /**
@@ -153,7 +153,6 @@ class Compound extends Item
         return $this->items[0]->getDeposit();
     }
 
-
     /**
      * Gets tax
      *
@@ -162,7 +161,7 @@ class Compound extends Item
     public function getTax()
     {
         if ( ! $this->tax ) {
-            $rates = Lib\Proxy\Taxes::getServiceRates();
+            $rates = Lib\Proxy\Taxes::getServiceTaxRates();
             if ( $rates ) {
                 $this->tax = Lib\Proxy\Taxes::calculateTax( $this->getTotalPrice(), $rates[ $this->getService()->getId() ] );
             }

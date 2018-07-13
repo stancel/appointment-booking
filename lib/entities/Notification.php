@@ -174,7 +174,7 @@ class Notification extends Lib\Base\Entity
                 Notification::TYPE_LAST_CUSTOMER_APPOINTMENT           => __( 'Custom notification', 'bookly' ) .': ' .__( 'Reminder notification', 'bookly' ) . ' / ' . __( 'Last client\'s appointment', 'bookly' ),
                 Notification::TYPE_STAFF_DAY_AGENDA                    => __( 'Custom notification', 'bookly' ) .': ' .__( 'Reminder notification', 'bookly' ) . ' / ' . __( 'Full day agenda', 'bookly' ),
 
-                /** @see \Bookly\Backend\Modules\Sms\Controller::executeSendTestSms */
+                /** @see \Bookly\Backend\Modules\Sms\Ajax::executeSendTestSms */
                 'test_message'                     => __( 'Test message', 'bookly' ),
             );
 
@@ -189,7 +189,7 @@ class Notification extends Lib\Base\Entity
     {
         if ( self::$type_ids === null ) {
             self::$type_ids = array(
-                /** @see \Bookly\Backend\Modules\Sms\Controller::executeSendTestSms */
+                /** @see \Bookly\Backend\Modules\Sms\Ajax::executeSendTestSms */
                 'test_message'                     => 0,
 
                 'client_approved_appointment'      => 1,

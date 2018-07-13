@@ -1,7 +1,8 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Components\Settings\Selects;
+use Bookly\Backend\Modules\Sms\Proxy;
 use Bookly\Lib\Entities\Notification;
-use Bookly\Lib\Proxy;
-use Bookly\Lib\Utils\Common;
 /** @var Bookly\Backend\Modules\Notifications\Forms\Notifications $form */
 ?>
 <form action="<?php echo esc_url( remove_query_arg( array( 'paypal_result', 'auto-recharge', 'tab' ) ) ) ?>" method="post">
@@ -94,7 +95,7 @@ use Bookly\Lib\Utils\Common;
     <h4 class="bookly-block-head bookly-color-gray"><?php _e( 'Custom', 'bookly' ) ?></h4>
     <div class="panel-group bookly-margin-vertical-xlg" id="bookly-js-custom-notifications">
         <?php foreach ( $form->getNotifications( 'custom' ) as $notification ) :
-            $this->render( '_custom_notification', compact( 'form', 'notification', 'statuses' ) );
+            $self::renderTemplate( '_custom_notification', compact( 'form', 'notification', 'statuses' ) );
         endforeach ?>
     </div>
 
@@ -121,13 +122,13 @@ use Bookly\Lib\Utils\Common;
                 <?php endif ?>
             </div>
             <div class="col-md-2">
-                <?php Common::optionToggle( 'bookly_ntf_processing_interval', __( 'Notification period', 'bookly' ), __( 'Set period of time when system will attempt to deliver notification to user. Notification will be discarded after period expiration.', 'bookly' ), $bookly_ntf_processing_interval_values ) ?>
+                <?php Selects::renderSingle( 'bookly_ntf_processing_interval', __( 'Notification period', 'bookly' ), __( 'Set period of time when system will attempt to deliver notification to user. Notification will be discarded after period expiration.', 'bookly' ), $bookly_ntf_processing_interval_values ) ?>
             </div>
         </div>
     </div>
 
     <div class="panel-footer">
-        <?php Common::submitButton( 'bookly-js-submit-notifications' ) ?>
-        <?php Common::resetButton() ?>
+        <?php Buttons::renderSubmit( 'bookly-js-submit-notifications' ) ?>
+        <?php Buttons::renderReset() ?>
     </div>
 </form>

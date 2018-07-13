@@ -1,7 +1,7 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 <div id="bookly-import-customers-dialog" class="modal fade" tabindex=-1 role="dialog">
     <div class="modal-dialog">
-        <form enctype="multipart/form-data" action="<?php echo \Bookly\Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Customers\Controller::page_slug ) ?>" method="POST">
+        <form enctype="multipart/form-data" action="<?php echo \Bookly\Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Customers\Ajax::pageSlug() ) ?>" method="POST">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>

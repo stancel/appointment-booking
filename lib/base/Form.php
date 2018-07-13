@@ -23,7 +23,7 @@ abstract class Form
 
     /**
      * Entity object.
-     * @var Entity
+     * @var Entity|null
      */
     protected $object = null;
 
@@ -47,10 +47,6 @@ abstract class Form
      */
     public function __construct()
     {
-        // Create object of entity class.
-        $entity_class = static::$namespace . '\\' . static::$entity_class;
-        $this->object = new $entity_class();
-
         // Run configuration of child form.
         $this->configure();
     }
@@ -86,10 +82,19 @@ abstract class Form
                 $this->data[ $field ] = $_post[ $field ];
             }
         }
-        // If we are going to update the object
-        // load it from the database first.
-        if ( ! $this->isNew() ) {
-            $this->object->load( $this->data['id'] );
+
+        // Check if current form for entity.
+        if ( static::$entity_class ) {
+            /** @var Entity $entity_class */
+            $entity_class = static::$namespace . '\\' . static::$entity_class;
+            if ( $this->isNew() ) {
+                // Create object of entity class.
+                $this->object = new $entity_class();
+            } else {
+                // If we are going to update the object
+                // load it from the database.
+                $this->object = $entity_class::find( $this->data['id'] );
+            }
         }
     }
 
@@ -128,7 +133,7 @@ abstract class Form
     /**
      * Get entity object.
      *
-     * @return Entity
+     * @return Entity|null
      */
     public function getObject()
     {

@@ -1,6 +1,9 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Components\Controls\Inputs;
+use Bookly\Backend\Modules\Staff\Proxy;
 use Bookly\Lib\Utils\Common;
-    /** @var \Bookly\Lib\Entities\Staff $staff */
+/** @var Bookly\Lib\Entities\Staff $staff */
 ?>
 <form>
     <div class="form-group">
@@ -63,7 +66,8 @@ use Bookly\Lib\Utils\Common;
             <option value="private" <?php selected( $staff->getVisibility(), 'private' ) ?>><?php _e( 'Private', 'bookly' ) ?></option>
         </select>
     </div>
-    <?php Bookly\Lib\Proxy\Shared::renderStaffForm( $staff ) ?>
+
+    <?php Proxy\Shared::renderStaffForm( $staff ) ?>
 
     <div class="form-group">
         <h3><?php _e( 'Google Calendar integration', 'bookly' ) ?></h3>
@@ -75,10 +79,10 @@ use Bookly\Lib\Utils\Common;
                 <?php if ( $auth_url ) : ?>
                     <a href="<?php echo $auth_url ?>"><?php _e( 'Connect', 'bookly' ) ?></a>
                 <?php else : ?>
-                    <?php printf( __( 'Please configure Google Calendar <a href="%s">settings</a> first', 'bookly' ), Common::escAdminUrl( \Bookly\Backend\Modules\Settings\Controller::page_slug, array( 'tab' => 'google_calendar' ) ) ) ?>
+                    <?php printf( __( 'Please configure Google Calendar <a href="%s">settings</a> first', 'bookly' ), Common::escAdminUrl( Bookly\Backend\Modules\Settings\Page::pageSlug(), array( 'tab' => 'google_calendar' ) ) ) ?>
                 <?php endif ?>
             <?php else : ?>
-                <?php _e( 'Connected', 'bookly' ) ?> (<a href="<?php echo Common::escAdminUrl( \Bookly\Backend\Modules\Staff\Controller::page_slug, array( 'google_logout' => $staff->getId() ) ) ?>"><?php _e( 'disconnect', 'bookly' ) ?></a>)
+                <?php _e( 'Connected', 'bookly' ) ?> (<a href="<?php echo Common::escAdminUrl( Bookly\Backend\Modules\Staff\Page::pageSlug(), array( 'google_logout' => $staff->getId() ) ) ?>"><?php _e( 'disconnect', 'bookly' ) ?></a>)
             <?php endif ?>
         </p>
     </div>
@@ -98,13 +102,13 @@ use Bookly\Lib\Utils\Common;
 
     <input type="hidden" name="id" value="<?php echo $staff->getId() ?>">
     <input type="hidden" name="attachment_id" value="<?php echo $staff->getAttachmentId() ?>">
-    <?php Common::csrf() ?>
+    <?php Inputs::renderCsrf() ?>
 
     <div class="panel-footer">
         <?php if ( Common::isCurrentUserAdmin() ) : ?>
-            <?php Common::deleteButton( 'bookly-staff-delete', 'btn-lg pull-left' ) ?>
+            <?php Buttons::renderDelete( 'bookly-staff-delete', 'btn-lg pull-left' ) ?>
         <?php endif ?>
-        <?php Common::customButton( 'bookly-details-save', 'btn-lg btn-success', __( 'Save', 'bookly' ) ) ?>
-        <?php Common::resetButton() ?>
+        <?php Buttons::renderSubmit( 'bookly-details-save' ) ?>
+        <?php Buttons::renderReset() ?>
     </div>
 </form>

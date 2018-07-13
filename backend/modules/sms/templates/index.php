@@ -1,5 +1,8 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-    /** @var \Bookly\Lib\SMS $sms */
+use Bookly\Backend\Components\Controls\Inputs;
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Components\Support;
+/** @var \Bookly\Lib\SMS $sms */
 ?>
 <div id="bookly-tbs" class="wrap">
     <div class="bookly-tbs-body">
@@ -7,7 +10,7 @@
             <div class="bookly-page-title">
                 <?php _e( 'SMS Notifications', 'bookly' ) ?>
             </div>
-            <?php \Bookly\Backend\Modules\Support\Components::getInstance()->renderButtons( $this::page_slug ) ?>
+            <?php Support\Buttons::render( $self::pageSlug() ) ?>
         </div>
         <div class="panel panel-default bookly-main">
             <div class="panel-body">
@@ -117,7 +120,7 @@
                                             <div class="checkbox">
                                                 <label for="bookly-r-tos">
                                                     <input id="bookly-r-tos" name="accept_tos" required="required" value="1" type="checkbox">
-                                                    <?php _e( 'Accept <a href="#" data-toggle="modal" data-target="#bookly-tos">Terms & Conditions</a>', 'bookly' ) ?>
+                                                    <?php printf( __( 'I accept <a href="%1$s" target="_blank">Service Terms</a> and <a href="%2$s" target="_blank">Privacy Policy</a>', 'bookly' ), 'https://www.booking-wp-plugin.com/terms/', 'https://www.booking-wp-plugin.com/privacy/' ) ?>
                                                 </label>
                                             </div>
                                         </div>
@@ -184,28 +187,13 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <?php \Bookly\Lib\Utils\Common::csrf() ?>
-                                <?php \Bookly\Lib\Utils\Common::submitButton( 'ajax-send-change-password', 'btn-sm' ) ?>
+                                <?php Inputs::renderCsrf() ?>
+                                <?php Buttons::renderSubmit( 'ajax-send-change-password', 'btn-sm' ) ?>
                             </div>
                             <input type="hidden" name="action" value="bookly_change_password">
                         </div>
                     </div>
                 </form>
-            </div>
-
-        <?php else : ?>
-            <div class="modal fade" id="bookly-tos" tabindex=-1 role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <div class="modal-title h2"><?php _e( 'Terms & Conditions', 'bookly' ) ?></div>
-                        </div>
-                        <div class="modal-body">
-                            <iframe src="https://booking-wp-plugin.com/sms-terms.html" width="100%" height="600px"></iframe>
-                        </div>
-                    </div>
-                </div>
             </div>
         <?php endif ?>
     </div>

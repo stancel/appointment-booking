@@ -2,6 +2,7 @@
 namespace Bookly\Backend\Modules\Notifications\Forms;
 
 use Bookly\Lib;
+use Bookly\Backend\Modules\Notifications\Proxy;
 use Bookly\Backend\Modules\Notifications\Lib\Codes;
 
 /**
@@ -53,7 +54,7 @@ class Notifications extends Lib\Base\Form
          * allowed: tinymce - Visual Mode, html - Text Mode, test - no one Mode selected
          */
         add_filter( 'wp_default_editor', function() { return 'tinymce'; } );
-        $this->types   = Lib\Proxy\Shared::prepareNotificationTypes( $this->types );
+        $this->types   = Proxy\Shared::prepareNotificationTypes( $this->types );
         $this->gateway = $gateway;
         if ( ! Lib\Config::combinedNotificationsEnabled() ) {
             $this->types['combined'] = array();
@@ -259,7 +260,7 @@ class Notifications extends Lib\Base\Form
         if ( Lib\Config::invoicesEnabled()
             && in_array( $notification['type'], array( 'client_pending_appointment', 'client_approved_appointment', 'client_follow_up', ) )
         ) {
-            Lib\Proxy\Invoices::renderNotificationAttach( $notification );
+            Proxy\Invoices::renderAttach( $notification );
         }
     }
 
@@ -285,7 +286,7 @@ class Notifications extends Lib\Base\Form
                         '<option value="%s" %s>%s</option>',
                         $hour,
                         selected( $cron_reminder[ $type ], $hour, false ),
-                        sprintf( __( '%s before', 'bookly' ), \Bookly\Lib\Utils\DateTime::secondsToInterval( $hour * HOUR_IN_SECONDS ) )
+                        sprintf( __( '%s before', 'bookly' ), Lib\Utils\DateTime::secondsToInterval( $hour * HOUR_IN_SECONDS ) )
                     );
                 }, array_merge( range( 1, 24 ), range( 48, 336, 24 ) ) ) );
             } else {

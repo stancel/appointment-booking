@@ -133,6 +133,8 @@ class Finder
                 $services_count = count( $sub_services ) - 1;
                 $spare_time     = 0;
                 foreach ( array_reverse( $sub_services ) as $key => $sub_service ) {
+                    $service_duration = $chain_item->getUnits() * $sub_service->getDuration();
+
                     if ( $sub_service instanceof Lib\Entities\Service ) {
                         $extras_duration = 0;
                         $sub_service_id  = $sub_service->getId();
@@ -170,10 +172,10 @@ class Finder
                             isset ( $this->service_schedule[ $compound_service_id ][ $sub_service_id ] )
                                 ? $this->service_schedule[ $compound_service_id ][ $sub_service_id ]
                                 : null,
-                            $this->srv_duration_as_slot_length ? $sub_service->getDuration() : $this->slot_length,
+                            $this->srv_duration_as_slot_length ? $service_duration : $this->slot_length,
                             $chain_item->getLocationId(),
                             $sub_service_id,
-                            $sub_service->getDuration(),
+                            $service_duration,
                             $sub_service->getPaddingLeft(),
                             $sub_service->getPaddingRight(),
                             $chain_item->getNumberOfPersons(),
@@ -188,7 +190,7 @@ class Finder
                         $spare_time = 0;
                     } else {
                         /** @var Lib\Entities\SubService $sub_service */
-                        $spare_time += $sub_service->getDuration();
+                        $spare_time += $service_duration;
                     }
                 }
             }
@@ -653,7 +655,7 @@ class Finder
                     if ( isset ( $this->staff[ $staff_id ] ) ) {
                         $service = Lib\Entities\Service::find( $service_id );
                         $range   = Range::fromDates( $datetime, $datetime );
-                        $range   = $range->resize( $service->getDuration() + $extras_duration );
+                        $range   = $range->resize( $service->getDuration() * $cart_item->getUnits() + $extras_duration );
                         $extras_duration = 0;
                         $booking_exists = false;
                         foreach ( $this->staff[ $staff_id ]->getBookings() as $booking ) {

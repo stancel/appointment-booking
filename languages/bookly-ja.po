@@ -1938,10 +1938,6 @@ msgid "Old password"
 msgstr "古いパスワード"
 
 #: 
-msgid "Terms & Conditions"
-msgstr "利用規約"
-
-#: 
 msgid "All locations"
 msgstr "全ての場所"
 
@@ -3610,10 +3606,6 @@ msgid "Set the URL of an appointment cancellation confirmation page that is show
 msgstr "キャンセル用リンクを押すと、クライアントに表示される面会予定のキャンセル確認ページのURLを設定できます。"
 
 #: 
-msgid "Accept <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Terms & Conditions</a>"
-msgstr "<a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">利用規約</a>に同意する"
-
-#: 
 msgid "Add appointment cancellation confirmation"
 msgstr "面会予約のキャンセルの確認を追加する"
 
@@ -3992,4 +3984,95 @@ msgstr "一方通行"
 #: 
 msgid "Two-way front-end only"
 msgstr "双方向フロントエンドのみ"
+
+#: 
+msgid "Merge with"
+msgstr "次の事項と統合"
+
+#: 
+msgid "Select for merge"
+msgstr "統合するために選択する"
+
+#: 
+msgid "Merge list"
+msgstr "統合リスト"
+
+#: 
+msgid "Merge customers"
+msgstr "顧客を統合する"
+
+#: 
+msgid "You are about to merge customers from the merge list with the selected one. This will result in losing the merged customers and moving all their appointments to the selected customer. Are you sure you want to continue?"
+msgstr "統合リストから選択した顧客を統合しようとしています。 これにより、既に結合された顧客を失い、選択した顧客にすべての予約を移動させることになります。 続行してもよろしいですか？"
+
+#: 
+msgid "Merge"
+msgstr "統合する"
+
+#: 
+msgid "Allow duplicate customers"
+msgstr "重複する顧客を許可する"
+
+#: 
+msgid "If enabled, a new user will be created if any of the registration data during the booking is different."
+msgstr "有効にすると、予約時の登録データのいずれかが異なる場合、新しいユーザーとして作成されます。\n"
+""
+
+#: 
+msgid "More Addons"
+msgstr "さらなるアドオン"
+
+#: 
+msgid "Sort by"
+msgstr "次の基準で並び替え"
+
+#: 
+msgid "Best Sellers"
+msgstr "ベストセラー"
+
+#: 
+msgid "Best Rated"
+msgstr "最高評価"
+
+#: 
+msgid "Newest Items"
+msgstr "最新のアイテム"
+
+#: 
+msgid "Price: low to high"
+msgstr "価格：低い物からから高い物\n"
+""
+
+#: 
+msgid "Price: high to low"
+msgstr "価格：高い物から低い物\n"
+""
+
+#: 
+msgid "New"
+msgstr "新規"
+
+#: 
+msgid "%d sale"
+msgid_plural "%d sales"
+msgstr[0] "％d件の販売\n"
+"複数：％d件の販売"
+
+#: 
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] "％d件のレビュー\n"
+"複数：％d件のレビュー"
+
+#: 
+msgid "Installed"
+msgstr "インストール済み"
+
+#: 
+msgid "Get it!"
+msgstr "獲得します！"
+
+#: 
+msgid "I accept <a href=\"%1$s\" target=\"_blank\">Service Terms</a> and <a href=\"%2$s\" target=\"_blank\">Privacy Policy</a>"
+msgstr "私は<a href=\"%1$s\" target=\"_blank\">サービス利用規約</a>と<a href=\"%2$s\" target=\"_blank\">プライバシーポリシー</a>に同意します"
 

@@ -34,6 +34,7 @@ namespace Bookly\Lib;
  * @method static bool stripeActive()                  Check whether Stripe add-on is active or not.
  * @method static bool taxesActive()                   Check whether Taxes add-on is active or not.
  * @method static bool waitingListActive()             Check whether Waiting List add-on is active or not.
+ * @method static bool customDurationActive()          Check whether Custom Duration add-on is active or not.
  * @method static bool googleMapsAddressActive()       Check whether Google Maps Address add-on is active or not.
  *
  *
@@ -66,6 +67,7 @@ namespace Bookly\Lib;
  * @method static bool stripeEnabled()                 Check whether Stripe add-on is enabled or not.
  * @method static bool taxesEnabled()                  Check whether Taxes add-on is enabled or not.
  * @method static bool waitingListEnabled()            Check whether Waiting List add-on is enabled or not.
+ * @method static bool customDurationEnabled()         Check whether Custom Duration add-on is enabled or not.
  * @method static bool googleMapsAddressEnabled()      Check whether Google Maps Address add-on is enabled or not.
  */
 abstract class Config
@@ -100,7 +102,7 @@ abstract class Config
 
         // Services.
         $query = Entities\Service::query( 's' )
-            ->select( 's.id, s.category_id, s.title, s.position, s.duration' )
+            ->select( 's.id, s.category_id, s.title, s.position, s.duration, s.price' )
             ->innerJoin( 'StaffService', 'ss', 'ss.service_id = s.id' )
             ->where( 's.type',  Entities\Service::TYPE_SIMPLE )
             ->where( 's.visibility', Entities\Service::VISIBILITY_PUBLIC )
@@ -123,12 +125,12 @@ abstract class Config
                     ? __( 'Untitled', 'bookly' )
                     : Utils\Common::getTranslatedString( 'service_' . $row['id'], $row['title'] ),
                 'duration'     => Utils\DateTime::secondsToInterval( $row['duration'] ),
+                'price'        => (float) $row['price'],
                 'min_capacity' => (int) $row['min_capacity'],
                 'max_capacity' => (int) $row['max_capacity'],
-                'has_extras'   => (int) ( Proxy\ServiceExtras::findByServiceId( $row['id'] ) ),
+                'has_extras'   => (int) Proxy\ServiceExtras::findByServiceId( $row['id'] ),
                 'pos'          => (int) $row['position'],
             );
-
             if ( ! $row['category_id'] && ! isset ( $result['categories'][0] ) ) {
                 $result['categories'][0] = array(
                     'id'   => 0,
@@ -136,6 +138,7 @@ abstract class Config
                     'pos'  => 99999,
                 );
             }
+            $result = Proxy\Shared::prepareCategoryService( $result, $row );
         }
 
         if ( self::groupBookingEnabled() ) {
@@ -159,6 +162,8 @@ abstract class Config
                 ->addSelect( 'ss.location_id' )
                 ->where( 'ss.location_id', null );
         }
+
+        $staff_name_with_price = get_option( 'bookly_app_staff_name_with_price' );
         foreach ( $query->fetchArray() as $row ) {
             if ( ! isset ( $result['staff'][ $row['id'] ] ) ) {
                 $result['staff'][ $row['id'] ] = array(
@@ -168,16 +173,22 @@ abstract class Config
                     'pos'      => (int) $row['position'],
                 );
             }
-            $result['staff'][ $row['id'] ]['services'][ $row['service_id'] ]['locations'][ (int) $row['location_id'] ] = array(
+
+            $location_data = array(
                 'min_capacity' => (int) $row['capacity_min'],
                 'max_capacity' => (int) $row['capacity_max'],
-                'price'        => get_option( 'bookly_app_staff_name_with_price' )
+                'raw_price'    => $staff_name_with_price ? $row['price'] : null,
+                'price'        => $staff_name_with_price
                     ? html_entity_decode( Utils\Price::format( $row['price'] ) )
                     : null,
             );
+            $location_data = Proxy\Shared::prepareCategoryServiceStaffLocation( $location_data, $row );
+
+            $result['staff'][ $row['id'] ]['services'][ $row['service_id'] ]['locations'][ (int) $row['location_id'] ] = $location_data;
         }
 
         $result = Proxy\Shared::prepareCaSeSt( $result );
+
         return Proxy\Ratings::prepareCaSeSt( $result );
     }
 
@@ -475,6 +486,16 @@ abstract class Config
     }
 
     /**
+     * Whether to show wide time slots in the time step of booking form.
+     *
+     * @return bool
+     */
+    public static function showWideTimeSlots()
+    {
+        return (bool) ( self::groupBookingEnabled() ? get_option( 'bookly_group_booking_app_show_nop', false ) : false );
+    }
+
+    /**
      * Whether to show days in the second step of booking form in separate columns or not.
      *
      * @return bool
@@ -582,6 +603,16 @@ abstract class Config
     }
 
     /**
+     * Whether customer duplicates are allowed or not
+     *
+     * @return bool
+     */
+    public static function allowDuplicates()
+    {
+        return get_option( 'bookly_cst_allow_duplicates' ) == 1;
+    }
+
+    /**
      * Whether custom fields attached to services or not.
      *
      * @return bool
@@ -663,7 +694,7 @@ abstract class Config
      */
     public static function wooCommerceEnabled()
     {
-        return ( get_option( 'bookly_wc_enabled' ) && get_option( 'bookly_wc_product' ) && class_exists( 'WooCommerce', false ) && ( WC()->cart->get_cart_url() !== false ) );
+        return ( get_option( 'bookly_wc_enabled' ) && get_option( 'bookly_wc_product' ) && class_exists( 'WooCommerce', false ) && ( wc_get_cart_url() !== false ) );
     }
 
     /**

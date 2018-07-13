@@ -1872,10 +1872,6 @@ msgid "Old password"
 msgstr "Oude wachtwoord"
 
 #: 
-msgid "Terms & Conditions"
-msgstr "Algemene Voorwaarden"
-
-#: 
 msgid "All locations"
 msgstr "Alle locaties"
 
@@ -3534,10 +3530,6 @@ msgid "Set the URL of an appointment cancellation confirmation page that is show
 msgstr "Stel de URL in van een afspraak annulering bevestiging pagina die wordt getoond aan klanten als ze op de annulering link klikken."
 
 #: 
-msgid "Accept <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Terms & Conditions</a>"
-msgstr "Accepteer de <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Algemene Voorwaarden</a>"
-
-#: 
 msgid "Add appointment cancellation confirmation"
 msgstr "Voeg afspraak annulering bevestiging toe"
 
@@ -3902,4 +3894,92 @@ msgstr "Eenwegs"
 #: 
 msgid "Two-way front-end only"
 msgstr "Tweewegs alleen front-end"
+
+#: 
+msgid "Merge with"
+msgstr "Samenvoegen met"
+
+#: 
+msgid "Select for merge"
+msgstr "Selecteer om samen te voegen"
+
+#: 
+msgid "Merge list"
+msgstr "Samenvoeglijst"
+
+#: 
+msgid "Merge customers"
+msgstr "Samenvoegen klanten"
+
+#: 
+msgid "You are about to merge customers from the merge list with the selected one. This will result in losing the merged customers and moving all their appointments to the selected customer. Are you sure you want to continue?"
+msgstr "U staat op het punt om klanten uit de samenvoeglijst samen te voegen met de geselecteerde. Hierdoor zullen de samengevoegde klanten verloren gaan en al hun afspraken worden naar de geselecteerde klant verplaatst."
+
+#: 
+msgid "Merge"
+msgstr "Samenvoegen"
+
+#: 
+msgid "Allow duplicate customers"
+msgstr "Sta dubbele klanten toe"
+
+#: 
+msgid "If enabled, a new user will be created if any of the registration data during the booking is different."
+msgstr "Indien ingeschakeld zal een nieuwe gebruiker worden aangemaakt als enig van de registratiegegevens tijdens het boeken verschillend is."
+
+#: 
+msgid "More Addons"
+msgstr "Meer Addons"
+
+#: 
+msgid "Sort by"
+msgstr "Sorteren op"
+
+#: 
+msgid "Best Sellers"
+msgstr "Beste Verkopers"
+
+#: 
+msgid "Best Rated"
+msgstr "Best Beoordeeld"
+
+#: 
+msgid "Newest Items"
+msgstr "Nieuwste Items"
+
+#: 
+msgid "Price: low to high"
+msgstr "Prijs: laag naar hoog"
+
+#: 
+msgid "Price: high to low"
+msgstr "Prijs: hoog nar laag"
+
+#: 
+msgid "New"
+msgstr "Nieuw"
+
+#: 
+msgid "%d sale"
+msgid_plural "%d sales"
+msgstr[0] "%d verkoop"
+msgstr[1] "%d verkopen"
+
+#: 
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] "%d beoordeling"
+msgstr[1] "%d beoordelingen"
+
+#: 
+msgid "Installed"
+msgstr "Geïnstalleerd"
+
+#: 
+msgid "Get it!"
+msgstr "Ontvang het!"
+
+#: 
+msgid "I accept <a href=\"%1$s\" target=\"_blank\">Service Terms</a> and <a href=\"%2$s\" target=\"_blank\">Privacy Policy</a>"
+msgstr "Ik accepteer de <a href=\"%1$s\" target=\"_blank\">Servicevoorwaarden</a> en het <a href=\"%2$s\" target=\"_blank\">Privacy Beleid</a>"
 

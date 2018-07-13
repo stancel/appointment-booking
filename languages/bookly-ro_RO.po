@@ -434,7 +434,7 @@ msgstr "Vă rog selectați un serviciu"
 
 #: 
 msgid "Location"
-msgstr "Locație"
+msgstr "Localizare"
 
 #: 
 msgid "Period"
@@ -450,7 +450,7 @@ msgstr "Perioada selectată nu se potrivește cu durata prestării serviciului"
 
 #: 
 msgid "The selected period is occupied by another appointment"
-msgstr "Perioada selectată este deja ocupată de altă rezervare"
+msgstr "Intervalul selectat este deja ocupat de altă rezervare"
 
 #: 
 msgid "Selected / maximum"
@@ -713,7 +713,7 @@ msgstr "Este necesară validarea licenței"
 
 #: 
 msgid "Bookly - License verification required"
-msgstr "Bookly - este necesară validarea licenței"
+msgstr "Este necesară validarea licenței Bookly"
 
 #: 
 msgid "If you do not provide a valid purchase code within {days}, access to your bookings will be disabled. <a href=\"{url}\">Details</a>"
@@ -849,11 +849,11 @@ msgstr "telefon client"
 
 #: 
 msgid "name of company"
-msgstr "nume organizație"
+msgstr "numele organizației"
 
 #: 
 msgid "company logo"
-msgstr "logo organizație"
+msgstr "logo-ul organizației"
 
 #: 
 msgid "address of company"
@@ -861,7 +861,7 @@ msgstr "adresa organizației"
 
 #: 
 msgid "company phone"
-msgstr "telefon organizație"
+msgstr "telefonul organizației"
 
 #: 
 msgid "company web-site address"
@@ -1057,7 +1057,7 @@ msgstr "Capacitatea minimă nu ar trebui să fie mai mare decât capacitatea max
 
 #: 
 msgid "Specified order"
-msgstr "Ordinea specificată"
+msgstr "Ordinea predefinită"
 
 #: 
 msgid "Least occupied that day"
@@ -1284,7 +1284,7 @@ msgstr "Clienții trebuie să dețină un număr de telefon (mobil) în format i
 
 #: 
 msgid "Cancel appointment action"
-msgstr "Ce se întâmplă la anularea unei rezervări"
+msgstr "Ce se va întâmpla la anularea unei rezervări"
 
 #: 
 msgid "Select what happens when customer clicks cancel appointment link. With \"Delete\" the appointment will be deleted from the calendar. With \"Cancel\" only appointment status will be changed to \"Cancelled\"."
@@ -1869,10 +1869,6 @@ msgstr "Schimbă parola"
 #: 
 msgid "Old password"
 msgstr "Parola veche"
-
-#: 
-msgid "Terms & Conditions"
-msgstr "Termeni și Condiții"
 
 #: 
 msgid "All locations"
@@ -3138,7 +3134,7 @@ msgstr "Oră nevalidă"
 
 #: 
 msgid "Your %s: %s is already associated with another %s.<br/>Press Update if we should update your user data, or press Cancel to edit entered data."
-msgstr " %s: %s este deja asociat(ă) cu alt %s.<br/>Apăsați pe „Actualizează” dacă doriți să vă actualizați datele sau apăsați pe „Anulează” pentru a introduce alte date."
+msgstr " %s: %s este deja asociat(ă) cu alt %s.<br/>Apăsați pe „Actualizează” pentru a utiliza aceste date la toate rezervările dvs. sau apăsați pe „Anulează” pentru a edita aceste date."
 
 #: 
 msgid "Check for updates"
@@ -3238,7 +3234,7 @@ msgstr "Notificarea Departamentului cu privire la Rezervarea în Așteptare"
 
 #: 
 msgid "Test message"
-msgstr "Testare mesaje"
+msgstr "Mesaj Test"
 
 #: 
 msgid "Local"
@@ -3421,11 +3417,11 @@ msgstr "Setați adresa URL a unei pagini care este afișată personalului depart
 
 #: 
 msgid "Notification name"
-msgstr "Nume notificare"
+msgstr "Denumire notificare"
 
 #: 
 msgid "You are trying to use the service too often. Please contact us to make a booking."
-msgstr "Utilizați rezervarea serviciilor de rezervare prea des. Vă rugăm să ne contactați."
+msgstr "Utilizați serviciul de rezervare online prea des. Vă rugăm să ne contactați."
 
 #: 
 msgid "%s has reached the limit of bookings for this service"
@@ -3449,7 +3445,7 @@ msgstr "Administratori"
 
 #: 
 msgid "Show notes field"
-msgstr "Afișarea notițelor câmpului "
+msgstr "Afișarea notițelor câmpului"
 
 #: 
 msgid "Custom service name"
@@ -3493,7 +3489,7 @@ msgstr "Rezervare nouă"
 
 #: 
 msgid "Last client's appointment"
-msgstr "Ce mai recentă rezervare a clientului"
+msgstr "Cea mai recentă rezervare a clientului"
 
 #: 
 msgid "Full day agenda"
@@ -3524,10 +3520,6 @@ msgid "Set the URL of an appointment cancellation confirmation page that is show
 msgstr "Setați adresa URL a unei pagini de confirmare a anulării rezervării care va fi  afișată clienților atunci când apasă linkul de anulare."
 
 #: 
-msgid "Accept <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Terms & Conditions</a>"
-msgstr "Acceptați <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Termenii și Condițiile</a>"
-
-#: 
 msgid "Add appointment cancellation confirmation"
 msgstr "Adăugare confirmare suplimentară pentru anularea rezervării"
 
@@ -3545,353 +3537,447 @@ msgstr "La crearea unei noi notificări, pagina va fi reîncărcată și toate m
 
 #: 
 msgid "Show time zone switcher"
-msgstr ""
+msgstr "Arată selectorul fusului orar"
 
 #: 
 msgid "Attachments"
-msgstr ""
+msgstr "Atașament"
 
 #: 
 msgid "time zone of client"
-msgstr ""
+msgstr "Fus orar al clientului"
 
 #: 
 msgid "Reason"
-msgstr ""
+msgstr "Motiv"
 
 #: 
 msgid "Manual adjustment"
-msgstr ""
+msgstr "Ajustare manuală"
 
 #: 
 msgid "Are you sure you want to dissociate this purchase code from %s?\n"
 "\n"
 "This will also remove the entered purchase code from this site."
-msgstr ""
+msgstr "Sigur doriți să disociați acest cod de cumpărături de %s?\n"
+"\n"
+"Aceasta va șterge de asemenea codul de cumărături din acest site."
 
 #: 
 msgid "Price correction"
-msgstr ""
+msgstr "Corecție preț"
 
 #: 
 msgid "Increase/Discount (%)"
-msgstr ""
+msgstr "Adaos/Discount (%)"
 
 #: 
 msgid "Addition/Deduction"
-msgstr ""
+msgstr "Adăugare/Reducere"
 
 #: 
 msgid "You are going to delete item which is involved in upcoming appointments. All related appointments will be deleted. Please double check and edit appointments before this item deletion if needed."
-msgstr ""
+msgstr "Sunteți pe cale să ștergeți un element care are implicații pentru o rezervare viitoare. Toate rezervările ulterioare vor fi șterse. Dacă este cazul, dați dublu click pentru a edita rezervarea înainte de a opera această ștergere."
 
 #: 
 msgid "Edit appointments"
-msgstr ""
+msgstr "Editare rezervări"
 
 #: 
 msgid "Error."
-msgstr ""
+msgstr "Eroare."
 
 #: 
 msgid "%s is used on another domain %s.<br/>In order to use the purchase code on this domain, please dissociate it in the admin panel of the other domain.<br/>If you do not have access to the admin area, please contact our technical support at support@ladela.com to transfer the license manually."
-msgstr ""
+msgstr "%s este utilizat de alt domeniu %s.<br/>Inainte de a utiliza codul de cumpărături pe acest domeniu, vă rugăm să-l disociați din panoul de administrare al celuilalt domeniu.<br/>Dacă nu aveți acces în zona de administrare, vă rugăm luați legătura cu personalul tehnic la support@ladela.com pentru a transfera licența manual."
 
 #: 
 msgid "<a class=\"%s\" href=\"#\">Click here</a> to dissociate this purchase code from the current domain (use to move the plugin to another site)."
-msgstr ""
+msgstr "<a class=\"%s\" href=\"#\">Apăsați aici</a> pentru a disocia acest cod de cumpărături din domeniul curent (se folosește pentru a muta modulul pe alt site)."
 
 #: 
 msgid "Internal Notes"
-msgstr ""
+msgstr "Notă internă"
 
 #: 
 msgid "Error dissociating purchase code."
-msgstr ""
+msgstr "Eroare la disocierea codului de cumpărături."
 
 #: 
 msgid "%d year"
 msgid_plural "%d years"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d an\n"
+"Plural:  %d ani"
+msgstr[1] "ani"
+msgstr[2] "ani"
 
 #: 
 msgid "%d month"
 msgid_plural "%d months"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%d lună\n"
+"Plural:  %d luni"
+msgstr[1] "luni"
+msgstr[2] "luni"
 
 #: 
 msgid "Analytics"
-msgstr ""
+msgstr "Analytics"
 
 #: 
 msgid "Set order of the fields in calendar"
-msgstr ""
+msgstr "Setare ordine câmpuri în calendar"
 
 #: 
 msgid "New Customers"
-msgstr ""
+msgstr "Client nou"
 
 #: 
 msgid "No service selected"
-msgstr ""
+msgstr "Nici un serviciu selectat"
 
 #: 
 msgid "Sessions"
-msgstr ""
+msgstr "Sesiuni"
 
 #: 
 msgid "Visits"
-msgstr ""
+msgstr "Vizite"
 
 #: 
 msgid "Attach payment"
-msgstr ""
+msgstr "Plăți atașate"
 
 #: 
 msgid "Enter payment ID"
-msgstr ""
+msgstr "Introduceți ID plată"
 
 #: 
 msgid "Bind payment"
-msgstr ""
+msgstr "Plată conexată"
 
 #: 
 msgid "Payment is not found."
-msgstr ""
+msgstr "Plată neefectuată"
 
 #: 
 msgid "Invalid day"
-msgstr ""
+msgstr "Dată incorectă"
 
 #: 
 msgid "Day is required"
-msgstr ""
+msgstr "Ziua este obligatorie"
 
 #: 
 msgid "Month is required"
-msgstr ""
+msgstr "Luna este obligatorie"
 
 #: 
 msgid "Year is required"
-msgstr ""
+msgstr "Anul este obligatoriu"
 
 #: 
 msgid "Select day"
-msgstr ""
+msgstr "Selectare zi"
 
 #: 
 msgid "Select month"
-msgstr ""
+msgstr "Selectare lună"
 
 #: 
 msgid "Select year"
-msgstr ""
+msgstr "Selectare an"
 
 #: 
 msgid "Birthday"
-msgstr ""
+msgstr "Data nașterii"
 
 #: 
 msgid "Show birthday field"
-msgstr ""
+msgstr "Arată câmpul data nașterii"
 
 #: 
 msgid "Selected period doesn't match provider's schedule"
-msgstr ""
+msgstr "Intervalul selectat nu se potrivește cu agenda furnizorului"
 
 #: 
 msgid "Selected period doesn't match service schedule"
-msgstr ""
+msgstr "Intervalul selectat nu se potrivește cu agenda serviciului"
 
 #: 
 msgid "The value is taken from client's browser."
-msgstr ""
+msgstr "Această valoare este preluată din navigatorul clientului"
 
 #: 
 msgid "Sessions - number of completed and/or planned service sessions."
-msgstr ""
+msgstr "Sesiuni - număr de sesiuni service completate și/sau planificate"
 
 #: 
 msgid "Approved - number of visitors of sessions with Approved status during the selected period."
-msgstr ""
+msgstr "Aprobat - număr de vizitatori per sesiune cu status Aprobat din intervalul selectat"
 
 #: 
 msgid "Pending - number of visitors of sessions with Pending status during the selected period."
-msgstr ""
+msgstr "Așteptare - număr de vizitatori per sesiune cu status Așteptare din intervalul selectat"
 
 #: 
 msgid "Rejected - number of visitors of sessions with Rejected status during the selected period."
-msgstr ""
+msgstr "Respinse - număr de vizitatori per sesiune cu status Respins din intervalul selectat"
 
 #: 
 msgid "Cancelled - number of visitors of sessions with Cancelled status during the selected period."
-msgstr ""
+msgstr "Anulate - număr de vizitatori per sesiune cu status Anulat din intervalul selectat"
 
 #: 
 msgid "Customers - number of unique customers who made bookings during the selected period."
-msgstr ""
+msgstr "Clienți - număr de clienți unici care au făcut rezervare în intervalul selesctat"
 
 #: 
 msgid "New customers - number of new customers added to the database during the selected period."
-msgstr ""
+msgstr "Clienți noi - număr de clienți noi adăugați în baza de date în intervalul selectat"
 
 #: 
 msgid "Total - approximate cost of appointments with Approved and Pending statuses, calculated on the basis of the price list. Appointments that are paid through the front-end and have Pending payment status are included in brackets."
-msgstr ""
+msgstr "Total - aproximarea costului rezervărilor cu statut Aprobat sau în Așteptare, calculate pe baza listei de prețuri. Rezervările care sunt plătite prin interfața și au statutul în Așteptare sunt incluse între paranteze. "
 
 #: 
 msgid "Tax"
-msgstr ""
+msgstr "Taxe"
 
 #: 
 msgid "Group discount"
-msgstr ""
+msgstr "Discount de grup"
 
 #: 
 msgid "Coupon discount"
-msgstr ""
+msgstr "Cupon discount"
 
 #: 
 msgid "Send tax information"
-msgstr ""
+msgstr "Trimite informații despre taxe"
 
 #: 
 msgid "App ID"
-msgstr ""
+msgstr "ID App"
 
 #: 
 msgid "Show Facebook login button"
-msgstr ""
+msgstr "Arată butonul de conectare Facebook"
 
 #: 
 msgid "State/Region"
-msgstr ""
+msgstr "Stat/Regiune"
 
 #: 
 msgid "Postal Code"
-msgstr ""
+msgstr "Cod poștal"
 
 #: 
 msgid "City"
-msgstr ""
+msgstr "Oraș"
 
 #: 
 msgid "Street Address"
-msgstr ""
+msgstr "Adresa"
 
 #: 
 msgid "Country is required"
-msgstr ""
+msgstr "Este necesar câmpul Țara"
 
 #: 
 msgid "State is required"
-msgstr ""
+msgstr "Este necesar câmpul Regiunea"
 
 #: 
 msgid "Postcode is required"
-msgstr ""
+msgstr "Este necesar câmpul Codul poștal"
 
 #: 
 msgid "City is required"
-msgstr ""
+msgstr "Este necesar câmpul Orașul"
 
 #: 
 msgid "Street is required"
-msgstr ""
+msgstr "Este necesar câmpul Strada"
 
 #: 
 msgid "Make address mandatory"
-msgstr ""
+msgstr "Definește adresa ca fiind obligatoriu de introdus"
 
 #: 
 msgid "Show address fields"
-msgstr ""
+msgstr "Arată câmpurile adresei"
 
 #: 
 msgid "address of client"
-msgstr ""
+msgstr "Adresa clientului"
 
 #: 
 msgid "-- Select calendar --"
-msgstr ""
+msgstr "-- Selectare calendar --"
 
 #: 
 msgid "If there is a lot of events in Google Calendar sometimes this leads to a lack of memory in PHP when Bookly tries to fetch all events. You can limit the number of fetched events here."
-msgstr ""
+msgstr "Dacă există multe evenimente în Google Calendar, acest lucru duce uneori la o lipsă de memorie în PHP atunci când Bookly încearcă să preia toate evenimentele. Puteți limita numărul de evenimente preluate aici."
 
 #: 
 msgid "Invoice"
-msgstr ""
+msgstr "Factură"
 
 #: 
 msgid "Phone field required"
-msgstr ""
+msgstr "Câmpul Telefon este obligatoriu"
 
 #: 
 msgid "Email field required"
-msgstr ""
+msgstr "Este necesar câmpul eMail"
 
 #: 
 msgid "Both email and phone fields required"
-msgstr ""
+msgstr "Ambele câmpuri de e-mail și telefon sunt necesare"
 
 #: 
 msgid "Additional Address"
-msgstr ""
+msgstr "Adresă adițională"
 
 #: 
 msgid "If enabled, a customer will be required to enter address to proceed with a booking."
-msgstr ""
+msgstr "Dacă este activat, clientului i se va cere să introducă adresa pentru a face rezervarea"
 
 #: 
 msgid "Customer's address fields"
-msgstr ""
+msgstr "Câmpul adresa clientului"
 
 #: 
 msgid "Choose address fields you want to request from the client."
-msgstr ""
+msgstr "Selectați câmpul adresă client dacă doriți să colectați această adresă"
 
 #: 
 msgid "To set up Facebook integration, do the following:"
-msgstr ""
+msgstr "Pentru a integra Facebook, faceți următoarele:"
 
 #: 
 msgid "Follow the steps at <a href=\"https://developers.facebook.com/docs/apps/register\" target=\"_blank\">https://developers.facebook.com/docs/apps/register</a> to create a Developer Account, register and configure your <b>Facebook App</b>. Below the App Details Panel click <b>Add Platform</b> button, select Website and enter your website URL."
-msgstr ""
+msgstr "Urmați pasul la <a href=\"https://developers.facebook.com/docs/apps/register\" target=\"_blank\">https://developers.facebook.com/docs/apps/register</a> pentru a crea un cont de Developer, înregistrați-vă și configurați <b>Facebook App</b>. Mai jos de secțiunea Detalii a aplicații și apăsați butonul <b>Add Platform</b>, selectați Site-ul web și introduceți  adresa URL a site-ului dumneavoastră."
 
 #: 
 msgid "Go to your <a href=\"https://developers.facebook.com/apps/\" target=\"_blank\">App Dashboard</a>. In the left side navigation panel of the App Dashboard, click <b>Settings > Basic</b> to view the App Details Panel with your <b>App ID</b>. Use it in the form below."
-msgstr ""
+msgstr "Mergeți la <a href=\"https://developers.facebook.com/apps/\" target=\"_blank\">App Dashboard</a>. În stânga panoului de navigare a Aplicației, apăsați <b>Settings > Basic</b> pentru a vizualiza panoul Detalii al aplicației cu <b>App ID</b>. Utilizați ID-ul în formularul de mai jos."
 
 #: 
 msgid "Please configure Facebook App integration in <a href=\"%s\">settings</a> first."
-msgstr ""
+msgstr "Vă rugăm configurați prim dată integrarea cu aplicația Facebook din <a href=\"%s\">settings</a>."
 
 #: 
 msgid "Ok"
-msgstr ""
+msgstr "Da"
 
 #: 
 msgid "Additional address is required"
-msgstr ""
+msgstr "O adresă adițională este necesară"
 
 #: 
 msgid "Synchronization mode"
-msgstr ""
+msgstr "Mod sincronizare"
 
 #: 
 msgid "With \"One-way\" sync Bookly pushes new appointments and any further changes to Google Calendar. With \"Two-way front-end only\" sync Bookly will additionally fetch events from Google Calendar and remove corresponding time slots before displaying the Time step of the booking form (this may lead to a delay when users click Next to get to the Time step)."
-msgstr ""
+msgstr "Cu sincronizarea \"Sens unic\" Bookly încarcă noile rezervări și orice alte modificări în Google Calendar. Cu ajutorul sincronizării \"Dublu sens început-sfârșit\", Bookly va prelua suplimentar evenimente din Google Calendar și va elimina sloturile de timp corespunzătoare înainte de a afișa pasul următor al formularului de rezervare (acest lucru poate duce la o întârziere atunci când utilizatorii dau clic pe butonul 'următorul' pentru a ajunge la etapa de de selectare a timpului)."
 
 #: 
 msgid "One-way"
-msgstr ""
+msgstr "Sens unic"
 
 #: 
 msgid "Two-way front-end only"
+msgstr "Dublu sens început-sfârșit"
+
+#: 
+msgid "Merge with"
+msgstr "Îmbină cu"
+
+#: 
+msgid "Select for merge"
+msgstr "Selectare din îmbinare"
+
+#: 
+msgid "Merge list"
+msgstr "Listă îmbinări"
+
+#: 
+msgid "Merge customers"
+msgstr "Îmbinare clienți"
+
+#: 
+msgid "You are about to merge customers from the merge list with the selected one. This will result in losing the merged customers and moving all their appointments to the selected customer. Are you sure you want to continue?"
+msgstr "Sunteți pe punctul de a îmbina clienții din lista de îmbinare cu cel selectat. Acest lucru va duce la pierderea clienților care au fuzionat și la mutarea tuturor rezervărilor către clientul selectat. Sunteți sigur că doriți să continuați?"
+
+#: 
+msgid "Merge"
+msgstr "Îmbinare"
+
+#: 
+msgid "Allow duplicate customers"
+msgstr "Permite duplicare clienți"
+
+#: 
+msgid "If enabled, a new user will be created if any of the registration data during the booking is different."
+msgstr "Dacă este activat, se va crea un client nou dacă oricare din datele de înregistrare sunt diferite"
+
+#: 
+msgid "More Addons"
+msgstr "Mai multe module"
+
+#: 
+msgid "Sort by"
+msgstr "Sortare..."
+
+#: 
+msgid "Best Sellers"
+msgstr "Cel mai bun Vânzător"
+
+#: 
+msgid "Best Rated"
+msgstr "Cel mai apreciat"
+
+#: 
+msgid "Newest Items"
+msgstr "Cel mai nou"
+
+#: 
+msgid "Price: low to high"
+msgstr "Preț: de la mic la mare"
+
+#: 
+msgid "Price: high to low"
+msgstr "Preț: de la Mare la mic"
+
+#: 
+msgid "New"
+msgstr "Nou"
+
+#: 
+msgid "%d sale"
+msgid_plural "%d sales"
+msgstr[0] "%d vânzare"
+msgstr[1] "%d vânzări"
+msgstr[2] "%d vânzări"
+
+#: 
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] "%d revizuire"
+msgstr[1] "%d revizuiri"
+msgstr[2] "%d revizuiri"
+
+#: 
+msgid "Installed"
+msgstr "Instalat"
+
+#: 
+msgid "Get it!"
+msgstr "Ia-l!"
+
+#: 
+msgid "I accept <a href=\"%1$s\" target=\"_blank\">Service Terms</a> and <a href=\"%2$s\" target=\"_blank\">Privacy Policy</a>"
 msgstr ""
 

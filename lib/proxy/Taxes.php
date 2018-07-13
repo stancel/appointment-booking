@@ -1,41 +1,21 @@
 <?php
 namespace Bookly\Lib\Proxy;
 
-use Bookly\Lib\Base;
+use Bookly\Lib;
 use Bookly\Lib\CartItem;
 
 /**
  * Class Taxes
- * Invoke local methods from Taxes add-on.
- *
  * @package Bookly\Lib\Proxy
  *
- * @method static void renderServiceTaxes( array $service ) Render taxes
- * @see \BooklyTaxes\Lib\ProxyProviders\Local::renderServiceTaxes()
- *
- * @method static void addBooklyMenuItem() Add 'Taxes' to Bookly menu
- * @see \BooklyTaxes\Lib\ProxyProviders\Local::addBooklyMenuItem()
- *
- * @method static float getAmountOfTax( CartItem $cart_item )
- * @see \BooklyTaxes\Lib\ProxyProviders\Local::getAmountOfTax()
- *
+ * @method static void  addBooklyMenuItem() Add 'Taxes' to Bookly menu.
+ * @method static float getTaxAmount( CartItem $cart_item ) Get amount of tax.
  * @method static float calculateTax( float $amount, float $rate )
- * @see \BooklyTaxes\Lib\ProxyProviders\Local::calculateTax()
- *
- * @method static array accumulationRateAmounts( array $amounts, CartItem $cart_item, bool $allow_coupon )
- * @see \BooklyTaxes\Lib\ProxyProviders\Local::accumulationRateAmounts()
- *
- * @method static array getServiceRates()
- * @see \BooklyTaxes\Lib\ProxyProviders\Local::getServiceRates()
- *
- * @method static void renderAppearance() Render taxes in Appearance
- * @see \BooklyTaxes\Lib\ProxyProviders\Local::renderAppearance()
- *
- * @method static void renderPaymentTaxHelpMessage() Render payment tax message
- * @see \BooklyTaxes\Lib\ProxyProviders\Local::renderPaymentTaxHelpMessage()
- *
+ * @method static array prepareTaxRateAmounts( array $amounts, CartItem $cart_item, bool $allow_coupon ) Filling up array (%tax, deposit value, service price, etc.) for each service provided for consequent calculation of tax amount.
+ * @method static array getServiceTaxRates() Get rate for all services.
+ * @method static bool  showTaxColumn() Show tax column in code {cart_info[_c]} when the tax amount is excluded from price.
  */
-abstract class Taxes extends Base\ProxyInvoker
+abstract class Taxes extends Lib\Base\Proxy
 {
 
 }

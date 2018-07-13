@@ -1,8 +1,8 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+use Bookly\Lib;
 use Bookly\Lib\Utils\Common;
-use Bookly\Lib\Config;
-use Bookly\Lib\Proxy;
-use Bookly\Lib\Widgets\Birthday;
+use Bookly\Frontend\Modules\Booking\Proxy;
+use Bookly\Frontend\Components;
 
 /** @var \Bookly\Lib\UserBookingData $userData */
 echo $progress_tracker;
@@ -12,19 +12,19 @@ echo $progress_tracker;
 <?php if ( $info_text_guest ) : ?>
     <div class="bookly-box bookly-js-guest"><?php echo $info_text_guest ?></div>
 <?php endif ?>
-<?php if ( ! get_current_user_id() && ! $userData->getFacebookId() && ( Config::showLoginButton() || Config::showFacebookLoginButton() ) ) : ?>
+<?php if ( ! get_current_user_id() && ! $userData->getFacebookId() && ( Lib\Config::showLoginButton() || Lib\Config::showFacebookLoginButton() ) ) : ?>
 <div class="bookly-box bookly-guest bookly-js-guest">
-    <?php if ( Config::showLoginButton() ) : ?>
+    <?php if ( Lib\Config::showLoginButton() ) : ?>
         <button class="bookly-btn bookly-js-login-show ladda-button"><?php echo Common::getTranslatedOption( 'bookly_l10n_step_details_button_login' ) ?></button>
     <?php endif ?>
-    <?php if ( Config::showFacebookLoginButton() ) : ?>
+    <?php if ( Lib\Config::showFacebookLoginButton() ) : ?>
         <div class="fb-login-button bookly-js-fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" data-scope="public_profile,email"></div>
     <?php endif ?>
 </div>
 <?php endif ?>
 
 <div class="bookly-details-step">
-    <?php if ( Config::showFirstLastName() ) : ?>
+    <?php if ( Lib\Config::showFirstLastName() ) : ?>
     <div class="bookly-box bookly-table">
         <div class="bookly-form-group">
             <label><?php echo Common::getTranslatedOption( 'bookly_l10n_label_first_name' ) ?></label>
@@ -69,29 +69,27 @@ echo $progress_tracker;
         </div>
     </div>
 
-    <?php if ( Config::showAddress() ): ?>
+    <?php if ( Lib\Config::showAddress() ): ?>
         <div id="bookly-js-address">
 
             <div class="bookly-box bookly-bold">
                 <?php echo Common::getTranslatedOption( 'bookly_l10n_info_address' ) ?>
             </div>
 
-            <?php if ( Config::googleMapsAddressEnabled() && Config::googleMapsAddressActive() ) {
-                \Bookly\Lib\Proxy\GoogleMapsAddress::renderSearchField();
-            } ?>
-            <?php \Bookly\Lib\Widgets\Address::renderFrontendWidget( $userData ) ?>
+            <?php Proxy\GoogleMapsAddress::renderAutocompleter() ?>
+            <?php Components\Fields\Address::render( $userData ) ?>
 
         </div>
-    <?php endif; ?>
+    <?php endif ?>
 
-    <?php if ( Config::showBirthday() ) : ?>
+    <?php if ( Lib\Config::showBirthday() ) : ?>
         <div class="bookly-box bookly-table">
-            <?php Birthday::renderFrontendWidget( $userData ) ?>
+            <?php Components\Fields\Birthday::render( $userData ) ?>
         </div>
     <?php endif ?>
 
     <?php Proxy\CustomerInformation::renderDetailsStep( $userData ) ?>
-    <?php if ( Config::showNotes() ): ?>
+    <?php if ( Lib\Config::showNotes() ): ?>
         <div class="bookly-box">
             <div class="bookly-form-group">
                 <label><?php echo Common::getTranslatedOption( 'bookly_l10n_label_notes' ) ?></label>
@@ -101,7 +99,7 @@ echo $progress_tracker;
             </div>
         </div>
     <?php endif ?>
-    <?php Proxy\CustomFields::renderDetailsStep( $userData ) ?>
+    <?php Proxy\Shared::renderCustomFieldsOnDetailsStep( $userData ) ?>
 </div>
 
 <?php Proxy\RecurringAppointments::renderInfoMessage( $userData ) ?>

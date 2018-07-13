@@ -15,10 +15,12 @@
  * limitations under the License.
  */
 // download 2016-09-11
+// Changed the prefix in all classes Google_ to BooklyGoogle_
+// class Google_Auth_Abstract -> class BooklyGoogle_Auth_Abstract
 function bookly_google_client_autoload($className)
 {
   $classPath = explode('_', $className);
-  if ($classPath[0] != 'Google') {
+  if ($classPath[0] != 'BooklyGoogle') {
     return;
   }
   // Drop 'Google', and maximum class file path depth in this project is 3.

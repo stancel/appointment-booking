@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-if (!class_exists('Google_Client')) {
+if (!class_exists('BooklyGoogle_Client')) {
   require_once dirname(__FILE__) . '/../autoload.php';
 }
 
@@ -24,7 +24,7 @@ if (!class_exists('Google_Client')) {
  *
  * This logger simply discards all messages.
  */
-class Google_Logger_Null extends Google_Logger_Abstract
+class BooklyGoogle_Logger_Null extends BooklyGoogle_Logger_Abstract
 {
   /**
    * {@inheritdoc}

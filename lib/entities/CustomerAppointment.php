@@ -26,6 +26,8 @@ class CustomerAppointment extends Lib\Base\Entity
     protected $payment_id;
     /** @var  int */
     protected $number_of_persons = 1;
+    /** @var  int */
+    protected $units = 1;
     /** @var  string */
     protected $notes;
     /** @var  string */
@@ -66,6 +68,7 @@ class CustomerAppointment extends Lib\Base\Entity
         'appointment_id'      => array( 'format' => '%d', 'reference' => array( 'entity' => 'Appointment' ) ),
         'payment_id'          => array( 'format' => '%d', 'reference' => array( 'entity' => 'Payment' ) ),
         'number_of_persons'   => array( 'format' => '%d' ),
+        'units'               => array( 'format' => '%d' ),
         'notes'               => array( 'format' => '%s' ),
         'extras'              => array( 'format' => '%s' ),
         'custom_fields'       => array( 'format' => '%s' ),
@@ -385,6 +388,29 @@ class CustomerAppointment extends Lib\Base\Entity
     public function setNumberOfPersons( $number_of_persons )
     {
         $this->number_of_persons = $number_of_persons;
+
+        return $this;
+    }
+
+    /**
+     * Gets units
+     *
+     * @return int
+     */
+    public function getUnits()
+    {
+        return $this->units;
+    }
+
+    /**
+     * Sets units
+     *
+     * @param int $units
+     * @return $this
+     */
+    public function setUnits( $units )
+    {
+        $this->units = $units;
 
         return $this;
     }

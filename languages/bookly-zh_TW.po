@@ -1867,10 +1867,6 @@ msgid "Old password"
 msgstr "舊密碼"
 
 #: 
-msgid "Terms & Conditions"
-msgstr "使用條款"
-
-#: 
 msgid "All locations"
 msgstr "所有地點"
 
@@ -3520,10 +3516,6 @@ msgid "Set the URL of an appointment cancellation confirmation page that is show
 msgstr ""
 
 #: 
-msgid "Accept <a href=\"#\" data-toggle=\"modal\" data-target=\"#bookly-tos\">Terms & Conditions</a>"
-msgstr ""
-
-#: 
 msgid "Add appointment cancellation confirmation"
 msgstr ""
 
@@ -3885,5 +3877,91 @@ msgstr ""
 
 #: 
 msgid "Two-way front-end only"
+msgstr ""
+
+#: 
+msgid "Merge with"
+msgstr ""
+
+#: 
+msgid "Select for merge"
+msgstr ""
+
+#: 
+msgid "Merge list"
+msgstr ""
+
+#: 
+msgid "Merge customers"
+msgstr ""
+
+#: 
+msgid "You are about to merge customers from the merge list with the selected one. This will result in losing the merged customers and moving all their appointments to the selected customer. Are you sure you want to continue?"
+msgstr ""
+
+#: 
+msgid "Merge"
+msgstr ""
+
+#: 
+msgid "Allow duplicate customers"
+msgstr ""
+
+#: 
+msgid "If enabled, a new user will be created if any of the registration data during the booking is different."
+msgstr ""
+
+#: 
+msgid "More Addons"
+msgstr ""
+
+#: 
+msgid "Sort by"
+msgstr ""
+
+#: 
+msgid "Best Sellers"
+msgstr ""
+
+#: 
+msgid "Best Rated"
+msgstr ""
+
+#: 
+msgid "Newest Items"
+msgstr ""
+
+#: 
+msgid "Price: low to high"
+msgstr ""
+
+#: 
+msgid "Price: high to low"
+msgstr ""
+
+#: 
+msgid "New"
+msgstr ""
+
+#: 
+msgid "%d sale"
+msgid_plural "%d sales"
+msgstr[0] ""
+
+#: 
+msgid "%d review"
+msgid_plural "%d reviews"
+msgstr[0] ""
+
+#: 
+msgid "Installed"
+msgstr ""
+
+#: 
+msgid "Get it!"
+msgstr ""
+
+#: 
+msgid "I accept <a href=\"%1$s\" target=\"_blank\">Service Terms</a> and <a href=\"%2$s\" target=\"_blank\">Privacy Policy</a>"
 msgstr ""
 

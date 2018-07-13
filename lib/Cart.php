@@ -217,7 +217,7 @@ class Cart
                         ->setStaffId( $staff_id )
                         ->setStaffAny( count( $cart_item->getStaffIds() ) > 1 )
                         ->setStartDate( $datetime )
-                        ->setEndDate( date( 'Y-m-d H:i:s', strtotime( $datetime ) + $service->getDuration() ) )
+                        ->setEndDate( date( 'Y-m-d H:i:s', strtotime( $datetime ) + $cart_item->getUnits() * $service->getDuration() ) )
                         ->save();
                 } else {
                     $update = false;
@@ -259,6 +259,7 @@ class Cart
                     ->setAppointment( $appointment )
                     ->setPaymentId( $payment_id )
                     ->setNumberOfPersons( $cart_item->getNumberOfPersons() )
+                    ->setUnits( $cart_item->getUnits() )
                     ->setNotes( $this->userData->getNotes() )
                     ->setExtras( json_encode( $service_extras ) )
                     ->setCustomFields( json_encode( $service_custom_fields ) )
@@ -310,19 +311,24 @@ class Cart
     }
 
     /**
-     * @param bool $apply_coupon
+     * @param string $gateway
+     * @param bool   $apply_coupon
      * @return CartInfo
      */
-    public function getInfo( $apply_coupon = true )
+    public function getInfo( $gateway = null, $apply_coupon = true )
     {
         $cart_info = new CartInfo( $this->userData );
         if ( $apply_coupon ) {
             $cart_info->setCoupon( $this->userData->getCoupon() );
         }
         $cart_info->calculate();
+        if ( $gateway !== null ) {
+            Proxy\Shared::applyPaymentSpecificPrice( $cart_info, $gateway );
+        }
 
         return $cart_info;
     }
+
 
     /**
      * Generate title of cart items (used in payments).

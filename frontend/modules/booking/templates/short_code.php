@@ -58,8 +58,9 @@ Version: <?php echo \Bookly\Lib\Plugin::getVersion() ?>
             update_details_dialog   : <?php echo (int) get_option( 'bookly_cst_show_update_details_dialog' ) ?>,
             cart                    : <?php echo json_encode( $options['cart'] ) ?>,
             facebook                : <?php echo json_encode( $options['facebook'] ) ?>,
-            is_rtl                  : <?php echo (int) is_rtl() ?>,
-            google_maps             : <?php echo json_encode( $options['google_map'] ) ?>
+            time_slots_wide         : <?php echo json_encode( $options['time_slots_wide'] ) ?>,
+            google_maps             : <?php echo json_encode( $options['google_map'] ) ?>,
+            is_rtl                  : <?php echo (int) is_rtl() ?>
         });
     });
 </script>

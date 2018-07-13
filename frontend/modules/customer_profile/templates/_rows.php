@@ -2,7 +2,7 @@
 use Bookly\Lib\Utils\DateTime;
 use Bookly\Lib\Utils\Price;
 use Bookly\Lib\Entities;
-use Bookly\Lib\Proxy;
+use Bookly\Frontend\Modules\CustomerProfile\Proxy;
 ?>
 <?php foreach ( $appointments as $app ) : ?>
     <?php if ( ! isset( $compound_token[ $app['compound_token'] ] ) ) :

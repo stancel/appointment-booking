@@ -1,9 +1,10 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-use Bookly\Backend\Modules;
+use Bookly\Backend\Components;
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Modules\Appointments\Proxy;
 use Bookly\Lib\Config;
 use Bookly\Lib\Entities\CustomerAppointment;
 use Bookly\Lib\Utils\Common;
-use Bookly\Lib\Proxy;
 ?>
 <div id="bookly-tbs" class="wrap">
     <div class="bookly-tbs-body">
@@ -11,7 +12,7 @@ use Bookly\Lib\Proxy;
             <div class="bookly-page-title">
                 <?php _e( 'Appointments', 'bookly' ) ?>
             </div>
-            <?php Modules\Support\Components::getInstance()->renderButtons( $this::page_slug ) ?>
+            <?php Components\Support\Buttons::render( $self::pageSlug() ) ?>
         </div>
         <div class="panel panel-default bookly-main">
             <div class="panel-body">
@@ -104,7 +105,7 @@ use Bookly\Lib\Proxy;
                             <th><?php _e( 'Duration', 'bookly' ) ?></th>
                             <th><?php _e( 'Status', 'bookly' ) ?></th>
                             <th><?php _e( 'Payment', 'bookly' ) ?></th>
-                            <?php Proxy\Ratings::renderAppointmentsTableHeader() ?>
+                            <?php Proxy\Ratings::renderTableHeader() ?>
                             <?php if ( Config::showNotes() ): ?>
                                 <th><?php echo esc_html( Common::getTranslatedOption( 'bookly_l10n_label_notes' ) ) ?></th>
                             <?php endif ?>
@@ -121,7 +122,7 @@ use Bookly\Lib\Proxy;
                 </table>
 
                 <div class="text-right bookly-margin-top-lg">
-                    <?php Common::deleteButton( '', '', '#bookly-delete-dialog' ) ?>
+                    <?php Buttons::renderDelete( null, null, null, array( 'data-toggle' => 'modal', 'data-target'=> '#bookly-delete-dialog' ) ) ?>
                 </div>
             </div>
         </div>
@@ -129,8 +130,8 @@ use Bookly\Lib\Proxy;
         <?php include '_export_dialog.php' ?>
         <?php include '_print_dialog.php' ?>
 
-        <?php Modules\Calendar\Components::getInstance()->renderDeleteDialog() ?>
-        <?php Modules\Calendar\Components::getInstance()->renderAppointmentDialog() ?>
-        <?php Bookly\Lib\Proxy\Shared::renderComponentAppointments() ?>
+        <?php Components\Dialogs\Appointment\Delete\Dialog::render() ?>
+        <?php Components\Dialogs\Appointment\Edit\Dialog::render() ?>
+        <?php Proxy\Shared::renderAddOnsComponents() ?>
     </div>
 </div>

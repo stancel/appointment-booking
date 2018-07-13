@@ -8,28 +8,34 @@ jQuery(function($) {
         $delete_cascade_modal = $('.bookly-js-delete-cascade-confirm');
 
     function saveNewForm() {
-        var data = {
+        var ladda = Ladda.create($('.bookly-js-save-form').get(0)),
+        data = {
             action     : 'bookly_create_staff',
             wp_user_id : $wp_user_select.val(),
             full_name  : $name_input.val(),
             csrf_token : BooklyL10n.csrf_token
         };
-
+        ladda.start();
         if (validateForm($new_form)) {
             $.post(ajaxurl, data, function (response) {
                 if (response.success) {
                     $staff_list.append(response.data.html);
                     $staff_count.text($staff_list.find('[data-staff-id]').length);
                     $staff_list.find('[data-staff-id]:last').trigger('click');
+                    ladda.stop();
+
+                    $('#bookly-newstaff-member').popover('hide');
+                    if ($wp_user_select.val()) {
+                        $wp_user_select.find('option:selected').remove();
+                        $wp_user_select.val('');
+                    }
+                    $name_input.val('');
                 }
             });
-            $('#bookly-newstaff-member').popover('hide');
-            if ($wp_user_select.val()) {
-                $wp_user_select.find('option:selected').remove();
-                $wp_user_select.val('');
-            }
-            $name_input.val('');
+        } else {
+            ladda.stop();
         }
+
     }
 
     // Save new staff on enter press

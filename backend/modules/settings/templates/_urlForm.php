@@ -1,16 +1,18 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-use Bookly\Lib\Proxy;
-use Bookly\Lib\Utils\Common;
+use Bookly\Backend\Components\Controls\Buttons;
+use Bookly\Backend\Components\Controls\Inputs as ControlInputs;
+use Bookly\Backend\Components\Settings\Inputs;
+use Bookly\Backend\Modules\Settings\Proxy;
 ?>
 <form method="post" action="<?php echo esc_url( add_query_arg( 'tab', 'url' ) ) ?>">
     <?php
-        Common::optionText( 'bookly_url_approve_page_url', __( 'Approve appointment URL (success)', 'bookly' ), __( 'Set the URL of a page that is shown to staff after they successfully approved the appointment.', 'bookly' ) );
-        Common::optionText( 'bookly_url_approve_denied_page_url', __( 'Approve appointment URL (denied)', 'bookly' ), __( 'Set the URL of a page that is shown to staff when the approval of appointment cannot be done (due to capacity, changed status, etc.).', 'bookly' ) );
-        Common::optionText( 'bookly_url_cancel_page_url', __( 'Cancel appointment URL (success)', 'bookly' ), __( 'Set the URL of a page that is shown to clients after they successfully cancelled their appointment.', 'bookly' ) );
-        Common::optionText( 'bookly_url_cancel_denied_page_url', __( 'Cancel appointment URL (denied)', 'bookly' ), __( 'Set the URL of a page that is shown to clients when the cancellation of appointment is not available anymore.', 'bookly' ) );
-        Common::optionText( 'bookly_url_cancel_confirm_page_url', __( 'Appointment cancellation confirmation URL', 'bookly' ), __( 'Set the URL of an appointment cancellation confirmation page that is shown to clients when they press cancellation link.', 'bookly' ) );
-        Common::optionText( 'bookly_url_reject_page_url', __( 'Reject appointment URL (success)', 'bookly' ), __( 'Set the URL of a page that is shown to staff after they successfully rejected the appointment.', 'bookly' ) );
-        Common::optionText( 'bookly_url_reject_denied_page_url', __( 'Reject appointment URL (denied)', 'bookly' ), __( 'Set the URL of a page that is shown to staff when the rejection of appointment cannot be done (due to changed status, etc.).', 'bookly' ) );
+        Inputs::renderText( 'bookly_url_approve_page_url', __( 'Approve appointment URL (success)', 'bookly' ), __( 'Set the URL of a page that is shown to staff after they successfully approved the appointment.', 'bookly' ) );
+        Inputs::renderText( 'bookly_url_approve_denied_page_url', __( 'Approve appointment URL (denied)', 'bookly' ), __( 'Set the URL of a page that is shown to staff when the approval of appointment cannot be done (due to capacity, changed status, etc.).', 'bookly' ) );
+        Inputs::renderText( 'bookly_url_cancel_page_url', __( 'Cancel appointment URL (success)', 'bookly' ), __( 'Set the URL of a page that is shown to clients after they successfully cancelled their appointment.', 'bookly' ) );
+        Inputs::renderText( 'bookly_url_cancel_denied_page_url', __( 'Cancel appointment URL (denied)', 'bookly' ), __( 'Set the URL of a page that is shown to clients when the cancellation of appointment is not available anymore.', 'bookly' ) );
+        Inputs::renderText( 'bookly_url_cancel_confirm_page_url', __( 'Appointment cancellation confirmation URL', 'bookly' ), __( 'Set the URL of an appointment cancellation confirmation page that is shown to clients when they press cancellation link.', 'bookly' ) );
+        Inputs::renderText( 'bookly_url_reject_page_url', __( 'Reject appointment URL (success)', 'bookly' ), __( 'Set the URL of a page that is shown to staff after they successfully rejected the appointment.', 'bookly' ) );
+        Inputs::renderText( 'bookly_url_reject_denied_page_url', __( 'Reject appointment URL (denied)', 'bookly' ), __( 'Set the URL of a page that is shown to staff when the rejection of appointment cannot be done (due to changed status, etc.).', 'bookly' ) );
     ?>
     <div class="form-group">
         <label for="bookly_settings_final_step_url_mode"><?php _e( 'Final step URL', 'bookly' ) ?></label>
@@ -28,8 +30,8 @@ use Bookly\Lib\Utils\Common;
     </div>
     <?php Proxy\Shared::renderUrlSettings() ?>
     <div class="panel-footer">
-        <?php Common::csrf() ?>
-        <?php Common::submitButton() ?>
-        <?php Common::resetButton() ?>
+        <?php ControlInputs::renderCsrf() ?>
+        <?php Buttons::renderSubmit() ?>
+        <?php Buttons::renderReset() ?>
     </div>
 </form>

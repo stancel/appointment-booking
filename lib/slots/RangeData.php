@@ -17,6 +17,10 @@ class RangeData
     protected $state;
     /** @var int */
     protected $on_waiting_list;
+    /** @var int */
+    protected $capacity;
+    /** @var int */
+    protected $nop;
     /** @var Range */
     protected $next_slot;
 
@@ -28,9 +32,11 @@ class RangeData
      * @param int $location_id
      * @param int $state
      * @param int $on_waiting_list
+     * @param int $capacity
+     * @param int $nop
      * @param Range|null $next_slot
      */
-    public function __construct( $service_id, $staff_id, $location_id = 0, $state = Range::AVAILABLE, $on_waiting_list = 0, $next_slot = null )
+    public function __construct( $service_id, $staff_id, $location_id = 0, $state = Range::AVAILABLE, $on_waiting_list = 0, $next_slot = null, $capacity = 1, $nop = 0 )
     {
         $this->service_id      = $service_id;
         $this->staff_id        = $staff_id;
@@ -38,6 +44,8 @@ class RangeData
         $this->state           = $state;
         $this->on_waiting_list = $on_waiting_list;
         $this->next_slot       = $next_slot;
+        $this->capacity        = $capacity;
+        $this->nop             = $nop;
     }
 
     /**
@@ -81,6 +89,26 @@ class RangeData
     }
 
     /**
+     * Get capacity.
+     *
+     * @return int
+     */
+    public function capacity()
+    {
+        return $this->capacity;
+    }
+
+    /**
+     * Get nop.
+     *
+     * @return int
+     */
+    public function nop()
+    {
+        return $this->nop;
+    }
+
+    /**
      * Get number of persons on waiting list.
      *
      * @return int
@@ -118,7 +146,7 @@ class RangeData
      */
     public function replaceStaffId( $new_staff_id )
     {
-        return new static( $this->service_id, $new_staff_id, $this->location_id, $this->state, $this->on_waiting_list, $this->next_slot );
+        return new static( $this->service_id, $new_staff_id, $this->location_id, $this->state, $this->on_waiting_list, $this->next_slot, $this->capacity, $this->nop );
     }
 
     /**
@@ -129,7 +157,7 @@ class RangeData
      */
     public function replaceState( $new_state )
     {
-        return new static( $this->service_id, $this->staff_id, $this->location_id, $new_state, $this->on_waiting_list, $this->next_slot );
+        return new static( $this->service_id, $this->staff_id, $this->location_id, $new_state, $this->on_waiting_list, $this->next_slot, $this->capacity, $this->nop );
     }
 
     /**
@@ -140,7 +168,7 @@ class RangeData
      */
     public function replaceOnWaitingList( $new_on_waiting_list )
     {
-        return new static( $this->service_id, $this->staff_id, $this->location_id, $this->state, $new_on_waiting_list, $this->next_slot );
+        return new static( $this->service_id, $this->staff_id, $this->location_id, $this->state, $new_on_waiting_list, $this->next_slot, $this->capacity, $this->nop );
     }
 
     /**
@@ -151,6 +179,16 @@ class RangeData
      */
     public function replaceNextSlot( $new_next_slot )
     {
-        return new static( $this->service_id, $this->staff_id, $this->location_id, $this->state, $this->on_waiting_list, $new_next_slot );
+        return new static( $this->service_id, $this->staff_id, $this->location_id, $this->state, $this->on_waiting_list, $new_next_slot, $this->capacity, $this->nop );
+    }
+
+    public function replaceNop( $new_nop )
+    {
+        return new static( $this->service_id, $this->staff_id, $this->location_id, $this->state, $this->on_waiting_list, $this->next_slot, $this->capacity, $new_nop );
+    }
+
+    public function replaceCapacity( $new_capacity )
+    {
+        return new static( $this->service_id, $this->staff_id, $this->location_id, $this->state, $this->on_waiting_list, $this->next_slot, $new_capacity, $this->nop );
     }
 }

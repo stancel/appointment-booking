@@ -86,7 +86,7 @@ abstract class API
         );
 
         $response = wp_remote_request( $url, array(
-            'method' => 'DELETE',
+            'method'  => 'DELETE',
             'timeout' => 25,
         ) );
 
@@ -122,6 +122,54 @@ abstract class API
         } elseif ( isset( $response['body'] ) ) {
             $json = json_decode( $response['body'], true );
             if ( isset ( $json['success'] ) && $json['success'] ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function updateInfo()
+    {
+        $response = wp_remote_get( self::API_URL . '/1.0/info', array(
+            'timeout' => 25,
+            'body'    => array(
+                'last_updated' => get_option( 'bookly_last_updated_info' ),
+            ),
+        ) );
+        if ( $response instanceof \WP_Error ) {
+
+        } elseif ( isset( $response['body'] ) ) {
+            $data = json_decode( $response['body'], true );
+            if ( isset( $data['plugins'] ) ) {
+                $seen = Entities\Shop::query()->count() ? 0 : 1;
+                foreach ( $data['plugins'] as $plugin ) {
+                    $shop = new Entities\Shop();
+                    if ( $plugin['id'] && $plugin['envatoPrice'] ) {
+                        $shop->loadBy( array( 'plugin_id' => $plugin['id'] ) );
+                        $shop
+                            ->setPluginId( $plugin['id'] )
+                            ->setType( $plugin['type'] ? 'bundle' : 'plugin' )
+                            ->setTitle( $plugin['title'] )
+                            ->setSlug( $plugin['slug'] )
+                            ->setDescription( $plugin['envatoDescription'] )
+                            ->setUrl( $plugin['envatoUrl'] )
+                            ->setIcon( $plugin['envatoIcon'] )
+                            ->setPrice( $plugin['envatoPrice'] )
+                            ->setSales( $plugin['envatoSales'] )
+                            ->setRating( $plugin['envatoRating'] )
+                            ->setReviews( $plugin['envatoReviews'] )
+                            ->setPublished( isset( $plugin['envatoPublishedAt']['date'] ) ? date_create( $plugin['envatoPublishedAt']['date'] )->format( 'Y-m-d H:i:s' ) : current_time( 'mysql' ) )
+                            ->setCreated( current_time( 'mysql' ) )
+                            ->setSeen( $shop->isLoaded() ? $shop->getSeen() : $seen )
+                            ->save();
+                    }
+                }
+                update_option( 'bookly_last_updated_info', $data['update_time'] );
+
                 return true;
             }
         }
@@ -375,7 +423,7 @@ abstract class API
         $rows = Entities\CustomerAppointment::query()
             ->select( 'COUNT(*) AS quantity, created_from, DATE_FORMAT(created, \'%%Y-%%m-%%d\') AS cur_date' )
             ->whereGte( 'created', $ago_10days )
-            ->whereLt( 'created',  $today )
+            ->whereLt( 'created', $today )
             ->groupBy( 'created_from, cur_date' )
             ->fetchArray();
 
@@ -387,7 +435,7 @@ abstract class API
         $rows = Entities\Stat::query( 's' )
             ->select( 'DATE_FORMAT(created, \'%%Y-%%m-%%d\') AS created, `name`, `value`' )
             ->whereGte( 'created', $ago_10days )
-            ->whereLt( 'created',  $today )
+            ->whereLt( 'created', $today )
             ->fetchArray();
         foreach ( $rows as $record ) {
             $history[ $record['created'] ][ $record['name'] ] = $record['value'];
@@ -412,7 +460,7 @@ abstract class API
             $rows = Entities\CustomerAppointment::query()
                 ->select( 'COUNT(*) AS quantity, IF(extras=\'[]\', 0, 1) AS with_extras, DATE_FORMAT(created, \'%%Y-%%m-%%d\') AS cur_date' )
                 ->whereGte( 'created', $ago_10days )
-                ->whereLt( 'created',  $today )
+                ->whereLt( 'created', $today )
                 ->groupBy( 'with_extras, cur_date' )
                 ->fetchArray();
 
@@ -429,22 +477,22 @@ abstract class API
         wp_remote_post( self::API_URL . '/1.4/stats', array(
             'timeout' => 25,
             'body'    => array(
-                'site_url'           => site_url(),
-                'active_clients'     => $active_clients,
-                'admin_language'     => get_option( 'bookly_admin_preferred_language' ),
-                'wp_locale'          => get_locale(),
-                'company'            => get_option( 'bookly_co_name' ),
-                'completed_payments' => $completed_payments,
+                'site_url'            => site_url(),
+                'active_clients'      => $active_clients,
+                'admin_language'      => get_option( 'bookly_admin_preferred_language' ),
+                'wp_locale'           => get_locale(),
+                'company'             => get_option( 'bookly_co_name' ),
+                'completed_payments'  => $completed_payments,
                 'custom_fields_count' => count( (array) Proxy\CustomFields::getAll() ),
-                'description'        => get_bloginfo( 'description' ),
-                'extras_quantity'    => $extras_quantity,
-                'cart_enabled'       => $cart_enabled,
-                'history'            => $history,
-                'php'                => PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION . '.' . PHP_RELEASE_VERSION,
-                'services'           => $services,
-                'staff'              => $staff,
-                'staff_services'     => $staff_services,
-                'title'              => get_bloginfo( 'name' ),
+                'description'         => get_bloginfo( 'description' ),
+                'extras_quantity'     => $extras_quantity,
+                'cart_enabled'        => $cart_enabled,
+                'history'             => $history,
+                'php'                 => PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION . '.' . PHP_RELEASE_VERSION,
+                'services'            => $services,
+                'staff'               => $staff,
+                'staff_services'      => $staff_services,
+                'title'               => get_bloginfo( 'name' ),
             ),
         ) );
     }

@@ -1,6 +1,8 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-    $business = 'finance@ladela.com';
-    $action   = 'https://www.paypal.com/cgi-bin/webscr';
+use Bookly\Lib\Utils\Common;
+$business  = 'finance@ladela.com';
+$action    = 'https://www.paypal.com/cgi-bin/webscr';
+$page_slug =  Bookly\Backend\Modules\Sms\Ajax::pageSlug();
 ?>
 <div class="row">
     <div class="col-xs-12 col-md-3">
@@ -8,8 +10,8 @@
             <input type="hidden" name="item_name" value="Bookly SMS">
             <input type="hidden" name="currency_code" value="USD">
             <input type="hidden" name="amount" value="10">
-            <input type="hidden" name="return" value="<?php echo \Bookly\Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Sms\Controller::page_slug, array( 'paypal_result' => 'success' ) ) ?>">
-            <input type="hidden" name="cancel_return" value="<?php echo \Bookly\Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Sms\Controller::page_slug, array( 'paypal_result' => 'cancel', 'tab' => 'add_money' ) ) ?>">
+            <input type="hidden" name="return" value="<?php echo Common::escAdminUrl( $page_slug, array( 'paypal_result' => 'success' ) ) ?>">
+            <input type="hidden" name="cancel_return" value="<?php echo Common::escAdminUrl( $page_slug, array( 'paypal_result' => 'cancel', 'tab' => 'add_money' ) ) ?>">
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="business" value="<?php echo esc_attr( $business ) ?>">
             <input type="hidden" name="custom" value="<?php echo esc_attr( $sms->getUserName() ) ?>">
@@ -28,8 +30,8 @@
             <input type="hidden" name="item_name" value="Bookly SMS">
             <input type="hidden" name="currency_code" value="USD">
             <input type="hidden" name="amount" value="25">
-            <input type="hidden" name="return" value="<?php echo \Bookly\Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Sms\Controller::page_slug, array( 'paypal_result' => 'success' ) ) ?>">
-            <input type="hidden" name="cancel_return" value="<?php echo \Bookly\Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Sms\Controller::page_slug, array( 'paypal_result' => 'cancel', 'tab' => 'add_money' ) ) ?>">
+            <input type="hidden" name="return" value="<?php echo Common::escAdminUrl( $page_slug, array( 'paypal_result' => 'success' ) ) ?>">
+            <input type="hidden" name="cancel_return" value="<?php echo Common::escAdminUrl( $page_slug, array( 'paypal_result' => 'cancel', 'tab' => 'add_money' ) ) ?>">
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="business" value="<?php echo esc_attr( $business ) ?>">
             <input type="hidden" name="custom" value="<?php echo esc_attr( $sms->getUserName() ) ?>">
@@ -48,8 +50,8 @@
             <input type="hidden" name="item_name" value="Bookly SMS">
             <input type="hidden" name="currency_code" value="USD">
             <input type="hidden" name="amount" value="50">
-            <input type="hidden" name="return" value="<?php echo \Bookly\Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Sms\Controller::page_slug, array( 'paypal_result' => 'success' ) ) ?>">
-            <input type="hidden" name="cancel_return" value="<?php echo \Bookly\Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Sms\Controller::page_slug, array( 'paypal_result' => 'cancel', 'tab' => 'add_money' ) ) ?>">
+            <input type="hidden" name="return" value="<?php echo Common::escAdminUrl( $page_slug, array( 'paypal_result' => 'success' ) ) ?>">
+            <input type="hidden" name="cancel_return" value="<?php echo Common::escAdminUrl( $page_slug, array( 'paypal_result' => 'cancel', 'tab' => 'add_money' ) ) ?>">
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="business" value="<?php echo esc_attr( $business ) ?>">
             <input type="hidden" name="custom" value="<?php echo esc_attr( $sms->getUserName() ) ?>">
@@ -68,8 +70,8 @@
             <input type="hidden" name="item_name" value="Bookly SMS">
             <input type="hidden" name="currency_code" value="USD">
             <input type="hidden" name="amount" value="100">
-            <input type="hidden" name="return" value="<?php echo \Bookly\Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Sms\Controller::page_slug, array( 'paypal_result' => 'success' ) ) ?>">
-            <input type="hidden" name="cancel_return" value="<?php echo \Bookly\Lib\Utils\Common::escAdminUrl( \Bookly\Backend\Modules\Sms\Controller::page_slug, array( 'paypal_result' => 'cancel', 'tab' => 'add_money' ) ) ?>">
+            <input type="hidden" name="return" value="<?php echo Common::escAdminUrl( $page_slug, array( 'paypal_result' => 'success' ) ) ?>">
+            <input type="hidden" name="cancel_return" value="<?php echo Common::escAdminUrl( $page_slug, array( 'paypal_result' => 'cancel', 'tab' => 'add_money' ) ) ?>">
             <input type="hidden" name="cmd" value="_xclick">
             <input type="hidden" name="business" value="<?php echo esc_attr( $business ) ?>">
             <input type="hidden" name="custom" value="<?php echo esc_attr( $sms->getUserName() ) ?>">
